@@ -11,6 +11,8 @@ help:
 	@echo "        Trains a new dialogue model using the story training data"
 	@echo "    action-server"
 	@echo "        Starts the server for custom action."
+	@echo "    cmdline"
+	@echo "       This will load the assistant in your terminal for you to chat."
 
 clean:
 	find . -name '*.pyc' -exec rm -f {} +
