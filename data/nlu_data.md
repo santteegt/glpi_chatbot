@@ -1,6 +1,6 @@
 <!--- Make sure to update this training data file with more training examples from https://forum.rasa.com/t/grab-the-nlu-training-dataset-and-starter-packs/903 --> 
 
-## intent:bye <!--- The label of the intent --> 
+## intent:goodbye <!--- The label of the intent --> 
 - Bye 			<!--- Training examples for intent 'bye'--> 
 - Goodbye
 - See you later
@@ -34,7 +34,7 @@
 - hello is anybody there
 - hello robot
 
-## intent:thank
+## intent:thanks
 - Thanks
 - Thank you
 - Thank you so much
