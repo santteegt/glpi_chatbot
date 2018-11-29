@@ -71,7 +71,11 @@ This will train the Rasa NLU model and store it inside the `/models/current/nlu`
 ```make train-core```  
 This will train the Rasa Core model and store it inside the `/models/current/dialogue` folder of your project directory.
 
-3. Test the assistant by running:  
+3. Open a new terminal and start the custom action server by running:  
+```make action-server```  
+This will start the custom action server which will be responsible of executing custom actions once they are predicted.
+
+4. Test the assistant by running:  
 ```make cmdline```  
 This will load the assistant in your terminal for you to chat.
 
