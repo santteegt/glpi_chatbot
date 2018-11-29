@@ -39,7 +39,7 @@ This starter-pack contains some training data and the main files which you can u
 
 ### Files for Rasa NLU model
 
-- **data/nlu_data.json** file contains training examples of six intents: 
+- **data/nlu_data.md** file contains training examples of six intents: 
 	- greet
 	- goodbye
 	- thanks
