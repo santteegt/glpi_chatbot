@@ -59,8 +59,8 @@ pipeline: spacy_sklearn
 - **data/stories.md** file contains some training stories which represent the conversations between a user and the assistant. 
 - **domain.yml** file describes the domain of the assistant which includes intents, entities, slots, templates and actions the assistant should be aware of.  
 - **actions.py** file contains the code of a custom action which retrieves a Chuck Norris joke by making an external API call.
-- *endpoints.yml* file contains the webhook configuration for custom action.  
-- *policies.yml* file contains the configuration of the training policies for Rasa Core model.
+- **endpoints.yml** file contains the webhook configuration for custom action.  
+- **policies.yml** file contains the configuration of the training policies for Rasa Core model.
 
 ## How to use this starter-pack?
 1. You can train the Rasa NLU model by running:  
