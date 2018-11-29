@@ -1,6 +1,10 @@
 ﻿# Rasa Stack starter-pack
 
-Looked through the [Rasa NLU](http://rasa.com/docs/nlu/) and [Rasa Core](http://rasa.com/docs/core/) documentation and ready to build your first intelligent assistant? We have some resources to help you get started! This repository contains the foundations of your first custom assistant.  You can improve this assistant by using a really cool training data file which you can find on the [Rasa Community Forum](https://forum.rasa.com/t/rasa-starter-pack/704). Go get it before getting started!  
+Looked through the [Rasa NLU](http://rasa.com/docs/nlu/) and [Rasa Core](http://rasa.com/docs/core/) documentation and ready to build your first intelligent assistant? We have some resources to help you get started! This repository contains the foundations of your first custom assistant.  
+
+This starter-pack comes with a small amount of training data which lets you build a simple assistant. **You can find more training data here in the [forum](https://forum.rasa.com/t/grab-the-nlu-training-dataset-and-starter-packs/903) and use it to teach your assistant new skills and make it more engaging.**
+
+We would recommend downloading this before getting started, although the tutorial will also work with just the data in this repo. 
 
 The initial version of this starter-pack lets you build a simple assistant capable of cheering you up with Chuck Norris jokes.
 
@@ -71,9 +75,9 @@ This will train the Rasa NLU model and store it inside the `/models/current/nlu`
 ```make train-core```  
 This will train the Rasa Core model and store it inside the `/models/current/dialogue` folder of your project directory.
 
-3. Open a new terminal and start the custom action server by running:  
+3. In a new terminal start the server for the custom action by running:  
 ```make action-server```  
-This will start the custom action server which will be responsible of executing custom actions once they are predicted.
+This will start the server for emulating the custom action.
 
 4. Test the assistant by running:  
 ```make cmdline```  
