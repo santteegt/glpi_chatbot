@@ -1,0 +1,15 @@
+language: python
+sudo: enabled
+cache:
+  directories:
+  - $HOME/.cache/pip
+  - /tmp/cached/
+python:
+- '3.5'
+- '3.6'
+install:
+- pip install -r requirements.txt
+- pip install https://github.com/explosion/spacy-models/releases/download/en_core_web_md-2.0.0/en_core_web_md-2.0.0.tar.gz --no-cache-dir > jnk
+- python -m spacy link en_core_web_md en
+script:
+- py.test test_stack.py

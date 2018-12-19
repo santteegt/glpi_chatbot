@@ -20,7 +20,7 @@ coloredlogs==10.0
 flask==1.0.2
 flask_cors==3.0.4
 scikit-learn==0.19.1
-rasa_nlu~=0.13.0
+rasa_nlu
 colorhash==1.0.2
 pika==0.11.2
 jsonschema==2.6.0
@@ -28,8 +28,8 @@ packaging==17.1
 gevent==1.2.2
 pyyaml==3.12
 pytz==2018.4
-rasa-core-sdk~=0.12.1
-rasa_core~=0.12.0
+rasa-core-sdk
+rasa_core
 pymongo==3.5.1
 python-dateutil==2.7.3
 spacy==2.0.12
