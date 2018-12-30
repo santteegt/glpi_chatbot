@@ -13,6 +13,7 @@ from rasa_core.nlg import TemplatedNaturalLanguageGenerator
 from actions import ActionJoke
 import uuid
 
+
 def test_nlu_interpreter():
     training_data = load_data("data/nlu_data.md")
     trainer = Trainer(config.load("nlu_config.yml"))
@@ -22,8 +23,9 @@ def test_nlu_interpreter():
     assert interpreter.parse('hello') is not None
     assert test_interpreter_dir
 
+
 def test_agent_and_persist():
-    agent = Agent('domain.yml', policies=[MemoizationPolicy(), KerasPolicy(epochs=200), FallbackPolicy()])
+    agent = Agent('domain.yml', policies=[MemoizationPolicy(), KerasPolicy(epochs=2), FallbackPolicy()])
     training_data = agent.load_data('data/stories.md')
     agent.train(training_data, validation_split=0.0)
     agent.persist('models/dialogue')
@@ -35,6 +37,7 @@ def test_agent_and_persist():
     assert loaded.domain.intents == agent.domain.intents
     assert loaded.domain.entities == agent.domain.entities
     assert loaded.domain.templates == agent.domain.templates
+
 
 def test_action():
     domain = Domain.load('domain.yml')
