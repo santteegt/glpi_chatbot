@@ -5,6 +5,7 @@ from rasa_nlu.training_data import load_data
 from rasa_nlu.model import Trainer
 from rasa_nlu import config
 
+from rasa_core import config
 from rasa_core.trackers import DialogueStateTracker
 from rasa_core.domain import Domain
 from rasa_core.dispatcher import Dispatcher
@@ -19,13 +20,17 @@ def test_nlu_interpreter():
     trainer = Trainer(config.load("nlu_config.yml"))
     interpreter = trainer.train(training_data)
     test_interpreter_dir = trainer.persist("./models/nlu", fixed_model_name="test")
+    parsing = interpreter.parse('hello')
 
-    assert interpreter.parse('hello') is not None
+    assert parsing['intent']['name'] == 'greet'
     assert test_interpreter_dir
 
 
 def test_agent_and_persist():
-    agent = Agent('domain.yml', policies=[MemoizationPolicy(), KerasPolicy(epochs=2), FallbackPolicy()])
+    policies = config.load('policies.yml')
+    policies[0] = KerasPolicy(epochs=2)
+
+    agent = Agent('domain.yml', policies=policies)
     training_data = agent.load_data('data/stories.md')
     agent.train(training_data, validation_split=0.0)
     agent.persist('models/dialogue')
