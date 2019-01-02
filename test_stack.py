@@ -3,9 +3,9 @@ from rasa_core.agent import Agent
 
 from rasa_nlu.training_data import load_data
 from rasa_nlu.model import Trainer
-from rasa_nlu import config
+from rasa_nlu import config as nlu_config
 
-from rasa_core import config
+from rasa_core import config as core_config
 from rasa_core.trackers import DialogueStateTracker
 from rasa_core.domain import Domain
 from rasa_core.dispatcher import Dispatcher
@@ -17,7 +17,7 @@ import uuid
 
 def test_nlu_interpreter():
     training_data = load_data("data/nlu_data.md")
-    trainer = Trainer(config.load("nlu_config.yml"))
+    trainer = Trainer(nlu_config.load("nlu_config.yml"))
     interpreter = trainer.train(training_data)
     test_interpreter_dir = trainer.persist("./models/nlu", fixed_model_name="test")
     parsing = interpreter.parse('hello')
@@ -27,7 +27,7 @@ def test_nlu_interpreter():
 
 
 def test_agent_and_persist():
-    policies = config.load('policies.yml')
+    policies = core_config.load('policies.yml')
     policies[0] = KerasPolicy(epochs=2)
 
     agent = Agent('domain.yml', policies=policies)
