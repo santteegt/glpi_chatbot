@@ -28,7 +28,7 @@ def test_nlu_interpreter():
 
 def test_agent_and_persist():
     policies = core_config.load('policies.yml')
-    policies[0] = KerasPolicy(epochs=2)
+    policies[0] = KerasPolicy(epochs=2)       # Keep training times low
 
     agent = Agent('domain.yml', policies=policies)
     training_data = agent.load_data('data/stories.md')
