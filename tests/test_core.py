@@ -39,4 +39,4 @@ def test_action():
     action = ActionJoke()
     action.run(dispatcher, tracker, domain)
 
-    assert 'Norris' in dispatcher.output_channel.latest_output()['text']
+    assert 'norris' in dispatcher.output_channel.latest_output()['text'].lower()
