@@ -1,8 +1,4 @@
-from rasa_nlu.training_data import load_data
-from rasa_nlu.model import Trainer
-from rasa_nlu import config as nlu_config
-
-from rasa_core import config as core_config
+from rasa_core import config
 from rasa_core.trackers import DialogueStateTracker
 from rasa_core.domain import Domain
 from rasa_core.policies import KerasPolicy
@@ -15,19 +11,8 @@ from actions import ActionJoke
 import uuid
 
 
-def test_nlu_interpreter():
-    training_data = load_data("data/nlu_data.md")
-    trainer = Trainer(nlu_config.load("nlu_config.yml"))
-    interpreter = trainer.train(training_data)
-    test_interpreter_dir = trainer.persist("./tests/models", project_name="nlu")
-    parsing = interpreter.parse('hello')
-
-    assert parsing['intent']['name'] == 'greet'
-    assert test_interpreter_dir
-
-
 def test_agent_and_persist():
-    policies = core_config.load('policies.yml')
+    policies = config.load('policies.yml')
     policies[0] = KerasPolicy(epochs=2)       # Keep training times low
 
     agent = Agent('domain.yml', policies=policies)
