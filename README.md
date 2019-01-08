@@ -85,7 +85,7 @@ This will load the assistant in your terminal for you to chat.
 
 ## What's next?
 This starter-pack lets you build a simple assistant which can tell Chuck Norris jokes. It's pretty fun, but there is so much more you can do to make a really engaging and cool assistant. Here are some ideas of what you can do to take this assistant to the next level:  
-- Use the Rasa NLU [training data file](https://forum.rasa.com/t/rasa-starter-pack/704) which you downloaded previously from Rasa Community Forum. This dataset contains quite a few interesting intents which will enable your assistant to handle small talk. To use it, append the training examples to `data/nlu_data.md` file, retrain the NLU model and see how your assistant learns new skills.
+- Use the Rasa NLU [training data file](https://forum.rasa.com/t/grab-the-nlu-training-dataset-and-starter-packs/903) which you downloaded previously from Rasa Community Forum. This dataset contains quite a few interesting intents which will enable your assistant to handle small talk. To use it, append the training examples to `data/nlu_data.md` file, retrain the NLU model and see how your assistant learns new skills.
 - Enrich `data/nlu_data.md` file with the custom intents you would like your assistant to understand. Retrain the NLU model using the command above and see you assistant improving with every run!  
 - Enrich `data/stories.md` file with more training stories with different dialogue turns, intents and actions.  
 - Implement more custom action inside the `actions.py` file and add them to stories data as well as the domain file.   
