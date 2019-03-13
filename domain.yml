@@ -1,39 +1,113 @@
 intents:
-- greet
-- goodbye
-- thanks
-- deny
-- joke
-- name
+- saludo
+- despedida
+- agradecimiento
+- nombre
+- finaliza_sesion
+- creacion_usuarios
+- recuperar_contrsena
+- error_procesos
+- asistencia_pregrado
 
 
 entities:
-- name
+- trato
+- sujeto
+- sistema
+- facultad
+- usuario
+- ubicacion
 
-
+# If your NLU model picks up an entity, and your domain contains a slot with the same name,
+# the slot will be set automatically.
 slots:
-  name:
+  sujeto:
     type: text
+  sistema:
+    type: text
+  facultad:
+    type: text
+  ubicacion:
+    type: text
+  prioridad:
+    type: categorical
+    values:
+    - baja
+    - media
+    - alta
 
 
 actions:
-- utter_name
-- utter_thanks
-- utter_greet
-- utter_goodbye
+- utter_intro
+- utter_saludo
+- utter_gracias
+- utter_despedida
+- utter_email
+- utter_contrasena
+- utter_procesos
+- utter_mas_ayuda
+- utter_sugerencias
+- utter_default
 - action_joke
 
 
 templates:
-  utter_name:
-  - text: "Hey there! Tell me your name."
+  utter_intro:
+  - text: "Hola! Bienvenido al Sistema de Helpdesk de la Universidad de Cuenca. ¿Cual es tu nombre?"
+  - text: "Bienvenido al Sistema Helpdesk de la U de Cuenca. ¿Con quien tengo el agrado de comunicarme?"
 
-  utter_greet:
-  - text: "Nice to you meet you {name}. How can I help?"
+  utter_saludo:
+  - text: "Encantado {sujeto}. ¿En que le puedo ayudar?"
+  - text: "Hola {sujeto}! ¿Necesitas ayuda?"
 
-  utter_goodbye:
-  - text: "Talk to you later!"
+  utter_sugerencias:
+  - text: "Tal vez te interesan resolver uno de estos procesos?"
+    buttons:
+      - title: "Creacion de usuario"
+        payload: "creacion de usuario"
+      - title: "Recuperar contrasena"
+        payload: "recuperar contrasena"
+      - title: "Procesos matriculas"
+        payload: "ayuda proceso matricula"
+      - title: "Inscripcion materias"
+        payload: "registro materia"
+      - title: "Ayuda con equipos informaticos"
+        payload: "configuracion de equipo"
+
+
+  utter_despedida:
+  - text: "Hasta luego!"
+  - text: "Adiós!"
+  - text: "Gracias por utilizar el servicio. Nos vemos!"
   
-  utter_thanks:
-  - text: "My pleasure."
+  utter_gracias:
+  - text: "Fue un placer ayudarte {sujeto}"
+  - text: "{sujeto}, un gusto resolver tus consultas"
+  - text: "Un placer atender tu requerimiento"
+
+  utter_email:
+  - text: "Me puedes ayudar con su cuenta de correo electronico institucional?"
+  - text: "Cual es su cuenta de correo electronico?"
+
+  utter_contrasena:
+  - text: "Por favor revise la bandeja de entrada de su correo electronico"
+
+  utter_procesos:
+  - text: "{facultad}. Es esta informacion correcta?"
+    buttons:
+      - title: "Si"
+        payload: "hola buenos dias"
+      - title: "No"
+        payload: "gracias hasta luego"
+
+  utter_mas_ayuda:
+  - text: "Necesita ayuda en algo mas?"
+    buttons:
+      - title: "Si"
+        payload: "hola buenos dias"
+      - title: "No"
+        payload: "finalizar sesion"
+
+  utter_default:
+  - text: "Lo siento! No entiendo su requerimiento. ¿Puede formular su pregunta de manera más específica?"
   

@@ -33,9 +33,58 @@ pip install -r requirements.txt
 You also need to install a spaCy English language model. You can install it by running:
 
 ```
-python -m spacy download en
+python -m spacy download es
 ```
 
+## Caveat for using the Webchat client
+
+See this [issue](https://github.com/mrbot-ai/rasa-webchat/issues/28)
+
+```bash
+pip install git+git://github.com/rasahq/rasa_core.git
+```
+
+## Training the NLU
+
+```bash
+python -m rasa_nlu.train -c nlu_config.yml --data data/nlu/train -o models --fixed_model_name glpi_nlu --project glpi --verbose
+python -m rasa_nlu.evaluate -d data/nlu/test -m models/glpi/glpi_nlu/ --report report_metrics
+```
+
+Check results that pop-up and on `errors.json` file.
+
+## Training the dialogue model
+
+```bash
+python -m rasa_core.train -d domain.yml -s data/stories.md -c policies.yml -o models/glpi/dialogue
+```
+
+## Visualizing stories
+
+```bash
+python -m rasa_core.visualize -d domain.yml -s data/stories.md -o graph.html -c policies.yml
+```
+
+## Deploying custom actions
+
+```bash
+python -m rasa_core_sdk.endpoint --actions actions
+```
+
+### Test your chatbot locally
+
+```bash
+python -m rasa_core.run -d models/glpi/dialogue -u models/glpi/glpi_nlu --endpoints endpoints.yml
+```
+
+### Deploy chatbot using web client
+
+```bash
+python -m rasa_core.run -d models/glpi/dialogue -u models/glpi/glpi_nlu --endpoints endpoints.yml --port 5002 --credentials credentials.yml
+```
+
+* `max_history`: This controls how much dialogue history the model looks at to decide which action to take next.
+* Here, you can specify the `--nlu-threshold`, so the fallback action or the utter_default will be executed if the intent recognition has a confidence below a threshold (0-1). This value can be set based on NLU model evaluation results.
 
 ## What’s in this starter-pack?
 

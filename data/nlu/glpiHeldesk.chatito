@@ -1,0 +1,156 @@
+
+%[creacion_usuarios]('training': '100', 'testing': '20')
+    ~[saludos?] ~[peticion?] ~[nuevo_usuario] @[sistema?] ~[para?] @[trato?] @[sujeto] @[facultad?]
+
+%[recuperar_contrsena]('training': '100', 'testing': '20')
+    ~[saludos?] ~[peticion?] @[usuario?] ~[sin_acceso] @[sistema?]
+
+%[error_procesos]('training': '300', 'testing': '60')
+    ~[saludos?] ~[peticion?] ~[problema] ~[proceso#matriculas] @[facultad?]
+    ~[saludos?] ~[peticion?] ~[problema] ~[proceso#inscripcion] @[facultad?]
+    ~[saludos?] ~[peticion?] ~[problema?] ~[proceso#equipos] @[ubicacion?] @[facultad?]
+
+%[asistencia_pregrado]('training': '200', 'testing': '40')
+    ~[saludos?] ~[peticion?] ~[problema] ~[pregrado#materias] @[sujeto?]
+    ~[saludos?] ~[peticion?] ~[problema] ~[pregrado#actas] @[sujeto?]
+
+// alias
+~[saludos]
+    saludos
+    hola
+    buenos dias
+    buenas tardes
+
+~[peticion]
+    necesito
+    requiero
+    necesito su ayuda
+    ayuda
+    solicito
+
+~[problema]
+    problema
+    error
+    inconveniente
+    revision
+
+~[nuevo_usuario]
+    creacion de usuario
+    creacion de cuenta de usuario
+    creacion de cuenta
+    registrar personal
+    crear nuevo usuario
+    crear usuario y asignar roles
+    acceso al sistema
+    acceso a
+
+~[sin_acceso]
+    No hay acceso
+    Sin acceso
+    no puedo acceder
+    no recuerda contrasena
+    olvide contrasena
+
+~[proceso#matriculas]
+    registro matricula
+    registro ficha socioeconomica
+    acceso a eSIUC
+    ficha de matricula
+    ficha socioeconomica
+
+~[proceso#inscripcion]
+    registro materia
+    asignacion credito
+    falta cupo
+    no encuentra informacion estudiante
+
+~[proceso#equipos]
+    no enciende computador
+    impresora no funciona
+    no imprime
+    conexion PC
+    computador no inicia
+    instalacion equipo
+    instalacion impresora
+    instalacion sistema
+    mantenimiento computador
+    configuracion de equipo
+    conexion puntos de red
+    proyector no enciende
+    telefonos no funcionan
+    respaldo de informacion
+    revisar proyector
+    no funciona impresora
+    no funciona escaner
+
+~[pregrado#materias]
+    migracion de notas
+    migracion de calificaciones
+    revision malla
+    configuracion malla
+    revision registros estudiante
+
+~[pregrado#actas]
+    cambio numero acta de grado
+    configuracion de actas
+    no se genera acta de grado
+    problema generacion de acta de grado
+    registro titulos historicos
+    correccion fecha acta de grado
+    anulacion actas de grado
+    problemas de numeración actas de grado
+
+@[sistema]
+    Urkund
+    Sistemas Institucionales
+    Portafolio
+    Quipux
+    eVirtual
+    OpenERP
+    GLPI
+
+@[trato]
+    Lcdo
+    Lcda
+    Sr
+    Sra
+    Ing
+    Dr
+    Secretaria Abogada
+    Estudiante
+    Director
+
+@[sujeto]
+    Jenny Maricela Redrovan Macas
+    Karina Sarmiento
+    Juan Perez
+    Joselito Juanete
+    Cuenca Ciudad Universitaria
+    Coordinador Vinculacion Sociedad
+
+@[usuario]
+    adrian.narvaezp
+    hernan.gonzalezt
+    renan.freirez
+
+@[ubicacion]
+    Aula 107
+    Centro computo 118 A
+    Consejo Universitario
+    Rectorado
+
+@[facultad]
+    ~[Facultad Hospitalidad]
+    ~[Facultad Medicina]
+    ~[Facultad Ingenieria]
+    ~[Facultad Psicologia]
+    ~[Facultad Ingenieria]
+
+~[Facultad Ingenieria]
+    Facultad Ingenieria
+    Ingenieria
+    Sistemas
+    Civil
+    Electronica
+    Electrica
+    Ing

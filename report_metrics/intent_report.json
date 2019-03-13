@@ -1,0 +1,68 @@
+{
+    "agradecimiento": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1-score": 0.0,
+        "support": 2
+    },
+    "asistencia_pregrado": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 40
+    },
+    "creacion_usuarios": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 20
+    },
+    "despedida": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1-score": 0.0,
+        "support": 3
+    },
+    "error_procesos": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 60
+    },
+    "finaliza_sesion": {
+        "precision": 0.625,
+        "recall": 1.0,
+        "f1-score": 0.7692307692307693,
+        "support": 10
+    },
+    "recuperar_contrsena": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 20
+    },
+    "saludo": {
+        "precision": 1.0,
+        "recall": 0.6666666666666666,
+        "f1-score": 0.8,
+        "support": 3
+    },
+    "micro avg": {
+        "precision": 0.9620253164556962,
+        "recall": 0.9620253164556962,
+        "f1-score": 0.9620253164556962,
+        "support": 158
+    },
+    "macro avg": {
+        "precision": 0.703125,
+        "recall": 0.7083333333333333,
+        "f1-score": 0.6961538461538461,
+        "support": 158
+    },
+    "weighted avg": {
+        "precision": 0.944620253164557,
+        "recall": 0.9620253164556962,
+        "f1-score": 0.9499513145082765,
+        "support": 158
+    }
+}

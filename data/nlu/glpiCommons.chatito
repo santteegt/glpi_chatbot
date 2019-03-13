@@ -1,0 +1,63 @@
+%[saludo]('training': '7', 'testing': '3')
+    ~[saludos]
+
+%[despedida]('training': '7', 'testing': '3')
+    ~[despedida]
+
+%[agradecimiento]('training': '3', 'testing': '2')
+    ~[agradecimiento]
+
+%[nombre]('taining': '40', 'testing': '10')
+    ~[presentacion?] @[sujeto]
+
+%[finaliza_sesion]('training': '50', 'testing': '10')
+    ~[agradecimiento?] ~[despedida]
+
+~[presentacion]
+    Mi nombre es
+    Me llamo
+    Yo me llamo
+    Soy
+
+~[saludos]
+    saludos
+    hola
+    buenos dias
+    buenas tardes
+    hey
+    hola hola
+    saludos saludos
+    buenas
+    hola buenos dias
+    hola buenas tardes
+
+~[despedida]
+    hasta luego
+    adios
+    chao
+    finalizar
+    salir
+    finaliza sesion
+    chao chao
+    terminar
+    acabar sesion
+    termina
+
+~[agradecimiento]
+    muchas gracias
+    gracias
+    gracias por su ayuda
+    agradezco su su ayuda
+    gracias gracias
+
+@[sujeto]
+    Jenny Maricela Redrovan Macas
+    Karina Sarmiento
+    Juan Perez
+    Joselito Juanete
+    Cuenca Ciudad Universitaria
+    Coordinador Vinculacion Sociedad
+    Santiago
+    Cecilia
+    Oscar Malgiaritta
+    Marcelo Dosantos

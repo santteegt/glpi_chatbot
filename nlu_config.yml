@@ -1,3 +1,7 @@
-language: "en"
+language: "es"
 
+# The two most important pipelines are tensorflow_embedding and spacy_sklearn.
+# The biggest difference between them is that the spacy_sklearn pipeline uses pre-trained word vectors from either GloVe
+# or fastText. Instead, the tensorflow embedding pipeline doesn’t use any pre-trained word vectors, but instead fits
+# these specifically for your dataset.
 pipeline: spacy_sklearn
