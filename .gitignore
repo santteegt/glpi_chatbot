@@ -1,5 +1,9 @@
 __pycache__
 env/
 .idea
+.DS_Store
+
+errors.json
+models/
 
 rasa_core.log

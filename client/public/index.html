@@ -30,16 +30,16 @@
       <script>
         WebChat.default.init({
           selector: "#webchat",
-          initPayload: "/greet",
+          initPayload: "/saludo",
           interval: 1000, // 1000 ms between each message
           customData: {"userId": "123"}, // arbitrary custom data. Stay minimal as this will be added to the socket
           socketUrl: "http://localhost:5002",
           socketPath: "/socket.io/",
-          title: "CHATBOT",
-          subtitle: "Welcome",
-          inputTextFieldHint: "Type a message...",
-          connectingText: "Waiting for server...",
-          hideWhenNotConnected: true,
+          title: "DTIC",
+          subtitle: "Mesa de servicios",
+          inputTextFieldHint: "Escribe un mensaje...",
+          connectingText: "Conectando con el servidor...",
+          hideWhenNotConnected: false,
           fullScreenMode: false,
           profileAvatar: "profile.png",
           openLauncherImage: 'chatlogo.png',
