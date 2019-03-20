@@ -13,6 +13,9 @@
 %[finaliza_sesion]('training': '50', 'testing': '10')
     ~[agradecimiento?] ~[despedida]
 
+%[confirmar]('training': '2', 'testing': '2')
+    ~[afirmar]
+
 ~[presentacion]
     Mi nombre es
     Me llamo
@@ -42,6 +45,12 @@
     terminar
     acabar sesion
     termina
+
+~[afirmar]
+    si
+    esta bien
+    ok
+    confirmado
 
 ~[agradecimiento]
     muchas gracias

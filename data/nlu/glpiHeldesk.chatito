@@ -14,6 +14,10 @@
     ~[saludos?] ~[peticion?] ~[problema] ~[pregrado#materias] @[sujeto?]
     ~[saludos?] ~[peticion?] ~[problema] ~[pregrado#actas] @[sujeto?]
 
+%[correo_electronico]('training': '4', 'testing': '4')
+    @[email]
+    ~[mi?] ~[correo?] ~[electronico?] @[email]
+
 // alias
 ~[saludos]
     saludos
@@ -154,3 +158,9 @@
     Electronica
     Electrica
     Ing
+
+@[email]
+    hernan.gonzalez@ucuenca.edu.ec
+    victor.saquicela@ucuenca.edu.ec
+    hernan.gonzalezt@ucuenca.ec
+    ronald.gualan@ucuenca.ec

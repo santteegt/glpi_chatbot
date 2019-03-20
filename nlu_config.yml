@@ -5,3 +5,14 @@ language: "es"
 # or fastText. Instead, the tensorflow embedding pipeline doesn’t use any pre-trained word vectors, but instead fits
 # these specifically for your dataset.
 pipeline: spacy_sklearn
+
+# spacy_sklearn pipeline has the following structure
+#
+#pipeline:
+#  - name: "nlp_spacy"
+#  - name: "tokenizer_spacy"
+#  - name: "intent_entity_featurizer_regex"
+#  - name: "intent_featurizer_spacy"
+#  - name: "ner_crf"
+#  - name: "ner_synonyms"
+#  - name: "intent_classifier_sklearn"

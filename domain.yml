@@ -8,6 +8,8 @@ intents:
 - recuperar_contrsena
 - error_procesos
 - asistencia_pregrado
+- correo_electronico
+- confirmar
 
 
 entities:
@@ -17,6 +19,7 @@ entities:
 - facultad
 - usuario
 - ubicacion
+- email
 
 # If your NLU model picks up an entity, and your domain contains a slot with the same name,
 # the slot will be set automatically.
@@ -34,7 +37,8 @@ slots:
     values:
     - baja
     - media
-    - alta
+  email:
+    type: text
 
 
 actions:
@@ -47,6 +51,7 @@ actions:
 - utter_procesos
 - utter_mas_ayuda
 - utter_sugerencias
+- utter_confirmar_atencion
 - utter_default
 - action_joke
 
@@ -66,7 +71,7 @@ templates:
       - title: "Creacion de usuario"
         payload: "creacion de usuario"
       - title: "Recuperar contrasena"
-        payload: "recuperar contrasena"
+        payload: "no recuerda contrasena"
       - title: "Procesos matriculas"
         payload: "ayuda proceso matricula"
       - title: "Inscripcion materias"
@@ -76,9 +81,8 @@ templates:
 
 
   utter_despedida:
-  - text: "Hasta luego!"
-  - text: "Adiós!"
-  - text: "Gracias por utilizar el servicio. Nos vemos!"
+  - text: "Hasta luego! Gracias por utilizar el servicio"
+  - text: "Gracias por utilizar el servicio. Adiós!"
   
   utter_gracias:
   - text: "Fue un placer ayudarte {sujeto}"
@@ -107,6 +111,14 @@ templates:
         payload: "hola buenos dias"
       - title: "No"
         payload: "finalizar sesion"
+
+  utter_confirmar_atencion:
+  - text: "Hemos podido atender tu requerimiento satisfactoriamente?"
+    buttons:
+      - title: "Si"
+        payload: "muchas gracias"
+      - title: "No"
+        payload: "no recuerda contrasena"
 
   utter_default:
   - text: "Lo siento! No entiendo su requerimiento. ¿Puede formular su pregunta de manera más específica?"

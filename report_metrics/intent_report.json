@@ -11,6 +11,18 @@
         "f1-score": 1.0,
         "support": 40
     },
+    "confirmar": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1-score": 0.0,
+        "support": 2
+    },
+    "correo_electronico": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 4
+    },
     "creacion_usuarios": {
         "precision": 1.0,
         "recall": 1.0,
@@ -42,27 +54,27 @@
         "support": 20
     },
     "saludo": {
-        "precision": 1.0,
-        "recall": 0.6666666666666666,
-        "f1-score": 0.8,
+        "precision": 0.75,
+        "recall": 1.0,
+        "f1-score": 0.8571428571428571,
         "support": 3
     },
     "micro avg": {
-        "precision": 0.9620253164556962,
-        "recall": 0.9620253164556962,
-        "f1-score": 0.9620253164556962,
-        "support": 158
+        "precision": 0.9573170731707317,
+        "recall": 0.9573170731707317,
+        "f1-score": 0.9573170731707317,
+        "support": 164
     },
     "macro avg": {
-        "precision": 0.703125,
-        "recall": 0.7083333333333333,
-        "f1-score": 0.6961538461538461,
-        "support": 158
+        "precision": 0.6375,
+        "recall": 0.7,
+        "f1-score": 0.6626373626373626,
+        "support": 164
     },
     "weighted avg": {
-        "precision": 0.944620253164557,
-        "recall": 0.9620253164556962,
-        "f1-score": 0.9499513145082765,
-        "support": 158
+        "precision": 0.9298780487804879,
+        "recall": 0.9573170731707317,
+        "f1-score": 0.9406325381935138,
+        "support": 164
     }
 }
