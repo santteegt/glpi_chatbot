@@ -1,0 +1,3 @@
+# deprecated, will be removed. please use the `requirements-dev.txt`
+# in the mainfolder instead
+-r ../requirements-dev.txt

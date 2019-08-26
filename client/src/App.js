@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 // import { Widget } from 'react-chat-widget';
+import { Widget } from 'rasa-webchat';
 
 // import 'react-chat-widget/lib/styles.css';
 
@@ -9,34 +10,37 @@ import './App.css';
 
 class App extends Component {      
 
-  // render() {
-  //   return (
-  //     <div className="App">
-  //       <Widget />
-  //     </div>
-  //   );
-  // }
-
-  // render() {
-  //   return (
-  //     <div className="App">
-  //       <header className="App-header">
-  //         <img src={logo} className="App-logo" alt="logo" />
-  //         <p>
-  //           Edit <code>src/App.js</code> and save to reload.
-  //         </p>
-  //         <a
-  //           className="App-link"
-  //           href="https://reactjs.org"
-  //           target="_blank"
-  //           rel="noopener noreferrer"
-  //         >
-  //           Learn React
-  //         </a>
-  //       </header>
-  //     </div>
-  //   );
-  // }
+  render() {
+    return (
+      <div className="App">
+		<Widget
+		 interval={2000}
+		 initPayload={"/saludo"}
+		 socketUrl={"http://localhost:5002"}
+		 socketPath={"/socket.io/"}
+		 customData={{"userId": "123"}} // arbitrary custom data. Stay minimal as this will be added to the socket
+		 title={"DTIC"}
+		 subtitle={"Mesa de Servicios Informáticos"}
+		 inputTextFieldHint={"Escribe un mensaje..."}
+		 connectingText={"Conectando con el servidor..."}
+		 hideWhenNotConnected
+		 embedded={false}
+		 openLauncherImage="chatlogo.png"
+		 closeLauncherImage="chatlogo.png"
+		 params={{
+		   images: {
+		     dims: {
+		       width: 300,
+		       height: 200
+		     }
+		   },
+		   storage: "session"
+		 }}
+		 customComponent={ (messageData) => (<div>Custom React component</div>) }
+		/>
+      </div>
+    );
+  }
 }
 
 export default App;

@@ -26,119 +26,98 @@ After you clone the repository, a directory called starter-pack-rasa-stack will 
 ## Setup and installation
 
 If you haven’t installed Rasa NLU and Rasa Core yet, you can do it by navigating to the project directory and running:  
+
 ```
-pip install -r requirements.txt
+pip install -r alt_requirements/requirements_full.txt
 ```
 
 You also need to install a spaCy English language model. You can install it by running:
 
 ```
-python -m spacy download es
+python -m spacy download es_core_news_md
+python -m spacy link es_core_news_md es
 ```
 
-## Caveat for using the Webchat client
+## Caveat for using the Webchat client (DEPRECATED)
 
 See this [issue](https://github.com/mrbot-ai/rasa-webchat/issues/28)
 
 ```bash
-pip install git+git://github.com/rasahq/rasa_core.git
+pip install git+git://github.com/RasaHQ/rasa.git
+
 ```
 
-## Training the NLU
+## Prepare dataset for training/testing
+
+If you're (re-)generating data using Chatito, paste the related files under the `data/nlu_chatito` folder and then execute the following commands:
 
 ```bash
-python -m rasa_nlu.train -c nlu_config.yml --data data/nlu/train -o models --fixed_model_name glpi_nlu --project glpi --verbose
-python -m rasa_nlu.evaluate -d data/nlu/test -m models/glpi/glpi_nlu/ --report report_metrics
+rasa data convert nlu --data data/nlu_chatito/train/ --out data/train/nlu.md -l es -f md
+rasa data convert nlu --data data/nlu_chatito/test/ --out data/test/nlu.md -l es -f md
 ```
 
-Check results that pop-up and on `errors.json` file.
+## Training Rasa Core & NLU models
 
-## Training the dialogue model
+The following command trains both the Core and NLU models
 
 ```bash
-python -m rasa_core.train -d domain.yml -s data/stories.md -c policies.yml -o models/glpi/dialogue
+rasa train --data data/train
 ```
+
+## NLU model evaluation
+
+The following command performs a model evaluation of the latest trained NLU model under the `models` directory
+
+```bash
+rasa test nlu -u data/test/ --report report_metrics/
+```
+
+Finally, check the following files for results:
+ 
+* [Intent Confusion Matrix](confmat.png) 
+* [Intent Confidence Prediction][hist.png]
+* [Misclassified Intents](errors.json)
+* [Intent/Entity Metrics Report](report_metrics/)
+
+## Dialogue (CORE) model evaluation
+
+The following command performs a model evaluation of the latest trained dialogue model under the `models` directory
+
+```bash
+rasa test core -s data/test/
+```
+
+Finally, check the [results](results/) directory for a summary of the performed evaluation
 
 ## Visualizing stories
 
 ```bash
-python -m rasa_core.visualize -d domain.yml -s data/stories.md -o graph.html -c policies.yml
+rasa visualize -d domain.yml -s data/train/stories.md -u data/train/nlu.md
 ```
 
 ## Deploying custom actions
 
 ```bash
-python -m rasa_core_sdk.endpoint --actions actions
+rasa run actions --actions actions -p 5055
 ```
 
 ### Test your chatbot locally
 
 ```bash
-python -m rasa_core.run -d models/glpi/dialogue -u models/glpi/glpi_nlu --endpoints endpoints.yml
+rasa shell --endpoints endpoints.yml
 ```
 
-### Deploy chatbot using web client
+### Deploy the chatbot with enabled connection to a web channel through socketsio
 
 ```bash
-python -m rasa_core.run -d models/glpi/dialogue -u models/glpi/glpi_nlu --endpoints endpoints.yml --port 5002 --credentials credentials.yml
+rasa run --endpoints endpoints.yml --credentials credentials.yml --enable-api --cors "*" --port 5002
 ```
 
-* `max_history`: This controls how much dialogue history the model looks at to decide which action to take next.
-* Here, you can specify the `--nlu-threshold`, so the fallback action or the utter_default will be executed if the intent recognition has a confidence below a threshold (0-1). This value can be set based on NLU model evaluation results.
+### Deploy the web client
 
-## What’s in this starter-pack?
+```bash
+cd client
+npm install
+npm start
 
-This starter-pack contains some training data and the main files which you can use as the basis of your first custom assistant. It also has the usual file structure of the assistant built with Rasa Stack. This starter-pack consists of the following files:
-
-### Files for Rasa NLU model
-
-- **data/nlu_data.md** file contains training examples of six intents: 
-	- greet
-	- goodbye
-	- thanks
-	- deny
-	- joke
-	- name (examples of this intent contain an entity called 'name')
-	
-- **nlu_config.yml** file contains the configuration of the Rasa NLU pipeline:  
-```yaml
-language: "en"
-
-pipeline: spacy_sklearn
-```	
-
-### Files for Rasa Core model
-
-- **data/stories.md** file contains some training stories which represent the conversations between a user and the assistant. 
-- **domain.yml** file describes the domain of the assistant which includes intents, entities, slots, templates and actions the assistant should be aware of.  
-- **actions.py** file contains the code of a custom action which retrieves a Chuck Norris joke by making an external API call.
-- **endpoints.yml** file contains the webhook configuration for custom action.  
-- **policies.yml** file contains the configuration of the training policies for Rasa Core model.
-
-## How to use this starter-pack?
-- NOTE: If running on Windows, you will either have to [install make](http://gnuwin32.sourceforge.net/packages/make.htm) or copy the following commands from the [Makefile](https://github.com/RasaHQ/starter-pack-rasa-stack/blob/master/Makefile)
-1. You can train the Rasa NLU model by running:  
-```make train-nlu```  
-This will train the Rasa NLU model and store it inside the `/models/current/nlu` folder of your project directory.
-
-2. Train the Rasa Core model by running:  
-```make train-core```  
-This will train the Rasa Core model and store it inside the `/models/current/dialogue` folder of your project directory.
-
-3. In a new terminal start the server for the custom action by running:  
-```make action-server```  
-This will start the server for emulating the custom action.
-
-4. Test the assistant by running:  
-```make cmdline```  
-This will load the assistant in your terminal for you to chat.
-
-## What's next?
-This starter-pack lets you build a simple assistant which can tell Chuck Norris jokes. It's pretty fun, but there is so much more you can do to make a really engaging and cool assistant. Here are some ideas of what you can do to take this assistant to the next level:  
-- Use the Rasa NLU [training data file](https://forum.rasa.com/t/grab-the-nlu-training-dataset-and-starter-packs/903) which you downloaded previously from Rasa Community Forum. This dataset contains quite a few interesting intents which will enable your assistant to handle small talk. To use it, append the training examples to `data/nlu_data.md` file, retrain the NLU model and see how your assistant learns new skills.
-- Enrich `data/nlu_data.md` file with the custom intents you would like your assistant to understand. Retrain the NLU model using the command above and see you assistant improving with every run!  
-- Enrich `data/stories.md` file with more training stories with different dialogue turns, intents and actions.  
-- Implement more custom action inside the `actions.py` file and add them to stories data as well as the domain file.   
-
-
-Let us know how you are getting on with Rasa Stack and what have you built! Join the [Rasa Community Forum](https://forum.rasa.com) and share your experience with us!
+```

@@ -3,9 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "rasa-webchat": "github:mrbot-ai/rasa-webchat",
+    "rasa-webchat": "git+https://github.com/mrbot-ai/rasa-webchat.git",
     "react": "^16.8.3",
-    "react-chat-widget": "^2.1.4-1",
     "react-dom": "^16.8.3",
     "react-scripts": "2.1.5"
   },
