@@ -1,86 +1,98 @@
 {
   "agradecimiento": {
-    "precision": 0.0,
-    "recall": 0.0,
-    "f1-score": 0.0,
+    "precision": 1.0,
+    "recall": 0.5,
+    "f1-score": 0.6666666666666666,
     "support": 2
   },
-  "asistencia_pregrado": {
+  "cancelar": {
+    "precision": 0.6,
+    "recall": 0.6,
+    "f1-score": 0.6,
+    "support": 5
+  },
+  "chitchat": {
+    "precision": 0.6666666666666666,
+    "recall": 0.4,
+    "f1-score": 0.5,
+    "support": 5
+  },
+  "confirmar": {
+    "precision": 1.0,
+    "recall": 0.25,
+    "f1-score": 0.4,
+    "support": 4
+  },
+  "correo_electronico": {
+    "precision": 1.0,
+    "recall": 0.5,
+    "f1-score": 0.6666666666666666,
+    "support": 4
+  },
+  "creacion_usuarios": {
+    "precision": 0.9523809523809523,
+    "recall": 1.0,
+    "f1-score": 0.975609756097561,
+    "support": 20
+  },
+  "despedida": {
+    "precision": 0.6666666666666666,
+    "recall": 0.6666666666666666,
+    "f1-score": 0.6666666666666666,
+    "support": 3
+  },
+  "informacion": {
     "precision": 1.0,
     "recall": 1.0,
     "f1-score": 1.0,
     "support": 40
   },
-  "confirmar": {
-    "precision": 0.0,
-    "recall": 0.0,
-    "f1-score": 0.0,
-    "support": 2
-  },
-  "correo_electronico": {
-    "precision": 1.0,
-    "recall": 0.75,
-    "f1-score": 0.8571428571428571,
-    "support": 4
-  },
-  "creacion_usuarios": {
-    "precision": 1.0,
+  "nombre": {
+    "precision": 0.7692307692307693,
     "recall": 1.0,
-    "f1-score": 1.0,
-    "support": 20
-  },
-  "despedida": {
-    "precision": 0.0,
-    "recall": 0.0,
-    "f1-score": 0.0,
-    "support": 3
-  },
-  "error_procesos": {
-    "precision": 0.9836065573770492,
-    "recall": 1.0,
-    "f1-score": 0.9917355371900827,
-    "support": 60
-  },
-  "finaliza_sesion": {
-    "precision": 0.625,
-    "recall": 1.0,
-    "f1-score": 0.7692307692307693,
+    "f1-score": 0.8695652173913044,
     "support": 10
   },
-  "nombre": {
-    "precision": 0.0,
-    "recall": 0.0,
-    "f1-score": 0.0,
-    "support": 0
-  },
-  "recuperar_contrsena": {
-    "precision": 1.0,
+  "peticion_recurso_computacional": {
+    "precision": 0.975609756097561,
     "recall": 1.0,
-    "f1-score": 1.0,
+    "f1-score": 0.9876543209876543,
+    "support": 40
+  },
+  "recuperar_contrasena": {
+    "precision": 0.8695652173913043,
+    "recall": 1.0,
+    "f1-score": 0.9302325581395349,
     "support": 20
   },
   "saludo": {
     "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 3
+  },
+  "solicitar_opciones": {
+    "precision": 0.6666666666666666,
     "recall": 0.6666666666666666,
-    "f1-score": 0.8,
+    "f1-score": 0.6666666666666666,
     "support": 3
   },
   "micro avg": {
-    "precision": 0.9451219512195121,
-    "recall": 0.9451219512195121,
-    "f1-score": 0.945121951219512,
-    "support": 164
+    "precision": 0.9182389937106918,
+    "recall": 0.9182389937106918,
+    "f1-score": 0.9182389937106918,
+    "support": 159
   },
   "macro avg": {
-    "precision": 0.6007824143070045,
-    "recall": 0.5833333333333334,
-    "f1-score": 0.5834644694148826,
-    "support": 164
+    "precision": 0.8589835919308142,
+    "recall": 0.7371794871794871,
+    "f1-score": 0.7638252707140555,
+    "support": 159
   },
   "weighted avg": {
-    "precision": 0.928453618552579,
-    "recall": 0.9451219512195121,
-    "f1-score": 0.9330793375139274,
-    "support": 164
+    "precision": 0.9213141802829472,
+    "recall": 0.9182389937106918,
+    "f1-score": 0.9082935301771141,
+    "support": 159
   }
 }

@@ -1,4 +1,16 @@
 {
+  "cpu_cores": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 42
+  },
+  "disk_space": {
+    "precision": 0.972972972972973,
+    "recall": 0.8372093023255814,
+    "f1-score": 0.9,
+    "support": 43
+  },
   "email": {
     "precision": 1.0,
     "recall": 1.0,
@@ -9,60 +21,60 @@
     "precision": 1.0,
     "recall": 1.0,
     "f1-score": 1.0,
-    "support": 100
+    "support": 24
   },
   "no_entity": {
     "precision": 1.0,
     "recall": 1.0,
     "f1-score": 1.0,
-    "support": 950
+    "support": 849
+  },
+  "ram": {
+    "precision": 0.8108108108108109,
+    "recall": 0.967741935483871,
+    "f1-score": 0.8823529411764706,
+    "support": 31
   },
   "sistema": {
     "precision": 1.0,
     "recall": 1.0,
     "f1-score": 1.0,
-    "support": 44
+    "support": 43
   },
   "sujeto": {
     "precision": 1.0,
     "recall": 1.0,
     "f1-score": 1.0,
-    "support": 141
+    "support": 76
   },
   "trato": {
     "precision": 1.0,
     "recall": 1.0,
     "f1-score": 1.0,
-    "support": 19
-  },
-  "ubicacion": {
-    "precision": 1.0,
-    "recall": 1.0,
-    "f1-score": 1.0,
-    "support": 91
+    "support": 20
   },
   "usuario": {
     "precision": 1.0,
     "recall": 1.0,
     "f1-score": 1.0,
-    "support": 16
+    "support": 14
   },
   "micro avg": {
-    "precision": 1.0,
-    "recall": 1.0,
-    "f1-score": 1.0,
-    "support": 1365
+    "precision": 0.9930191972076788,
+    "recall": 0.9930191972076788,
+    "f1-score": 0.9930191972076788,
+    "support": 1146
   },
   "macro avg": {
-    "precision": 1.0,
-    "recall": 1.0,
-    "f1-score": 1.0,
-    "support": 1365
+    "precision": 0.9783783783783784,
+    "recall": 0.9804951237809453,
+    "f1-score": 0.978235294117647,
+    "support": 1146
   },
   "weighted avg": {
-    "precision": 1.0,
-    "recall": 1.0,
-    "f1-score": 1.0,
-    "support": 1365
+    "precision": 0.9938682137635017,
+    "recall": 0.9930191972076788,
+    "f1-score": 0.9930653936967456,
+    "support": 1146
   }
 }

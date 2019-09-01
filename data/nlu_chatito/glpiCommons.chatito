@@ -4,17 +4,32 @@
 %[despedida]('training': '7', 'testing': '3')
     ~[despedida]
 
-%[agradecimiento]('training': '3', 'testing': '2')
+%[agradecimiento]('training': '7', 'testing': '3')
     ~[agradecimiento]
 
-%[nombre]('taining': '40', 'testing': '10')
+%[nombre]('training': '40', 'testing': '10')
     ~[presentacion?] @[sujeto]
 
-%[finaliza_sesion]('training': '50', 'testing': '10')
-    ~[agradecimiento?] ~[despedida]
+%[solicitar_opciones]('training': '7', 'testing': '3')
+    ~[necesito ayuda]
+    ~[ayuda]
+    ~[ayudame]
+    ~[solicito ayuda]
+    ~[opciones]
+    ~[opciones disponibles]
+    ~[seleccionar opciones]
+    ~[mostrar opciones]
+    ~[menu]
+    ~[mostrar menu]
 
-%[confirmar]('training': '2', 'testing': '2')
+%[confirmar]('training': '10', 'testing': '4')
     ~[afirmar]
+
+%[cancelar]('training': '11', 'testing': '5')
+    ~[denegar]
+
+%[chitchat]('training': '9', 'testing': '5')
+    ~[random]
 
 ~[presentacion]
     Mi nombre es
@@ -48,9 +63,37 @@
 
 ~[afirmar]
     si
+    si si si
     esta bien
     ok
     confirmado
+    de acuerdo
+    afirmativo
+    confirmar
+    corroborar
+    ratificar
+    convalidar
+    revalidar
+    reafirmar
+    aseverar
+
+~[denegar]
+    no
+    negativo
+    cancelar
+    cancelado
+    cancela
+    parar
+    no continuar
+    salir
+    denegar
+    denegado
+    no gracias
+    oh no
+    no es lo que deseo
+    no eres util
+    no me sirve
+    no es lo que quiero
 
 ~[agradecimiento]
     muchas gracias
@@ -58,6 +101,27 @@
     gracias por su ayuda
     agradezco su su ayuda
     gracias gracias
+    gracias
+    estoy agradecido
+    muchas gracias
+    gracias por su ayuda
+    agradezco su su ayuda
+
+~[random]
+    quien eres?
+    quien es tu creador?
+    como estas?
+    como te encuentras?
+    que tal tu dia?
+    estas bien?
+    como has pasado?
+    como es el clima de hoy?
+    esta lloviendo?
+    esta haciendo frio?
+    esta haciendo frio?
+    feliz dia
+    como sera el clima de hoy?
+    como te llamas?
 
 @[sujeto]
     Jenny Maricela Redrovan Macas

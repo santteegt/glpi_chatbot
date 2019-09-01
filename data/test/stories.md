@@ -5,6 +5,10 @@
  - utter_saludo
  - utter_sugerencias
  
+## story_opciones
+* solicitar_opciones
+ - utter_sugerencias
+ 
 ## story_despedida
 * despedida
  - utter_despedida
@@ -12,6 +16,15 @@
 ## story_agradecimiento
 * agradecimiento
  - utter_gracias
+ - utter_mas_ayuda
+ 
+## story_finaliza_sesion
+* agradecimiento
+ - utter_gracias
+ - utter_mas_ayuda
+* despedida
+ - utter_despedida
+ - action_restart
  
 ## story_nombre
 * nombre{"sujeto": "Santiago Gonzalez"}
@@ -24,13 +37,89 @@
  - utter_mas_ayuda
  
 ## story_recuperar_contrasena
-* recuperar_contrsena
+* recuperar_contrasena
  - utter_email
 * correo_electronico
  - utter_contrasena
  - utter_confirmar_atencion
 * agradecimiento
  - utter_mas_ayuda
-* finaliza_sesion
+* despedida
  - utter_despedida
  - action_restart
+ 
+## story_requerimiento_recurso_computacional_happy_path
+* peticion_recurso_computacional
+ - compute_resource_form
+ - form {"name": "compute_resource_form"}
+ - form {"name": null}
+ - utter_compute_form_values
+* confirmar
+ - utter_enviar_ticket_no
+ - slot {"ticket_no": "0055"}
+ - utter_confirmar_solicitud
+ - utter_mas_ayuda
+ 
+## story_requerimiento_recurso_computacional_unhappy_path_1
+* peticion_recurso_computacional
+ - compute_resource_form
+ - form {"name": "compute_resource_form"}
+* chitchat
+ - utter_chitchat
+ - compute_resource_form
+ - form {"name": null}
+ - utter_compute_form_values
+* confirmar
+ - utter_enviar_ticket_no
+ - slot {"ticket_no": "0055"}
+ - utter_confirmar_solicitud
+ - utter_mas_ayuda
+ 
+## story_requerimiento_recurso_computacional_unhappy_path_2
+* peticion_recurso_computacional
+ - compute_resource_form
+ - form {"name": "compute_resource_form"}
+* chitchat
+ - utter_chitchat
+ - compute_resource_form
+* chitchat
+ - utter_chitchat
+ - compute_resource_form
+* chitchat
+ - utter_chitchat
+ - compute_resource_form
+ - form {"name": null}
+ - utter_compute_form_values
+* confirmar
+ - utter_enviar_ticket_no
+ - slot {"ticket_no": "0055"}
+ - utter_confirmar_solicitud
+ - utter_mas_ayuda
+
+## story_requerimiento_recurso_computacional_stop_but_continue
+* peticion_recurso_computacional
+ - compute_resource_form
+ - form {"name": "compute_resource_form"}
+* cancelar
+ - utter_continuar
+* confirmar
+ - compute_resource_form
+ - form {"name": null}
+ - utter_compute_form_values
+* confirmar
+ - utter_enviar_ticket_no
+ - slot {"ticket_no": "0055"}
+ - utter_confirmar_solicitud
+ - utter_mas_ayuda
+
+## story_requerimiento_recurso_computacional_stop_and_confirm
+* peticion_recurso_computacional
+ - compute_resource_form
+ - form {"name": "compute_resource_form"}
+* cancelar
+ - utter_continuar
+* cancelar
+ - action_deactivate_form
+ - form {"name": null}
+ - utter_cancelado
+ - utter_mas_ayuda

@@ -119,5 +119,4 @@ rasa run --endpoints endpoints.yml --credentials credentials.yml --enable-api --
 cd client
 npm install
 npm start
-
 ```

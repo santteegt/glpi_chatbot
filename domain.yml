@@ -3,16 +3,21 @@ intents:
 - despedida
 - agradecimiento
 - nombre
+- solicitar_opciones
 - finaliza_sesion
 - creacion_usuarios
-- recuperar_contrsena
-- error_procesos
-- asistencia_pregrado
+- recuperar_contrasena
 - correo_electronico
 - confirmar
+- cancelar
+- peticion_recurso_computacional
+- chitchat
 
 
 entities:
+- PER
+- LOC
+- ORG
 - trato
 - sujeto
 - sistema
@@ -20,6 +25,13 @@ entities:
 - usuario
 - ubicacion
 - email
+- departamento
+- entorno
+- ram
+- cpu_cores
+- disk_space
+- escalabilidad
+- observaciones
 
 # If your NLU model picks up an entity, and your domain contains a slot with the same name,
 # the slot will be set automatically.
@@ -39,6 +51,31 @@ slots:
     - media
   email:
     type: text
+  ticket_no:
+    type: text
+  requested_slot:
+    type: unfeaturized
+  departamento:
+    type: unfeaturized
+    auto_fill: false
+  entorno:
+    type: unfeaturized
+    auto_fill: false
+  ram:
+    type: unfeaturized
+    auto_fill: false
+  cpu_cores:
+    type: unfeaturized
+    auto_fill: false
+  disk_space:
+    type: unfeaturized
+    auto_fill: false
+  escalabilidad:
+    type: unfeaturized
+    auto_fill: false
+  observaciones:
+    type: unfeaturized
+    auto_fill: false
 
 
 actions:
@@ -52,6 +89,20 @@ actions:
 - utter_mas_ayuda
 - utter_sugerencias
 - utter_confirmar_atencion
+- utter_enviar_ticket_no
+- utter_confirmar_solicitud
+- utter_cancelado
+- utter_no_valido
+- utter_ask_departamento
+- utter_ask_entorno
+- utter_ask_ram
+- utter_ask_cpu_cores
+- utter_ask_disk_space
+- utter_ask_escalabilidad
+- utter_ask_observaciones
+- utter_compute_form_values
+- utter_chitchat
+- utter_continuar
 - utter_default
 - action_joke
 
@@ -72,12 +123,8 @@ templates:
         payload: "creacion de usuario"
       - title: "Recuperar contrasena"
         payload: "no recuerda contrasena"
-      - title: "Procesos matriculas"
-        payload: "ayuda proceso matricula"
-      - title: "Inscripcion materias"
-        payload: "registro materia"
-      - title: "Ayuda con equipos informaticos"
-        payload: "configuracion de equipo"
+      - title: "Solicitud Recursos Informaticos"
+        payload: "necesito maquina virtual"
 
 
   utter_despedida:
@@ -108,7 +155,7 @@ templates:
   - text: "Necesita ayuda en algo mas?"
     buttons:
       - title: "Si"
-        payload: "hola buenos dias"
+        payload: "mostrar opciones"
       - title: "No"
         payload: "finalizar sesion"
 
@@ -120,6 +167,101 @@ templates:
       - title: "No"
         payload: "no recuerda contrasena"
 
+  utter_enviar_ticket_no:
+  - text: "Su Nro. de ticket de solicitud es: {ticket_no}"
+
+  utter_confirmar_solicitud:
+  - text: "Su solicitud ha sido enviada exitosamente!. Por favor revise su correo electronico"
+
+  utter_cancelado:
+  - text: "Su requerimiento ha sido cancelado"
+
+  utter_no_valido:
+  - text: "El valor ingresado no es correcto"
+
+  utter_ask_departamento:
+  - text: "A que departamento pertenece?"
+
+  utter_ask_entorno:
+  - text: "En que entorno desea desplegarlo?"
+    buttons:
+      - title: "Desarrollo"
+        payload: "desarrollo"
+      - title: "Pruebas"
+        payload: "pruebas"
+      - title: "Produccion"
+        payload: "produccion"
+
+  utter_ask_ram:
+  - text: "Cuanta memoria RAM necesita?"
+    buttons:
+      - title: "8 GB"
+        payload: "8"
+      - title: "16 GB"
+        payload: "16"
+      - title: "32 GB"
+        payload: "32"
+
+  utter_ask_cpu_cores:
+  - text: "Cuantos nucles de CPU para procesamiento necesita?"
+    buttons:
+      - title: "1 CPU"
+        payload: "1"
+      - title: "2 CPUs"
+        payload: "2"
+      - title: "4 CPUs"
+        payload: "4"
+
+  utter_ask_disk_space:
+  - text: "Cuanta capacidad de almacenamiento necesita?"
+    buttons:
+      - title: "16 GB"
+        payload: "16"
+      - title: "128 GB"
+        payload: "128"
+      - title: "256 GB"
+        payload: "256"
+
+  utter_ask_escalabilidad:
+  - text: "Su proyecto necesita de ciertas caracteristicas de escalabilidad?"
+    buttons:
+      - title: "Si. Horizontal"
+        payload: "escalabilidad horizontal"
+      - title: "Si. Vertical"
+        payload: "escalabilidad vertical"
+
+  utter_ask_observaciones:
+  - text: "Desea incluir algunas observaciones adicionales?"
+
+  utter_compute_form_values:
+  - text: "Confirma que desea pedir los siguientes recursos computacionales?:\n
+     - Maquina virtual para el departamento: {departamento} con las siguientes caracteristicas\n
+     - Entorno: {entorno}\n
+     - Memoria RAM: {ram} GB\n
+     - Nucleos CPU: {cpu_cores}\n
+     - Espacio en disco duro: {disk_space} GB\n
+     - Escalabilidad: {escalabilidad}\n
+     - Observaciones: {observaciones}"
+    buttons:
+      - title: "Si"
+        payload: "confirmar"
+      - title: "No"
+        payload: "cancelar"
+
+  utter_chitchat:
+    - text: "No entiendo tu respuesta"
+    - text: "Tu respuesta no es muy clara"
+
+  utter_continuar:
+  - text: "Desea continuar con su solicitud?"
+    buttons:
+      - title: "Si"
+        payload: "confirmar"
+      - title: "No"
+        payload: "cancelar"
+
   utter_default:
   - text: "Lo siento! No entiendo su requerimiento. ¿Puede formular su pregunta de manera más específica?"
   
+forms:
+  - compute_resource_form

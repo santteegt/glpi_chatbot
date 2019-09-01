@@ -1,705 +1,376 @@
 ## intent:agradecimiento
 - muchas gracias
+- gracias
 - agradezco su su ayuda
 - gracias gracias
 
-## intent:asistencia_pregrado
-- buenas tardes requiero error configuracion malla [Cuenca Ciudad Universitaria](sujeto)
-- buenas tardes requiero problema problema generacion de acta de grado [Jenny Maricela Redrovan Macas](sujeto)
-- buenos dias revision migracion de notas [Coordinador Vinculacion Sociedad](sujeto)
-- revision anulacion actas de grado [Karina Sarmiento](sujeto)
-- hola necesito su ayuda inconveniente correccion fecha acta de grado
-- saludos necesito su ayuda inconveniente correccion fecha acta de grado [Juan Perez](sujeto)
-- hola ayuda problema migracion de notas [Jenny Maricela Redrovan Macas](sujeto)
-- buenos dias error cambio numero acta de grado [Cuenca Ciudad Universitaria](sujeto)
-- saludos necesito inconveniente revision registros estudiante [Karina Sarmiento](sujeto)
-- buenos dias requiero revision cambio numero acta de grado [Jenny Maricela Redrovan Macas](sujeto)
-- necesito su ayuda error configuracion de actas [Juan Perez](sujeto)
-- hola error problemas de numeración actas de grado [Jenny Maricela Redrovan Macas](sujeto)
-- saludos necesito su ayuda inconveniente revision registros estudiante [Juan Perez](sujeto)
-- saludos revision migracion de calificaciones [Joselito Juanete](sujeto)
-- buenas tardes requiero problema anulacion actas de grado [Coordinador Vinculacion Sociedad](sujeto)
-- ayuda error revision malla [Coordinador Vinculacion Sociedad](sujeto)
-- error problemas de numeración actas de grado [Coordinador Vinculacion Sociedad](sujeto)
-- buenos dias inconveniente configuracion de actas [Jenny Maricela Redrovan Macas](sujeto)
-- saludos necesito inconveniente migracion de calificaciones [Juan Perez](sujeto)
-- saludos ayuda error anulacion actas de grado [Cuenca Ciudad Universitaria](sujeto)
-- saludos solicito problema problemas de numeración actas de grado [Cuenca Ciudad Universitaria](sujeto)
-- buenas tardes requiero problema registro titulos historicos
-- buenos dias requiero problema configuracion malla [Juan Perez](sujeto)
-- buenas tardes necesito error problema generacion de acta de grado [Jenny Maricela Redrovan Macas](sujeto)
-- requiero error revision registros estudiante [Joselito Juanete](sujeto)
-- revision problemas de numeración actas de grado
-- hola problema cambio numero acta de grado [Jenny Maricela Redrovan Macas](sujeto)
-- problema revision registros estudiante
-- buenos dias necesito inconveniente revision registros estudiante [Joselito Juanete](sujeto)
-- saludos problema migracion de notas [Coordinador Vinculacion Sociedad](sujeto)
-- solicito revision configuracion de actas [Cuenca Ciudad Universitaria](sujeto)
-- buenas tardes requiero revision correccion fecha acta de grado [Jenny Maricela Redrovan Macas](sujeto)
-- hola problema revision malla [Juan Perez](sujeto)
-- saludos necesito su ayuda inconveniente migracion de calificaciones
-- solicito revision configuracion malla
-- saludos ayuda error revision malla [Cuenca Ciudad Universitaria](sujeto)
-- buenas tardes ayuda error revision malla [Coordinador Vinculacion Sociedad](sujeto)
-- hola solicito problema problemas de numeración actas de grado [Joselito Juanete](sujeto)
-- buenos dias necesito su ayuda error cambio numero acta de grado [Jenny Maricela Redrovan Macas](sujeto)
-- necesito revision registro titulos historicos [Cuenca Ciudad Universitaria](sujeto)
-- requiero inconveniente migracion de notas [Karina Sarmiento](sujeto)
-- buenas tardes requiero revision correccion fecha acta de grado [Coordinador Vinculacion Sociedad](sujeto)
-- buenas tardes requiero error registro titulos historicos [Karina Sarmiento](sujeto)
-- buenas tardes necesito error migracion de notas [Karina Sarmiento](sujeto)
-- saludos inconveniente configuracion de actas [Cuenca Ciudad Universitaria](sujeto)
-- saludos solicito error registro titulos historicos [Cuenca Ciudad Universitaria](sujeto)
-- buenas tardes necesito revision cambio numero acta de grado [Joselito Juanete](sujeto)
-- inconveniente configuracion malla [Jenny Maricela Redrovan Macas](sujeto)
-- saludos requiero problema correccion fecha acta de grado [Karina Sarmiento](sujeto)
-- saludos inconveniente migracion de calificaciones [Jenny Maricela Redrovan Macas](sujeto)
-- buenos dias requiero revision migracion de calificaciones [Jenny Maricela Redrovan Macas](sujeto)
-- requiero inconveniente revision malla [Jenny Maricela Redrovan Macas](sujeto)
-- hola problema revision registros estudiante [Juan Perez](sujeto)
-- buenas tardes error cambio numero acta de grado [Jenny Maricela Redrovan Macas](sujeto)
-- requiero problema revision malla
-- buenas tardes requiero inconveniente configuracion malla [Karina Sarmiento](sujeto)
-- ayuda error migracion de calificaciones [Cuenca Ciudad Universitaria](sujeto)
-- buenas tardes requiero problema migracion de calificaciones [Karina Sarmiento](sujeto)
-- saludos requiero problema revision malla [Karina Sarmiento](sujeto)
-- requiero problema migracion de notas [Joselito Juanete](sujeto)
-- hola solicito revision correccion fecha acta de grado [Coordinador Vinculacion Sociedad](sujeto)
-- error registro titulos historicos [Juan Perez](sujeto)
-- buenas tardes ayuda revision no se genera acta de grado [Karina Sarmiento](sujeto)
-- buenos dias inconveniente cambio numero acta de grado [Coordinador Vinculacion Sociedad](sujeto)
-- saludos necesito error migracion de notas [Cuenca Ciudad Universitaria](sujeto)
-- buenas tardes solicito problema configuracion malla
-- saludos necesito su ayuda error revision malla [Joselito Juanete](sujeto)
-- buenos dias necesito revision correccion fecha acta de grado [Jenny Maricela Redrovan Macas](sujeto)
-- buenas tardes solicito problema problema generacion de acta de grado [Joselito Juanete](sujeto)
-- hola necesito error problema generacion de acta de grado [Jenny Maricela Redrovan Macas](sujeto)
-- saludos solicito inconveniente migracion de notas
-- hola ayuda inconveniente migracion de notas [Coordinador Vinculacion Sociedad](sujeto)
-- saludos ayuda error revision registros estudiante [Coordinador Vinculacion Sociedad](sujeto)
-- hola problema revision registros estudiante
-- hola ayuda revision no se genera acta de grado
-- necesito inconveniente revision registros estudiante [Joselito Juanete](sujeto)
-- buenos dias necesito su ayuda error problemas de numeración actas de grado
-- buenas tardes necesito su ayuda error registro titulos historicos [Coordinador Vinculacion Sociedad](sujeto)
-- solicito inconveniente revision registros estudiante
-- buenas tardes ayuda error revision malla
-- requiero problema correccion fecha acta de grado [Jenny Maricela Redrovan Macas](sujeto)
-- revision anulacion actas de grado [Juan Perez](sujeto)
-- buenas tardes requiero error migracion de calificaciones [Karina Sarmiento](sujeto)
-- ayuda revision revision malla [Jenny Maricela Redrovan Macas](sujeto)
-- saludos necesito su ayuda problema problemas de numeración actas de grado [Jenny Maricela Redrovan Macas](sujeto)
-- requiero problema problema generacion de acta de grado [Jenny Maricela Redrovan Macas](sujeto)
-- hola ayuda revision revision registros estudiante [Coordinador Vinculacion Sociedad](sujeto)
-- hola requiero revision no se genera acta de grado [Joselito Juanete](sujeto)
-- hola revision revision registros estudiante
-- buenas tardes requiero revision configuracion de actas
-- necesito su ayuda problema configuracion malla [Cuenca Ciudad Universitaria](sujeto)
-- buenos dias ayuda revision configuracion malla [Joselito Juanete](sujeto)
-- necesito error problema generacion de acta de grado [Jenny Maricela Redrovan Macas](sujeto)
-- necesito error no se genera acta de grado [Jenny Maricela Redrovan Macas](sujeto)
-- saludos ayuda problema problema generacion de acta de grado [Karina Sarmiento](sujeto)
-- buenas tardes necesito problema migracion de calificaciones [Cuenca Ciudad Universitaria](sujeto)
-- buenos dias necesito problema problemas de numeración actas de grado [Joselito Juanete](sujeto)
-- buenas tardes necesito inconveniente registro titulos historicos
-- hola solicito inconveniente registro titulos historicos
-- saludos necesito problema configuracion de actas [Juan Perez](sujeto)
-- revision problema generacion de acta de grado [Karina Sarmiento](sujeto)
-- buenos dias inconveniente problema generacion de acta de grado [Juan Perez](sujeto)
-- hola requiero inconveniente registro titulos historicos [Cuenca Ciudad Universitaria](sujeto)
-- buenas tardes necesito problema configuracion de actas [Juan Perez](sujeto)
-- saludos necesito su ayuda problema revision malla [Jenny Maricela Redrovan Macas](sujeto)
-- buenas tardes necesito inconveniente configuracion de actas [Joselito Juanete](sujeto)
-- hola ayuda error correccion fecha acta de grado [Coordinador Vinculacion Sociedad](sujeto)
-- buenas tardes revision no se genera acta de grado [Karina Sarmiento](sujeto)
-- requiero problema cambio numero acta de grado
-- buenas tardes problema problemas de numeración actas de grado
-- buenas tardes necesito error registro titulos historicos [Joselito Juanete](sujeto)
-- hola revision configuracion de actas [Coordinador Vinculacion Sociedad](sujeto)
-- buenas tardes ayuda problema migracion de notas [Cuenca Ciudad Universitaria](sujeto)
-- necesito inconveniente no se genera acta de grado [Joselito Juanete](sujeto)
-- hola solicito error migracion de notas [Joselito Juanete](sujeto)
-- buenos dias necesito error no se genera acta de grado [Jenny Maricela Redrovan Macas](sujeto)
-- hola inconveniente registro titulos historicos [Cuenca Ciudad Universitaria](sujeto)
-- saludos error problema generacion de acta de grado [Karina Sarmiento](sujeto)
-- buenos dias solicito problema migracion de calificaciones [Jenny Maricela Redrovan Macas](sujeto)
-- saludos necesito su ayuda revision problemas de numeración actas de grado
-- buenas tardes ayuda error registro titulos historicos [Cuenca Ciudad Universitaria](sujeto)
-- hola ayuda problema problemas de numeración actas de grado [Jenny Maricela Redrovan Macas](sujeto)
-- saludos revision migracion de notas [Coordinador Vinculacion Sociedad](sujeto)
-- hola revision revision registros estudiante [Karina Sarmiento](sujeto)
-- hola necesito error configuracion malla [Joselito Juanete](sujeto)
-- hola necesito su ayuda error configuracion malla [Juan Perez](sujeto)
-- saludos revision anulacion actas de grado [Karina Sarmiento](sujeto)
-- solicito inconveniente registro titulos historicos
-- requiero error correccion fecha acta de grado [Jenny Maricela Redrovan Macas](sujeto)
-- requiero error revision malla [Jenny Maricela Redrovan Macas](sujeto)
-- hola ayuda revision problemas de numeración actas de grado [Cuenca Ciudad Universitaria](sujeto)
-- requiero problema anulacion actas de grado [Karina Sarmiento](sujeto)
-- requiero revision migracion de calificaciones
-- solicito error correccion fecha acta de grado [Karina Sarmiento](sujeto)
-- buenas tardes ayuda inconveniente migracion de calificaciones [Coordinador Vinculacion Sociedad](sujeto)
-- buenos dias necesito problema correccion fecha acta de grado [Cuenca Ciudad Universitaria](sujeto)
-- saludos solicito revision migracion de calificaciones [Jenny Maricela Redrovan Macas](sujeto)
-- hola requiero problema cambio numero acta de grado [Karina Sarmiento](sujeto)
-- buenas tardes error revision registros estudiante [Karina Sarmiento](sujeto)
-- buenos dias necesito su ayuda revision configuracion de actas [Jenny Maricela Redrovan Macas](sujeto)
-- hola requiero problema configuracion de actas [Karina Sarmiento](sujeto)
-- saludos ayuda revision cambio numero acta de grado
-- hola requiero error configuracion de actas [Juan Perez](sujeto)
-- buenas tardes necesito problema configuracion malla
-- necesito revision migracion de calificaciones
-- saludos solicito inconveniente migracion de calificaciones [Cuenca Ciudad Universitaria](sujeto)
-- requiero problema migracion de calificaciones [Karina Sarmiento](sujeto)
-- hola necesito su ayuda inconveniente revision registros estudiante [Cuenca Ciudad Universitaria](sujeto)
-- buenos dias solicito inconveniente configuracion malla [Coordinador Vinculacion Sociedad](sujeto)
-- error cambio numero acta de grado
-- saludos necesito problema registro titulos historicos [Joselito Juanete](sujeto)
-- saludos necesito revision revision registros estudiante
-- buenas tardes solicito problema no se genera acta de grado [Cuenca Ciudad Universitaria](sujeto)
-- buenos dias requiero problema configuracion de actas [Coordinador Vinculacion Sociedad](sujeto)
-- hola revision registro titulos historicos [Jenny Maricela Redrovan Macas](sujeto)
-- buenos dias necesito inconveniente configuracion malla [Karina Sarmiento](sujeto)
-- inconveniente configuracion de actas [Juan Perez](sujeto)
-- hola necesito inconveniente anulacion actas de grado [Jenny Maricela Redrovan Macas](sujeto)
-- hola solicito revision configuracion malla [Joselito Juanete](sujeto)
-- hola solicito problema no se genera acta de grado [Karina Sarmiento](sujeto)
-- hola revision migracion de notas [Jenny Maricela Redrovan Macas](sujeto)
-- hola necesito inconveniente revision malla [Joselito Juanete](sujeto)
-- inconveniente migracion de notas
-- ayuda problema migracion de notas [Joselito Juanete](sujeto)
-- hola necesito su ayuda problema migracion de calificaciones [Karina Sarmiento](sujeto)
-- solicito revision revision registros estudiante [Cuenca Ciudad Universitaria](sujeto)
-- buenos dias requiero problema revision malla [Jenny Maricela Redrovan Macas](sujeto)
-- hola solicito revision revision registros estudiante [Karina Sarmiento](sujeto)
-- hola error anulacion actas de grado
-- buenos dias solicito error revision malla [Jenny Maricela Redrovan Macas](sujeto)
-- hola ayuda problema anulacion actas de grado [Jenny Maricela Redrovan Macas](sujeto)
-- solicito problema configuracion malla [Coordinador Vinculacion Sociedad](sujeto)
-- saludos solicito problema cambio numero acta de grado [Juan Perez](sujeto)
-- saludos ayuda inconveniente anulacion actas de grado [Karina Sarmiento](sujeto)
-- saludos necesito su ayuda problema cambio numero acta de grado [Karina Sarmiento](sujeto)
-- error configuracion malla [Coordinador Vinculacion Sociedad](sujeto)
-- hola ayuda problema migracion de notas [Joselito Juanete](sujeto)
-- hola solicito revision registro titulos historicos [Juan Perez](sujeto)
-- hola ayuda revision migracion de calificaciones [Jenny Maricela Redrovan Macas](sujeto)
-- hola necesito su ayuda problema configuracion malla
-- buenas tardes requiero revision anulacion actas de grado [Jenny Maricela Redrovan Macas](sujeto)
-- buenos dias solicito inconveniente configuracion de actas [Coordinador Vinculacion Sociedad](sujeto)
-- buenos dias solicito error anulacion actas de grado [Juan Perez](sujeto)
-- saludos requiero error configuracion malla [Joselito Juanete](sujeto)
-- buenas tardes ayuda error configuracion malla [Juan Perez](sujeto)
-- hola necesito su ayuda error cambio numero acta de grado [Jenny Maricela Redrovan Macas](sujeto)
-- buenas tardes ayuda inconveniente problemas de numeración actas de grado [Jenny Maricela Redrovan Macas](sujeto)
-- buenas tardes necesito su ayuda revision anulacion actas de grado [Coordinador Vinculacion Sociedad](sujeto)
-- saludos necesito problema configuracion de actas [Joselito Juanete](sujeto)
-- problema cambio numero acta de grado [Joselito Juanete](sujeto)
-- solicito error problema generacion de acta de grado [Juan Perez](sujeto)
-- buenas tardes requiero problema configuracion malla [Juan Perez](sujeto)
-- buenas tardes inconveniente registro titulos historicos [Cuenca Ciudad Universitaria](sujeto)
-- buenas tardes requiero problema problema generacion de acta de grado [Cuenca Ciudad Universitaria](sujeto)
-- saludos necesito inconveniente registro titulos historicos
-- solicito inconveniente problema generacion de acta de grado [Coordinador Vinculacion Sociedad](sujeto)
-- requiero inconveniente revision malla [Cuenca Ciudad Universitaria](sujeto)
-- buenos dias necesito problema cambio numero acta de grado [Cuenca Ciudad Universitaria](sujeto)
-- saludos requiero problema problemas de numeración actas de grado [Jenny Maricela Redrovan Macas](sujeto)
-- hola ayuda inconveniente migracion de calificaciones [Coordinador Vinculacion Sociedad](sujeto)
+## intent:cancelar
+- no
+- negativo
+- cancelar
+- cancelado
+- cancela
+- parar
+- salir
+- denegado
+- oh no
+- no es lo que deseo
+- no me sirve
+
+## intent:chitchat
+- quien eres?
+- quien es tu creador?
+- como te encuentras?
+- que tal tu dia?
+- como es el clima de hoy?
+- esta lloviendo?
+- feliz dia
+- como sera el clima de hoy?
 
 ## intent:confirmar
 - si
+- si si si
+- esta bien
 - ok
+- confirmado
+- de acuerdo
+- confirmar
+- corroborar
+- ratificar
+- convalidar
 
 ## intent:correo_electronico
-- mi correo electronico [hernan.gonzalez@ucuenca.edu.ec](email)
-- correo [ronald.gualan@ucuenca.ec](email)
-- electronico [hernan.gonzalezt@ucuenca.ec](email)
-- mi [victor.saquicela@ucuenca.edu.ec](email)
+- correo electronico [hernan.gonzalezt@ucuenca.ec](email)
+- [hernan.gonzalez@ucuenca.edu.ec](email)
+- mi correo [ronald.gualan@ucuenca.ec](email)
+- mi [hernan.gonzalezt@ucuenca.ec](email)
 
 ## intent:creacion_usuarios
-- hola necesito su ayuda creacion de cuenta de usuario [Urkund](sistema) para [Dr](trato) [Juan Perez](sujeto) [Ing](facultad)
-- saludos necesito registrar personal [Quipux](sistema) [Dr](trato) [Jenny Maricela Redrovan Macas](sujeto) [Ingenieria](facultad)
-- hola solicito creacion de cuenta de usuario [Sistemas Institucionales](sistema) para [Jenny Maricela Redrovan Macas](sujeto) [Sistemas](facultad)
-- ayuda creacion de cuenta [Sistemas Institucionales](sistema) para [Sra](trato) [Joselito Juanete](sujeto) [Ing](facultad)
-- saludos requiero registrar personal [Sistemas Institucionales](sistema) para [Dr](trato) [Coordinador Vinculacion Sociedad](sujeto) [Sistemas](facultad)
-- buenos dias creacion de cuenta [GLPI](sistema) para [Sr](trato) [Juan Perez](sujeto) [Facultad Medicina](facultad)
-- ayuda crear usuario y asignar roles [Dr](trato) [Cuenca Ciudad Universitaria](sujeto) [Electronica](facultad)
-- buenas tardes requiero acceso a [GLPI](sistema) [Secretaria Abogada](trato) [Juan Perez](sujeto) [Electronica](facultad)
-- saludos necesito creacion de cuenta de usuario [Portafolio](sistema) para [Ing](trato) [Joselito Juanete](sujeto) [Civil](facultad)
-- buenos dias necesito acceso al sistema [GLPI](sistema) [Lcdo](trato) [Coordinador Vinculacion Sociedad](sujeto) [Sistemas](facultad)
-- crear nuevo usuario [eVirtual](sistema) [Sra](trato) [Coordinador Vinculacion Sociedad](sujeto) [Electronica](facultad)
-- saludos requiero creacion de cuenta [Portafolio](sistema) [Dr](trato) [Jenny Maricela Redrovan Macas](sujeto) [Civil](facultad)
-- buenas tardes crear nuevo usuario [Lcda](trato) [Karina Sarmiento](sujeto) [Facultad Ingenieria](facultad)
-- buenos dias solicito creacion de cuenta [OpenERP](sistema) para [Sr](trato) [Jenny Maricela Redrovan Macas](sujeto)
-- saludos requiero acceso al sistema [Urkund](sistema) para [Lcdo](trato) [Joselito Juanete](sujeto) [Facultad Psicologia](facultad)
-- saludos crear usuario y asignar roles [eVirtual](sistema) para [Karina Sarmiento](sujeto) [Facultad Ingenieria](facultad)
-- hola acceso a para [Lcda](trato) [Karina Sarmiento](sujeto) [Facultad Psicologia](facultad)
-- hola necesito creacion de usuario [Portafolio](sistema) para [Ing](trato) [Joselito Juanete](sujeto) [Ingenieria](facultad)
-- buenos dias necesito creacion de cuenta de usuario [Lcda](trato) [Cuenca Ciudad Universitaria](sujeto) [Facultad Hospitalidad](facultad)
-- buenos dias solicito acceso al sistema [Sistemas Institucionales](sistema) [Lcdo](trato) [Karina Sarmiento](sujeto) [Facultad Psicologia](facultad)
-- buenas tardes solicito creacion de cuenta de usuario [Quipux](sistema) [Secretaria Abogada](trato) [Jenny Maricela Redrovan Macas](sujeto) [Facultad Ingenieria](facultad)
-- hola ayuda crear nuevo usuario [Quipux](sistema) [Dr](trato) [Juan Perez](sujeto) [Civil](facultad)
-- buenas tardes solicito acceso al sistema [Urkund](sistema) para [Sra](trato) [Cuenca Ciudad Universitaria](sujeto) [Facultad Ingenieria](facultad)
-- saludos creacion de cuenta [GLPI](sistema) para [Estudiante](trato) [Karina Sarmiento](sujeto) [Facultad Ingenieria](facultad)
-- creacion de cuenta [Urkund](sistema) para [Ing](trato) [Coordinador Vinculacion Sociedad](sujeto) [Ing](facultad)
-- requiero crear usuario y asignar roles [GLPI](sistema) [Sr](trato) [Joselito Juanete](sujeto) [Electrica](facultad)
-- buenos dias necesito su ayuda creacion de usuario [eVirtual](sistema) [Sr](trato) [Jenny Maricela Redrovan Macas](sujeto) [Ingenieria](facultad)
-- hola creacion de usuario [Sistemas Institucionales](sistema) para [Lcda](trato) [Karina Sarmiento](sujeto) [Sistemas](facultad)
-- buenas tardes requiero creacion de cuenta [OpenERP](sistema) [Lcda](trato) [Joselito Juanete](sujeto) [Ing](facultad)
-- buenas tardes necesito creacion de cuenta de usuario [GLPI](sistema) para [Dr](trato) [Karina Sarmiento](sujeto) [Ingenieria](facultad)
-- buenas tardes requiero registrar personal [GLPI](sistema) [Dr](trato) [Joselito Juanete](sujeto) [Electrica](facultad)
-- saludos requiero crear usuario y asignar roles [eVirtual](sistema) [Estudiante](trato) [Coordinador Vinculacion Sociedad](sujeto) [Facultad Medicina](facultad)
-- solicito crear usuario y asignar roles [Quipux](sistema) [Secretaria Abogada](trato) [Cuenca Ciudad Universitaria](sujeto) [Ingenieria](facultad)
-- saludos requiero crear nuevo usuario [GLPI](sistema) [Dr](trato) [Karina Sarmiento](sujeto) [Ing](facultad)
-- saludos creacion de usuario [Quipux](sistema) [Lcdo](trato) [Cuenca Ciudad Universitaria](sujeto) [Facultad Medicina](facultad)
-- hola acceso a [GLPI](sistema) [Director](trato) [Joselito Juanete](sujeto) [Facultad Medicina](facultad)
-- buenos dias solicito crear nuevo usuario [eVirtual](sistema) [Sr](trato) [Coordinador Vinculacion Sociedad](sujeto) [Facultad Hospitalidad](facultad)
-- requiero creacion de usuario para [Dr](trato) [Coordinador Vinculacion Sociedad](sujeto) [Sistemas](facultad)
-- buenos dias necesito su ayuda acceso al sistema [OpenERP](sistema) para [Secretaria Abogada](trato) [Joselito Juanete](sujeto) [Electronica](facultad)
-- hola ayuda creacion de usuario [Sistemas Institucionales](sistema) para [Director](trato) [Joselito Juanete](sujeto) [Facultad Hospitalidad](facultad)
-- requiero registrar personal [GLPI](sistema) [Dr](trato) [Jenny Maricela Redrovan Macas](sujeto) [Electrica](facultad)
-- buenas tardes necesito acceso a [OpenERP](sistema) [Lcda](trato) [Joselito Juanete](sujeto) [Civil](facultad)
-- solicito creacion de cuenta para [Sra](trato) [Karina Sarmiento](sujeto) [Facultad Ingenieria](facultad)
-- hola solicito acceso a [Ing](trato) [Jenny Maricela Redrovan Macas](sujeto) [Electrica](facultad)
-- ayuda registrar personal [Quipux](sistema) para [Joselito Juanete](sujeto) [Ing](facultad)
-- ayuda crear usuario y asignar roles [OpenERP](sistema) [Lcda](trato) [Coordinador Vinculacion Sociedad](sujeto) [Sistemas](facultad)
-- buenas tardes ayuda creacion de usuario [Estudiante](trato) [Coordinador Vinculacion Sociedad](sujeto) [Facultad Hospitalidad](facultad)
-- buenas tardes ayuda creacion de usuario [Portafolio](sistema) para [Secretaria Abogada](trato) [Joselito Juanete](sujeto)
-- buenos dias crear usuario y asignar roles [Quipux](sistema) [Lcda](trato) [Joselito Juanete](sujeto) [Facultad Medicina](facultad)
-- requiero creacion de cuenta de usuario [Sistemas Institucionales](sistema) para [Director](trato) [Juan Perez](sujeto) [Facultad Ingenieria](facultad)
-- necesito acceso al sistema [Portafolio](sistema) [Director](trato) [Coordinador Vinculacion Sociedad](sujeto) [Civil](facultad)
-- creacion de cuenta [Portafolio](sistema) [Lcdo](trato) [Juan Perez](sujeto) [Electronica](facultad)
-- crear usuario y asignar roles para [Secretaria Abogada](trato) [Juan Perez](sujeto) [Ingenieria](facultad)
-- buenas tardes necesito creacion de cuenta de usuario [OpenERP](sistema) [Estudiante](trato) [Jenny Maricela Redrovan Macas](sujeto) [Ing](facultad)
-- saludos acceso a [OpenERP](sistema) [Sra](trato) [Cuenca Ciudad Universitaria](sujeto) [Electrica](facultad)
-- buenos dias necesito su ayuda acceso a [Urkund](sistema) para [Sra](trato) [Coordinador Vinculacion Sociedad](sujeto) [Sistemas](facultad)
-- buenas tardes requiero acceso al sistema [Quipux](sistema) para [Lcdo](trato) [Joselito Juanete](sujeto) [Facultad Medicina](facultad)
-- saludos solicito acceso al sistema [Sistemas Institucionales](sistema) para [Lcdo](trato) [Jenny Maricela Redrovan Macas](sujeto) [Ingenieria](facultad)
-- hola solicito acceso al sistema [Sistemas Institucionales](sistema) para [Ing](trato) [Karina Sarmiento](sujeto) [Ing](facultad)
-- hola necesito su ayuda creacion de cuenta de usuario [GLPI](sistema) para [Director](trato) [Juan Perez](sujeto) [Civil](facultad)
-- hola solicito crear usuario y asignar roles para [Director](trato) [Karina Sarmiento](sujeto) [Ing](facultad)
-- hola necesito creacion de cuenta [OpenERP](sistema) [Sra](trato) [Coordinador Vinculacion Sociedad](sujeto)
-- buenos dias necesito su ayuda creacion de cuenta [GLPI](sistema) para [Lcdo](trato) [Karina Sarmiento](sujeto) [Civil](facultad)
-- hola solicito creacion de usuario [GLPI](sistema) [Sr](trato) [Karina Sarmiento](sujeto) [Electrica](facultad)
-- buenas tardes creacion de cuenta de usuario [Quipux](sistema) para [Ing](trato) [Cuenca Ciudad Universitaria](sujeto) [Ingenieria](facultad)
-- buenas tardes ayuda crear nuevo usuario [GLPI](sistema) [Director](trato) [Juan Perez](sujeto) [Ing](facultad)
-- hola requiero creacion de cuenta [Portafolio](sistema) para [Estudiante](trato) [Coordinador Vinculacion Sociedad](sujeto)
-- saludos crear nuevo usuario [eVirtual](sistema) para [Lcda](trato) [Karina Sarmiento](sujeto) [Sistemas](facultad)
-- hola solicito creacion de usuario [eVirtual](sistema) para [Director](trato) [Karina Sarmiento](sujeto) [Ing](facultad)
-- saludos requiero crear nuevo usuario [Quipux](sistema) para [Secretaria Abogada](trato) [Jenny Maricela Redrovan Macas](sujeto) [Electrica](facultad)
-- buenas tardes requiero acceso al sistema para [Lcdo](trato) [Coordinador Vinculacion Sociedad](sujeto)
-- solicito registrar personal [OpenERP](sistema) para [Ing](trato) [Cuenca Ciudad Universitaria](sujeto) [Facultad Ingenieria](facultad)
-- hola ayuda acceso a [Quipux](sistema) para [Lcda](trato) [Joselito Juanete](sujeto) [Civil](facultad)
-- ayuda crear usuario y asignar roles [eVirtual](sistema) para [Secretaria Abogada](trato) [Joselito Juanete](sujeto) [Facultad Medicina](facultad)
-- hola solicito crear usuario y asignar roles [Urkund](sistema) para [Ing](trato) [Joselito Juanete](sujeto) [Sistemas](facultad)
-- buenos dias necesito su ayuda creacion de cuenta [Quipux](sistema) para [Estudiante](trato) [Cuenca Ciudad Universitaria](sujeto) [Facultad Psicologia](facultad)
-- saludos necesito crear nuevo usuario [Lcda](trato) [Juan Perez](sujeto) [Ingenieria](facultad)
-- saludos necesito su ayuda acceso al sistema [Urkund](sistema) [Dr](trato) [Karina Sarmiento](sujeto)
-- saludos requiero crear nuevo usuario [OpenERP](sistema) para [Sra](trato) [Juan Perez](sujeto) [Civil](facultad)
-- hola ayuda creacion de usuario [Sistemas Institucionales](sistema) para [Secretaria Abogada](trato) [Karina Sarmiento](sujeto) [Facultad Ingenieria](facultad)
-- buenas tardes solicito acceso al sistema [Sistemas Institucionales](sistema) para [Dr](trato) [Karina Sarmiento](sujeto) [Electronica](facultad)
-- hola necesito acceso al sistema [eVirtual](sistema) [Director](trato) [Cuenca Ciudad Universitaria](sujeto) [Facultad Ingenieria](facultad)
-- hola necesito su ayuda acceso al sistema [Portafolio](sistema) [Dr](trato) [Joselito Juanete](sujeto) [Electronica](facultad)
-- ayuda acceso a [Quipux](sistema) [Lcdo](trato) [Cuenca Ciudad Universitaria](sujeto) [Ingenieria](facultad)
-- saludos creacion de cuenta [Portafolio](sistema) [Lcdo](trato) [Coordinador Vinculacion Sociedad](sujeto) [Facultad Medicina](facultad)
-- saludos ayuda creacion de cuenta [OpenERP](sistema) para [Lcdo](trato) [Karina Sarmiento](sujeto) [Facultad Medicina](facultad)
-- hola requiero crear nuevo usuario [Sistemas Institucionales](sistema) para [Karina Sarmiento](sujeto) [Facultad Medicina](facultad)
-- saludos necesito su ayuda crear nuevo usuario [eVirtual](sistema) para [Dr](trato) [Juan Perez](sujeto) [Ing](facultad)
-- buenas tardes requiero crear usuario y asignar roles [Sistemas Institucionales](sistema) para [Estudiante](trato) [Jenny Maricela Redrovan Macas](sujeto) [Facultad Psicologia](facultad)
-- buenas tardes necesito acceso a [Director](trato) [Juan Perez](sujeto) [Ingenieria](facultad)
-- buenos dias necesito su ayuda crear usuario y asignar roles para [Ing](trato) [Karina Sarmiento](sujeto)
-- requiero crear usuario y asignar roles [Quipux](sistema) para [Lcda](trato) [Joselito Juanete](sujeto) [Facultad Medicina](facultad)
-- hola creacion de cuenta de usuario [Portafolio](sistema) [Ing](trato) [Joselito Juanete](sujeto) [Electrica](facultad)
-- buenos dias solicito acceso a [Urkund](sistema) [Ing](trato) [Cuenca Ciudad Universitaria](sujeto) [Facultad Medicina](facultad)
-- hola requiero creacion de cuenta de usuario [Quipux](sistema) [Secretaria Abogada](trato) [Cuenca Ciudad Universitaria](sujeto)
-- buenas tardes ayuda crear nuevo usuario [Urkund](sistema) para [Ing](trato) [Joselito Juanete](sujeto)
-- buenas tardes solicito crear usuario y asignar roles [Urkund](sistema) para [Sra](trato) [Juan Perez](sujeto) [Sistemas](facultad)
-- registrar personal [Urkund](sistema) para [Secretaria Abogada](trato) [Joselito Juanete](sujeto) [Civil](facultad)
-- saludos ayuda crear nuevo usuario [GLPI](sistema) para [Lcdo](trato) [Karina Sarmiento](sujeto) [Ingenieria](facultad)
-- buenas tardes ayuda acceso al sistema [OpenERP](sistema) para [Dr](trato) [Joselito Juanete](sujeto)
+- saludos solicito registrar personal [Urkund](sistema) [Estudiante](trato) [Coordinador Vinculacion Sociedad](sujeto) [Civil](facultad)
+- hola ayuda acceso al sistema [Sistemas Institucionales](sistema) [Secretaria Abogada](trato) [Coordinador Vinculacion Sociedad](sujeto) [Ing](facultad)
+- solicito creacion de usuario [Urkund](sistema) para [Lcda](trato) [Juan Perez](sujeto)
+- hola necesito registrar personal para [Director](trato) [Coordinador Vinculacion Sociedad](sujeto) [Ingenieria](facultad)
+- saludos ayuda creacion de cuenta de usuario [Sistemas Institucionales](sistema) [Juan Perez](sujeto) [Ingenieria](facultad)
+- buenas tardes solicito creacion de cuenta de usuario [GLPI](sistema) para [Ing](trato) [Cuenca Ciudad Universitaria](sujeto) [Electrica](facultad)
+- hola requiero registrar personal [Urkund](sistema) [Sra](trato) [Juan Perez](sujeto) [Ingenieria](facultad)
+- buenas tardes solicito creacion de cuenta [Sistemas Institucionales](sistema) para [Lcda](trato) [Jenny Maricela Redrovan Macas](sujeto) [Civil](facultad)
+- creacion de usuario [Urkund](sistema) [Lcda](trato) [Joselito Juanete](sujeto) [Electronica](facultad)
+- buenas tardes acceso a [GLPI](sistema) para [Dr](trato) [Juan Perez](sujeto)
+- crear nuevo usuario [eVirtual](sistema) [Secretaria Abogada](trato) [Juan Perez](sujeto) [Electrica](facultad)
+- necesito ayuda creacion de usuario para [Estudiante](trato) [Karina Sarmiento](sujeto) [Civil](facultad)
+- buenas tardes ayuda creacion de cuenta [OpenERP](sistema) para [Sr](trato) [Juan Perez](sujeto) [Facultad Hospitalidad](facultad)
+- hola registrar personal [Urkund](sistema) [Sra](trato) [Karina Sarmiento](sujeto) [Civil](facultad)
+- saludos necesito crear nuevo usuario [GLPI](sistema) [Dr](trato) [Juan Perez](sujeto) [Sistemas](facultad)
+- hola requiero creacion de usuario [eVirtual](sistema) [Estudiante](trato) [Cuenca Ciudad Universitaria](sujeto) [Facultad Psicologia](facultad)
+- saludos necesito creacion de usuario [Sistemas Institucionales](sistema) [Secretaria Abogada](trato) [Juan Perez](sujeto) [Electronica](facultad)
+- saludos necesito acceso a [Quipux](sistema) [Ing](trato) [Coordinador Vinculacion Sociedad](sujeto) [Electronica](facultad)
+- buenas tardes acceso a [OpenERP](sistema) para [Estudiante](trato) [Karina Sarmiento](sujeto) [Ingenieria](facultad)
+- hola necesito ayuda creacion de cuenta de usuario [Lcdo](trato) [Coordinador Vinculacion Sociedad](sujeto) [Electrica](facultad)
+- buenas tardes ayuda crear usuario y asignar roles [Portafolio](sistema) para [Sra](trato) [Jenny Maricela Redrovan Macas](sujeto) [Electrica](facultad)
+- saludos requiero creacion de cuenta de usuario [Sr](trato) [Coordinador Vinculacion Sociedad](sujeto) [Sistemas](facultad)
+- buenas tardes ayuda acceso al sistema [GLPI](sistema) [Cuenca Ciudad Universitaria](sujeto) [Sistemas](facultad)
+- hola requiero registrar personal [GLPI](sistema) [Dr](trato) [Cuenca Ciudad Universitaria](sujeto) [Civil](facultad)
+- saludos necesito crear usuario y asignar roles [GLPI](sistema) [Secretaria Abogada](trato) [Joselito Juanete](sujeto) [Facultad Ingenieria](facultad)
+- saludos requiero creacion de cuenta de usuario [Sistemas Institucionales](sistema) [Dr](trato) [Jenny Maricela Redrovan Macas](sujeto) [Sistemas](facultad)
+- creacion de cuenta de usuario [GLPI](sistema) [Dr](trato) [Jenny Maricela Redrovan Macas](sujeto) [Ing](facultad)
+- solicito creacion de cuenta de usuario [Sistemas Institucionales](sistema) [Director](trato) [Joselito Juanete](sujeto) [Civil](facultad)
+- necesito crear nuevo usuario [eVirtual](sistema) [Lcda](trato) [Coordinador Vinculacion Sociedad](sujeto) [Facultad Ingenieria](facultad)
+- buenas tardes ayuda creacion de usuario [Portafolio](sistema) [Lcda](trato) [Coordinador Vinculacion Sociedad](sujeto) [Sistemas](facultad)
+- requiero creacion de cuenta de usuario para [Ing](trato) [Cuenca Ciudad Universitaria](sujeto) [Ing](facultad)
+- buenas tardes necesito crear usuario y asignar roles [Sistemas Institucionales](sistema) [Estudiante](trato) [Cuenca Ciudad Universitaria](sujeto)
+- hola requiero creacion de cuenta [Sistemas Institucionales](sistema) para [Sra](trato) [Coordinador Vinculacion Sociedad](sujeto) [Sistemas](facultad)
+- saludos ayuda crear nuevo usuario [eVirtual](sistema) para [Sra](trato) [Karina Sarmiento](sujeto)
+- hola requiero creacion de cuenta de usuario [eVirtual](sistema) [Ing](trato) [Coordinador Vinculacion Sociedad](sujeto) [Sistemas](facultad)
+- buenos dias ayuda creacion de cuenta [Portafolio](sistema) [Dr](trato) [Jenny Maricela Redrovan Macas](sujeto) [Facultad Psicologia](facultad)
+- buenas tardes creacion de cuenta de usuario [GLPI](sistema) [Ing](trato) [Jenny Maricela Redrovan Macas](sujeto) [Electrica](facultad)
+- hola acceso a [OpenERP](sistema) para [Secretaria Abogada](trato) [Coordinador Vinculacion Sociedad](sujeto) [Civil](facultad)
+- saludos requiero creacion de cuenta [OpenERP](sistema) [Sr](trato) [Juan Perez](sujeto)
+- hola necesito acceso al sistema [Portafolio](sistema) [Jenny Maricela Redrovan Macas](sujeto) [Civil](facultad)
+- saludos ayuda crear nuevo usuario [Portafolio](sistema) [Dr](trato) [Juan Perez](sujeto) [Facultad Hospitalidad](facultad)
+- buenas tardes solicito creacion de cuenta de usuario [Urkund](sistema) para [Lcda](trato) [Karina Sarmiento](sujeto) [Electronica](facultad)
+- saludos necesito crear usuario y asignar roles [Urkund](sistema) [Secretaria Abogada](trato) [Jenny Maricela Redrovan Macas](sujeto) [Electrica](facultad)
+- buenas tardes creacion de cuenta de usuario [Portafolio](sistema) para [Sr](trato) [Joselito Juanete](sujeto) [Facultad Psicologia](facultad)
+- buenas tardes ayuda creacion de usuario [Quipux](sistema) [Lcda](trato) [Coordinador Vinculacion Sociedad](sujeto) [Electronica](facultad)
+- buenas tardes creacion de cuenta de usuario [GLPI](sistema) [Secretaria Abogada](trato) [Cuenca Ciudad Universitaria](sujeto) [Facultad Medicina](facultad)
+- buenas tardes crear nuevo usuario [Portafolio](sistema) [Dr](trato) [Cuenca Ciudad Universitaria](sujeto) [Facultad Ingenieria](facultad)
+- buenas tardes crear nuevo usuario [OpenERP](sistema) [Sr](trato) [Cuenca Ciudad Universitaria](sujeto) [Facultad Hospitalidad](facultad)
+- saludos necesito creacion de usuario [GLPI](sistema) [Lcdo](trato) [Juan Perez](sujeto) [Electrica](facultad)
+- hola necesito ayuda registrar personal [Sistemas Institucionales](sistema) para [Secretaria Abogada](trato) [Joselito Juanete](sujeto) [Facultad Medicina](facultad)
+- buenos dias solicito registrar personal [Sistemas Institucionales](sistema) para [Sra](trato) [Coordinador Vinculacion Sociedad](sujeto) [Electronica](facultad)
+- buenas tardes solicito creacion de usuario [Joselito Juanete](sujeto) [Sistemas](facultad)
+- saludos requiero crear nuevo usuario [Sistemas Institucionales](sistema) para [Ing](trato) [Joselito Juanete](sujeto)
+- buenas tardes acceso al sistema [Quipux](sistema) para [Lcda](trato) [Coordinador Vinculacion Sociedad](sujeto) [Ing](facultad)
+- saludos solicito crear usuario y asignar roles para [Estudiante](trato) [Joselito Juanete](sujeto) [Electronica](facultad)
+- necesito ayuda acceso al sistema [Sistemas Institucionales](sistema) [Secretaria Abogada](trato) [Cuenca Ciudad Universitaria](sujeto) [Electronica](facultad)
+- hola solicito registrar personal [Quipux](sistema) [Secretaria Abogada](trato) [Joselito Juanete](sujeto) [Ing](facultad)
+- necesito ayuda registrar personal [Urkund](sistema) [Jenny Maricela Redrovan Macas](sujeto) [Civil](facultad)
+- buenas tardes solicito registrar personal [Urkund](sistema) para [Ing](trato) [Jenny Maricela Redrovan Macas](sujeto) [Facultad Ingenieria](facultad)
+- requiero acceso a [Portafolio](sistema) para [Lcda](trato) [Juan Perez](sujeto)
+- saludos registrar personal [eVirtual](sistema) [Director](trato) [Karina Sarmiento](sujeto) [Ing](facultad)
+- creacion de usuario [eVirtual](sistema) para [Ing](trato) [Joselito Juanete](sujeto) [Civil](facultad)
+- buenas tardes necesito acceso a [GLPI](sistema) para [Lcda](trato) [Juan Perez](sujeto) [Electrica](facultad)
+- hola necesito ayuda acceso a [Urkund](sistema) para [Secretaria Abogada](trato) [Joselito Juanete](sujeto)
+- hola requiero creacion de usuario [Urkund](sistema) para [Secretaria Abogada](trato) [Karina Sarmiento](sujeto)
+- buenos dias ayuda crear usuario y asignar roles [GLPI](sistema) para [Estudiante](trato) [Juan Perez](sujeto) [Facultad Psicologia](facultad)
+- buenas tardes requiero crear nuevo usuario [Secretaria Abogada](trato) [Juan Perez](sujeto) [Civil](facultad)
+- buenas tardes acceso al sistema [Urkund](sistema) para [Coordinador Vinculacion Sociedad](sujeto) [Civil](facultad)
+- saludos requiero creacion de cuenta [GLPI](sistema) [Secretaria Abogada](trato) [Juan Perez](sujeto) [Ing](facultad)
+- acceso al sistema [GLPI](sistema) [Sr](trato) [Joselito Juanete](sujeto)
+- buenas tardes necesito creacion de cuenta [GLPI](sistema) para [Ing](trato) [Juan Perez](sujeto) [Facultad Ingenieria](facultad)
+- buenas tardes crear nuevo usuario [Coordinador Vinculacion Sociedad](sujeto)
+- ayuda crear nuevo usuario [Quipux](sistema) para [Sra](trato) [Joselito Juanete](sujeto)
+- saludos crear usuario y asignar roles [Quipux](sistema) [Secretaria Abogada](trato) [Jenny Maricela Redrovan Macas](sujeto) [Ing](facultad)
+- buenos dias necesito registrar personal [Quipux](sistema) [Dr](trato) [Karina Sarmiento](sujeto) [Ing](facultad)
+- hola creacion de usuario [OpenERP](sistema) [Ing](trato) [Cuenca Ciudad Universitaria](sujeto) [Ing](facultad)
+- acceso a [Urkund](sistema) [Secretaria Abogada](trato) [Cuenca Ciudad Universitaria](sujeto) [Electrica](facultad)
+- buenas tardes solicito crear usuario y asignar roles [eVirtual](sistema) [Director](trato) [Karina Sarmiento](sujeto) [Facultad Hospitalidad](facultad)
+- saludos requiero crear nuevo usuario [Sistemas Institucionales](sistema) [Jenny Maricela Redrovan Macas](sujeto) [Facultad Ingenieria](facultad)
+- buenos dias acceso a [Sistemas Institucionales](sistema) para [Ing](trato) [Juan Perez](sujeto) [Ing](facultad)
+- buenos dias solicito crear nuevo usuario [eVirtual](sistema) [Estudiante](trato) [Coordinador Vinculacion Sociedad](sujeto)
+- saludos necesito ayuda acceso a [eVirtual](sistema) para [Secretaria Abogada](trato) [Juan Perez](sujeto) [Civil](facultad)
+- saludos necesito ayuda creacion de cuenta [eVirtual](sistema) para [Sr](trato) [Coordinador Vinculacion Sociedad](sujeto)
+- saludos crear usuario y asignar roles [Sistemas Institucionales](sistema) para [Ing](trato) [Coordinador Vinculacion Sociedad](sujeto) [Facultad Medicina](facultad)
+- ayuda acceso al sistema [eVirtual](sistema) para [Lcdo](trato) [Jenny Maricela Redrovan Macas](sujeto) [Ingenieria](facultad)
+- saludos necesito ayuda creacion de cuenta de usuario [Urkund](sistema) [Dr](trato) [Jenny Maricela Redrovan Macas](sujeto)
+- buenas tardes requiero registrar personal [GLPI](sistema) [Director](trato) [Coordinador Vinculacion Sociedad](sujeto)
+- requiero acceso al sistema [GLPI](sistema) [Dr](trato) [Coordinador Vinculacion Sociedad](sujeto) [Electronica](facultad)
+- buenas tardes necesito acceso al sistema [Sistemas Institucionales](sistema) [Juan Perez](sujeto) [Facultad Medicina](facultad)
+- hola registrar personal [Quipux](sistema) para [Secretaria Abogada](trato) [Karina Sarmiento](sujeto) [Electronica](facultad)
+- hola necesito ayuda creacion de usuario [Urkund](sistema) para [Dr](trato) [Cuenca Ciudad Universitaria](sujeto) [Ingenieria](facultad)
+- saludos requiero registrar personal [Quipux](sistema) [Ing](trato) [Karina Sarmiento](sujeto) [Sistemas](facultad)
+- buenas tardes ayuda acceso al sistema [GLPI](sistema) para [Director](trato) [Karina Sarmiento](sujeto) [Civil](facultad)
+- buenas tardes necesito acceso a [Sistemas Institucionales](sistema) [Sr](trato) [Joselito Juanete](sujeto) [Facultad Hospitalidad](facultad)
+- saludos necesito ayuda registrar personal para [Secretaria Abogada](trato) [Joselito Juanete](sujeto)
+- hola crear nuevo usuario [OpenERP](sistema) para [Secretaria Abogada](trato) [Karina Sarmiento](sujeto) [Civil](facultad)
+- buenas tardes ayuda acceso a [Lcdo](trato) [Juan Perez](sujeto)
+- buenos dias ayuda creacion de usuario [GLPI](sistema) para [Sr](trato) [Jenny Maricela Redrovan Macas](sujeto) [Sistemas](facultad)
+- saludos necesito ayuda creacion de usuario [Quipux](sistema) para [Secretaria Abogada](trato) [Coordinador Vinculacion Sociedad](sujeto)
+- buenos dias necesito ayuda acceso a [Sistemas Institucionales](sistema) [Secretaria Abogada](trato) [Coordinador Vinculacion Sociedad](sujeto) [Electronica](facultad)
 
 ## intent:despedida
 - hasta luego
 - adios
 - chao
-- salir
-- finaliza sesion
-- terminar
-- termina
-
-## intent:error_procesos
-- buenas tardes solicito inconveniente mantenimiento computador [Rectorado](ubicacion) [Ingenieria](facultad)
-- buenos dias problema telefonos no funcionan [Consejo Universitario](ubicacion) [Facultad Ingenieria](facultad)
-- buenas tardes solicito problema mantenimiento computador [Consejo Universitario](ubicacion)
-- buenas tardes requiero inconveniente registro materia [Electronica](facultad)
-- buenos dias ayuda inconveniente respaldo de informacion [Rectorado](ubicacion) [Ingenieria](facultad)
-- necesito impresora no funciona [Consejo Universitario](ubicacion) [Sistemas](facultad)
-- buenos dias solicito error no imprime
-- buenas tardes requiero inconveniente conexion puntos de red [Aula 107](ubicacion) [Civil](facultad)
-- requiero revision no funciona escaner [Rectorado](ubicacion) [Facultad Hospitalidad](facultad)
-- buenos dias requiero error revisar proyector [Rectorado](ubicacion)
-- saludos solicito instalacion sistema [Rectorado](ubicacion) [Electrica](facultad)
-- saludos requiero problema conexion PC [Rectorado](ubicacion) [Facultad Ingenieria](facultad)
-- saludos necesito error computador no inicia [Facultad Psicologia](facultad)
-- requiero error instalacion equipo [Consejo Universitario](ubicacion) [Facultad Psicologia](facultad)
-- saludos revision asignacion credito [Electronica](facultad)
-- ayuda revision configuracion de equipo [Consejo Universitario](ubicacion) [Ing](facultad)
-- buenas tardes solicito error instalacion impresora [Centro computo 118 A](ubicacion) [Sistemas](facultad)
-- buenas tardes necesito inconveniente ficha socioeconomica [Electronica](facultad)
-- hola ayuda error no enciende computador [Aula 107](ubicacion) [Sistemas](facultad)
-- hola solicito inconveniente instalacion equipo [Centro computo 118 A](ubicacion) [Ingenieria](facultad)
-- hola requiero no enciende computador [Centro computo 118 A](ubicacion) [Civil](facultad)
-- buenos dias configuracion de equipo [Rectorado](ubicacion) [Facultad Medicina](facultad)
-- hola inconveniente impresora no funciona [Consejo Universitario](ubicacion) [Electronica](facultad)
-- necesito su ayuda problema instalacion sistema [Consejo Universitario](ubicacion) [Facultad Medicina](facultad)
-- buenos dias solicito inconveniente conexion puntos de red [Rectorado](ubicacion) [Sistemas](facultad)
-- buenos dias ayuda problema revisar proyector [Rectorado](ubicacion) [Civil](facultad)
-- buenos dias necesito su ayuda inconveniente revisar proyector [Consejo Universitario](ubicacion) [Civil](facultad)
-- saludos revision conexion PC [Centro computo 118 A](ubicacion) [Facultad Ingenieria](facultad)
-- solicito error instalacion sistema [Centro computo 118 A](ubicacion) [Ing](facultad)
-- buenas tardes necesito telefonos no funcionan [Aula 107](ubicacion) [Electrica](facultad)
-- requiero error revisar proyector [Facultad Psicologia](facultad)
-- saludos ayuda problema no funciona impresora [Rectorado](ubicacion)
-- buenos dias solicito revisar proyector [Aula 107](ubicacion) [Civil](facultad)
-- buenas tardes solicito inconveniente impresora no funciona [Aula 107](ubicacion) [Facultad Ingenieria](facultad)
-- buenos dias solicito error revisar proyector [Consejo Universitario](ubicacion) [Electronica](facultad)
-- hola necesito su ayuda error computador no inicia [Centro computo 118 A](ubicacion)
-- buenas tardes necesito su ayuda inconveniente conexion puntos de red [Centro computo 118 A](ubicacion) [Ingenieria](facultad)
-- requiero error mantenimiento computador [Centro computo 118 A](ubicacion) [Sistemas](facultad)
-- saludos requiero error no funciona impresora [Rectorado](ubicacion) [Facultad Ingenieria](facultad)
-- buenas tardes necesito problema no enciende computador [Electronica](facultad)
-- buenas tardes necesito error respaldo de informacion [Electrica](facultad)
-- buenos dias solicito error no funciona impresora [Ingenieria](facultad)
-- necesito no imprime [Centro computo 118 A](ubicacion) [Facultad Medicina](facultad)
-- buenas tardes requiero no imprime [Aula 107](ubicacion) [Civil](facultad)
-- solicito error impresora no funciona [Consejo Universitario](ubicacion) [Electrica](facultad)
-- buenas tardes revision no funciona impresora [Rectorado](ubicacion) [Electrica](facultad)
-- hola necesito su ayuda inconveniente instalacion impresora [Centro computo 118 A](ubicacion) [Facultad Medicina](facultad)
-- solicito problema no funciona escaner [Aula 107](ubicacion) [Civil](facultad)
-- buenas tardes necesito error ficha socioeconomica
-- buenos dias ayuda problema impresora no funciona [Consejo Universitario](ubicacion)
-- hola configuracion de equipo [Rectorado](ubicacion) [Civil](facultad)
-- buenos dias necesito su ayuda error conexion puntos de red [Ingenieria](facultad)
-- hola solicito no funciona impresora [Rectorado](ubicacion) [Civil](facultad)
-- buenos dias ayuda error impresora no funciona [Rectorado](ubicacion)
-- buenos dias ayuda revision respaldo de informacion [Consejo Universitario](ubicacion) [Ingenieria](facultad)
-- buenos dias necesito su ayuda revision registro ficha socioeconomica [Facultad Medicina](facultad)
-- buenas tardes solicito revision no funciona escaner [Ing](facultad)
-- saludos necesito inconveniente instalacion sistema [Aula 107](ubicacion) [Electronica](facultad)
-- buenas tardes necesito su ayuda revision ficha socioeconomica [Ingenieria](facultad)
-- hola requiero problema revisar proyector [Aula 107](ubicacion) [Electrica](facultad)
-- buenas tardes solicito mantenimiento computador [Consejo Universitario](ubicacion) [Sistemas](facultad)
-- hola necesito revisar proyector [Sistemas](facultad)
-- buenos dias ayuda problema conexion PC [Aula 107](ubicacion)
-- buenas tardes solicito inconveniente instalacion equipo [Consejo Universitario](ubicacion) [Facultad Psicologia](facultad)
-- buenos dias requiero inconveniente computador no inicia [Centro computo 118 A](ubicacion) [Ingenieria](facultad)
-- buenas tardes inconveniente no imprime [Aula 107](ubicacion) [Facultad Hospitalidad](facultad)
-- saludos inconveniente computador no inicia [Civil](facultad)
-- hola ayuda problema configuracion de equipo [Rectorado](ubicacion) [Electronica](facultad)
-- ayuda computador no inicia [Sistemas](facultad)
-- necesito revision no funciona impresora [Facultad Ingenieria](facultad)
-- saludos solicito revision no funciona escaner [Ingenieria](facultad)
-- buenos dias error conexion puntos de red [Consejo Universitario](ubicacion) [Electrica](facultad)
-- saludos necesito su ayuda inconveniente conexion PC [Rectorado](ubicacion) [Sistemas](facultad)
-- error instalacion impresora [Rectorado](ubicacion)
-- requiero no funciona escaner [Centro computo 118 A](ubicacion) [Ing](facultad)
-- solicito mantenimiento computador [Aula 107](ubicacion) [Facultad Ingenieria](facultad)
-- buenos dias inconveniente impresora no funciona [Aula 107](ubicacion) [Ing](facultad)
-- buenos dias ayuda instalacion equipo [Aula 107](ubicacion) [Civil](facultad)
-- saludos necesito error impresora no funciona [Consejo Universitario](ubicacion) [Sistemas](facultad)
-- buenas tardes revision revisar proyector [Ing](facultad)
-- requiero error instalacion impresora [Centro computo 118 A](ubicacion) [Facultad Ingenieria](facultad)
-- buenas tardes revision proyector no enciende [Facultad Ingenieria](facultad)
-- buenas tardes requiero error instalacion sistema [Consejo Universitario](ubicacion) [Ingenieria](facultad)
-- buenas tardes solicito no enciende computador [Electrica](facultad)
-- buenas tardes ayuda revision impresora no funciona [Centro computo 118 A](ubicacion) [Ingenieria](facultad)
-- saludos solicito error no funciona escaner [Aula 107](ubicacion) [Ingenieria](facultad)
-- buenas tardes requiero problema no funciona impresora [Ingenieria](facultad)
-- saludos requiero inconveniente instalacion equipo [Aula 107](ubicacion) [Ing](facultad)
-- necesito su ayuda error conexion PC [Centro computo 118 A](ubicacion) [Civil](facultad)
-- hola ayuda problema instalacion sistema [Rectorado](ubicacion) [Civil](facultad)
-- buenos dias requiero error mantenimiento computador [Rectorado](ubicacion) [Ingenieria](facultad)
-- necesito su ayuda problema configuracion de equipo [Consejo Universitario](ubicacion) [Facultad Hospitalidad](facultad)
-- saludos ayuda error respaldo de informacion [Consejo Universitario](ubicacion)
-- buenos dias necesito error conexion PC [Aula 107](ubicacion) [Facultad Psicologia](facultad)
-- saludos necesito su ayuda problema no enciende computador [Ingenieria](facultad)
-- saludos requiero problema instalacion impresora [Aula 107](ubicacion)
-- hola necesito revisar proyector [Ingenieria](facultad)
-- saludos necesito inconveniente instalacion equipo [Ing](facultad)
-- saludos necesito error no imprime [Consejo Universitario](ubicacion) [Facultad Ingenieria](facultad)
-- hola ayuda revision registro materia [Electrica](facultad)
-- buenos dias solicito inconveniente proyector no enciende [Centro computo 118 A](ubicacion)
-- necesito su ayuda revision telefonos no funcionan [Aula 107](ubicacion) [Electronica](facultad)
-- saludos ayuda mantenimiento computador [Centro computo 118 A](ubicacion) [Sistemas](facultad)
-- buenas tardes solicito inconveniente no imprime [Facultad Psicologia](facultad)
-- hola necesito error impresora no funciona [Centro computo 118 A](ubicacion) [Ingenieria](facultad)
-- hola necesito su ayuda revision no funciona escaner [Electronica](facultad)
-- saludos necesito conexion PC [Centro computo 118 A](ubicacion) [Sistemas](facultad)
-- solicito error instalacion impresora [Consejo Universitario](ubicacion)
-- saludos requiero error instalacion sistema [Aula 107](ubicacion)
-- hola solicito error no imprime [Electrica](facultad)
-- buenas tardes requiero revision asignacion credito [Civil](facultad)
-- hola ayuda inconveniente ficha socioeconomica
-- necesito problema no imprime [Consejo Universitario](ubicacion) [Electronica](facultad)
-- saludos ayuda revision conexion puntos de red [Rectorado](ubicacion)
-- saludos error no enciende computador [Aula 107](ubicacion)
-- hola necesito su ayuda error no funciona impresora [Aula 107](ubicacion) [Facultad Medicina](facultad)
-- solicito proyector no enciende [Electrica](facultad)
-- buenas tardes solicito revision conexion PC [Centro computo 118 A](ubicacion) [Ingenieria](facultad)
-- buenas tardes computador no inicia [Consejo Universitario](ubicacion) [Facultad Medicina](facultad)
-- buenas tardes ayuda problema conexion puntos de red [Rectorado](ubicacion) [Facultad Psicologia](facultad)
-- necesito problema falta cupo [Ing](facultad)
-- buenas tardes ayuda revision ficha de matricula [Ingenieria](facultad)
-- buenos dias necesito su ayuda inconveniente conexion PC [Centro computo 118 A](ubicacion) [Ingenieria](facultad)
-- buenos dias ayuda error registro matricula [Facultad Ingenieria](facultad)
-- buenas tardes solicito revision configuracion de equipo [Consejo Universitario](ubicacion) [Facultad Ingenieria](facultad)
-- saludos requiero inconveniente registro materia [Facultad Ingenieria](facultad)
-- buenas tardes telefonos no funcionan [Electrica](facultad)
-- buenos dias requiero error revisar proyector [Consejo Universitario](ubicacion) [Electronica](facultad)
-- saludos solicito revision ficha de matricula [Facultad Ingenieria](facultad)
-- buenas tardes ayuda problema configuracion de equipo [Consejo Universitario](ubicacion) [Facultad Hospitalidad](facultad)
-- hola necesito su ayuda problema no funciona impresora [Centro computo 118 A](ubicacion) [Facultad Ingenieria](facultad)
-- hola requiero revision registro materia [Facultad Ingenieria](facultad)
-- buenos dias ayuda revision no imprime [Rectorado](ubicacion) [Ingenieria](facultad)
-- saludos requiero revision no encuentra informacion estudiante [Facultad Psicologia](facultad)
-- buenos dias ayuda inconveniente mantenimiento computador [Centro computo 118 A](ubicacion) [Facultad Ingenieria](facultad)
-- hola necesito su ayuda error computador no inicia [Aula 107](ubicacion)
-- buenos dias necesito su ayuda revision instalacion impresora [Rectorado](ubicacion) [Sistemas](facultad)
-- buenas tardes problema no funciona escaner [Consejo Universitario](ubicacion) [Sistemas](facultad)
-- buenas tardes requiero inconveniente impresora no funciona [Aula 107](ubicacion) [Ingenieria](facultad)
-- error instalacion impresora [Ingenieria](facultad)
-- hola requiero no enciende computador [Consejo Universitario](ubicacion) [Electronica](facultad)
-- solicito inconveniente no funciona escaner [Rectorado](ubicacion) [Civil](facultad)
-- saludos requiero revision respaldo de informacion [Centro computo 118 A](ubicacion) [Sistemas](facultad)
-- saludos error proyector no enciende [Aula 107](ubicacion) [Ingenieria](facultad)
-- buenas tardes requiero configuracion de equipo [Aula 107](ubicacion) [Electronica](facultad)
-- saludos ayuda revision conexion PC [Aula 107](ubicacion) [Ing](facultad)
-- buenas tardes ayuda problema instalacion impresora [Centro computo 118 A](ubicacion) [Facultad Ingenieria](facultad)
-- hola solicito revision instalacion equipo [Facultad Hospitalidad](facultad)
-- buenas tardes necesito su ayuda respaldo de informacion
-- saludos necesito problema instalacion equipo [Consejo Universitario](ubicacion)
-- buenas tardes ayuda revision instalacion sistema [Civil](facultad)
-- solicito problema instalacion sistema [Consejo Universitario](ubicacion)
-- hola requiero impresora no funciona [Facultad Ingenieria](facultad)
-- hola requiero error configuracion de equipo [Electronica](facultad)
-- saludos solicito error conexion puntos de red [Consejo Universitario](ubicacion) [Facultad Ingenieria](facultad)
-- hola error instalacion impresora [Consejo Universitario](ubicacion) [Ingenieria](facultad)
-- hola necesito su ayuda error impresora no funciona [Aula 107](ubicacion) [Facultad Hospitalidad](facultad)
-- buenos dias necesito su ayuda error configuracion de equipo [Ing](facultad)
-- hola revision instalacion equipo [Civil](facultad)
-- buenos dias solicito error instalacion impresora [Consejo Universitario](ubicacion) [Facultad Ingenieria](facultad)
-- revision revisar proyector [Ingenieria](facultad)
-- saludos necesito error computador no inicia [Aula 107](ubicacion)
-- saludos problema configuracion de equipo [Consejo Universitario](ubicacion) [Electrica](facultad)
-- buenas tardes ayuda instalacion equipo [Centro computo 118 A](ubicacion)
-- buenos dias requiero revision no imprime [Consejo Universitario](ubicacion) [Sistemas](facultad)
-- buenos dias revision configuracion de equipo [Civil](facultad)
-- saludos solicito inconveniente conexion PC [Rectorado](ubicacion) [Facultad Psicologia](facultad)
-- hola ayuda inconveniente proyector no enciende [Consejo Universitario](ubicacion) [Electronica](facultad)
-- hola necesito problema proyector no enciende [Centro computo 118 A](ubicacion) [Facultad Medicina](facultad)
-- buenos dias necesito revision respaldo de informacion [Consejo Universitario](ubicacion)
-- buenas tardes instalacion impresora [Centro computo 118 A](ubicacion)
-- buenos dias necesito inconveniente telefonos no funcionan [Aula 107](ubicacion) [Facultad Psicologia](facultad)
-- saludos revision acceso a eSIUC [Electrica](facultad)
-- hola necesito revision respaldo de informacion [Consejo Universitario](ubicacion) [Facultad Hospitalidad](facultad)
-- hola necesito su ayuda instalacion impresora [Aula 107](ubicacion) [Ingenieria](facultad)
-- revision asignacion credito
-- error conexion PC [Rectorado](ubicacion) [Electrica](facultad)
-- buenos dias revision no enciende computador [Civil](facultad)
-- buenas tardes solicito problema no funciona escaner [Centro computo 118 A](ubicacion) [Civil](facultad)
-- buenas tardes solicito problema proyector no enciende [Consejo Universitario](ubicacion) [Ingenieria](facultad)
-- hola solicito revision respaldo de informacion [Aula 107](ubicacion) [Ing](facultad)
-- hola necesito revision registro materia [Civil](facultad)
-- buenos dias ayuda revision no funciona escaner [Centro computo 118 A](ubicacion) [Sistemas](facultad)
-- buenos dias ayuda error computador no inicia [Rectorado](ubicacion) [Facultad Ingenieria](facultad)
-- hola necesito su ayuda error no enciende computador [Aula 107](ubicacion) [Sistemas](facultad)
-- revision respaldo de informacion [Civil](facultad)
-- buenas tardes requiero error registro matricula [Facultad Psicologia](facultad)
-- buenos dias problema instalacion sistema [Consejo Universitario](ubicacion) [Civil](facultad)
-- buenos dias necesito su ayuda problema instalacion equipo [Aula 107](ubicacion) [Sistemas](facultad)
-- buenas tardes ayuda computador no inicia [Rectorado](ubicacion)
-- buenos dias necesito su ayuda conexion puntos de red [Consejo Universitario](ubicacion) [Ing](facultad)
-- saludos requiero revision conexion PC [Consejo Universitario](ubicacion) [Electrica](facultad)
-- hola solicito problema conexion puntos de red [Consejo Universitario](ubicacion) [Facultad Hospitalidad](facultad)
-- hola solicito problema instalacion sistema [Aula 107](ubicacion) [Ing](facultad)
-- saludos requiero error instalacion equipo [Aula 107](ubicacion) [Sistemas](facultad)
-- problema mantenimiento computador [Rectorado](ubicacion) [Ingenieria](facultad)
-- buenos dias ayuda no funciona escaner [Electrica](facultad)
-- saludos ayuda error no funciona escaner [Rectorado](ubicacion) [Sistemas](facultad)
-- hola requiero revision conexion PC [Aula 107](ubicacion) [Ingenieria](facultad)
-- buenas tardes requiero inconveniente conexion puntos de red [Facultad Ingenieria](facultad)
-- buenas tardes necesito su ayuda problema telefonos no funcionan [Consejo Universitario](ubicacion) [Electrica](facultad)
-- saludos revisar proyector [Rectorado](ubicacion) [Ingenieria](facultad)
-- hola requiero problema impresora no funciona [Aula 107](ubicacion) [Civil](facultad)
-- buenos dias necesito su ayuda problema no funciona escaner [Consejo Universitario](ubicacion) [Civil](facultad)
-- hola ayuda problema instalacion equipo [Centro computo 118 A](ubicacion) [Electrica](facultad)
-- hola ayuda revision acceso a eSIUC [Electrica](facultad)
-- solicito revision revisar proyector [Centro computo 118 A](ubicacion)
-- saludos necesito su ayuda inconveniente no funciona escaner [Consejo Universitario](ubicacion) [Facultad Hospitalidad](facultad)
-- hola requiero revision instalacion impresora [Aula 107](ubicacion) [Facultad Ingenieria](facultad)
-- buenas tardes necesito su ayuda problema respaldo de informacion [Rectorado](ubicacion) [Ing](facultad)
-- necesito conexion puntos de red [Consejo Universitario](ubicacion) [Facultad Ingenieria](facultad)
-- necesito error configuracion de equipo [Aula 107](ubicacion) [Ing](facultad)
-- hola ayuda error instalacion impresora [Consejo Universitario](ubicacion)
-- saludos requiero revision mantenimiento computador [Centro computo 118 A](ubicacion)
-- buenas tardes requiero error no imprime [Facultad Ingenieria](facultad)
-- hola inconveniente instalacion sistema [Centro computo 118 A](ubicacion) [Facultad Hospitalidad](facultad)
-- buenas tardes ayuda error mantenimiento computador [Centro computo 118 A](ubicacion) [Electronica](facultad)
-- saludos requiero instalacion equipo [Civil](facultad)
-- requiero no funciona impresora [Consejo Universitario](ubicacion) [Facultad Hospitalidad](facultad)
-- revision no imprime [Centro computo 118 A](ubicacion) [Ing](facultad)
-- saludos ayuda revision falta cupo
-- buenas tardes necesito su ayuda revision no funciona impresora [Rectorado](ubicacion) [Facultad Hospitalidad](facultad)
-- buenas tardes ayuda no funciona impresora [Aula 107](ubicacion) [Civil](facultad)
-- saludos solicito computador no inicia [Centro computo 118 A](ubicacion) [Facultad Psicologia](facultad)
-- buenos dias requiero error no funciona impresora
-- saludos necesito su ayuda proyector no enciende [Rectorado](ubicacion) [Ing](facultad)
-- necesito su ayuda error impresora no funciona [Centro computo 118 A](ubicacion) [Sistemas](facultad)
-- buenas tardes necesito su ayuda inconveniente instalacion equipo [Aula 107](ubicacion)
-- hola revision computador no inicia [Consejo Universitario](ubicacion) [Ing](facultad)
-- saludos necesito su ayuda conexion puntos de red [Electrica](facultad)
-- necesito revision revisar proyector [Centro computo 118 A](ubicacion) [Civil](facultad)
-- necesito su ayuda instalacion sistema [Aula 107](ubicacion) [Facultad Ingenieria](facultad)
-- buenas tardes problema impresora no funciona [Aula 107](ubicacion) [Civil](facultad)
-- buenos dias necesito su ayuda problema conexion puntos de red [Aula 107](ubicacion)
-- buenas tardes solicito revision no enciende computador [Facultad Ingenieria](facultad)
-- hola ayuda error conexion puntos de red [Rectorado](ubicacion) [Ingenieria](facultad)
-- hola revisar proyector [Electrica](facultad)
-- hola ayuda no imprime [Centro computo 118 A](ubicacion) [Facultad Hospitalidad](facultad)
-- hola necesito revision no enciende computador [Rectorado](ubicacion) [Facultad Psicologia](facultad)
-- necesito su ayuda inconveniente no funciona escaner [Aula 107](ubicacion) [Electronica](facultad)
-- buenas tardes requiero revisar proyector [Centro computo 118 A](ubicacion) [Ingenieria](facultad)
-- saludos solicito inconveniente impresora no funciona [Ingenieria](facultad)
-- saludos necesito su ayuda revision mantenimiento computador [Aula 107](ubicacion) [Sistemas](facultad)
-- buenos dias necesito su ayuda error no funciona impresora [Rectorado](ubicacion) [Facultad Ingenieria](facultad)
-- necesito error no funciona impresora [Rectorado](ubicacion) [Facultad Hospitalidad](facultad)
-- buenos dias necesito error instalacion sistema [Rectorado](ubicacion)
-- buenas tardes necesito su ayuda error revisar proyector [Civil](facultad)
-- buenos dias ayuda error registro materia [Facultad Medicina](facultad)
-- buenas tardes necesito revision no funciona impresora [Consejo Universitario](ubicacion) [Civil](facultad)
-- saludos problema impresora no funciona [Centro computo 118 A](ubicacion)
-- hola ayuda problema conexion puntos de red [Aula 107](ubicacion)
-- buenas tardes ayuda error revisar proyector [Electronica](facultad)
-- buenos dias necesito problema impresora no funciona [Centro computo 118 A](ubicacion) [Ing](facultad)
-- inconveniente instalacion equipo [Aula 107](ubicacion) [Electrica](facultad)
-- buenos dias solicito revisar proyector [Ingenieria](facultad)
-- necesito su ayuda inconveniente registro ficha socioeconomica [Facultad Medicina](facultad)
-- saludos necesito su ayuda problema no funciona impresora
-- necesito su ayuda impresora no funciona [Aula 107](ubicacion) [Ingenieria](facultad)
-- hola necesito su ayuda error mantenimiento computador [Aula 107](ubicacion) [Sistemas](facultad)
-- necesito su ayuda problema respaldo de informacion [Consejo Universitario](ubicacion) [Electrica](facultad)
-- buenas tardes requiero revisar proyector [Rectorado](ubicacion)
-- saludos requiero revision conexion PC [Centro computo 118 A](ubicacion)
-- hola problema respaldo de informacion [Rectorado](ubicacion) [Ing](facultad)
-- saludos requiero revision impresora no funciona [Aula 107](ubicacion) [Ingenieria](facultad)
-- buenos dias necesito su ayuda impresora no funciona [Centro computo 118 A](ubicacion) [Electrica](facultad)
-- buenos dias necesito su ayuda problema configuracion de equipo [Rectorado](ubicacion) [Facultad Psicologia](facultad)
-- hola necesito no enciende computador
-- necesito revision configuracion de equipo [Consejo Universitario](ubicacion) [Ingenieria](facultad)
-- requiero respaldo de informacion [Aula 107](ubicacion) [Ingenieria](facultad)
-- buenos dias inconveniente registro matricula [Ing](facultad)
-- hola revision no imprime [Consejo Universitario](ubicacion) [Ing](facultad)
-- necesito no funciona escaner [Centro computo 118 A](ubicacion)
-- error no funciona escaner [Consejo Universitario](ubicacion) [Ingenieria](facultad)
-- buenas tardes ayuda problema no funciona escaner [Aula 107](ubicacion) [Electronica](facultad)
-- buenos dias necesito su ayuda problema telefonos no funcionan
-- buenos dias revision impresora no funciona [Consejo Universitario](ubicacion) [Facultad Medicina](facultad)
-- saludos necesito inconveniente computador no inicia [Consejo Universitario](ubicacion) [Ing](facultad)
-- buenos dias solicito error configuracion de equipo [Centro computo 118 A](ubicacion) [Electronica](facultad)
-- buenas tardes ayuda inconveniente no imprime [Electronica](facultad)
-- buenos dias solicito proyector no enciende [Aula 107](ubicacion) [Sistemas](facultad)
-- hola necesito no enciende computador [Aula 107](ubicacion) [Facultad Psicologia](facultad)
-- buenas tardes inconveniente conexion puntos de red [Aula 107](ubicacion) [Facultad Ingenieria](facultad)
-- saludos necesito error telefonos no funcionan [Rectorado](ubicacion) [Facultad Medicina](facultad)
-- buenos dias solicito error impresora no funciona [Rectorado](ubicacion) [Ing](facultad)
-- hola necesito error proyector no enciende [Rectorado](ubicacion) [Civil](facultad)
-- hola necesito inconveniente ficha socioeconomica
-- necesito su ayuda conexion puntos de red [Ingenieria](facultad)
-- hola necesito su ayuda revision mantenimiento computador [Centro computo 118 A](ubicacion) [Facultad Medicina](facultad)
-- buenas tardes necesito su ayuda inconveniente conexion puntos de red [Consejo Universitario](ubicacion) [Ing](facultad)
-- necesito su ayuda revision registro matricula [Electrica](facultad)
-- buenas tardes requiero problema proyector no enciende [Aula 107](ubicacion) [Civil](facultad)
-- buenas tardes necesito su ayuda error conexion puntos de red [Consejo Universitario](ubicacion) [Ingenieria](facultad)
-- buenas tardes requiero instalacion impresora [Consejo Universitario](ubicacion) [Electrica](facultad)
-- buenos dias ayuda no funciona escaner [Aula 107](ubicacion) [Ing](facultad)
-- saludos necesito revision configuracion de equipo [Centro computo 118 A](ubicacion) [Facultad Psicologia](facultad)
-- necesito su ayuda problema no enciende computador
-- buenos dias necesito error respaldo de informacion [Centro computo 118 A](ubicacion)
-- ayuda respaldo de informacion [Rectorado](ubicacion) [Electrica](facultad)
-- hola ayuda error no funciona impresora [Civil](facultad)
-- buenas tardes solicito revision configuracion de equipo [Rectorado](ubicacion) [Facultad Medicina](facultad)
-
-## intent:finaliza_sesion
-- hasta luego
-- muchas gracias hasta luego
-- gracias hasta luego
-- gracias por su ayuda hasta luego
-- agradezco su su ayuda hasta luego
-- gracias gracias hasta luego
-- muchas gracias adios
-- gracias adios
-- gracias por su ayuda adios
-- agradezco su su ayuda adios
-- gracias gracias adios
-- chao
-- muchas gracias chao
-- agradezco su su ayuda chao
-- gracias gracias chao
 - finalizar
-- gracias finalizar
-- gracias por su ayuda finalizar
-- agradezco su su ayuda finalizar
-- gracias gracias finalizar
-- salir
-- muchas gracias salir
-- gracias salir
-- gracias por su ayuda salir
-- agradezco su su ayuda salir
-- finaliza sesion
-- muchas gracias finaliza sesion
-- gracias finaliza sesion
-- agradezco su su ayuda finaliza sesion
-- gracias gracias finaliza sesion
 - chao chao
-- muchas gracias chao chao
-- gracias por su ayuda chao chao
-- agradezco su su ayuda chao chao
-- gracias gracias chao chao
-- terminar
-- muchas gracias terminar
-- gracias terminar
-- gracias por su ayuda terminar
-- agradezco su su ayuda terminar
-- gracias gracias terminar
-- muchas gracias acabar sesion
-- gracias acabar sesion
-- gracias por su ayuda acabar sesion
-- agradezco su su ayuda acabar sesion
-- gracias gracias acabar sesion
+- acabar sesion
 - termina
-- gracias termina
-- gracias por su ayuda termina
-- gracias gracias termina
+
+## intent:informacion
+- ayuda [32](ram) GB en RAM
+- necesito ayuda [8](ram) GB de capacidad en RAM
+- requiero [16](disk_space) GB de HD
+- necesito [8](disk_space) GB de HD
+- necesito [3](cpu_cores) procesadores
+- solicito [32](ram) GB en RAM
+- necesito ayuda [1000](disk_space) GB de disco duro
+- [128](ram) GB en RAM
+- necesito ayuda [128](ram) GB de ram
+- necesito [8](ram) GB en RAM
+- necesito ayuda [3](cpu_cores) nucleos
+- [2](cpu_cores) nucleos de cpu
+- necesito [8](ram) GB de ram
+- requiero [16](ram) GB de ram
+- solicito escalabilidad horizontal
+- necesito [32](ram) GB en RAM
+- ayuda [1](cpu_cores) nucleos de cpu
+- necesito ayuda [128](ram) GB en RAM
+- solicito [128](ram) GB de capacidad en RAM
+- ayuda [3](cpu_cores) procesadores
+- requiero [8](ram) GB en RAM
+- solicito [128](ram) GB en RAM
+- necesito [1000](disk_space) GB de HD
+- solicito [512](disk_space) GB de disco duro
+- ayuda [16](ram) GB en RAM
+- necesito [2](cpu_cores) nucleos de cpu
+- necesito ayuda [4](cpu_cores) procesadores
+- ayuda [64](ram) GB en RAM
+- solicito [2](cpu_cores) procesadores
+- necesito ayuda [8](cpu_cores) procesadores
+- necesito [128](ram) GB en RAM
+- requiero [2](cpu_cores) nucleos
+- requiero [256](disk_space) GB de HD
+- necesito [8](cpu_cores) nucleos
+- necesito un [pruebas](entorno)
+- necesito [3](cpu_cores) nucleos
+- necesito [32](ram) GB de ram
+- requiero [2](cpu_cores) procesadores
+- requiero [256](disk_space) GB de capacidad
+- necesito ayuda [32](ram) GB de capacidad en RAM
+- ayuda [4](cpu_cores) nucleos de cpu
+- necesito [2](cpu_cores) nucleos
+- [512](disk_space) GB de disco duro
+- solicito [8](ram) GB de ram
+- requiero [8](ram) GB de capacidad en RAM
+- necesito ayuda [512](disk_space) GB de HD
+- necesito ayuda [8](disk_space) GB de capacidad
+- requiero [2](cpu_cores) nucleos de cpu
+- solicito [1000](disk_space) GB de capacidad
+- solicito [16](ram) GB de capacidad en RAM
+- necesito escalabilidad horizontal
+- [32](ram) GB de ram
+- necesito ayuda [16](disk_space) GB de disco duro
+- solicito escalabilidad vertical
+- ayuda [16](ram) GB de capacidad en RAM
+- necesito [8](disk_space) GB de disco duro
+- solicito [16](disk_space) GB de HD
+- solicito [32](ram) GB de ram
+- necesito ayuda [16](disk_space) GB de capacidad
+- necesito ayuda [512](disk_space) GB de disco duro
+- [16](disk_space) GB de HD
+- [4](cpu_cores) nucleos de cpu
+- [3](cpu_cores) procesadores
+- [8](cpu_cores) nucleos
+- ayuda [8](ram) GB en RAM
+- solicito [8](cpu_cores) nucleos
+- requiero [8](disk_space) GB de capacidad
+- necesito ayuda [8](cpu_cores) nucleos
+- requiero [3](cpu_cores) procesadores
+- requiero [3](cpu_cores) nucleos
+- [1000](disk_space) GB de disco duro
+- necesito ayuda [8](ram) GB de ram
+- solicito [1](cpu_cores) nucleos de cpu
+- requiero [1000](disk_space) GB de disco duro
+- [pruebas](entorno)
+- ayuda [3](cpu_cores) nucleos de cpu
+- ayuda [128](disk_space) GB de disco duro
+- necesito ayuda [128](disk_space) GB de capacidad
+- ayuda [8](disk_space) GB de HD
+- necesito ayuda [3](cpu_cores) nucleos de cpu
+- necesito ayuda [2](cpu_cores) nucleos de cpu
+- [512](disk_space) GB de capacidad
+- solicito [3](cpu_cores) nucleos
+- requiero [128](disk_space) GB de HD
+- ayuda [1000](disk_space) GB de disco duro
+- solicito [64](ram) GB de ram
+- requiero [8](cpu_cores) procesadores
+- ayuda escalabilidad vertical
+- ayuda [2](cpu_cores) nucleos de cpu
+- necesito [256](disk_space) GB de HD
+- solicito [16](disk_space) GB de disco duro
+- requiero [32](ram) GB de ram
+- solicito [4](cpu_cores) nucleos de cpu
+- requiero [32](ram) GB de capacidad en RAM
+- [8](cpu_cores) nucleos de cpu
+- ambiente de [pruebas](entorno)
+- necesito [128](disk_space) GB de disco duro
+- [2](cpu_cores) procesadores
+- solicito [1](cpu_cores) nucleos
+- necesito [32](ram) GB de capacidad en RAM
+- necesito [128](ram) GB de ram
+- necesito ayuda [1000](disk_space) GB de HD
+- [4](cpu_cores) procesadores
+- ayuda [512](disk_space) GB de capacidad
+- ayuda [1000](disk_space) GB de capacidad
+- requiero [16](ram) GB de capacidad en RAM
+- ayuda [16](disk_space) GB de disco duro
+- necesito ayuda [8](disk_space) GB de HD
+- solicito [8](ram) GB de capacidad en RAM
+- requiero [8](ram) GB de ram
+- solicito [2](cpu_cores) nucleos
+- necesito [8](cpu_cores) nucleos de cpu
+- solicito [8](ram) GB en RAM
+- solicito [3](cpu_cores) procesadores
+- necesito [64](ram) GB de capacidad en RAM
+- necesito [8](disk_space) GB de capacidad
+- necesito [128](disk_space) GB de HD
+- solicito [4](cpu_cores) procesadores
+- necesito [512](disk_space) GB de HD
+- solicito [64](ram) GB en RAM
+- requiero [8](cpu_cores) nucleos
+- ayuda [256](disk_space) GB de HD
+- solicito [8](cpu_cores) procesadores
+- necesito ayuda [8](cpu_cores) nucleos de cpu
+- requiero [1000](disk_space) GB de HD
+- ayuda [8](disk_space) GB de disco duro
+- necesito ayuda [16](disk_space) GB de HD
+- necesito [4](cpu_cores) nucleos de cpu
+- necesito un ambiente de [produccion](entorno)
+- requiero [3](cpu_cores) nucleos de cpu
+- ayuda [16](ram) GB de ram
+- necesito ayuda [1](cpu_cores) nucleos
+- ayuda [1](cpu_cores) procesadores
+- [8](cpu_cores) procesadores
+- ayuda [16](disk_space) GB de capacidad
+- necesito ayuda [128](disk_space) GB de HD
+- necesito [128](disk_space) GB de capacidad
+- solicito [256](disk_space) GB de disco duro
+- necesito ayuda [64](ram) GB de ram
+- necesito ayuda [16](ram) GB en RAM
+- solicito [2](cpu_cores) nucleos de cpu
+- requiero [64](ram) GB en RAM
+- requiero [1](cpu_cores) nucleos
+- solicito [1](cpu_cores) procesadores
+- [8](ram) GB de capacidad en RAM
+- [16](ram) GB de ram
+- ayuda [64](ram) GB de ram
+- solicito [4](cpu_cores) nucleos
+- [16](ram) GB de capacidad en RAM
+- necesito ayuda [16](ram) GB de ram
+- necesito un ambiente de [desarrollo](entorno)
+- necesito ayuda [1](cpu_cores) procesadores
+- necesito [64](ram) GB en RAM
+- requiero [128](ram) GB de ram
+- necesito [1](cpu_cores) nucleos de cpu
+- solicito [512](disk_space) GB de capacidad
+- [32](ram) GB en RAM
+- necesito ayuda escalabilidad vertical
+- [512](disk_space) GB de HD
+- ayuda [8](cpu_cores) procesadores
+- necesito [2](cpu_cores) procesadores
+- ayuda [32](ram) GB de capacidad en RAM
+- requiero [128](disk_space) GB de disco duro
+- ayuda [2](cpu_cores) procesadores
+- [8](ram) GB de ram
+- [3](cpu_cores) nucleos de cpu
+- solicito [32](ram) GB de capacidad en RAM
+- ayuda [4](cpu_cores) nucleos
+- [8](disk_space) GB de HD
+- [desarrollo](entorno)
+- [128](disk_space) GB de disco duro
+- solicito [512](disk_space) GB de HD
+- solicito [1000](disk_space) GB de HD
+- requiero [32](ram) GB en RAM
+- solicito [128](disk_space) GB de disco duro
+- necesito ayuda [4](cpu_cores) nucleos
+- necesito [64](ram) GB de ram
+- solicito [128](ram) GB de ram
+- [8](disk_space) GB de capacidad
+- escalabilidad vertical
+- requiero [16](disk_space) GB de capacidad
+- ayuda [1000](disk_space) GB de HD
+- ayuda [128](disk_space) GB de HD
+- requiero [256](disk_space) GB de disco duro
+- necesito [16](disk_space) GB de capacidad
+- necesito ayuda [1000](disk_space) GB de capacidad
+- ayuda [128](ram) GB de capacidad en RAM
+- [64](ram) GB en RAM
+- necesito [512](disk_space) GB de capacidad
+- requiero [64](ram) GB de capacidad en RAM
+- solicito [16](ram) GB en RAM
+- ambiente de [desarrollo](entorno)
+- necesito [16](ram) GB de capacidad en RAM
+- necesito [1000](disk_space) GB de capacidad
+- requiero [128](disk_space) GB de capacidad
+- solicito [8](cpu_cores) nucleos de cpu
+- necesito ayuda [32](ram) GB en RAM
+- ayuda [8](disk_space) GB de capacidad
+- necesito un [produccion](entorno)
+- [3](cpu_cores) nucleos
 
 ## intent:nombre
 - [Jenny Maricela Redrovan Macas](sujeto)
 - Mi nombre es [Jenny Maricela Redrovan Macas](sujeto)
-- Me llamo [Jenny Maricela Redrovan Macas](sujeto)
-- Yo me llamo [Jenny Maricela Redrovan Macas](sujeto)
 - Soy [Jenny Maricela Redrovan Macas](sujeto)
 - [Karina Sarmiento](sujeto)
-- Mi nombre es [Karina Sarmiento](sujeto)
 - Me llamo [Karina Sarmiento](sujeto)
 - Yo me llamo [Karina Sarmiento](sujeto)
-- Soy [Karina Sarmiento](sujeto)
-- [Juan Perez](sujeto)
 - Mi nombre es [Juan Perez](sujeto)
 - Me llamo [Juan Perez](sujeto)
 - Yo me llamo [Juan Perez](sujeto)
 - Soy [Juan Perez](sujeto)
 - [Joselito Juanete](sujeto)
 - Mi nombre es [Joselito Juanete](sujeto)
-- Me llamo [Joselito Juanete](sujeto)
-- Yo me llamo [Joselito Juanete](sujeto)
 - Soy [Joselito Juanete](sujeto)
 - [Cuenca Ciudad Universitaria](sujeto)
 - Mi nombre es [Cuenca Ciudad Universitaria](sujeto)
@@ -723,122 +394,330 @@
 - Soy [Cecilia](sujeto)
 - [Oscar Malgiaritta](sujeto)
 - Mi nombre es [Oscar Malgiaritta](sujeto)
-- Me llamo [Oscar Malgiaritta](sujeto)
 - Yo me llamo [Oscar Malgiaritta](sujeto)
 - Soy [Oscar Malgiaritta](sujeto)
 - [Marcelo Dosantos](sujeto)
 - Mi nombre es [Marcelo Dosantos](sujeto)
-- Me llamo [Marcelo Dosantos](sujeto)
-- Yo me llamo [Marcelo Dosantos](sujeto)
 - Soy [Marcelo Dosantos](sujeto)
 
-## intent:recuperar_contrsena
-- hola necesito [hernan.gonzalezt](usuario) no recuerda contrasena
-- hola necesito su ayuda Sin acceso [OpenERP](sistema)
-- necesito olvide contrasena [Sistemas Institucionales](sistema)
-- buenas tardes necesito [adrian.narvaezp](usuario) no puedo acceder [Quipux](sistema)
-- [adrian.narvaezp](usuario) no recuerda contrasena [Portafolio](sistema)
-- hola requiero [hernan.gonzalezt](usuario) Sin acceso [OpenERP](sistema)
-- hola necesito [adrian.narvaezp](usuario) Sin acceso [Quipux](sistema)
-- hola ayuda [hernan.gonzalezt](usuario) Sin acceso [Portafolio](sistema)
-- hola necesito su ayuda [adrian.narvaezp](usuario) olvide contrasena [Sistemas Institucionales](sistema)
-- necesito [adrian.narvaezp](usuario) Sin acceso [Portafolio](sistema)
-- saludos necesito su ayuda Sin acceso [Quipux](sistema)
-- saludos necesito [renan.freirez](usuario) Sin acceso
-- buenos dias ayuda [hernan.gonzalezt](usuario) olvide contrasena [eVirtual](sistema)
-- buenas tardes solicito [renan.freirez](usuario) Sin acceso [Sistemas Institucionales](sistema)
-- saludos requiero [renan.freirez](usuario) no recuerda contrasena [Quipux](sistema)
-- hola solicito No hay acceso [GLPI](sistema)
-- buenos dias requiero [adrian.narvaezp](usuario) No hay acceso
-- saludos [renan.freirez](usuario) Sin acceso [OpenERP](sistema)
-- buenos dias ayuda no puedo acceder [Urkund](sistema)
-- solicito [hernan.gonzalezt](usuario) Sin acceso [Portafolio](sistema)
-- buenos dias necesito su ayuda olvide contrasena
-- hola requiero [adrian.narvaezp](usuario) No hay acceso [OpenERP](sistema)
-- necesito [adrian.narvaezp](usuario) Sin acceso [GLPI](sistema)
-- buenos dias Sin acceso [Sistemas Institucionales](sistema)
-- buenos dias solicito [hernan.gonzalezt](usuario) No hay acceso [GLPI](sistema)
-- buenos dias necesito olvide contrasena [eVirtual](sistema)
-- buenas tardes necesito su ayuda [adrian.narvaezp](usuario) olvide contrasena
-- saludos [renan.freirez](usuario) No hay acceso
-- hola necesito no puedo acceder
-- buenos dias solicito [adrian.narvaezp](usuario) Sin acceso [Urkund](sistema)
-- buenas tardes necesito Sin acceso [Urkund](sistema)
-- hola necesito su ayuda [hernan.gonzalezt](usuario) olvide contrasena [Urkund](sistema)
-- saludos necesito su ayuda [hernan.gonzalezt](usuario) Sin acceso [Urkund](sistema)
-- buenas tardes [hernan.gonzalezt](usuario) Sin acceso [Urkund](sistema)
-- necesito su ayuda [adrian.narvaezp](usuario) Sin acceso [GLPI](sistema)
-- hola ayuda [adrian.narvaezp](usuario) no puedo acceder
-- hola [adrian.narvaezp](usuario) Sin acceso [Sistemas Institucionales](sistema)
-- buenas tardes necesito [hernan.gonzalezt](usuario) no recuerda contrasena [eVirtual](sistema)
-- buenas tardes Sin acceso [Quipux](sistema)
-- saludos solicito Sin acceso [Urkund](sistema)
-- buenos dias ayuda [adrian.narvaezp](usuario) Sin acceso [OpenERP](sistema)
-- hola necesito su ayuda [renan.freirez](usuario) no puedo acceder [GLPI](sistema)
-- saludos ayuda [renan.freirez](usuario) Sin acceso [Sistemas Institucionales](sistema)
-- saludos requiero [hernan.gonzalezt](usuario) Sin acceso [Quipux](sistema)
-- buenos dias ayuda [adrian.narvaezp](usuario) olvide contrasena [Quipux](sistema)
-- saludos necesito no puedo acceder [OpenERP](sistema)
-- buenos dias solicito [renan.freirez](usuario) Sin acceso [Quipux](sistema)
-- necesito su ayuda [renan.freirez](usuario) no puedo acceder [GLPI](sistema)
-- buenos dias solicito Sin acceso [Urkund](sistema)
-- [renan.freirez](usuario) Sin acceso [Quipux](sistema)
-- saludos ayuda [hernan.gonzalezt](usuario) No hay acceso [OpenERP](sistema)
-- buenas tardes [renan.freirez](usuario) Sin acceso [GLPI](sistema)
-- saludos necesito su ayuda [adrian.narvaezp](usuario) no recuerda contrasena [Portafolio](sistema)
-- buenos dias solicito [hernan.gonzalezt](usuario) olvide contrasena [OpenERP](sistema)
-- requiero [adrian.narvaezp](usuario) olvide contrasena [Quipux](sistema)
-- hola necesito [renan.freirez](usuario) Sin acceso [GLPI](sistema)
-- buenos dias ayuda No hay acceso
-- hola requiero [hernan.gonzalezt](usuario) olvide contrasena [GLPI](sistema)
-- hola ayuda [adrian.narvaezp](usuario) olvide contrasena [eVirtual](sistema)
-- buenos dias necesito no recuerda contrasena [Portafolio](sistema)
-- saludos requiero [renan.freirez](usuario) No hay acceso
-- buenos dias solicito [renan.freirez](usuario) no puedo acceder
-- necesito [hernan.gonzalezt](usuario) olvide contrasena [Portafolio](sistema)
-- buenos dias necesito [hernan.gonzalezt](usuario) No hay acceso [GLPI](sistema)
-- necesito su ayuda [hernan.gonzalezt](usuario) no puedo acceder [Urkund](sistema)
-- saludos requiero Sin acceso [OpenERP](sistema)
-- [hernan.gonzalezt](usuario) No hay acceso [Urkund](sistema)
-- buenas tardes [renan.freirez](usuario) no puedo acceder [GLPI](sistema)
-- necesito su ayuda [renan.freirez](usuario) olvide contrasena [eVirtual](sistema)
-- hola solicito [adrian.narvaezp](usuario) olvide contrasena [Urkund](sistema)
-- buenas tardes ayuda Sin acceso [Urkund](sistema)
-- buenos dias ayuda [hernan.gonzalezt](usuario) no recuerda contrasena [Urkund](sistema)
-- necesito su ayuda [hernan.gonzalezt](usuario) Sin acceso
-- buenos dias necesito su ayuda [renan.freirez](usuario) no recuerda contrasena [OpenERP](sistema)
-- hola ayuda [adrian.narvaezp](usuario) olvide contrasena [Quipux](sistema)
-- necesito [renan.freirez](usuario) no puedo acceder [GLPI](sistema)
-- saludos necesito su ayuda olvide contrasena [Sistemas Institucionales](sistema)
-- hola [hernan.gonzalezt](usuario) no recuerda contrasena [OpenERP](sistema)
-- requiero Sin acceso [Sistemas Institucionales](sistema)
-- buenas tardes olvide contrasena [OpenERP](sistema)
-- buenas tardes necesito [hernan.gonzalezt](usuario) no recuerda contrasena [OpenERP](sistema)
-- saludos necesito [renan.freirez](usuario) olvide contrasena [Portafolio](sistema)
-- necesito [hernan.gonzalezt](usuario) no recuerda contrasena [OpenERP](sistema)
-- buenas tardes solicito no puedo acceder [Quipux](sistema)
-- hola necesito su ayuda Sin acceso [Urkund](sistema)
-- buenas tardes ayuda [adrian.narvaezp](usuario) no puedo acceder
-- saludos necesito [hernan.gonzalezt](usuario) olvide contrasena [Quipux](sistema)
-- hola necesito su ayuda [hernan.gonzalezt](usuario) Sin acceso [Urkund](sistema)
-- ayuda [adrian.narvaezp](usuario) olvide contrasena [Urkund](sistema)
-- ayuda no puedo acceder
-- saludos requiero [renan.freirez](usuario) no recuerda contrasena [Portafolio](sistema)
-- buenas tardes ayuda [hernan.gonzalezt](usuario) No hay acceso [Quipux](sistema)
-- necesito su ayuda olvide contrasena [eVirtual](sistema)
-- hola ayuda [adrian.narvaezp](usuario) olvide contrasena [Portafolio](sistema)
-- buenas tardes solicito [adrian.narvaezp](usuario) no recuerda contrasena [OpenERP](sistema)
-- hola solicito No hay acceso [Urkund](sistema)
-- buenas tardes [adrian.narvaezp](usuario) No hay acceso [eVirtual](sistema)
-- buenas tardes [renan.freirez](usuario) Sin acceso [Urkund](sistema)
-- buenos dias ayuda No hay acceso [GLPI](sistema)
-- saludos ayuda [hernan.gonzalezt](usuario) No hay acceso [Portafolio](sistema)
+## intent:peticion_recurso_computacional
+- buenos dias solicito acceso a una maquina [8](ram) GB de capacidad en RAM [4](cpu_cores) nucleos de cpu [256](disk_space) GB de disco duro
+- buenos dias requiero maquina virtual [32](ram) GB de ram [2](cpu_cores) nucleos
+- buenos dias necesito ayuda acceso a una maquina [1](cpu_cores) nucleos de cpu [1000](disk_space) GB de capacidad
+- hola solicito un servidor [64](ram) GB de capacidad en RAM [1](cpu_cores) nucleos de cpu [128](disk_space) GB de HD
+- hola necesito maquina virtual [8](ram) GB en RAM
+- saludos ayuda maquina virtual [8](cpu_cores) procesadores [256](disk_space) GB de HD
+- hola solicito acceso a una maquina [16](ram) GB de ram [3](cpu_cores) procesadores [16](disk_space) GB de disco duro
+- buenos dias necesito ayuda maquina virtual [8](cpu_cores) nucleos [1000](disk_space) GB de capacidad
+- buenas tardes ayuda maquina virtual [16](ram) GB en RAM [4](cpu_cores) nucleos [256](disk_space) GB de disco duro
+- solicito una VM [64](ram) GB en RAM [4](cpu_cores) procesadores
+- buenos dias necesito ayuda acceso a una maquina [16](ram) GB en RAM [1](cpu_cores) nucleos de cpu
+- hola ayuda una VM [32](ram) GB en RAM [1](cpu_cores) nucleos de cpu
+- buenas tardes necesito una VM [16](ram) GB de ram [4](cpu_cores) nucleos de cpu
+- saludos solicito maquina virtual [16](ram) GB de capacidad en RAM [1](cpu_cores) nucleos [8](disk_space) GB de HD
+- buenos dias necesito ayuda una instancia [8](ram) GB de ram [2](cpu_cores) procesadores
+- hola requiero acceso a una maquina [32](ram) GB de capacidad en RAM [2](cpu_cores) procesadores [16](disk_space) GB de HD
+- buenos dias necesito ayuda un servidor [8](cpu_cores) nucleos [128](disk_space) GB de disco duro
+- hola necesito ayuda un servidor [3](cpu_cores) nucleos
+- buenas tardes solicito un servidor [64](ram) GB en RAM [4](cpu_cores) nucleos de cpu [256](disk_space) GB de capacidad
+- buenas tardes solicito maquina virtual [64](ram) GB de ram [8](cpu_cores) nucleos de cpu [8](disk_space) GB de capacidad
+- saludos necesito una instancia [64](ram) GB en RAM [8](disk_space) GB de disco duro
+- solicito una VM [2](cpu_cores) nucleos [512](disk_space) GB de HD
+- buenas tardes solicito una VM [8](ram) GB en RAM [4](cpu_cores) nucleos de cpu [512](disk_space) GB de HD
+- buenos dias necesito ayuda una instancia
+- buenos dias ayuda acceso a una maquina [1](cpu_cores) procesadores [128](disk_space) GB de disco duro
+- hola necesito ayuda una VM [64](ram) GB de ram [512](disk_space) GB de HD
+- buenos dias necesito ayuda maquina virtual [128](ram) GB de ram [4](cpu_cores) procesadores
+- buenos dias requiero maquina virtual [64](ram) GB de capacidad en RAM [1](cpu_cores) nucleos de cpu [256](disk_space) GB de capacidad
+- buenas tardes ayuda acceso a una maquina [64](ram) GB de ram
+- hola necesito una VM [8](ram) GB en RAM [4](cpu_cores) nucleos de cpu [1000](disk_space) GB de capacidad
+- saludos ayuda maquina virtual [128](ram) GB en RAM [1](cpu_cores) nucleos de cpu
+- buenas tardes ayuda una instancia [32](ram) GB de ram [128](disk_space) GB de capacidad
+- solicito un servidor [16](ram) GB en RAM [3](cpu_cores) nucleos de cpu [256](disk_space) GB de disco duro
+- necesito maquina virtual [16](ram) GB en RAM [3](cpu_cores) nucleos de cpu [1000](disk_space) GB de capacidad
+- buenos dias requiero un servidor [128](ram) GB de capacidad en RAM [1](cpu_cores) nucleos de cpu [512](disk_space) GB de disco duro
+- ayuda una instancia [3](cpu_cores) nucleos de cpu [16](disk_space) GB de disco duro
+- buenas tardes ayuda maquina virtual [128](ram) GB de capacidad en RAM [16](disk_space) GB de disco duro
+- saludos solicito una instancia [64](ram) GB de ram [8](cpu_cores) nucleos [16](disk_space) GB de capacidad
+- hola solicito acceso a una maquina [128](ram) GB de ram [4](cpu_cores) nucleos [16](disk_space) GB de capacidad
+- saludos necesito ayuda una instancia [16](disk_space) GB de HD
+- hola ayuda una VM [8](cpu_cores) procesadores
+- buenos dias ayuda una instancia [8](ram) GB en RAM [16](disk_space) GB de HD
+- requiero una instancia [8](cpu_cores) procesadores
+- buenos dias solicito una instancia [16](ram) GB de capacidad en RAM [4](cpu_cores) nucleos
+- hola necesito ayuda una instancia [8](ram) GB en RAM [4](cpu_cores) nucleos de cpu
+- buenos dias necesito ayuda una instancia [64](ram) GB de ram [2](cpu_cores) nucleos de cpu [512](disk_space) GB de HD
+- saludos necesito ayuda un servidor
+- solicito una instancia
+- buenas tardes requiero acceso a una maquina [8](ram) GB en RAM [512](disk_space) GB de disco duro
+- necesito ayuda una VM [8](cpu_cores) nucleos [512](disk_space) GB de HD
+- saludos necesito acceso a una maquina [64](ram) GB en RAM [8](cpu_cores) nucleos [128](disk_space) GB de capacidad
+- hola ayuda un servidor [64](ram) GB de ram [4](cpu_cores) procesadores [512](disk_space) GB de capacidad
+- buenas tardes ayuda maquina virtual [8](ram) GB de ram [1](cpu_cores) procesadores [128](disk_space) GB de HD
+- ayuda una instancia [8](ram) GB de ram [1](cpu_cores) procesadores
+- buenas tardes necesito ayuda un servidor [64](ram) GB de ram [1](cpu_cores) nucleos de cpu
+- hola ayuda acceso a una maquina [64](ram) GB de ram [1](cpu_cores) procesadores [16](disk_space) GB de disco duro
+- buenos dias necesito una instancia [32](ram) GB de capacidad en RAM [4](cpu_cores) procesadores [16](disk_space) GB de capacidad
+- buenos dias necesito ayuda maquina virtual [128](ram) GB de capacidad en RAM [512](disk_space) GB de disco duro
+- buenos dias necesito ayuda una instancia [64](ram) GB de ram [3](cpu_cores) nucleos de cpu
+- buenos dias necesito ayuda una VM [64](ram) GB de capacidad en RAM [1](cpu_cores) procesadores [512](disk_space) GB de disco duro
+- hola ayuda maquina virtual [16](ram) GB de ram [3](cpu_cores) nucleos [16](disk_space) GB de capacidad
+- hola ayuda maquina virtual [16](ram) GB de ram [128](disk_space) GB de capacidad
+- hola necesito ayuda maquina virtual [8](ram) GB de capacidad en RAM [4](cpu_cores) nucleos de cpu [8](disk_space) GB de capacidad
+- buenas tardes solicito acceso a una maquina [2](cpu_cores) nucleos [1000](disk_space) GB de disco duro
+- necesito maquina virtual [16](ram) GB de capacidad en RAM [3](cpu_cores) nucleos de cpu [1000](disk_space) GB de capacidad
+- hola necesito una VM [8](cpu_cores) nucleos [16](disk_space) GB de disco duro
+- hola requiero una VM [4](cpu_cores) nucleos [512](disk_space) GB de disco duro
+- saludos requiero maquina virtual [32](ram) GB en RAM [1](cpu_cores) nucleos de cpu [1000](disk_space) GB de capacidad
+- buenos dias ayuda acceso a una maquina [8](ram) GB de capacidad en RAM [2](cpu_cores) procesadores [8](disk_space) GB de capacidad
+- buenas tardes necesito una instancia [4](cpu_cores) nucleos de cpu [8](disk_space) GB de disco duro
+- buenos dias ayuda una instancia [2](cpu_cores) procesadores [1000](disk_space) GB de disco duro
+- solicito una instancia [128](ram) GB de ram [2](cpu_cores) nucleos [16](disk_space) GB de HD
+- hola solicito una instancia [4](cpu_cores) nucleos [1000](disk_space) GB de disco duro
+- buenos dias necesito acceso a una maquina [8](ram) GB de capacidad en RAM [4](cpu_cores) nucleos de cpu [128](disk_space) GB de capacidad
+- buenas tardes necesito ayuda una instancia [64](ram) GB en RAM [128](disk_space) GB de HD
+- ayuda maquina virtual [1](cpu_cores) nucleos [512](disk_space) GB de capacidad
+- buenas tardes necesito ayuda una instancia [32](ram) GB de ram [1](cpu_cores) procesadores [16](disk_space) GB de capacidad
+- necesito ayuda maquina virtual [64](ram) GB de capacidad en RAM [1](cpu_cores) nucleos [512](disk_space) GB de HD
+- saludos necesito una VM [16](ram) GB de capacidad en RAM [1000](disk_space) GB de HD
+- saludos ayuda una VM [4](cpu_cores) nucleos
+- buenas tardes solicito maquina virtual [64](ram) GB en RAM [2](cpu_cores) nucleos [128](disk_space) GB de disco duro
+- requiero un servidor [8](ram) GB de capacidad en RAM [4](cpu_cores) nucleos de cpu [512](disk_space) GB de HD
+- buenas tardes necesito un servidor [32](ram) GB de ram [3](cpu_cores) nucleos de cpu [16](disk_space) GB de HD
+- buenas tardes solicito una VM [8](ram) GB en RAM [8](cpu_cores) nucleos [256](disk_space) GB de disco duro
+- hola necesito una instancia [16](ram) GB de ram [1000](disk_space) GB de disco duro
+- buenas tardes requiero maquina virtual [16](ram) GB de ram [2](cpu_cores) procesadores [256](disk_space) GB de capacidad
+- hola necesito ayuda un servidor [16](ram) GB de ram [1](cpu_cores) nucleos de cpu
+- ayuda acceso a una maquina [32](ram) GB de capacidad en RAM [2](cpu_cores) nucleos de cpu [16](disk_space) GB de disco duro
+- solicito acceso a una maquina [4](cpu_cores) procesadores [128](disk_space) GB de HD
+- saludos necesito acceso a una maquina [32](ram) GB de ram [128](disk_space) GB de capacidad
+- necesito ayuda una instancia [128](ram) GB de ram
+- solicito acceso a una maquina [64](ram) GB en RAM [1](cpu_cores) procesadores [256](disk_space) GB de capacidad
+- saludos requiero un servidor [128](ram) GB de capacidad en RAM
+- buenos dias ayuda una instancia [64](ram) GB de ram [256](disk_space) GB de disco duro
+- necesito ayuda una instancia [8](ram) GB de ram [4](cpu_cores) procesadores
+- necesito ayuda una VM [8](ram) GB de capacidad en RAM [8](cpu_cores) procesadores [1000](disk_space) GB de disco duro
+- buenas tardes necesito una VM [16](ram) GB de ram [3](cpu_cores) procesadores [256](disk_space) GB de disco duro
+- buenas tardes requiero una instancia [16](ram) GB de capacidad en RAM [8](cpu_cores) procesadores [8](disk_space) GB de capacidad
+- buenas tardes solicito un servidor [8](ram) GB de ram [1](cpu_cores) procesadores [16](disk_space) GB de HD
+- ayuda acceso a una maquina [128](ram) GB de ram [2](cpu_cores) procesadores [1000](disk_space) GB de capacidad
+- solicito una VM [16](ram) GB de capacidad en RAM [8](cpu_cores) nucleos [1000](disk_space) GB de capacidad
+- solicito un servidor [32](ram) GB de ram [8](cpu_cores) nucleos de cpu [256](disk_space) GB de HD
+- saludos requiero una instancia [32](ram) GB en RAM [4](cpu_cores) procesadores [256](disk_space) GB de capacidad
+- saludos ayuda acceso a una maquina
+- hola requiero un servidor [16](ram) GB en RAM [8](cpu_cores) procesadores [128](disk_space) GB de capacidad
+- buenos dias requiero maquina virtual [8](ram) GB de ram [4](cpu_cores) nucleos [8](disk_space) GB de HD
+- hola necesito una VM [128](ram) GB en RAM [8](disk_space) GB de HD
+- buenos dias requiero una VM [128](ram) GB de capacidad en RAM [8](cpu_cores) nucleos de cpu [16](disk_space) GB de HD
+- buenas tardes necesito una VM [32](ram) GB de ram [16](disk_space) GB de HD
+- necesito maquina virtual [32](ram) GB de ram [8](cpu_cores) procesadores
+- necesito ayuda maquina virtual [32](ram) GB en RAM [3](cpu_cores) nucleos de cpu [16](disk_space) GB de disco duro
+- saludos requiero maquina virtual [128](ram) GB de capacidad en RAM [256](disk_space) GB de capacidad
+- saludos ayuda acceso a una maquina [64](ram) GB de capacidad en RAM [4](cpu_cores) nucleos de cpu
+- buenos dias necesito ayuda un servidor [128](ram) GB de capacidad en RAM [3](cpu_cores) nucleos de cpu
+- necesito ayuda una VM [64](ram) GB en RAM [1](cpu_cores) nucleos de cpu [128](disk_space) GB de capacidad
+- solicito una instancia [8](cpu_cores) nucleos de cpu [16](disk_space) GB de capacidad
+- buenas tardes ayuda maquina virtual [32](ram) GB de ram [128](disk_space) GB de capacidad
+- hola ayuda un servidor [8](ram) GB en RAM [4](cpu_cores) nucleos de cpu [16](disk_space) GB de HD
+- hola solicito acceso a una maquina [1000](disk_space) GB de disco duro
+- necesito ayuda un servidor [8](cpu_cores) procesadores
+- saludos requiero una instancia [3](cpu_cores) nucleos de cpu
+- necesito ayuda una VM [32](ram) GB de capacidad en RAM [2](cpu_cores) nucleos de cpu
+- buenos dias solicito una instancia [64](ram) GB de capacidad en RAM [4](cpu_cores) procesadores
+- hola necesito ayuda una instancia [3](cpu_cores) nucleos de cpu [8](disk_space) GB de HD
+- buenas tardes necesito una instancia [16](ram) GB de ram [1](cpu_cores) nucleos de cpu [1000](disk_space) GB de capacidad
+- requiero acceso a una maquina [32](ram) GB en RAM [8](cpu_cores) nucleos [512](disk_space) GB de capacidad
+- hola solicito una VM [16](ram) GB de capacidad en RAM [8](disk_space) GB de HD
+- saludos requiero una VM [16](ram) GB de capacidad en RAM [3](cpu_cores) nucleos [8](disk_space) GB de HD
+- buenas tardes necesito ayuda maquina virtual [1](cpu_cores) nucleos [8](disk_space) GB de disco duro
+- buenos dias ayuda acceso a una maquina [8](cpu_cores) nucleos [256](disk_space) GB de disco duro
+- buenos dias ayuda acceso a una maquina [32](ram) GB de capacidad en RAM [512](disk_space) GB de HD
+- buenas tardes necesito una VM [32](ram) GB de capacidad en RAM [512](disk_space) GB de capacidad
+- saludos necesito acceso a una maquina [64](ram) GB de capacidad en RAM [3](cpu_cores) nucleos
+- saludos solicito maquina virtual [128](ram) GB de capacidad en RAM [3](cpu_cores) nucleos de cpu [512](disk_space) GB de disco duro
+- buenas tardes solicito una VM [64](ram) GB de ram [4](cpu_cores) nucleos [8](disk_space) GB de HD
+- buenas tardes requiero una VM [64](ram) GB de capacidad en RAM [2](cpu_cores) nucleos [256](disk_space) GB de HD
+- saludos requiero acceso a una maquina
+- saludos solicito maquina virtual [128](ram) GB de capacidad en RAM [128](disk_space) GB de capacidad
+- necesito ayuda una instancia [128](ram) GB de capacidad en RAM [2](cpu_cores) nucleos de cpu [1000](disk_space) GB de HD
+- saludos necesito ayuda una VM [128](ram) GB en RAM [4](cpu_cores) nucleos
+- hola requiero un servidor [32](ram) GB de ram [1](cpu_cores) procesadores [8](disk_space) GB de disco duro
+- saludos necesito una instancia [4](cpu_cores) nucleos [8](disk_space) GB de capacidad
+- saludos ayuda maquina virtual [64](ram) GB en RAM [2](cpu_cores) procesadores [128](disk_space) GB de capacidad
+- hola necesito maquina virtual [128](ram) GB en RAM [8](cpu_cores) procesadores [16](disk_space) GB de disco duro
+- saludos necesito ayuda un servidor [128](ram) GB de ram [1](cpu_cores) procesadores [16](disk_space) GB de HD
+- hola necesito ayuda maquina virtual [8](ram) GB en RAM [3](cpu_cores) nucleos [16](disk_space) GB de capacidad
+- saludos necesito ayuda un servidor [16](ram) GB de ram [2](cpu_cores) procesadores [1000](disk_space) GB de disco duro
+- solicito una VM [8](ram) GB de ram [8](cpu_cores) nucleos [1000](disk_space) GB de capacidad
+- hola necesito ayuda un servidor [64](ram) GB de ram [8](cpu_cores) nucleos de cpu [16](disk_space) GB de HD
+- hola necesito una VM [16](ram) GB de ram [4](cpu_cores) nucleos de cpu [512](disk_space) GB de disco duro
+- necesito una VM [8](cpu_cores) nucleos [1000](disk_space) GB de capacidad
+- buenas tardes requiero un servidor [32](ram) GB en RAM [16](disk_space) GB de HD
+- necesito ayuda una instancia [32](ram) GB en RAM [2](cpu_cores) nucleos de cpu [8](disk_space) GB de HD
+- saludos necesito acceso a una maquina [8](ram) GB en RAM [4](cpu_cores) procesadores [16](disk_space) GB de disco duro
+- saludos requiero acceso a una maquina [32](ram) GB de ram
+- ayuda acceso a una maquina [8](cpu_cores) nucleos
+- buenos dias ayuda una VM [1](cpu_cores) nucleos
+- necesito ayuda acceso a una maquina [8](ram) GB de ram [1](cpu_cores) nucleos de cpu [16](disk_space) GB de capacidad
+- buenas tardes solicito maquina virtual [16](ram) GB en RAM [4](cpu_cores) nucleos de cpu [8](disk_space) GB de HD
+- buenas tardes ayuda una instancia [8](cpu_cores) nucleos [256](disk_space) GB de disco duro
+- hola necesito una VM [64](ram) GB de capacidad en RAM
+- saludos ayuda un servidor [16](ram) GB de ram [4](cpu_cores) procesadores [256](disk_space) GB de capacidad
+- buenas tardes requiero maquina virtual [128](ram) GB de ram
+- buenos dias solicito un servidor [16](ram) GB en RAM [8](disk_space) GB de disco duro
+- solicito un servidor [32](ram) GB de ram [4](cpu_cores) nucleos de cpu [128](disk_space) GB de capacidad
+- hola ayuda una instancia [32](ram) GB en RAM [2](cpu_cores) procesadores [256](disk_space) GB de disco duro
+- buenas tardes ayuda acceso a una maquina [16](ram) GB de ram [4](cpu_cores) nucleos [512](disk_space) GB de disco duro
+- buenas tardes solicito una VM
+- saludos ayuda una VM [128](ram) GB de capacidad en RAM [1](cpu_cores) procesadores [16](disk_space) GB de disco duro
+- buenos dias requiero un servidor [32](ram) GB de capacidad en RAM [2](cpu_cores) procesadores
+- saludos solicito una instancia [8](ram) GB de ram [1](cpu_cores) nucleos de cpu
+- saludos necesito ayuda acceso a una maquina [3](cpu_cores) nucleos de cpu
+- buenas tardes necesito una instancia [32](ram) GB de ram
+- hola necesito acceso a una maquina [2](cpu_cores) nucleos [1000](disk_space) GB de capacidad
+- hola necesito ayuda una instancia [128](ram) GB en RAM [2](cpu_cores) nucleos [512](disk_space) GB de disco duro
+- requiero una instancia [16](ram) GB de ram [3](cpu_cores) nucleos de cpu
+- hola requiero una instancia [128](ram) GB de ram [512](disk_space) GB de HD
+- solicito una instancia [4](cpu_cores) nucleos de cpu
+- solicito una VM [128](ram) GB en RAM [8](disk_space) GB de capacidad
+- necesito ayuda una VM [256](disk_space) GB de capacidad
+- buenos dias requiero un servidor [32](ram) GB en RAM [4](cpu_cores) nucleos de cpu
+- saludos ayuda maquina virtual [64](ram) GB en RAM [8](cpu_cores) nucleos de cpu [256](disk_space) GB de disco duro
+- hola necesito acceso a una maquina [128](ram) GB de capacidad en RAM [3](cpu_cores) procesadores [1000](disk_space) GB de HD
+- hola necesito ayuda acceso a una maquina [256](disk_space) GB de disco duro
+- hola ayuda una instancia [16](ram) GB en RAM [8](cpu_cores) nucleos [1000](disk_space) GB de HD
+- buenas tardes ayuda maquina virtual [32](ram) GB de capacidad en RAM [1](cpu_cores) procesadores [512](disk_space) GB de capacidad
+- saludos necesito acceso a una maquina [8](cpu_cores) nucleos [256](disk_space) GB de capacidad
+- saludos necesito acceso a una maquina [1](cpu_cores) nucleos de cpu [16](disk_space) GB de disco duro
+- requiero una instancia [128](ram) GB de capacidad en RAM [1](cpu_cores) nucleos de cpu [128](disk_space) GB de HD
+- buenos dias necesito ayuda acceso a una maquina [256](disk_space) GB de disco duro
+- hola requiero maquina virtual [2](cpu_cores) nucleos [512](disk_space) GB de capacidad
+- hola requiero una instancia [8](ram) GB de ram [3](cpu_cores) nucleos [1000](disk_space) GB de capacidad
+- buenas tardes requiero maquina virtual [8](ram) GB de capacidad en RAM [8](cpu_cores) nucleos
+- saludos requiero maquina virtual [32](ram) GB de ram [4](cpu_cores) procesadores
+- necesito maquina virtual [32](ram) GB de ram
+- saludos ayuda una VM [1000](disk_space) GB de capacidad
+- hola necesito ayuda maquina virtual [16](ram) GB de ram [4](cpu_cores) procesadores [16](disk_space) GB de HD
+- hola necesito ayuda una VM [16](ram) GB de capacidad en RAM [8](cpu_cores) nucleos de cpu [256](disk_space) GB de capacidad
+- necesito ayuda un servidor [64](ram) GB de ram [4](cpu_cores) nucleos [512](disk_space) GB de disco duro
+- saludos requiero maquina virtual [4](cpu_cores) nucleos de cpu [8](disk_space) GB de disco duro
+
+## intent:recuperar_contrasena
+- hola [renan.freirez](usuario) No hay acceso [eVirtual](sistema)
+- buenas tardes requiero [hernan.gonzalezt](usuario) no recuerda contrasena [GLPI](sistema)
+- hola solicito [renan.freirez](usuario) no recuerda contrasena [eVirtual](sistema)
+- saludos solicito [adrian.narvaezp](usuario) no recuerda contrasena
+- buenas tardes necesito ayuda [hernan.gonzalezt](usuario) no puedo acceder
+- saludos requiero [renan.freirez](usuario) No hay acceso [eVirtual](sistema)
+- saludos ayuda [adrian.narvaezp](usuario) Sin acceso [OpenERP](sistema)
+- buenos dias necesito [hernan.gonzalezt](usuario) no recuerda contrasena [Portafolio](sistema)
+- hola necesito [hernan.gonzalezt](usuario) olvide contrasena [OpenERP](sistema)
+- buenos dias requiero [renan.freirez](usuario) Sin acceso [Sistemas Institucionales](sistema)
+- olvide contrasena [eVirtual](sistema)
+- saludos necesito ayuda [hernan.gonzalezt](usuario) Sin acceso [GLPI](sistema)
+- solicito olvide contrasena [Urkund](sistema)
+- saludos necesito [hernan.gonzalezt](usuario) no puedo acceder [Sistemas Institucionales](sistema)
+- buenas tardes solicito [hernan.gonzalezt](usuario) no puedo acceder [Portafolio](sistema)
+- buenas tardes ayuda [hernan.gonzalezt](usuario) Sin acceso [GLPI](sistema)
+- buenos dias necesito ayuda olvide contrasena [eVirtual](sistema)
+- saludos requiero olvide contrasena [Quipux](sistema)
+- buenas tardes necesito [hernan.gonzalezt](usuario) olvide contrasena [eVirtual](sistema)
+- saludos [hernan.gonzalezt](usuario) olvide contrasena [eVirtual](sistema)
+- buenos dias necesito [hernan.gonzalezt](usuario) olvide contrasena [Sistemas Institucionales](sistema)
+- necesito ayuda [hernan.gonzalezt](usuario) olvide contrasena [Portafolio](sistema)
+- buenas tardes ayuda [adrian.narvaezp](usuario) no recuerda contrasena [Sistemas Institucionales](sistema)
+- buenas tardes requiero [renan.freirez](usuario) No hay acceso [Quipux](sistema)
+- requiero [renan.freirez](usuario) Sin acceso [eVirtual](sistema)
+- buenos dias requiero no recuerda contrasena [eVirtual](sistema)
+- buenas tardes solicito Sin acceso [Sistemas Institucionales](sistema)
+- saludos ayuda [renan.freirez](usuario) no recuerda contrasena [Quipux](sistema)
+- hola necesito ayuda olvide contrasena [Quipux](sistema)
+- buenas tardes solicito [hernan.gonzalezt](usuario) No hay acceso [Portafolio](sistema)
+- buenas tardes requiero [renan.freirez](usuario) Sin acceso [eVirtual](sistema)
+- buenas tardes ayuda [adrian.narvaezp](usuario) No hay acceso [GLPI](sistema)
+- saludos [adrian.narvaezp](usuario) No hay acceso
+- buenas tardes ayuda [adrian.narvaezp](usuario) no puedo acceder [Urkund](sistema)
+- buenos dias ayuda [adrian.narvaezp](usuario) no puedo acceder [Portafolio](sistema)
+- buenas tardes necesito Sin acceso
+- buenas tardes requiero [adrian.narvaezp](usuario) No hay acceso [Sistemas Institucionales](sistema)
+- [hernan.gonzalezt](usuario) Sin acceso [Urkund](sistema)
+- hola necesito [adrian.narvaezp](usuario) no puedo acceder [OpenERP](sistema)
+- buenos dias [renan.freirez](usuario) Sin acceso [OpenERP](sistema)
+- buenos dias ayuda [renan.freirez](usuario) olvide contrasena
+- saludos necesito ayuda [renan.freirez](usuario) no recuerda contrasena [GLPI](sistema)
+- saludos [hernan.gonzalezt](usuario) Sin acceso [eVirtual](sistema)
+- buenos dias requiero no recuerda contrasena [Sistemas Institucionales](sistema)
+- hola requiero [hernan.gonzalezt](usuario) olvide contrasena [Quipux](sistema)
+- buenas tardes [hernan.gonzalezt](usuario) Sin acceso [GLPI](sistema)
+- hola necesito ayuda [hernan.gonzalezt](usuario) olvide contrasena
+- hola ayuda [renan.freirez](usuario) No hay acceso [Quipux](sistema)
+- necesito [renan.freirez](usuario) No hay acceso [GLPI](sistema)
+- buenos dias solicito olvide contrasena
+- requiero [renan.freirez](usuario) olvide contrasena [OpenERP](sistema)
+- solicito [renan.freirez](usuario) no puedo acceder [Quipux](sistema)
+- requiero No hay acceso
+- buenas tardes necesito ayuda [hernan.gonzalezt](usuario) olvide contrasena
+- saludos solicito [hernan.gonzalezt](usuario) olvide contrasena [GLPI](sistema)
+- buenas tardes [hernan.gonzalezt](usuario) No hay acceso [GLPI](sistema)
+- saludos necesito [adrian.narvaezp](usuario) No hay acceso [OpenERP](sistema)
+- buenos dias [hernan.gonzalezt](usuario) no puedo acceder [Urkund](sistema)
+- hola solicito [adrian.narvaezp](usuario) No hay acceso
+- saludos ayuda [hernan.gonzalezt](usuario) no recuerda contrasena [OpenERP](sistema)
+- buenos dias solicito [renan.freirez](usuario) No hay acceso [eVirtual](sistema)
+- necesito [renan.freirez](usuario) no puedo acceder [eVirtual](sistema)
+- buenas tardes requiero Sin acceso [Sistemas Institucionales](sistema)
+- buenas tardes necesito ayuda no puedo acceder [OpenERP](sistema)
+- saludos requiero [hernan.gonzalezt](usuario) No hay acceso
+- saludos necesito ayuda [hernan.gonzalezt](usuario) olvide contrasena [eVirtual](sistema)
+- saludos necesito ayuda [adrian.narvaezp](usuario) Sin acceso [Sistemas Institucionales](sistema)
+- saludos [hernan.gonzalezt](usuario) Sin acceso [GLPI](sistema)
+- hola necesito [renan.freirez](usuario) Sin acceso [Quipux](sistema)
+- hola requiero No hay acceso [Sistemas Institucionales](sistema)
+- buenas tardes ayuda [hernan.gonzalezt](usuario) no puedo acceder [Sistemas Institucionales](sistema)
+- buenos dias necesito ayuda No hay acceso [Portafolio](sistema)
+- saludos solicito [adrian.narvaezp](usuario) olvide contrasena [eVirtual](sistema)
+- ayuda no recuerda contrasena
+- buenas tardes Sin acceso [Sistemas Institucionales](sistema)
+- hola ayuda [renan.freirez](usuario) no recuerda contrasena
+- [renan.freirez](usuario) no puedo acceder
+- necesito [adrian.narvaezp](usuario) No hay acceso [OpenERP](sistema)
+- necesito ayuda no puedo acceder [Quipux](sistema)
+- hola Sin acceso [Quipux](sistema)
+- buenos dias solicito no recuerda contrasena [Portafolio](sistema)
+- requiero [adrian.narvaezp](usuario) no recuerda contrasena [GLPI](sistema)
+- hola [hernan.gonzalezt](usuario) olvide contrasena [Portafolio](sistema)
+- buenas tardes ayuda no recuerda contrasena
+- solicito [adrian.narvaezp](usuario) No hay acceso [OpenERP](sistema)
+- saludos [adrian.narvaezp](usuario) No hay acceso [Sistemas Institucionales](sistema)
+- saludos requiero [adrian.narvaezp](usuario) Sin acceso [GLPI](sistema)
+- buenos dias necesito [hernan.gonzalezt](usuario) No hay acceso
+- saludos solicito [renan.freirez](usuario) Sin acceso [Urkund](sistema)
+- hola requiero [hernan.gonzalezt](usuario) no puedo acceder [Portafolio](sistema)
+- necesito ayuda no puedo acceder [Portafolio](sistema)
+- buenas tardes necesito [renan.freirez](usuario) no puedo acceder [Quipux](sistema)
+- saludos [adrian.narvaezp](usuario) no recuerda contrasena [Sistemas Institucionales](sistema)
+- saludos necesito [renan.freirez](usuario) no puedo acceder [Sistemas Institucionales](sistema)
+- buenos dias ayuda No hay acceso [Quipux](sistema)
+- necesito ayuda [hernan.gonzalezt](usuario) no puedo acceder
+- buenas tardes solicito [renan.freirez](usuario) olvide contrasena [Urkund](sistema)
+- necesito ayuda olvide contrasena [eVirtual](sistema)
+- buenas tardes ayuda [adrian.narvaezp](usuario) No hay acceso
+- ayuda [renan.freirez](usuario) no recuerda contrasena [Sistemas Institucionales](sistema)
 
 ## intent:saludo
-- saludos
-- buenos dias
+- hola
 - buenas tardes
+- hey
 - saludos saludos
 - buenas
 - hola buenos dias
 - hola buenas tardes
+
+## intent:solicitar_opciones
+- necesito ayuda
+- opciones
+- opciones disponibles
+- seleccionar opciones
+- mostrar opciones
+- menu
+- mostrar menu

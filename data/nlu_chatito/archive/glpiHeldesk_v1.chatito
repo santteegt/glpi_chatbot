@@ -1,23 +1,22 @@
+
 %[creacion_usuarios]('training': '100', 'testing': '20')
     ~[saludos?] ~[peticion?] ~[nuevo_usuario] @[sistema?] ~[para?] @[trato?] @[sujeto] @[facultad?]
 
-%[recuperar_contrasena]('training': '100', 'testing': '20')
+%[recuperar_contrsena]('training': '100', 'testing': '20')
     ~[saludos?] ~[peticion?] @[usuario?] ~[sin_acceso] @[sistema?]
+
+%[error_procesos]('training': '300', 'testing': '60')
+    ~[saludos?] ~[peticion?] ~[problema] ~[proceso#matriculas] @[facultad?]
+    ~[saludos?] ~[peticion?] ~[problema] ~[proceso#inscripcion] @[facultad?]
+    ~[saludos?] ~[peticion?] ~[problema?] ~[proceso#equipos] @[ubicacion?] @[facultad?]
+
+%[asistencia_pregrado]('training': '200', 'testing': '40')
+    ~[saludos?] ~[peticion?] ~[problema] ~[pregrado#materias] @[sujeto?]
+    ~[saludos?] ~[peticion?] ~[problema] ~[pregrado#actas] @[sujeto?]
 
 %[correo_electronico]('training': '4', 'testing': '4')
     @[email]
     ~[mi?] ~[correo?] ~[electronico?] @[email]
-
-%[peticion_recurso_computacional]('training': '200', 'testing': '40')
-    ~[peticion] ~[recurso_computacional]
-    ~[saludos?] ~[peticion] ~[recurso_computacional] ~[ram_suffix?] ~[cpu_cores_suffix?] ~[disk_space_suffix?]
-
-%[informacion]('training': '200', 'testing': '40')
-    ~[necesito un?] ~[ambiente de?] @[entorno]
-    ~[peticion?] ~[ram_suffix]
-    ~[peticion?] ~[cpu_cores_suffix]
-    ~[peticion?] ~[disk_space_suffix]
-    ~[peticion?] ~[escalabilidad]
 
 // alias
 ~[saludos]
@@ -29,7 +28,7 @@
 ~[peticion]
     necesito
     requiero
-    necesito ayuda
+    necesito su ayuda
     ayuda
     solicito
 
@@ -105,13 +104,6 @@
     anulacion actas de grado
     problemas de numeración actas de grado
 
-~[recurso_computacional]
-    maquina virtual
-    una VM
-    una instancia
-    un servidor
-    acceso a una maquina
-
 @[sistema]
     Urkund
     Sistemas Institucionales
@@ -172,55 +164,3 @@
     victor.saquicela@ucuenca.edu.ec
     hernan.gonzalezt@ucuenca.ec
     ronald.gualan@ucuenca.ec
-
-@[departamento]
-    Redes
-    Desarrollo
-    Helpdesk
-    Infraestructura
-
-@[entorno]
-    desarrollo
-    pruebas
-    produccion
-
-@[ram]
-    8
-    16
-    32
-    64
-    128
-
-~[ram_suffix]
-    @[ram] GB de ram
-    @[ram] GB en RAM
-    @[ram] GB de capacidad en RAM
-
-@[cpu_cores]
-    1
-    2
-    3
-    4
-    8
-
-~[cpu_cores_suffix]
-    @[cpu_cores] nucleos
-    @[cpu_cores] procesadores
-    @[cpu_cores] nucleos de cpu
-
-@[disk_space]
-    8
-    16
-    128
-    256
-    512
-    1000
-
-~[disk_space_suffix]
-    @[disk_space] GB de disco duro
-    @[disk_space] GB de capacidad
-    @[disk_space] GB de HD
-
-~[escalabilidad]
-    escalabilidad horizontal
-    escalabilidad vertical
