@@ -31,6 +31,11 @@
  - utter_saludo
  - utter_sugerencias
 
+## story_chitchat
+* chitchat
+ - utter_chitchat
+ - utter_sugerencias
+
 ## story_creacion_usuario
 * creacion_usuarios
  - action_joke

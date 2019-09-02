@@ -20,12 +20,18 @@ pipeline:
 - name: "SpacyEntityExtractor"
 - name: "EntitySynonymMapper"
 - name: "SklearnIntentClassifier"
+#- name: "DucklingHTTPExtractor"
+#  url: http://localhost:8000
+#  dimensions:
+#    - number
 
 # Configuration for Rasa Core.
 # https://rasa.com/docs/rasa/core/policies/
 # - max_history: This controls how much dialogue history the model looks at to decide which action to take next.
 # - nlu-threshold: the fallback action or the utter_default will be executed if the intent recognition has a confidence
 #   below a threshold (0-1). This value can be set based on NLU model evaluation results.
+# TwoStageFallbackPolicy: By splitting the fallback in the two stages affirmation and rephrasing the policy allows
+#                         more natural conversation flows
 policies:
   - name: KerasPolicy
     epochs: 50
@@ -33,7 +39,13 @@ policies:
   - name: MemoizationPolicy
     max_history: 5
   - name: FormPolicy
-  - name: FallbackPolicy
+#  - name: FallbackPolicy
+#    nlu_threshold: 0.29
+#    core_threshold: 0.29
+#    fallback_action_name: "utter_default"
+  - name: TwoStageFallbackPolicy
     nlu_threshold: 0.29
     core_threshold: 0.29
-    fallback_action_name: "utter_default"
+    fallback_core_action_name: "utter_default"
+    fallback_nlu_action_name: "action_default_ask_affirmation"
+    deny_suggestion_intent_name: "chitchat"

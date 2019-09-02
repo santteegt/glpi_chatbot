@@ -12,7 +12,7 @@ intents:
 - cancelar
 - peticion_recurso_computacional
 - chitchat
-
+- informacion
 
 entities:
 - PER
@@ -33,50 +33,178 @@ entities:
 - escalabilidad
 - observaciones
 
-# If your NLU model picks up an entity, and your domain contains a slot with the same name,
-# the slot will be set automatically.
 slots:
-  sujeto:
-    type: text
-  sistema:
-    type: text
-  facultad:
-    type: text
-  ubicacion:
-    type: text
-  prioridad:
-    type: categorical
-    values:
-    - baja
-    - media
-  email:
-    type: text
-  ticket_no:
-    type: text
-  requested_slot:
-    type: unfeaturized
-  departamento:
-    type: unfeaturized
-    auto_fill: false
-  entorno:
-    type: unfeaturized
-    auto_fill: false
-  ram:
-    type: unfeaturized
-    auto_fill: false
   cpu_cores:
+    type: unfeaturized
+    auto_fill: false
+  departamento:
     type: unfeaturized
     auto_fill: false
   disk_space:
     type: unfeaturized
     auto_fill: false
+  email:
+    type: text
+  entorno:
+    type: unfeaturized
+    auto_fill: false
   escalabilidad:
     type: unfeaturized
     auto_fill: false
+  facultad:
+    type: text
   observaciones:
     type: unfeaturized
     auto_fill: false
+  prioridad:
+    type: categorical
+    values:
+    - baja
+    - media
+  ram:
+    type: unfeaturized
+    auto_fill: false
+  requested_slot:
+    type: unfeaturized
+  sistema:
+    type: text
+  sujeto:
+    type: text
+  ticket_no:
+    type: text
+  ubicacion:
+    type: text
 
+templates:
+  utter_intro:
+  - text: Hola! Bienvenido al Sistema de Helpdesk de la Universidad de Cuenca. ¿Cual
+      es tu nombre?
+  - text: Bienvenido al Sistema Helpdesk de la U de Cuenca. ¿Con quien tengo el agrado
+      de comunicarme?
+  utter_saludo:
+  - text: Encantado {sujeto}. ¿En que le puedo ayudar?
+  - text: Hola {sujeto}! ¿Necesitas ayuda?
+  utter_sugerencias:
+  - text: Tal vez te interesan resolver uno de estos procesos?
+    buttons:
+    - title: Creacion de usuario
+      payload: creacion de usuario
+    - title: Recuperar contrasena
+      payload: no recuerda contrasena
+    - title: Solicitud Recursos Informaticos
+      payload: necesito maquina virtual
+  utter_despedida:
+  - text: Hasta luego! Gracias por utilizar el servicio
+  - text: Gracias por utilizar el servicio. Adiós!
+  utter_gracias:
+  - text: Fue un placer ayudarte {sujeto}
+  - text: '{sujeto}, un gusto resolver tus consultas'
+  - text: Un placer atender tu requerimiento
+  utter_email:
+  - text: Me puedes ayudar con su cuenta de correo electronico institucional?
+  - text: Cual es su cuenta de correo electronico?
+  utter_contrasena:
+  - text: Por favor revise la bandeja de entrada de su correo electronico
+  utter_procesos:
+  - text: '{facultad}. Es esta informacion correcta?'
+    buttons:
+    - title: Si
+      payload: hola buenos dias
+    - title: No
+      payload: gracias hasta luego
+  utter_mas_ayuda:
+  - text: Necesita ayuda en algo mas?
+    buttons:
+    - title: Si
+      payload: mostrar opciones
+    - title: No
+      payload: finalizar sesion
+  utter_confirmar_atencion:
+  - text: Hemos podido atender tu requerimiento satisfactoriamente?
+    buttons:
+    - title: Si
+      payload: muchas gracias
+    - title: No
+      payload: no recuerda contrasena
+  utter_enviar_ticket_no:
+  - text: 'Su Nro. de ticket de solicitud es: {ticket_no}'
+  utter_confirmar_solicitud:
+  - text: Su solicitud ha sido enviada exitosamente!. Por favor revise su correo electronico
+  utter_cancelado:
+  - text: Su requerimiento ha sido cancelado
+  utter_no_valido:
+  - text: El valor ingresado no es correcto
+  utter_ask_departamento:
+  - text: A que departamento pertenece?
+  utter_ask_entorno:
+  - text: En que entorno desea desplegarlo?
+    buttons:
+    - title: Desarrollo
+      payload: desarrollo
+    - title: Pruebas
+      payload: pruebas
+    - title: Produccion
+      payload: produccion
+  utter_ask_ram:
+  - text: Cuanta memoria RAM necesita?
+    buttons:
+    - title: 8 GB
+      payload: '8'
+    - title: 16 GB
+      payload: '16'
+    - title: 32 GB
+      payload: '32'
+  utter_ask_cpu_cores:
+  - text: Cuantos nucles de CPU para procesamiento necesita?
+    buttons:
+    - title: 1 CPU
+      payload: '1'
+    - title: 2 CPUs
+      payload: '2'
+    - title: 4 CPUs
+      payload: '4'
+  utter_ask_disk_space:
+  - text: Cuanta capacidad de almacenamiento necesita?
+    buttons:
+    - title: 16 GB
+      payload: '16'
+    - title: 128 GB
+      payload: '128'
+    - title: 256 GB
+      payload: '256'
+  utter_ask_escalabilidad:
+  - text: Su proyecto necesita de ciertas caracteristicas de escalabilidad?
+    buttons:
+    - title: Si. Horizontal
+      payload: escalabilidad horizontal
+    - title: Si. Vertical
+      payload: escalabilidad vertical
+  utter_ask_observaciones:
+  - text: Desea incluir algunas observaciones adicionales?
+  utter_compute_form_values:
+  - text: "Confirma que desea pedir los siguientes recursos computacionales?:\n -\
+      \ Maquina virtual para el departamento: {departamento} con las siguientes caracteristicas\n\
+      \ - Entorno: {entorno}\n - Memoria RAM: {ram} GB\n - Nucleos CPU: {cpu_cores}\n\
+      \ - Espacio en disco duro: {disk_space} GB\n - Escalabilidad: {escalabilidad}\n\
+      \ - Observaciones: {observaciones}"
+    buttons:
+    - title: Si
+      payload: confirmar
+    - title: No
+      payload: cancelar
+  utter_chitchat:
+  - text: No entiendo tu respuesta
+  - text: Tu respuesta no es muy clara
+  utter_continuar:
+  - text: Desea continuar con su solicitud?
+    buttons:
+    - title: Si
+      payload: confirmar
+    - title: No
+      payload: cancelar
+  utter_default:
+  - text: Lo siento! No entiendo su requerimiento. ¿Puede formular su pregunta de
+      manera más específica?
 
 actions:
 - utter_intro
@@ -104,164 +232,8 @@ actions:
 - utter_chitchat
 - utter_continuar
 - utter_default
+- action_default_ask_affirmation
 - action_joke
 
-
-templates:
-  utter_intro:
-  - text: "Hola! Bienvenido al Sistema de Helpdesk de la Universidad de Cuenca. ¿Cual es tu nombre?"
-  - text: "Bienvenido al Sistema Helpdesk de la U de Cuenca. ¿Con quien tengo el agrado de comunicarme?"
-
-  utter_saludo:
-  - text: "Encantado {sujeto}. ¿En que le puedo ayudar?"
-  - text: "Hola {sujeto}! ¿Necesitas ayuda?"
-
-  utter_sugerencias:
-  - text: "Tal vez te interesan resolver uno de estos procesos?"
-    buttons:
-      - title: "Creacion de usuario"
-        payload: "creacion de usuario"
-      - title: "Recuperar contrasena"
-        payload: "no recuerda contrasena"
-      - title: "Solicitud Recursos Informaticos"
-        payload: "necesito maquina virtual"
-
-
-  utter_despedida:
-  - text: "Hasta luego! Gracias por utilizar el servicio"
-  - text: "Gracias por utilizar el servicio. Adiós!"
-  
-  utter_gracias:
-  - text: "Fue un placer ayudarte {sujeto}"
-  - text: "{sujeto}, un gusto resolver tus consultas"
-  - text: "Un placer atender tu requerimiento"
-
-  utter_email:
-  - text: "Me puedes ayudar con su cuenta de correo electronico institucional?"
-  - text: "Cual es su cuenta de correo electronico?"
-
-  utter_contrasena:
-  - text: "Por favor revise la bandeja de entrada de su correo electronico"
-
-  utter_procesos:
-  - text: "{facultad}. Es esta informacion correcta?"
-    buttons:
-      - title: "Si"
-        payload: "hola buenos dias"
-      - title: "No"
-        payload: "gracias hasta luego"
-
-  utter_mas_ayuda:
-  - text: "Necesita ayuda en algo mas?"
-    buttons:
-      - title: "Si"
-        payload: "mostrar opciones"
-      - title: "No"
-        payload: "finalizar sesion"
-
-  utter_confirmar_atencion:
-  - text: "Hemos podido atender tu requerimiento satisfactoriamente?"
-    buttons:
-      - title: "Si"
-        payload: "muchas gracias"
-      - title: "No"
-        payload: "no recuerda contrasena"
-
-  utter_enviar_ticket_no:
-  - text: "Su Nro. de ticket de solicitud es: {ticket_no}"
-
-  utter_confirmar_solicitud:
-  - text: "Su solicitud ha sido enviada exitosamente!. Por favor revise su correo electronico"
-
-  utter_cancelado:
-  - text: "Su requerimiento ha sido cancelado"
-
-  utter_no_valido:
-  - text: "El valor ingresado no es correcto"
-
-  utter_ask_departamento:
-  - text: "A que departamento pertenece?"
-
-  utter_ask_entorno:
-  - text: "En que entorno desea desplegarlo?"
-    buttons:
-      - title: "Desarrollo"
-        payload: "desarrollo"
-      - title: "Pruebas"
-        payload: "pruebas"
-      - title: "Produccion"
-        payload: "produccion"
-
-  utter_ask_ram:
-  - text: "Cuanta memoria RAM necesita?"
-    buttons:
-      - title: "8 GB"
-        payload: "8"
-      - title: "16 GB"
-        payload: "16"
-      - title: "32 GB"
-        payload: "32"
-
-  utter_ask_cpu_cores:
-  - text: "Cuantos nucles de CPU para procesamiento necesita?"
-    buttons:
-      - title: "1 CPU"
-        payload: "1"
-      - title: "2 CPUs"
-        payload: "2"
-      - title: "4 CPUs"
-        payload: "4"
-
-  utter_ask_disk_space:
-  - text: "Cuanta capacidad de almacenamiento necesita?"
-    buttons:
-      - title: "16 GB"
-        payload: "16"
-      - title: "128 GB"
-        payload: "128"
-      - title: "256 GB"
-        payload: "256"
-
-  utter_ask_escalabilidad:
-  - text: "Su proyecto necesita de ciertas caracteristicas de escalabilidad?"
-    buttons:
-      - title: "Si. Horizontal"
-        payload: "escalabilidad horizontal"
-      - title: "Si. Vertical"
-        payload: "escalabilidad vertical"
-
-  utter_ask_observaciones:
-  - text: "Desea incluir algunas observaciones adicionales?"
-
-  utter_compute_form_values:
-  - text: "Confirma que desea pedir los siguientes recursos computacionales?:\n
-     - Maquina virtual para el departamento: {departamento} con las siguientes caracteristicas\n
-     - Entorno: {entorno}\n
-     - Memoria RAM: {ram} GB\n
-     - Nucleos CPU: {cpu_cores}\n
-     - Espacio en disco duro: {disk_space} GB\n
-     - Escalabilidad: {escalabilidad}\n
-     - Observaciones: {observaciones}"
-    buttons:
-      - title: "Si"
-        payload: "confirmar"
-      - title: "No"
-        payload: "cancelar"
-
-  utter_chitchat:
-    - text: "No entiendo tu respuesta"
-    - text: "Tu respuesta no es muy clara"
-
-  utter_continuar:
-  - text: "Desea continuar con su solicitud?"
-    buttons:
-      - title: "Si"
-        payload: "confirmar"
-      - title: "No"
-        payload: "cancelar"
-
-  utter_default:
-  - text: "Lo siento! No entiendo su requerimiento. ¿Puede formular su pregunta de manera más específica?"
-  
 forms:
-  - compute_resource_form
+- compute_resource_form
