@@ -13,22 +13,18 @@ The initial version of this starter-pack lets you build a simple assistant capab
   <img src="./rasa-stack-mockup.gif">
 </p>
 
+## Requirements
 
-Clone this repo to get started:
-
-```
-git clone https://github.com/RasaHQ/starter-pack-rasa-stack.git
-```
-
-After you clone the repository, a directory called starter-pack-rasa-stack will be downloaded to your local machine. It contains all the files of this repo and you should refer to this directory as your 'project directory'.
-
+* Python 3.6.8+
+* Pip3
+* Conda (Recommended for isolated env creation)
 
 ## Setup and installation
 
 If you haven’t installed Rasa NLU and Rasa Core yet, you can do it by navigating to the project directory and running:  
 
 ```
-pip install -r alt_requirements/requirements_full.txt
+pip install -r alt_requirements/requirements_full.txt --extra-index-url https://pypi.rasa.com/simple
 ```
 
 You also need to install a spaCy English language model. You can install it by running:
@@ -47,7 +43,9 @@ pip install git+git://github.com/RasaHQ/rasa.git
 
 ```
 
-## Prepare dataset for training/testing
+## Development instructions
+
+### Prepare dataset for training/testing
 
 If you're (re-)generating data using Chatito, paste the related files under the `data/nlu_chatito` folder and then execute the following commands:
 
@@ -56,7 +54,7 @@ rasa data convert nlu --data data/nlu_chatito/train/ --out data/train/nlu.md -l 
 rasa data convert nlu --data data/nlu_chatito/test/ --out data/test/nlu.md -l es -f md
 ```
 
-## Training Rasa Core & NLU models
+### Training Rasa Core & NLU models
 
 The following command trains both the Core and NLU models
 
@@ -64,7 +62,7 @@ The following command trains both the Core and NLU models
 rasa train --data data/train
 ```
 
-## NLU model evaluation
+### NLU model evaluation
 
 The following command performs a model evaluation of the latest trained NLU model under the `models` directory
 
@@ -79,7 +77,7 @@ Finally, check the following files for results:
 * [Misclassified Intents](errors.json)
 * [Intent/Entity Metrics Report](report_metrics/)
 
-## Dialogue (CORE) model evaluation
+### Dialogue (CORE) model evaluation
 
 The following command performs a model evaluation of the latest trained dialogue model under the `models` directory
 
@@ -89,13 +87,13 @@ rasa test core -s data/test/
 
 Finally, check the [results](results/) directory for a summary of the performed evaluation
 
-## Visualizing stories
+### Visualizing stories
 
 ```bash
 rasa visualize -d domain.yml -s data/train/stories.md -u data/train/nlu.md
 ```
 
-## Deploying custom actions
+### Deploying custom actions
 
 ```bash
 rasa run actions --actions actions -p 5055
@@ -105,6 +103,20 @@ rasa run actions --actions actions -p 5055
 
 ```bash
 rasa shell --endpoints endpoints.yml
+```
+
+### Run Rasa X (Optional)
+
+Rasa X is a tool designed to make it easier to deploy and improve Rasa-powered assistants by learning from real conversations
+
+```bash
+rasa x --data data/train/ --endpoints endpoints.yml --cors '*' --enable-api -p 5005
+```
+
+### Deploy DucklingHTTPExtractor (Optional if Enabled on the NLU pipeline)
+
+```bash
+docker run -p 8000:8000 rasa/duckling
 ```
 
 ### Deploy the chatbot with enabled connection to a web channel through socketsio

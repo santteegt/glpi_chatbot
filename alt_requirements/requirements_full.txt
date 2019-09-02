@@ -5,6 +5,6 @@
 -r requirements_pretrained_embeddings_spacy.txt
 
 # MITIE Requirements
--r requirements_pretrained_embeddings_mitie.txt
+# -r requirements_pretrained_embeddings_mitie.txt
 
 jieba==0.39
