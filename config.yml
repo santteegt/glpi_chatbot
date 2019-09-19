@@ -15,15 +15,21 @@ pipeline:
 - name: "SpacyNLP"
 - name: "SpacyTokenizer"
 - name: "SpacyFeaturizer"
+- name: "NGramFeaturizer"
 - name: "RegexFeaturizer"
-- name: "CRFEntityExtractor"
 - name: "SpacyEntityExtractor"
-- name: "EntitySynonymMapper"
-- name: "SklearnIntentClassifier"
+- name: "CRFEntityExtractor"
+  features: [
+    ["low", "title", "upper", "pos", "pos2"],
+    ["bias", "low", "prefix5", "prefix2", "suffix5", "suffix3", "suffix2", "upper", "title", "digit", "pattern"],
+    ["low", "title", "upper", "pos", "pos2"]
+  ]
+  BILOU_flag: false
 #- name: "DucklingHTTPExtractor"
 #  url: http://localhost:8000
-#  dimensions:
-#    - number
+#  dimensions: ["time", "number", "email", "distance", "amount-of-money", "duration", "url", "phone-number"]
+- name: "EntitySynonymMapper"
+- name: "SklearnIntentClassifier"
 
 # Configuration for Rasa Core.
 # https://rasa.com/docs/rasa/core/policies/
@@ -48,4 +54,4 @@ policies:
     core_threshold: 0.29
     fallback_core_action_name: "utter_default"
     fallback_nlu_action_name: "action_default_ask_affirmation"
-    deny_suggestion_intent_name: "chitchat"
+    deny_suggestion_intent_name: "solicitar_opciones"

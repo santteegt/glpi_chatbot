@@ -1,0 +1,232 @@
+%[creacion_usuarios]('training': '100', 'testing': '20')
+    ~[saludos?] ~[peticion?] ~[nuevo_usuario] @[sistema?] ~[para?] @[trato?] @[PER] @[facultad?]
+
+%[recuperar_contrasena]('training': '100', 'testing': '20')
+    ~[saludos?] ~[peticion?] @[usuario?] ~[sin_acceso] @[sistema?]
+
+%[especifica_sistema]('training': '6', 'testing': '4')
+    @[sistema]
+
+%[correo_electronico]('training': '4', 'testing': '4')
+    @[email]
+    ~[mi?] ~[correo?] ~[electronico?] @[email]
+
+%[peticion_recurso_computacional]('training': '200', 'testing': '40')
+    ~[peticion] ~[recurso_computacional]
+    ~[saludos?] ~[peticion] ~[recurso_computacional] ~[ram_suffix?] ~[cpu_cores_suffix?] ~[disk_space_suffix?]
+
+%[informacion]('training': '200', 'testing': '40')
+    ~[necesito un?] ~[ambiente de?] @[entorno]
+    ~[peticion?] ~[ram_suffix]
+    ~[peticion?] ~[cpu_cores_suffix]
+    ~[peticion?] ~[disk_space_suffix]
+    ~[peticion?] ~[escalabilidad]
+
+// alias
+~[saludos]
+    saludos
+    hola
+    buenos dias
+    buenas tardes
+
+~[peticion]
+    necesito
+    requiero
+    necesito ayuda
+    ayuda
+    solicito
+
+~[problema]
+    problema
+    error
+    inconveniente
+    revision
+
+~[nuevo_usuario]
+    creacion de usuario
+    creacion de cuenta de usuario
+    creacion de cuenta
+    registrar personal
+    crear nuevo usuario
+    crear usuario y asignar roles
+    acceso al sistema
+    acceso a
+
+~[sin_acceso]
+    No hay acceso
+    Sin acceso
+    no puedo acceder
+    no recuerda contrasena
+    olvide contrasena
+
+~[proceso#matriculas]
+    registro matricula
+    registro ficha socioeconomica
+    acceso a eSIUC
+    ficha de matricula
+    ficha socioeconomica
+
+~[proceso#inscripcion]
+    registro materia
+    asignacion credito
+    falta cupo
+    no encuentra informacion estudiante
+
+~[proceso#equipos]
+    no enciende computador
+    impresora no funciona
+    no imprime
+    conexion PC
+    computador no inicia
+    instalacion equipo
+    instalacion impresora
+    instalacion sistema
+    mantenimiento computador
+    configuracion de equipo
+    conexion puntos de red
+    proyector no enciende
+    telefonos no funcionan
+    respaldo de informacion
+    revisar proyector
+    no funciona impresora
+    no funciona escaner
+
+~[pregrado#materias]
+    migracion de notas
+    migracion de calificaciones
+    revision malla
+    configuracion malla
+    revision registros estudiante
+
+~[pregrado#actas]
+    cambio numero acta de grado
+    configuracion de actas
+    no se genera acta de grado
+    problema generacion de acta de grado
+    registro titulos historicos
+    correccion fecha acta de grado
+    anulacion actas de grado
+    problemas de numeración actas de grado
+
+~[recurso_computacional]
+    maquina virtual
+    una VM
+    una instancia
+    un servidor
+    acceso a una maquina
+
+@[sistema]
+    Urkund
+    Portafolio
+    Quipux
+    eVirtual
+    OpenERP
+    GLPI
+
+@[trato]
+    Lcdo
+    Lcda
+    Sr
+    Sra
+    Ing
+    Dr
+    Secretaria Abogada
+    Estudiante
+    Director
+
+@[PER]
+    Jenny Maricela Redrovan Macas
+    Karina Sarmiento
+    Juan Perez
+    Joselito Juanete
+    Cuenca Ciudad Universitaria
+    Coordinador Vinculacion Sociedad
+    Santiago
+    Cecilia
+    Oscar Malgiaritta
+    Marcelo Dosantos
+
+@[usuario]
+    adrian.narvaezp
+    hernan.gonzalezt
+    renan.freirez
+
+@[ubicacion]
+    Aula 107
+    Centro computo 118 A
+    Consejo Universitario
+    Rectorado
+
+@[facultad]
+    ~[Facultad Hospitalidad]
+    ~[Facultad Medicina]
+    ~[Facultad Ingenieria]
+    ~[Facultad Psicologia]
+    ~[Facultad Ingenieria]
+
+~[Facultad Ingenieria]
+    Facultad Ingenieria
+    Ingenieria
+    Sistemas
+    Civil
+    Electronica
+    Electrica
+    Ing
+
+@[email]
+    hernan.gonzalez@ucuenca.edu.ec
+    victor.saquicela@ucuenca.edu.ec
+    hernan.gonzalezt@ucuenca.ec
+    ronald.gualan@ucuenca.ec
+
+@[departamento]
+    Redes
+    Desarrollo
+    Helpdesk
+    Infraestructura
+
+@[entorno]
+    desarrollo
+    pruebas
+    produccion
+
+@[ram]
+    8
+    16
+    32
+    64
+    128
+
+~[ram_suffix]
+    @[ram] GB de ram
+    @[ram] GB en RAM
+    @[ram] GB de capacidad en RAM
+
+@[cpu_cores]
+    1
+    2
+    3
+    4
+    8
+
+~[cpu_cores_suffix]
+    @[cpu_cores] nucleos
+    @[cpu_cores] procesadores
+    @[cpu_cores] nucleos de cpu
+
+@[disk_space]
+    8
+    16
+    128
+    256
+    512
+    1000
+
+~[disk_space_suffix]
+    @[disk_space] GB de disco duro
+    @[disk_space] GB de capacidad
+    @[disk_space] GB de HD
+
+~[escalabilidad]
+    escalabilidad horizontal
+    escalabilidad vertical

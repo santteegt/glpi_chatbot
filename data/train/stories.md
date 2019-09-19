@@ -30,7 +30,7 @@
 * nombre{"sujeto": "Santiago Gonzalez"}
  - utter_saludo
  - utter_sugerencias
-
+ 
 ## story_chitchat
 * chitchat
  - utter_chitchat
@@ -45,13 +45,46 @@
 * recuperar_contrasena
  - utter_email
 * correo_electronico
+ - utter_sistema
+* especifica_sistema
+ - utter_confirma_sistema
+* confirmar
  - utter_contrasena
  - utter_confirmar_atencion
-* agradecimiento
+ - slot {"email": null}
+ - slot {"sistema": null}
  - utter_mas_ayuda
-* despedida
- - utter_despedida
- - action_restart
+ 
+## story_recuperar_contrasena_unhappy_path_cancel_and_confirm
+* recuperar_contrasena
+ - utter_email
+* correo_electronico
+ - utter_sistema
+* especifica_sistema
+ - utter_confirma_sistema
+* cancelar
+ - utter_continuar
+* cancelar
+ - utter_cancelado
+ - slot {"email": null}
+ - slot {"sistema": null}
+ - utter_mas_ayuda
+ 
+## story_recuperar_contrasena_unhappy_path_cancel_but_continue
+* recuperar_contrasena
+ - utter_email
+* correo_electronico
+ - utter_sistema
+* especifica_sistema
+ - utter_confirma_sistema
+* cancelar
+ - utter_continuar
+* confirmar
+ - utter_contrasena
+ - utter_confirmar_atencion
+ - slot {"email": null}
+ - slot {"sistema": null}
+ - utter_mas_ayuda
  
 ## story_requerimiento_recurso_computacional_happy_path
 * peticion_recurso_computacional

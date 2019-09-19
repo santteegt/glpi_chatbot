@@ -1,17 +1,17 @@
 %[saludo]('training': '7', 'testing': '3')
     ~[saludos]
 
-%[despedida]('training': '8', 'testing': '4')
+%[despedida]('training': '7', 'testing': '3')
     ~[despedida]
 
-%[agradecimiento]('training': '6', 'testing': '4')
+%[agradecimiento]('training': '7', 'testing': '3')
     ~[agradecimiento]
 
 %[nombre]('training': '40', 'testing': '10')
     ~[presentacion?] @[PER]
-    ~[soy?] @[ORG]
 
 %[solicitar_opciones]('training': '7', 'testing': '3')
+    ~[necesito ayuda]
     ~[ayuda]
     ~[ayudame]
     ~[solicito ayuda]
@@ -21,41 +21,14 @@
     ~[mostrar opciones]
     ~[menu]
     ~[mostrar menu]
-    ~[ver menu]
 
-%[confirmar]('training': '16', 'testing': '8')
+%[confirmar]('training': '10', 'testing': '4')
     ~[afirmar]
-    ~[si si]
-    ~[bueno bueno]
-    ~[esta bien]
-    ~[ok ok]
-    ~[si acepto]
-    ~[si confirmo]
-    ~[si confirma]
-    ~[si acepta]
-    ~[confirmado]
-    ~[okay okay]
-    ~[confirmar]
-    ~[aceptar]
 
-%[cancelar]('training': '16', 'testing': '8')
+%[cancelar]('training': '11', 'testing': '5')
     ~[denegar]
-    ~[no]
-    ~[negativo]
-    ~[cancelar]
-    ~[cancelado]
-    ~[cancela]
-    ~[parar]
-    ~[no continuar]
-    ~[salir]
-    ~[denegar]
-    ~[denegado]
-    ~[no gracias]
-    ~[no no]
-    ~[no es lo que deseo]
-    ~[no es lo que quiero]
 
-%[chitchat]('training': '10', 'testing': '8')
+%[chitchat]('training': '9', 'testing': '5')
     ~[random]
 
 ~[presentacion]
@@ -84,25 +57,25 @@
     salir
     finaliza sesion
     chao chao
-    termina
-    fin
     terminar
-    terminar sesion
     acabar sesion
+    termina
 
 ~[afirmar]
     si
-    bueno
+    si si si
     esta bien
     ok
-    acepto
-    confirmo
-    confirma
-    acepta
     confirmado
-    okay
+    de acuerdo
+    afirmativo
     confirmar
-    aceptar
+    corroborar
+    ratificar
+    convalidar
+    revalidar
+    reafirmar
+    aseverar
 
 ~[denegar]
     no
@@ -116,8 +89,10 @@
     denegar
     denegado
     no gracias
-    no no
+    oh no
     no es lo que deseo
+    no eres util
+    no me sirve
     no es lo que quiero
 
 ~[agradecimiento]
@@ -136,6 +111,7 @@
     quien eres?
     quien es tu creador?
     como estas?
+    como te encuentras?
     que tal tu dia?
     estas bien?
     como has pasado?
@@ -146,22 +122,15 @@
     feliz dia
     como sera el clima de hoy?
     como te llamas?
-    eres inutil
-    no sirves
-    cuentame algo
-    eres un robot?
-    solo eres un robot
 
 @[PER]
     Jenny Maricela Redrovan Macas
     Karina Sarmiento
     Juan Perez
     Joselito Juanete
+    Cuenca Ciudad Universitaria
+    Coordinador Vinculacion Sociedad
     Santiago
     Cecilia
     Oscar Malgiaritta
     Marcelo Dosantos
-
-@[ORG]
-    Cuenca Ciudad Universitaria
-    Coordinador Vinculacion Sociedad

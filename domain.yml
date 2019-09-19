@@ -8,12 +8,12 @@ intents:
 - creacion_usuarios
 - recuperar_contrasena
 - correo_electronico
+- especifica_sistema
 - confirmar
 - cancelar
 - peticion_recurso_computacional
 - chitchat
 - informacion
-
 entities:
 - PER
 - LOC
@@ -32,8 +32,13 @@ entities:
 - disk_space
 - escalabilidad
 - observaciones
-
 slots:
+  LOC:
+    type: text
+  ORG:
+    type: text
+  PER:
+    type: text
   cpu_cores:
     type: unfeaturized
     auto_fill: false
@@ -74,7 +79,6 @@ slots:
     type: text
   ubicacion:
     type: text
-
 templates:
   utter_intro:
   - text: Hola! Bienvenido al Sistema de Helpdesk de la Universidad de Cuenca. ¿Cual
@@ -82,8 +86,8 @@ templates:
   - text: Bienvenido al Sistema Helpdesk de la U de Cuenca. ¿Con quien tengo el agrado
       de comunicarme?
   utter_saludo:
-  - text: Encantado {sujeto}. ¿En que le puedo ayudar?
-  - text: Hola {sujeto}! ¿Necesitas ayuda?
+  - text: Encantado {PER}. ¿En que le puedo ayudar?
+  - text: Hola {PER}! ¿Necesitas ayuda?
   utter_sugerencias:
   - text: Tal vez te interesan resolver uno de estos procesos?
     buttons:
@@ -98,11 +102,15 @@ templates:
   - text: Gracias por utilizar el servicio. Adiós!
   utter_gracias:
   - text: Fue un placer ayudarte {sujeto}
-  - text: '{sujeto}, un gusto resolver tus consultas'
+  - text: '{PER}, un gusto resolver tus consultas'
   - text: Un placer atender tu requerimiento
   utter_email:
   - text: Me puedes ayudar con su cuenta de correo electronico institucional?
   - text: Cual es su cuenta de correo electronico?
+  utter_sistema:
+  - text: A que sistema no tiene acceso?
+  utter_confirma_sistema:
+  - text: Procedemos a restablecer su contraseña para el sistema {sistema}. ¿Es correcto?
   utter_contrasena:
   - text: Por favor revise la bandeja de entrada de su correo electronico
   utter_procesos:
@@ -116,16 +124,16 @@ templates:
   - text: Necesita ayuda en algo mas?
     buttons:
     - title: Si
-      payload: mostrar opciones
+      payload: /solicitar_opciones
     - title: No
-      payload: finalizar sesion
+      payload: /finaliza_sesion
   utter_confirmar_atencion:
   - text: Hemos podido atender tu requerimiento satisfactoriamente?
     buttons:
     - title: Si
-      payload: muchas gracias
+      payload: confirmar
     - title: No
-      payload: no recuerda contrasena
+      payload: no recuerdo contrasena
   utter_enviar_ticket_no:
   - text: 'Su Nro. de ticket de solicitud es: {ticket_no}'
   utter_confirmar_solicitud:
@@ -205,13 +213,14 @@ templates:
   utter_default:
   - text: Lo siento! No entiendo su requerimiento. ¿Puede formular su pregunta de
       manera más específica?
-
 actions:
 - utter_intro
 - utter_saludo
 - utter_gracias
 - utter_despedida
 - utter_email
+- utter_sistema
+- utter_confirma_sistema
 - utter_contrasena
 - utter_procesos
 - utter_mas_ayuda
@@ -234,6 +243,5 @@ actions:
 - utter_default
 - action_default_ask_affirmation
 - action_joke
-
 forms:
 - compute_resource_form

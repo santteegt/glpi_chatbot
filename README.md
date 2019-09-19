@@ -43,6 +43,21 @@ pip install git+git://github.com/RasaHQ/rasa.git
 
 ```
 
+## Workaround to make Rasa work if AVX is not compatible with your CPU
+
+You may experience the following error on an on-premise and/or cloud server (deployed with Kubernetes): `The TensorFlow library was compiled to use AVX instructions`
+
+In order to fix this issue, execute the following commands after installing rasa dependencies as shown above:
+
+```bash
+pip uninstall tensorflow -y
+conda create --name glpi-rasax python=3.6.8
+conda activate glpi-rasax
+conda install -c anaconda tensorflow==1.13.1
+conda deactivate glpi-rasax
+export PYTHONPATH='${HOME}/anaconda3/envs/glpi-rasax/lib/python3.6/site-packages'
+```
+
 ## Development instructions
 
 ### Prepare dataset for training/testing
@@ -110,7 +125,7 @@ rasa shell --endpoints endpoints.yml
 Rasa X is a tool designed to make it easier to deploy and improve Rasa-powered assistants by learning from real conversations
 
 ```bash
-rasa x --data data/train/ --endpoints endpoints.yml --cors '*' --enable-api -p 5005
+rasa x --data data/train/ --endpoints endpoints.yml --cors '*' --enable-api --port 5005 --rasa-x-port 5002
 ```
 
 ### Deploy DucklingHTTPExtractor (Optional if Enabled on the NLU pipeline)
@@ -122,7 +137,7 @@ docker run -p 8000:8000 rasa/duckling
 ### Deploy the chatbot with enabled connection to a web channel through socketsio
 
 ```bash
-rasa run --endpoints endpoints.yml --credentials credentials.yml --enable-api --cors "*" --port 5002
+rasa run --endpoints endpoints.yml --credentials credentials.yml --enable-api --cors "*" --port 5005
 ```
 
 ### Deploy the web client

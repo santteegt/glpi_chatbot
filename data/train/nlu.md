@@ -1,723 +1,671 @@
 ## intent:agradecimiento
-- muchas gracias
-- gracias
+- gracias por su ayuda
 - agradezco su su ayuda
-- gracias gracias
+- estoy agradecido
 
 ## intent:cancelar
-- no
-- negativo
-- cancelar
-- cancelado
-- cancela
-- parar
+- no no
 - salir
-- denegado
-- oh no
+- no continuar
+- cancelar
+- no es lo que quiero
+- cancelado
+- negativo
 - no es lo que deseo
-- no me sirve
+- no gracias
+- no
+- denegar
 
 ## intent:chitchat
-- quien eres?
-- quien es tu creador?
-- como te encuentras?
+- como estas?
 - que tal tu dia?
+- como has pasado?
 - como es el clima de hoy?
 - esta lloviendo?
-- feliz dia
 - como sera el clima de hoy?
+- como te llamas?
+- cuentame algo
+- solo eres un robot
 
 ## intent:confirmar
 - si
-- si si si
+- bueno
 - esta bien
-- ok
-- confirmado
-- de acuerdo
-- confirmar
-- corroborar
-- ratificar
-- convalidar
+- acepto
+- confirmo
+- aceptar
+- si si
+- bueno bueno
+- ok ok
+- si acepto
+- si confirmo
+- si confirma
+- si acepta
+- okay okay
 
 ## intent:correo_electronico
-- correo electronico [hernan.gonzalezt@ucuenca.ec](email)
-- [hernan.gonzalez@ucuenca.edu.ec](email)
-- mi correo [ronald.gualan@ucuenca.ec](email)
-- mi [hernan.gonzalezt@ucuenca.ec](email)
+- [fausto.cardoso@ucuenca.edu.ec](email)
+- electronico [santiago.calle87@ucuenca.edu.ec](email)
+- electronico [sebastian.roman@ucuenca.edu.ec](email)
+- [esteban.zalamea@ucuenca.edu.ec](email)
+- [geovanny.calle77@ucuenca.edu.ec](email)
+- mi correo electronico [julio.mosquera@ucuenca.edu.ec](email)
+- [eliza.mosquera@ucuenca.edu.ec](email)
+- mi correo [catalina.vintimilla@ucuenca.edu.ec](email)
+- mi correo electronico [consuelo.maldonado@ucuenca.edu.ec](email)
+- [pablo.palacios@ucuenca.edu.ec](email)
+- mi correo [fabian.cazar@ucuenca.edu.ec](email)
+- mi correo electronico [catalina.rodas@ucuenca.edu.ec](email)
+- mi correo electronico [susanna.khachatryan@ucuenca.edu.ec](email)
+- mi correo [klever.mendez@ucuenca.edu.ec](email)
+- [david.encalada@ucuenca.edu.ec](email)
+- [lorena.vivanco@ucuenca.edu.ec](email)
+- mi correo electronico [gustavo.vimos@ucuenca.edu.ec](email)
+- electronico [victor.saquicela@ucuenca.edu.ec](email)
+- [patricio.hidalgo@ucuenca.edu.ec](email)
+- mi correo [julia.tamayo@ucuenca.edu.ec](email)
+- electronico [mauricio.brito@ucuenca.edu.ec](email)
+- mi correo [jorge.ortega@ucuenca.edu.ec](email)
+- electronico [paulina.mejia@ucuenca.edu.ec](email)
+- [enrique.flores@ucuenca.edu.ec](email)
+- [cristina.bustos@ucuenca.edu.ec](email)
+- mi correo [patricia.garces@ucuenca.edu.ec](email)
+- mi correo electronico [roberto.landivar@ucuenca.edu.ec](email)
+- [santiago.ulloa@ucuenca.edu.ec](email)
+- mi correo [jorge.salinas@ucuenca.edu.ec](email)
+- mi correo [fernando.cordero@ucuenca.edu.ec](email)
+- mi correo electronico [eliza.mosquera@ucuenca.edu.ec](email)
+- mi correo [sebastian.astudillo@ucuenca.edu.ec](email)
+- mi correo electronico [esteban.orellana@ucuenca.edu.ec](email)
+- mi correo electronico [hernan.garcia@ucuenca.edu.ec](email)
+- mi correo [enrique.luna@ucuenca.edu.ec](email)
+- mi correo [juan.davila@ucuenca.edu.ec](email)
+- [veronica.luna@ucuenca.edu.ec](email)
+- [vanessa.guillen@ucuenca.edu.ec](email)
+- electronico [loreto.burgueno@ucuenca.edu.ec](email)
+- electronico [eddie.jumbo@ucuenca.edu.ec](email)
+- mi correo electronico [catalina.vintimilla@ucuenca.edu.ec](email)
+- [karla.leon@ucuenca.edu.ec](email)
+- [alex.serrano@ucuenca.edu.ec](email)
+- electronico [xavier.cardenas@ucuenca.edu.ec](email)
+- electronico [daniel.lopez@ucuenca.edu.ec](email)
+- mi correo electronico [luis.espinoza@ucuenca.edu.ec](email)
+- mi correo [alfredo.ordonez@ucuenca.edu.ec](email)
+- electronico [esteban.orellana@ucuenca.edu.ec](email)
+- electronico [alina.guerrero@ucuenca.edu.ec](email)
+- [karla.ortega@ucuenca.edu.ec](email)
+- mi correo electronico [elvia.alvarez@ucuenca.edu.ec](email)
+- [lorena.vazquez@ucuenca.edu.ec](email)
+- [samia.gallardoh@ucuenca.edu.ec](email)
+- [alina.guerrero@ucuenca.edu.ec](email)
+- [victor.saquicela@ucuenca.edu.ec](email)
+- electronico [paul.sanmartin@ucuenca.edu.ec](email)
+- mi correo [gabriela.pinos@ucuenca.edu.ec](email)
+- mi correo [patricio.juca@ucuenca.edu.ec](email)
+- mi correo electronico [danilo.saravia@ucuenca.edu.ec](email)
+- [enrique.luna@ucuenca.edu.ec](email)
+- mi correo electronico [sonia.pacheco@ucuenca.edu.ec](email)
+- [sebastian.astudillo@ucuenca.edu.ec](email)
+- [monica.gonzalez@ucuenca.edu.ec](email)
+- [santiago.calle87@ucuenca.edu.ec](email)
+- [pablo.leon@ucuenca.edu.ec](email)
+- mi correo [gustavo.novillo@ucuenca.edu.ec](email)
+- [mauricio.brito@ucuenca.edu.ec](email)
+- electronico [mjose.zunigaz@ucuenca.edu.ec](email)
+- [carmita.rojas@ucuenca.edu.ec](email)
+- mi correo [paul.sanmartin@ucuenca.edu.ec](email)
+- mi correo [edison.castillo@ucuenca.edu.ec](email)
+- electronico [felipe.quesada@ucuenca.edu.ec](email)
+- mi correo [victor.saquicela@ucuenca.edu.ec](email)
+- mi correo [elvia.alvarez@ucuenca.edu.ec](email)
+- electronico [jorge.tenesaca@ucuenca.edu.ec](email)
+- electronico [luis.espinoza@ucuenca.edu.ec](email)
+- electronico [juan.fajardo@ucuenca.edu.ec](email)
+- [walter.novillo@ucuenca.edu.ec](email)
+- mi correo electronico [ronald.gualan@ucuenca.ec](email)
+- [rocio.perez@ucuenca.edu.ec](email)
+- [cristian.vallejo@ucuenca.edu.ec](email)
+- mi correo electronico [christopher.morochov@ucuenca.edu.ec](email)
+- mi correo electronico [edwin.ramon@ucuenca.edu.ec](email)
+- [david.jaramillo@ucuenca.edu.ec](email)
+- [juan.sola@ucuenca.edu.ec](email)
+- mi correo electronico [julia.tamayo@ucuenca.edu.ec](email)
+- [ximena.salazar@ucuenca.edu.ec](email)
+- [catalina.morochoq@ucuenca.edu.ec](email)
+- electronico [catalina.morochoq@ucuenca.edu.ec](email)
+- mi correo [lorena.vivanco@ucuenca.edu.ec](email)
+- [diana.sarmiento@ucuenca.edu.ec](email)
+- [magali.criollo@ucuenca.edu.ec](email)
+- mi correo electronico [ivan.sinchi@ucuenca.edu.ec](email)
+- [sonia.pacheco@ucuenca.edu.ec](email)
+- [marcelo.vazquez@ucuenca.edu.ec](email)
+- mi correo electronico [gabriela.pinos@ucuenca.edu.ec](email)
+- [bernardo.vega@ucuenca.edu.ec](email)
+- [patricia.garces@ucuenca.edu.ec](email)
+- mi correo electronico [cristian.montero@ucuenca.edu.ec](email)
+- mi correo [cristian.vallejo@ucuenca.edu.ec](email)
+- [pablo.carrasco@ucuenca.edu.ec](email)
+- mi correo [daniel.lopez@ucuenca.edu.ec](email)
+- mi correo [eugenio.reyesj@ucuenca.edu.ec](email)
+- mi correo electronico [jose.carrion@ucuenca.edu.ec](email)
+- mi correo electronico [marcelo.vazquez@ucuenca.edu.ec](email)
+- mi correo electronico [jaime.perez@ucuenca.edu.ec](email)
+- [diego.paredes@ucuenca.edu.ec](email)
+- [jenny.luna@ucuenca.edu.ec](email)
+- [fabiola.rodas@ucuenca.edu.ec](email)
+- [gabriela.pinos@ucuenca.edu.ec](email)
+- [fernando.cordero@ucuenca.edu.ec](email)
+- electronico [sonia.pacheco@ucuenca.edu.ec](email)
+- mi correo electronico [jose.guerrerop@ucuenca.edu.ec](email)
+- electronico [karina.sarmiento@ucuenca.edu.ec](email)
+- [ivan.sinchi@ucuenca.edu.ec](email)
+- [andrea.ariasv@ucuenca.edu.ec](email)
+- electronico [patricia.garces@ucuenca.edu.ec](email)
+- mi correo [geovanny.calle77@ucuenca.edu.ec](email)
+- mi correo [soledad.moscoso@ucuenca.edu.ec](email)
+- mi correo [javier.duran@ucuenca.edu.ec](email)
+- [diego.pacheco@ucuenca.edu.ec](email)
+- mi correo [juan.carvallo@ucuenca.edu.ec](email)
+- mi correo [boris.orellana@ucuenca.edu.ec](email)
+- [pedro.andrade@ucuenca.edu.ec](email)
+- [jesus.rencurrell@ucuenca.edu.ec](email)
+- [johana.avilad@ucuenca.edu.ec](email)
+- mi correo [hernan.gonzalezt@ucuenca.ec](email)
+- mi correo electronico [blasco.moscoso@ucuenca.edu.ec](email)
+- mi correo electronico [daniela.barrera@ucuenca.edu.ec](email)
+- electronico [galo.carrion@ucuenca.edu.ec](email)
+- electronico [pablo.palacios@ucuenca.edu.ec](email)
+- [sebastian.martinez@ucuenca.edu.ec](email)
+- [paulina.mejia@ucuenca.edu.ec](email)
+- [felipe.quesada@ucuenca.edu.ec](email)
+- electronico [william.vergara@ucuenca.edu.ec](email)
+- [marcelo.olivo@ucuenca.edu.ec](email)
+- mi correo electronico [santiago.alvarado@ucuenca.edu.ec](email)
+- mi correo [reynel.alvarado@ucuenca.edu.ec](email)
+- mi correo [rafael.holguin@ucuenca.edu.ec](email)
+- [alexandra.kennedy@ucuenca.edu.ec](email)
 
 ## intent:creacion_usuarios
-- saludos solicito registrar personal [Urkund](sistema) [Estudiante](trato) [Coordinador Vinculacion Sociedad](sujeto) [Civil](facultad)
-- hola ayuda acceso al sistema [Sistemas Institucionales](sistema) [Secretaria Abogada](trato) [Coordinador Vinculacion Sociedad](sujeto) [Ing](facultad)
-- solicito creacion de usuario [Urkund](sistema) para [Lcda](trato) [Juan Perez](sujeto)
-- hola necesito registrar personal para [Director](trato) [Coordinador Vinculacion Sociedad](sujeto) [Ingenieria](facultad)
-- saludos ayuda creacion de cuenta de usuario [Sistemas Institucionales](sistema) [Juan Perez](sujeto) [Ingenieria](facultad)
-- buenas tardes solicito creacion de cuenta de usuario [GLPI](sistema) para [Ing](trato) [Cuenca Ciudad Universitaria](sujeto) [Electrica](facultad)
-- hola requiero registrar personal [Urkund](sistema) [Sra](trato) [Juan Perez](sujeto) [Ingenieria](facultad)
-- buenas tardes solicito creacion de cuenta [Sistemas Institucionales](sistema) para [Lcda](trato) [Jenny Maricela Redrovan Macas](sujeto) [Civil](facultad)
-- creacion de usuario [Urkund](sistema) [Lcda](trato) [Joselito Juanete](sujeto) [Electronica](facultad)
-- buenas tardes acceso a [GLPI](sistema) para [Dr](trato) [Juan Perez](sujeto)
-- crear nuevo usuario [eVirtual](sistema) [Secretaria Abogada](trato) [Juan Perez](sujeto) [Electrica](facultad)
-- necesito ayuda creacion de usuario para [Estudiante](trato) [Karina Sarmiento](sujeto) [Civil](facultad)
-- buenas tardes ayuda creacion de cuenta [OpenERP](sistema) para [Sr](trato) [Juan Perez](sujeto) [Facultad Hospitalidad](facultad)
-- hola registrar personal [Urkund](sistema) [Sra](trato) [Karina Sarmiento](sujeto) [Civil](facultad)
-- saludos necesito crear nuevo usuario [GLPI](sistema) [Dr](trato) [Juan Perez](sujeto) [Sistemas](facultad)
-- hola requiero creacion de usuario [eVirtual](sistema) [Estudiante](trato) [Cuenca Ciudad Universitaria](sujeto) [Facultad Psicologia](facultad)
-- saludos necesito creacion de usuario [Sistemas Institucionales](sistema) [Secretaria Abogada](trato) [Juan Perez](sujeto) [Electronica](facultad)
-- saludos necesito acceso a [Quipux](sistema) [Ing](trato) [Coordinador Vinculacion Sociedad](sujeto) [Electronica](facultad)
-- buenas tardes acceso a [OpenERP](sistema) para [Estudiante](trato) [Karina Sarmiento](sujeto) [Ingenieria](facultad)
-- hola necesito ayuda creacion de cuenta de usuario [Lcdo](trato) [Coordinador Vinculacion Sociedad](sujeto) [Electrica](facultad)
-- buenas tardes ayuda crear usuario y asignar roles [Portafolio](sistema) para [Sra](trato) [Jenny Maricela Redrovan Macas](sujeto) [Electrica](facultad)
-- saludos requiero creacion de cuenta de usuario [Sr](trato) [Coordinador Vinculacion Sociedad](sujeto) [Sistemas](facultad)
-- buenas tardes ayuda acceso al sistema [GLPI](sistema) [Cuenca Ciudad Universitaria](sujeto) [Sistemas](facultad)
-- hola requiero registrar personal [GLPI](sistema) [Dr](trato) [Cuenca Ciudad Universitaria](sujeto) [Civil](facultad)
-- saludos necesito crear usuario y asignar roles [GLPI](sistema) [Secretaria Abogada](trato) [Joselito Juanete](sujeto) [Facultad Ingenieria](facultad)
-- saludos requiero creacion de cuenta de usuario [Sistemas Institucionales](sistema) [Dr](trato) [Jenny Maricela Redrovan Macas](sujeto) [Sistemas](facultad)
-- creacion de cuenta de usuario [GLPI](sistema) [Dr](trato) [Jenny Maricela Redrovan Macas](sujeto) [Ing](facultad)
-- solicito creacion de cuenta de usuario [Sistemas Institucionales](sistema) [Director](trato) [Joselito Juanete](sujeto) [Civil](facultad)
-- necesito crear nuevo usuario [eVirtual](sistema) [Lcda](trato) [Coordinador Vinculacion Sociedad](sujeto) [Facultad Ingenieria](facultad)
-- buenas tardes ayuda creacion de usuario [Portafolio](sistema) [Lcda](trato) [Coordinador Vinculacion Sociedad](sujeto) [Sistemas](facultad)
-- requiero creacion de cuenta de usuario para [Ing](trato) [Cuenca Ciudad Universitaria](sujeto) [Ing](facultad)
-- buenas tardes necesito crear usuario y asignar roles [Sistemas Institucionales](sistema) [Estudiante](trato) [Cuenca Ciudad Universitaria](sujeto)
-- hola requiero creacion de cuenta [Sistemas Institucionales](sistema) para [Sra](trato) [Coordinador Vinculacion Sociedad](sujeto) [Sistemas](facultad)
-- saludos ayuda crear nuevo usuario [eVirtual](sistema) para [Sra](trato) [Karina Sarmiento](sujeto)
-- hola requiero creacion de cuenta de usuario [eVirtual](sistema) [Ing](trato) [Coordinador Vinculacion Sociedad](sujeto) [Sistemas](facultad)
-- buenos dias ayuda creacion de cuenta [Portafolio](sistema) [Dr](trato) [Jenny Maricela Redrovan Macas](sujeto) [Facultad Psicologia](facultad)
-- buenas tardes creacion de cuenta de usuario [GLPI](sistema) [Ing](trato) [Jenny Maricela Redrovan Macas](sujeto) [Electrica](facultad)
-- hola acceso a [OpenERP](sistema) para [Secretaria Abogada](trato) [Coordinador Vinculacion Sociedad](sujeto) [Civil](facultad)
-- saludos requiero creacion de cuenta [OpenERP](sistema) [Sr](trato) [Juan Perez](sujeto)
-- hola necesito acceso al sistema [Portafolio](sistema) [Jenny Maricela Redrovan Macas](sujeto) [Civil](facultad)
-- saludos ayuda crear nuevo usuario [Portafolio](sistema) [Dr](trato) [Juan Perez](sujeto) [Facultad Hospitalidad](facultad)
-- buenas tardes solicito creacion de cuenta de usuario [Urkund](sistema) para [Lcda](trato) [Karina Sarmiento](sujeto) [Electronica](facultad)
-- saludos necesito crear usuario y asignar roles [Urkund](sistema) [Secretaria Abogada](trato) [Jenny Maricela Redrovan Macas](sujeto) [Electrica](facultad)
-- buenas tardes creacion de cuenta de usuario [Portafolio](sistema) para [Sr](trato) [Joselito Juanete](sujeto) [Facultad Psicologia](facultad)
-- buenas tardes ayuda creacion de usuario [Quipux](sistema) [Lcda](trato) [Coordinador Vinculacion Sociedad](sujeto) [Electronica](facultad)
-- buenas tardes creacion de cuenta de usuario [GLPI](sistema) [Secretaria Abogada](trato) [Cuenca Ciudad Universitaria](sujeto) [Facultad Medicina](facultad)
-- buenas tardes crear nuevo usuario [Portafolio](sistema) [Dr](trato) [Cuenca Ciudad Universitaria](sujeto) [Facultad Ingenieria](facultad)
-- buenas tardes crear nuevo usuario [OpenERP](sistema) [Sr](trato) [Cuenca Ciudad Universitaria](sujeto) [Facultad Hospitalidad](facultad)
-- saludos necesito creacion de usuario [GLPI](sistema) [Lcdo](trato) [Juan Perez](sujeto) [Electrica](facultad)
-- hola necesito ayuda registrar personal [Sistemas Institucionales](sistema) para [Secretaria Abogada](trato) [Joselito Juanete](sujeto) [Facultad Medicina](facultad)
-- buenos dias solicito registrar personal [Sistemas Institucionales](sistema) para [Sra](trato) [Coordinador Vinculacion Sociedad](sujeto) [Electronica](facultad)
-- buenas tardes solicito creacion de usuario [Joselito Juanete](sujeto) [Sistemas](facultad)
-- saludos requiero crear nuevo usuario [Sistemas Institucionales](sistema) para [Ing](trato) [Joselito Juanete](sujeto)
-- buenas tardes acceso al sistema [Quipux](sistema) para [Lcda](trato) [Coordinador Vinculacion Sociedad](sujeto) [Ing](facultad)
-- saludos solicito crear usuario y asignar roles para [Estudiante](trato) [Joselito Juanete](sujeto) [Electronica](facultad)
-- necesito ayuda acceso al sistema [Sistemas Institucionales](sistema) [Secretaria Abogada](trato) [Cuenca Ciudad Universitaria](sujeto) [Electronica](facultad)
-- hola solicito registrar personal [Quipux](sistema) [Secretaria Abogada](trato) [Joselito Juanete](sujeto) [Ing](facultad)
-- necesito ayuda registrar personal [Urkund](sistema) [Jenny Maricela Redrovan Macas](sujeto) [Civil](facultad)
-- buenas tardes solicito registrar personal [Urkund](sistema) para [Ing](trato) [Jenny Maricela Redrovan Macas](sujeto) [Facultad Ingenieria](facultad)
-- requiero acceso a [Portafolio](sistema) para [Lcda](trato) [Juan Perez](sujeto)
-- saludos registrar personal [eVirtual](sistema) [Director](trato) [Karina Sarmiento](sujeto) [Ing](facultad)
-- creacion de usuario [eVirtual](sistema) para [Ing](trato) [Joselito Juanete](sujeto) [Civil](facultad)
-- buenas tardes necesito acceso a [GLPI](sistema) para [Lcda](trato) [Juan Perez](sujeto) [Electrica](facultad)
-- hola necesito ayuda acceso a [Urkund](sistema) para [Secretaria Abogada](trato) [Joselito Juanete](sujeto)
-- hola requiero creacion de usuario [Urkund](sistema) para [Secretaria Abogada](trato) [Karina Sarmiento](sujeto)
-- buenos dias ayuda crear usuario y asignar roles [GLPI](sistema) para [Estudiante](trato) [Juan Perez](sujeto) [Facultad Psicologia](facultad)
-- buenas tardes requiero crear nuevo usuario [Secretaria Abogada](trato) [Juan Perez](sujeto) [Civil](facultad)
-- buenas tardes acceso al sistema [Urkund](sistema) para [Coordinador Vinculacion Sociedad](sujeto) [Civil](facultad)
-- saludos requiero creacion de cuenta [GLPI](sistema) [Secretaria Abogada](trato) [Juan Perez](sujeto) [Ing](facultad)
-- acceso al sistema [GLPI](sistema) [Sr](trato) [Joselito Juanete](sujeto)
-- buenas tardes necesito creacion de cuenta [GLPI](sistema) para [Ing](trato) [Juan Perez](sujeto) [Facultad Ingenieria](facultad)
-- buenas tardes crear nuevo usuario [Coordinador Vinculacion Sociedad](sujeto)
-- ayuda crear nuevo usuario [Quipux](sistema) para [Sra](trato) [Joselito Juanete](sujeto)
-- saludos crear usuario y asignar roles [Quipux](sistema) [Secretaria Abogada](trato) [Jenny Maricela Redrovan Macas](sujeto) [Ing](facultad)
-- buenos dias necesito registrar personal [Quipux](sistema) [Dr](trato) [Karina Sarmiento](sujeto) [Ing](facultad)
-- hola creacion de usuario [OpenERP](sistema) [Ing](trato) [Cuenca Ciudad Universitaria](sujeto) [Ing](facultad)
-- acceso a [Urkund](sistema) [Secretaria Abogada](trato) [Cuenca Ciudad Universitaria](sujeto) [Electrica](facultad)
-- buenas tardes solicito crear usuario y asignar roles [eVirtual](sistema) [Director](trato) [Karina Sarmiento](sujeto) [Facultad Hospitalidad](facultad)
-- saludos requiero crear nuevo usuario [Sistemas Institucionales](sistema) [Jenny Maricela Redrovan Macas](sujeto) [Facultad Ingenieria](facultad)
-- buenos dias acceso a [Sistemas Institucionales](sistema) para [Ing](trato) [Juan Perez](sujeto) [Ing](facultad)
-- buenos dias solicito crear nuevo usuario [eVirtual](sistema) [Estudiante](trato) [Coordinador Vinculacion Sociedad](sujeto)
-- saludos necesito ayuda acceso a [eVirtual](sistema) para [Secretaria Abogada](trato) [Juan Perez](sujeto) [Civil](facultad)
-- saludos necesito ayuda creacion de cuenta [eVirtual](sistema) para [Sr](trato) [Coordinador Vinculacion Sociedad](sujeto)
-- saludos crear usuario y asignar roles [Sistemas Institucionales](sistema) para [Ing](trato) [Coordinador Vinculacion Sociedad](sujeto) [Facultad Medicina](facultad)
-- ayuda acceso al sistema [eVirtual](sistema) para [Lcdo](trato) [Jenny Maricela Redrovan Macas](sujeto) [Ingenieria](facultad)
-- saludos necesito ayuda creacion de cuenta de usuario [Urkund](sistema) [Dr](trato) [Jenny Maricela Redrovan Macas](sujeto)
-- buenas tardes requiero registrar personal [GLPI](sistema) [Director](trato) [Coordinador Vinculacion Sociedad](sujeto)
-- requiero acceso al sistema [GLPI](sistema) [Dr](trato) [Coordinador Vinculacion Sociedad](sujeto) [Electronica](facultad)
-- buenas tardes necesito acceso al sistema [Sistemas Institucionales](sistema) [Juan Perez](sujeto) [Facultad Medicina](facultad)
-- hola registrar personal [Quipux](sistema) para [Secretaria Abogada](trato) [Karina Sarmiento](sujeto) [Electronica](facultad)
-- hola necesito ayuda creacion de usuario [Urkund](sistema) para [Dr](trato) [Cuenca Ciudad Universitaria](sujeto) [Ingenieria](facultad)
-- saludos requiero registrar personal [Quipux](sistema) [Ing](trato) [Karina Sarmiento](sujeto) [Sistemas](facultad)
-- buenas tardes ayuda acceso al sistema [GLPI](sistema) para [Director](trato) [Karina Sarmiento](sujeto) [Civil](facultad)
-- buenas tardes necesito acceso a [Sistemas Institucionales](sistema) [Sr](trato) [Joselito Juanete](sujeto) [Facultad Hospitalidad](facultad)
-- saludos necesito ayuda registrar personal para [Secretaria Abogada](trato) [Joselito Juanete](sujeto)
-- hola crear nuevo usuario [OpenERP](sistema) para [Secretaria Abogada](trato) [Karina Sarmiento](sujeto) [Civil](facultad)
-- buenas tardes ayuda acceso a [Lcdo](trato) [Juan Perez](sujeto)
-- buenos dias ayuda creacion de usuario [GLPI](sistema) para [Sr](trato) [Jenny Maricela Redrovan Macas](sujeto) [Sistemas](facultad)
-- saludos necesito ayuda creacion de usuario [Quipux](sistema) para [Secretaria Abogada](trato) [Coordinador Vinculacion Sociedad](sujeto)
-- buenos dias necesito ayuda acceso a [Sistemas Institucionales](sistema) [Secretaria Abogada](trato) [Coordinador Vinculacion Sociedad](sujeto) [Electronica](facultad)
+- buenas tardes necesito creacion de cuenta de usuario [OpenERP](sistema) [Sra](trato) [Oscar Malgiaritta](PER) [Facultad Medicina](facultad)
+- saludos acceso al sistema [Portafolio](sistema) [Ing](trato) [Jenny Maricela Redrovan Macas](PER) [Facultad Ingenieria](facultad)
+- solicito creacion de cuenta de usuario [Urkund](sistema) para [Sr](trato) [Jenny Maricela Redrovan Macas](PER) [Facultad Ingenieria](facultad)
+- solicito crear usuario y asignar roles [Portafolio](sistema) [Director](trato) [Cuenca Ciudad Universitaria](PER) [Electrica](facultad)
+- buenos dias creacion de cuenta [OpenERP](sistema) para [Juan Perez](PER) [Facultad Ingenieria](facultad)
+- crear usuario y asignar roles [eVirtual](sistema) [Secretaria Abogada](trato) [Jenny Maricela Redrovan Macas](PER) [Facultad Ingenieria](facultad)
+- buenos dias solicito acceso al sistema [eVirtual](sistema) para [Sr](trato) [Jenny Maricela Redrovan Macas](PER) [Facultad Hospitalidad](facultad)
+- saludos necesito creacion de cuenta de usuario [OpenERP](sistema) [Secretaria Abogada](trato) [Coordinador Vinculacion Sociedad](PER)
+- saludos requiero crear usuario y asignar roles [GLPI](sistema) para [Sr](trato) [Joselito Juanete](PER) [Electrica](facultad)
+- buenas tardes solicito crear nuevo usuario [Quipux](sistema) [Estudiante](trato) [Cecilia](PER) [Ingenieria](facultad)
+- buenas tardes requiero crear usuario y asignar roles [eVirtual](sistema) para [Director](trato) [Santiago](PER)
+- saludos requiero creacion de cuenta de usuario [GLPI](sistema) para [Santiago](PER) [Facultad Ingenieria](facultad)
+- buenos dias requiero acceso al sistema [eVirtual](sistema) [Estudiante](trato) [Coordinador Vinculacion Sociedad](PER) [Sistemas](facultad)
+- solicito crear nuevo usuario [Urkund](sistema) [Sra](trato) [Jenny Maricela Redrovan Macas](PER) [Ingenieria](facultad)
+- hola requiero registrar personal [GLPI](sistema) [Sra](trato) [Karina Sarmiento](PER) [Sistemas](facultad)
+- crear usuario y asignar roles [Urkund](sistema) para [Sra](trato) [Joselito Juanete](PER)
+- saludos solicito creacion de cuenta de usuario [Urkund](sistema) para [Juan Perez](PER) [Ingenieria](facultad)
+- buenos dias requiero acceso al sistema [Portafolio](sistema) para [Director](trato) [Joselito Juanete](PER) [Facultad Hospitalidad](facultad)
+- buenos dias creacion de cuenta [Portafolio](sistema) [Sr](trato) [Joselito Juanete](PER) [Facultad Medicina](facultad)
+- hola solicito creacion de usuario [eVirtual](sistema) [Lcda](trato) [Oscar Malgiaritta](PER) [Facultad Ingenieria](facultad)
+- hola requiero creacion de cuenta de usuario [GLPI](sistema) [Ing](trato) [Jenny Maricela Redrovan Macas](PER) [Electrica](facultad)
+- hola crear nuevo usuario [eVirtual](sistema) [Estudiante](trato) [Coordinador Vinculacion Sociedad](PER) [Ingenieria](facultad)
+- solicito acceso al sistema [GLPI](sistema) para [Dr](trato) [Juan Perez](PER) [Electrica](facultad)
+- saludos requiero acceso al sistema para [Director](trato) [Santiago](PER)
+- buenos dias necesito creacion de cuenta de usuario [OpenERP](sistema) para [Dr](trato) [Joselito Juanete](PER)
+- hola creacion de usuario [Quipux](sistema) para [Dr](trato) [Juan Perez](PER) [Facultad Hospitalidad](facultad)
+- saludos necesito creacion de usuario [Quipux](sistema) [Sra](trato) [Coordinador Vinculacion Sociedad](PER) [Facultad Hospitalidad](facultad)
+- acceso a [eVirtual](sistema) [Joselito Juanete](PER) [Electrica](facultad)
+- solicito registrar personal [Lcdo](trato) [Jenny Maricela Redrovan Macas](PER)
+- buenos dias solicito crear nuevo usuario [Portafolio](sistema) [Sra](trato) [Juan Perez](PER)
+- solicito acceso al sistema [GLPI](sistema) [Coordinador Vinculacion Sociedad](PER) [Ingenieria](facultad)
+- saludos solicito creacion de cuenta [Portafolio](sistema) para [Secretaria Abogada](trato) [Marcelo Dosantos](PER) [Ing](facultad)
+- buenas tardes requiero creacion de cuenta [Portafolio](sistema) para [Oscar Malgiaritta](PER) [Ingenieria](facultad)
+- hola creacion de cuenta [GLPI](sistema) [Director](trato) [Karina Sarmiento](PER)
+- saludos necesito acceso al sistema para [Estudiante](trato) [Marcelo Dosantos](PER)
+- saludos creacion de cuenta [OpenERP](sistema) para [Director](trato) [Joselito Juanete](PER)
+- requiero crear usuario y asignar roles [OpenERP](sistema) para [Sr](trato) [Cecilia](PER) [Civil](facultad)
+- necesito creacion de usuario [Sra](trato) [Coordinador Vinculacion Sociedad](PER) [Facultad Psicologia](facultad)
+- buenos dias necesito creacion de cuenta [Urkund](sistema) para [Sr](trato) [Karina Sarmiento](PER) [Facultad Ingenieria](facultad)
+- saludos requiero crear usuario y asignar roles para [Sr](trato) [Jenny Maricela Redrovan Macas](PER) [Facultad Psicologia](facultad)
+- buenos dias requiero creacion de cuenta [Quipux](sistema) para [Secretaria Abogada](trato) [Joselito Juanete](PER) [Sistemas](facultad)
+- saludos registrar personal [Urkund](sistema) para [Estudiante](trato) [Joselito Juanete](PER)
+- buenos dias requiero registrar personal [Urkund](sistema) para [Director](trato) [Coordinador Vinculacion Sociedad](PER) [Electronica](facultad)
+- requiero acceso al sistema [Urkund](sistema) para [Director](trato) [Karina Sarmiento](PER) [Civil](facultad)
+- saludos requiero creacion de cuenta de usuario [GLPI](sistema) para [Estudiante](trato) [Cecilia](PER) [Sistemas](facultad)
+- buenos dias necesito creacion de usuario [Portafolio](sistema) para [Sr](trato) [Jenny Maricela Redrovan Macas](PER)
+- crear usuario y asignar roles [Urkund](sistema) para [Ing](trato) [Jenny Maricela Redrovan Macas](PER)
+- saludos solicito acceso a [eVirtual](sistema) [Ing](trato) [Juan Perez](PER) [Electrica](facultad)
+- hola requiero registrar personal [Quipux](sistema) para [Sra](trato) [Marcelo Dosantos](PER) [Civil](facultad)
+- buenas tardes creacion de usuario [GLPI](sistema) para [Ing](trato) [Marcelo Dosantos](PER) [Facultad Psicologia](facultad)
+- saludos necesito acceso al sistema para [Oscar Malgiaritta](PER) [Ing](facultad)
+- hola necesito acceso a [OpenERP](sistema) [Estudiante](trato) [Cuenca Ciudad Universitaria](PER) [Sistemas](facultad)
+- hola crear nuevo usuario [eVirtual](sistema) [Sr](trato) [Joselito Juanete](PER) [Sistemas](facultad)
+- saludos necesito crear usuario y asignar roles [OpenERP](sistema) para [Secretaria Abogada](trato) [Karina Sarmiento](PER) [Ingenieria](facultad)
+- buenos dias requiero creacion de usuario [eVirtual](sistema) para [Estudiante](trato) [Marcelo Dosantos](PER) [Electronica](facultad)
+- buenas tardes necesito acceso al sistema [Sra](trato) [Joselito Juanete](PER) [Facultad Ingenieria](facultad)
+- buenas tardes solicito creacion de cuenta [eVirtual](sistema) para [Sra](trato) [Karina Sarmiento](PER) [Ingenieria](facultad)
+- requiero creacion de usuario [Portafolio](sistema) [Secretaria Abogada](trato) [Joselito Juanete](PER) [Ingenieria](facultad)
+- hola necesito acceso al sistema [eVirtual](sistema) para [Lcdo](trato) [Juan Perez](PER) [Facultad Ingenieria](facultad)
+- necesito registrar personal [GLPI](sistema) [Estudiante](trato) [Cuenca Ciudad Universitaria](PER)
+- saludos solicito crear usuario y asignar roles [OpenERP](sistema) para [Estudiante](trato) [Jenny Maricela Redrovan Macas](PER) [Facultad Ingenieria](facultad)
+- buenas tardes crear nuevo usuario [OpenERP](sistema) para [Lcdo](trato) [Juan Perez](PER) [Civil](facultad)
+- hola necesito creacion de cuenta [eVirtual](sistema) para [Secretaria Abogada](trato) [Coordinador Vinculacion Sociedad](PER) [Electrica](facultad)
+- hola solicito creacion de usuario para [Estudiante](trato) [Jenny Maricela Redrovan Macas](PER) [Electrica](facultad)
+- buenos dias solicito acceso a [eVirtual](sistema) [Estudiante](trato) [Marcelo Dosantos](PER) [Electronica](facultad)
+- buenos dias requiero creacion de usuario [Urkund](sistema) [Dr](trato) [Cuenca Ciudad Universitaria](PER) [Facultad Ingenieria](facultad)
+- creacion de cuenta de usuario [GLPI](sistema) [Director](trato) [Jenny Maricela Redrovan Macas](PER) [Civil](facultad)
+- hola acceso a [OpenERP](sistema) [Ing](trato) [Cuenca Ciudad Universitaria](PER) [Facultad Ingenieria](facultad)
+- buenas tardes registrar personal [eVirtual](sistema) [Lcda](trato) [Coordinador Vinculacion Sociedad](PER) [Facultad Psicologia](facultad)
+- buenas tardes necesito crear nuevo usuario [OpenERP](sistema) [Sra](trato) [Karina Sarmiento](PER) [Civil](facultad)
+- buenos dias solicito creacion de cuenta de usuario [Urkund](sistema) [Estudiante](trato) [Cuenca Ciudad Universitaria](PER)
+- hola registrar personal [Portafolio](sistema) para [Dr](trato) [Cecilia](PER) [Facultad Ingenieria](facultad)
+- necesito registrar personal [Quipux](sistema) para [Cecilia](PER) [Electronica](facultad)
+- saludos requiero crear nuevo usuario [Quipux](sistema) [Lcdo](trato) [Jenny Maricela Redrovan Macas](PER)
+- buenos dias solicito acceso al sistema [GLPI](sistema) para [Joselito Juanete](PER) [Facultad Ingenieria](facultad)
+- buenas tardes registrar personal [OpenERP](sistema) [Ing](trato) [Cecilia](PER) [Electrica](facultad)
+- saludos registrar personal [eVirtual](sistema) para [Lcdo](trato) [Santiago](PER) [Facultad Psicologia](facultad)
+- buenas tardes solicito acceso al sistema [Urkund](sistema) para [Lcdo](trato) [Juan Perez](PER) [Civil](facultad)
+- buenos dias necesito acceso a [Urkund](sistema) [Lcdo](trato) [Santiago](PER) [Electrica](facultad)
+- necesito crear nuevo usuario para [Jenny Maricela Redrovan Macas](PER)
+- buenas tardes necesito acceso a para [Secretaria Abogada](trato) [Marcelo Dosantos](PER) [Ingenieria](facultad)
+- registrar personal [GLPI](sistema) para [Director](trato) [Marcelo Dosantos](PER) [Sistemas](facultad)
+- buenas tardes necesito acceso al sistema [GLPI](sistema) [Dr](trato) [Oscar Malgiaritta](PER) [Ingenieria](facultad)
+- hola crear usuario y asignar roles [Portafolio](sistema) para [Joselito Juanete](PER) [Ingenieria](facultad)
+- buenos dias requiero acceso al sistema [eVirtual](sistema) [Dr](trato) [Karina Sarmiento](PER) [Facultad Psicologia](facultad)
+- saludos necesito acceso a [Portafolio](sistema) [Lcdo](trato) [Karina Sarmiento](PER) [Electrica](facultad)
+- buenos dias requiero creacion de cuenta de usuario [Urkund](sistema) [Secretaria Abogada](trato) [Cecilia](PER) [Electronica](facultad)
+- requiero creacion de cuenta de usuario [GLPI](sistema) [Dr](trato) [Coordinador Vinculacion Sociedad](PER) [Facultad Ingenieria](facultad)
+- hola requiero creacion de cuenta de usuario [GLPI](sistema) [Secretaria Abogada](trato) [Jenny Maricela Redrovan Macas](PER) [Facultad Medicina](facultad)
+- necesito creacion de cuenta [Urkund](sistema) para [Dr](trato) [Cecilia](PER)
+- buenos dias requiero acceso a [eVirtual](sistema) [Estudiante](trato) [Coordinador Vinculacion Sociedad](PER)
+- buenos dias requiero creacion de usuario [Sra](trato) [Karina Sarmiento](PER) [Facultad Psicologia](facultad)
+- necesito crear usuario y asignar roles [eVirtual](sistema) [Lcda](trato) [Cuenca Ciudad Universitaria](PER) [Electrica](facultad)
+- saludos creacion de cuenta [Portafolio](sistema) [Sr](trato) [Coordinador Vinculacion Sociedad](PER) [Facultad Ingenieria](facultad)
+- saludos requiero creacion de cuenta [Quipux](sistema) [Director](trato) [Oscar Malgiaritta](PER) [Civil](facultad)
+- necesito crear nuevo usuario [Quipux](sistema) para [Sr](trato) [Juan Perez](PER) [Ing](facultad)
+- buenos dias creacion de usuario [Portafolio](sistema) [Lcdo](trato) [Joselito Juanete](PER) [Facultad Ingenieria](facultad)
+- buenas tardes creacion de cuenta [Urkund](sistema) [Lcdo](trato) [Karina Sarmiento](PER) [Sistemas](facultad)
+- necesito registrar personal [GLPI](sistema) [Secretaria Abogada](trato) [Joselito Juanete](PER) [Facultad Psicologia](facultad)
+- creacion de usuario [Urkund](sistema) [Dr](trato) [Jenny Maricela Redrovan Macas](PER)
 
 ## intent:despedida
-- hasta luego
 - adios
 - chao
 - finalizar
+- salir
+- finaliza sesion
 - chao chao
-- acabar sesion
-- termina
+- fin
+- terminar sesion
+
+## intent:especifica_sistema
+- [Urkund](sistema)
+- [Portafolio](sistema)
+- [Quipux](sistema)
+- [eVirtual](sistema)
+- el [Urkund](sistema)
+- el [Portafolio](sistema)
+- el [Quipux](sistema)
+- el [eVirtual](sistema)
+- el [OpenERP](sistema)
 
 ## intent:informacion
-- ayuda [32](ram) GB en RAM
-- necesito ayuda [8](ram) GB de capacidad en RAM
-- requiero [16](disk_space) GB de HD
-- necesito [8](disk_space) GB de HD
-- necesito [3](cpu_cores) procesadores
-- solicito [32](ram) GB en RAM
-- necesito ayuda [1000](disk_space) GB de disco duro
-- [128](ram) GB en RAM
-- necesito ayuda [128](ram) GB de ram
-- necesito [8](ram) GB en RAM
-- necesito ayuda [3](cpu_cores) nucleos
-- [2](cpu_cores) nucleos de cpu
-- necesito [8](ram) GB de ram
-- requiero [16](ram) GB de ram
-- solicito escalabilidad horizontal
-- necesito [32](ram) GB en RAM
-- ayuda [1](cpu_cores) nucleos de cpu
-- necesito ayuda [128](ram) GB en RAM
-- solicito [128](ram) GB de capacidad en RAM
-- ayuda [3](cpu_cores) procesadores
-- requiero [8](ram) GB en RAM
-- solicito [128](ram) GB en RAM
-- necesito [1000](disk_space) GB de HD
 - solicito [512](disk_space) GB de disco duro
-- ayuda [16](ram) GB en RAM
-- necesito [2](cpu_cores) nucleos de cpu
-- necesito ayuda [4](cpu_cores) procesadores
-- ayuda [64](ram) GB en RAM
-- solicito [2](cpu_cores) procesadores
-- necesito ayuda [8](cpu_cores) procesadores
-- necesito [128](ram) GB en RAM
-- requiero [2](cpu_cores) nucleos
-- requiero [256](disk_space) GB de HD
-- necesito [8](cpu_cores) nucleos
-- necesito un [pruebas](entorno)
-- necesito [3](cpu_cores) nucleos
-- necesito [32](ram) GB de ram
-- requiero [2](cpu_cores) procesadores
-- requiero [256](disk_space) GB de capacidad
-- necesito ayuda [32](ram) GB de capacidad en RAM
-- ayuda [4](cpu_cores) nucleos de cpu
-- necesito [2](cpu_cores) nucleos
-- [512](disk_space) GB de disco duro
-- solicito [8](ram) GB de ram
-- requiero [8](ram) GB de capacidad en RAM
-- necesito ayuda [512](disk_space) GB de HD
-- necesito ayuda [8](disk_space) GB de capacidad
-- requiero [2](cpu_cores) nucleos de cpu
-- solicito [1000](disk_space) GB de capacidad
-- solicito [16](ram) GB de capacidad en RAM
-- necesito escalabilidad horizontal
-- [32](ram) GB de ram
-- necesito ayuda [16](disk_space) GB de disco duro
-- solicito escalabilidad vertical
-- ayuda [16](ram) GB de capacidad en RAM
-- necesito [8](disk_space) GB de disco duro
-- solicito [16](disk_space) GB de HD
-- solicito [32](ram) GB de ram
-- necesito ayuda [16](disk_space) GB de capacidad
-- necesito ayuda [512](disk_space) GB de disco duro
-- [16](disk_space) GB de HD
-- [4](cpu_cores) nucleos de cpu
-- [3](cpu_cores) procesadores
-- [8](cpu_cores) nucleos
-- ayuda [8](ram) GB en RAM
-- solicito [8](cpu_cores) nucleos
-- requiero [8](disk_space) GB de capacidad
-- necesito ayuda [8](cpu_cores) nucleos
-- requiero [3](cpu_cores) procesadores
-- requiero [3](cpu_cores) nucleos
-- [1000](disk_space) GB de disco duro
-- necesito ayuda [8](ram) GB de ram
-- solicito [1](cpu_cores) nucleos de cpu
-- requiero [1000](disk_space) GB de disco duro
-- [pruebas](entorno)
-- ayuda [3](cpu_cores) nucleos de cpu
-- ayuda [128](disk_space) GB de disco duro
-- necesito ayuda [128](disk_space) GB de capacidad
-- ayuda [8](disk_space) GB de HD
-- necesito ayuda [3](cpu_cores) nucleos de cpu
-- necesito ayuda [2](cpu_cores) nucleos de cpu
-- [512](disk_space) GB de capacidad
-- solicito [3](cpu_cores) nucleos
-- requiero [128](disk_space) GB de HD
-- ayuda [1000](disk_space) GB de disco duro
-- solicito [64](ram) GB de ram
-- requiero [8](cpu_cores) procesadores
-- ayuda escalabilidad vertical
-- ayuda [2](cpu_cores) nucleos de cpu
-- necesito [256](disk_space) GB de HD
-- solicito [16](disk_space) GB de disco duro
-- requiero [32](ram) GB de ram
-- solicito [4](cpu_cores) nucleos de cpu
-- requiero [32](ram) GB de capacidad en RAM
-- [8](cpu_cores) nucleos de cpu
-- ambiente de [pruebas](entorno)
-- necesito [128](disk_space) GB de disco duro
-- [2](cpu_cores) procesadores
-- solicito [1](cpu_cores) nucleos
-- necesito [32](ram) GB de capacidad en RAM
-- necesito [128](ram) GB de ram
-- necesito ayuda [1000](disk_space) GB de HD
-- [4](cpu_cores) procesadores
-- ayuda [512](disk_space) GB de capacidad
-- ayuda [1000](disk_space) GB de capacidad
-- requiero [16](ram) GB de capacidad en RAM
-- ayuda [16](disk_space) GB de disco duro
-- necesito ayuda [8](disk_space) GB de HD
-- solicito [8](ram) GB de capacidad en RAM
-- requiero [8](ram) GB de ram
-- solicito [2](cpu_cores) nucleos
-- necesito [8](cpu_cores) nucleos de cpu
-- solicito [8](ram) GB en RAM
-- solicito [3](cpu_cores) procesadores
-- necesito [64](ram) GB de capacidad en RAM
 - necesito [8](disk_space) GB de capacidad
-- necesito [128](disk_space) GB de HD
-- solicito [4](cpu_cores) procesadores
-- necesito [512](disk_space) GB de HD
-- solicito [64](ram) GB en RAM
-- requiero [8](cpu_cores) nucleos
-- ayuda [256](disk_space) GB de HD
-- solicito [8](cpu_cores) procesadores
-- necesito ayuda [8](cpu_cores) nucleos de cpu
-- requiero [1000](disk_space) GB de HD
-- ayuda [8](disk_space) GB de disco duro
-- necesito ayuda [16](disk_space) GB de HD
-- necesito [4](cpu_cores) nucleos de cpu
-- necesito un ambiente de [produccion](entorno)
-- requiero [3](cpu_cores) nucleos de cpu
-- ayuda [16](ram) GB de ram
-- necesito ayuda [1](cpu_cores) nucleos
-- ayuda [1](cpu_cores) procesadores
-- [8](cpu_cores) procesadores
-- ayuda [16](disk_space) GB de capacidad
-- necesito ayuda [128](disk_space) GB de HD
-- necesito [128](disk_space) GB de capacidad
-- solicito [256](disk_space) GB de disco duro
-- necesito ayuda [64](ram) GB de ram
-- necesito ayuda [16](ram) GB en RAM
-- solicito [2](cpu_cores) nucleos de cpu
-- requiero [64](ram) GB en RAM
-- requiero [1](cpu_cores) nucleos
-- solicito [1](cpu_cores) procesadores
-- [8](ram) GB de capacidad en RAM
-- [16](ram) GB de ram
-- ayuda [64](ram) GB de ram
-- solicito [4](cpu_cores) nucleos
-- [16](ram) GB de capacidad en RAM
-- necesito ayuda [16](ram) GB de ram
-- necesito un ambiente de [desarrollo](entorno)
-- necesito ayuda [1](cpu_cores) procesadores
-- necesito [64](ram) GB en RAM
-- requiero [128](ram) GB de ram
-- necesito [1](cpu_cores) nucleos de cpu
-- solicito [512](disk_space) GB de capacidad
-- [32](ram) GB en RAM
-- necesito ayuda escalabilidad vertical
-- [512](disk_space) GB de HD
-- ayuda [8](cpu_cores) procesadores
-- necesito [2](cpu_cores) procesadores
-- ayuda [32](ram) GB de capacidad en RAM
-- requiero [128](disk_space) GB de disco duro
-- ayuda [2](cpu_cores) procesadores
-- [8](ram) GB de ram
-- [3](cpu_cores) nucleos de cpu
-- solicito [32](ram) GB de capacidad en RAM
-- ayuda [4](cpu_cores) nucleos
+- necesito escalabilidad horizontal
+- necesito [1000](disk_space) GB de disco duro
+- [256](disk_space) GB de capacidad
+- necesito escalabilidad vertical
+- requiero escalabilidad vertical
 - [8](disk_space) GB de HD
-- [desarrollo](entorno)
-- [128](disk_space) GB de disco duro
+- [32](ram) GB de ram
+- necesito [256](disk_space) GB de HD
 - solicito [512](disk_space) GB de HD
-- solicito [1000](disk_space) GB de HD
-- requiero [32](ram) GB en RAM
-- solicito [128](disk_space) GB de disco duro
-- necesito ayuda [4](cpu_cores) nucleos
-- necesito [64](ram) GB de ram
-- solicito [128](ram) GB de ram
-- [8](disk_space) GB de capacidad
-- escalabilidad vertical
-- requiero [16](disk_space) GB de capacidad
-- ayuda [1000](disk_space) GB de HD
-- ayuda [128](disk_space) GB de HD
-- requiero [256](disk_space) GB de disco duro
-- necesito [16](disk_space) GB de capacidad
-- necesito ayuda [1000](disk_space) GB de capacidad
-- ayuda [128](ram) GB de capacidad en RAM
+- necesito un ambiente de [desarrollo](entorno)
+- [16](disk_space) GB de HD
+- [1](cpu_cores) nucleos
+- solicito [8](disk_space) GB de disco duro
+- solicito [64](ram) GB de ram
+- solicito [16](disk_space) GB de disco duro
+- requiero [256](disk_space) GB de capacidad
+- requiero [64](ram) GB de ram
+- necesito [64](ram) GB de capacidad en RAM
+- requiero [16](ram) GB en RAM
+- requiero [16](disk_space) GB de disco duro
+- necesito [16](ram) GB en RAM
+- [8](ram) GB de ram
+- solicito [32](ram) GB de ram
+- [16](ram) GB de ram
+- [128](ram) GB de capacidad en RAM
+- [128](ram) GB de ram
 - [64](ram) GB en RAM
-- necesito [512](disk_space) GB de capacidad
+- escalabilidad vertical
+- [2](cpu_cores) nucleos de cpu
+- requiero [1](cpu_cores) nucleos de cpu
+- [32](ram) GB en RAM
+- solicito [8](ram) GB en RAM
+- solicito [4](cpu_cores) nucleos
+- requiero [2](cpu_cores) nucleos de cpu
+- solicito [2](cpu_cores) nucleos
+- necesito [8](cpu_cores) procesadores
+- [256](disk_space) GB de HD
+- necesito [16](disk_space) GB de disco duro
+- necesito un [pruebas](entorno)
+- solicito escalabilidad horizontal
+- [64](ram) GB de capacidad en RAM
+- [4](cpu_cores) nucleos
+- requiero [1000](disk_space) GB de disco duro
+- necesito [2](cpu_cores) procesadores
+- necesito [16](disk_space) GB de HD
+- necesito [3](cpu_cores) procesadores
+- [512](disk_space) GB de disco duro
+- [128](disk_space) GB de capacidad
+- necesito [32](ram) GB de capacidad en RAM
+- requiero [16](ram) GB de ram
+- solicito [1000](disk_space) GB de capacidad
+- [16](ram) GB de capacidad en RAM
+- solicito [256](disk_space) GB de disco duro
+- [512](disk_space) GB de HD
 - requiero [64](ram) GB de capacidad en RAM
-- solicito [16](ram) GB en RAM
-- ambiente de [desarrollo](entorno)
-- necesito [16](ram) GB de capacidad en RAM
-- necesito [1000](disk_space) GB de capacidad
-- requiero [128](disk_space) GB de capacidad
+- necesito [32](ram) GB en RAM
+- ambiente de [pruebas](entorno)
+- requiero [8](disk_space) GB de HD
+- necesito [64](ram) GB en RAM
+- requiero [32](ram) GB en RAM
+- solicito [256](disk_space) GB de capacidad
+- [pruebas](entorno)
+- solicito [1](cpu_cores) nucleos
+- [16](disk_space) GB de disco duro
+- requiero [64](ram) GB en RAM
+- solicito [8](ram) GB de ram
+- necesito [64](ram) GB de ram
+- requiero [8](cpu_cores) procesadores
+- necesito [8](disk_space) GB de HD
+- solicito [16](ram) GB de capacidad en RAM
+- necesito [8](ram) GB en RAM
+- [256](disk_space) GB de disco duro
+- requiero [8](ram) GB de capacidad en RAM
+- requiero [2](cpu_cores) nucleos
+- requiero [16](ram) GB de capacidad en RAM
+- solicito [128](disk_space) GB de capacidad
+- [32](ram) GB de capacidad en RAM
+- [1000](disk_space) GB de capacidad
+- solicito [8](ram) GB de capacidad en RAM
+- solicito [1000](disk_space) GB de HD
+- [16](ram) GB en RAM
+- requiero [256](disk_space) GB de HD
+- necesito [8](ram) GB de capacidad en RAM
+- [8](disk_space) GB de capacidad
+- [8](cpu_cores) nucleos
+- necesito [1000](disk_space) GB de HD
+- requiero [256](disk_space) GB de disco duro
+- [8](cpu_cores) procesadores
+- solicito [4](cpu_cores) nucleos de cpu
 - solicito [8](cpu_cores) nucleos de cpu
-- necesito ayuda [32](ram) GB en RAM
-- ayuda [8](disk_space) GB de capacidad
-- necesito un [produccion](entorno)
+- necesito [128](ram) GB en RAM
+- [3](cpu_cores) procesadores
+- necesito [128](ram) GB de ram
+- requiero [3](cpu_cores) procesadores
+- [8](cpu_cores) nucleos de cpu
 - [3](cpu_cores) nucleos
+- requiero [4](cpu_cores) nucleos
+- solicito [16](ram) GB en RAM
 
 ## intent:nombre
-- [Jenny Maricela Redrovan Macas](sujeto)
-- Mi nombre es [Jenny Maricela Redrovan Macas](sujeto)
-- Soy [Jenny Maricela Redrovan Macas](sujeto)
-- [Karina Sarmiento](sujeto)
-- Me llamo [Karina Sarmiento](sujeto)
-- Yo me llamo [Karina Sarmiento](sujeto)
-- Mi nombre es [Juan Perez](sujeto)
-- Me llamo [Juan Perez](sujeto)
-- Yo me llamo [Juan Perez](sujeto)
-- Soy [Juan Perez](sujeto)
-- [Joselito Juanete](sujeto)
-- Mi nombre es [Joselito Juanete](sujeto)
-- Soy [Joselito Juanete](sujeto)
-- [Cuenca Ciudad Universitaria](sujeto)
-- Mi nombre es [Cuenca Ciudad Universitaria](sujeto)
-- Me llamo [Cuenca Ciudad Universitaria](sujeto)
-- Yo me llamo [Cuenca Ciudad Universitaria](sujeto)
-- Soy [Cuenca Ciudad Universitaria](sujeto)
-- [Coordinador Vinculacion Sociedad](sujeto)
-- Mi nombre es [Coordinador Vinculacion Sociedad](sujeto)
-- Me llamo [Coordinador Vinculacion Sociedad](sujeto)
-- Yo me llamo [Coordinador Vinculacion Sociedad](sujeto)
-- Soy [Coordinador Vinculacion Sociedad](sujeto)
-- [Santiago](sujeto)
-- Mi nombre es [Santiago](sujeto)
-- Me llamo [Santiago](sujeto)
-- Yo me llamo [Santiago](sujeto)
-- Soy [Santiago](sujeto)
-- [Cecilia](sujeto)
-- Mi nombre es [Cecilia](sujeto)
-- Me llamo [Cecilia](sujeto)
-- Yo me llamo [Cecilia](sujeto)
-- Soy [Cecilia](sujeto)
-- [Oscar Malgiaritta](sujeto)
-- Mi nombre es [Oscar Malgiaritta](sujeto)
-- Yo me llamo [Oscar Malgiaritta](sujeto)
-- Soy [Oscar Malgiaritta](sujeto)
-- [Marcelo Dosantos](sujeto)
-- Mi nombre es [Marcelo Dosantos](sujeto)
-- Soy [Marcelo Dosantos](sujeto)
+- Mi nombre es [Jenny Maricela Redrovan Macas](PER)
+- Me llamo [Jenny Maricela Redrovan Macas](PER)
+- Yo me llamo [Jenny Maricela Redrovan Macas](PER)
+- [Karina Sarmiento](PER)
+- Yo me llamo [Karina Sarmiento](PER)
+- Soy [Karina Sarmiento](PER)
+- [Juan Perez](PER)
+- Me llamo [Juan Perez](PER)
+- Yo me llamo [Juan Perez](PER)
+- Soy [Juan Perez](PER)
+- [Joselito Juanete](PER)
+- Me llamo [Joselito Juanete](PER)
+- Yo me llamo [Joselito Juanete](PER)
+- Soy [Joselito Juanete](PER)
+- [Santiago](PER)
+- Mi nombre es [Santiago](PER)
+- Yo me llamo [Santiago](PER)
+- Soy [Santiago](PER)
+- Mi nombre es [Cecilia](PER)
+- Me llamo [Cecilia](PER)
+- Yo me llamo [Cecilia](PER)
+- Soy [Cecilia](PER)
+- [Oscar Malgiaritta](PER)
+- Mi nombre es [Oscar Malgiaritta](PER)
+- Me llamo [Oscar Malgiaritta](PER)
+- Yo me llamo [Oscar Malgiaritta](PER)
+- Soy [Oscar Malgiaritta](PER)
+- [Marcelo Dosantos](PER)
+- Mi nombre es [Marcelo Dosantos](PER)
+- Me llamo [Marcelo Dosantos](PER)
+- Yo me llamo [Marcelo Dosantos](PER)
+- Soy [Marcelo Dosantos](PER)
+- [Cuenca Ciudad Universitaria](ORG)
+- soy [Cuenca Ciudad Universitaria](ORG)
+- [Coordinador Vinculacion Sociedad](ORG)
+- soy [Coordinador Vinculacion Sociedad](ORG)
 
 ## intent:peticion_recurso_computacional
-- buenos dias solicito acceso a una maquina [8](ram) GB de capacidad en RAM [4](cpu_cores) nucleos de cpu [256](disk_space) GB de disco duro
-- buenos dias requiero maquina virtual [32](ram) GB de ram [2](cpu_cores) nucleos
-- buenos dias necesito ayuda acceso a una maquina [1](cpu_cores) nucleos de cpu [1000](disk_space) GB de capacidad
-- hola solicito un servidor [64](ram) GB de capacidad en RAM [1](cpu_cores) nucleos de cpu [128](disk_space) GB de HD
-- hola necesito maquina virtual [8](ram) GB en RAM
-- saludos ayuda maquina virtual [8](cpu_cores) procesadores [256](disk_space) GB de HD
-- hola solicito acceso a una maquina [16](ram) GB de ram [3](cpu_cores) procesadores [16](disk_space) GB de disco duro
-- buenos dias necesito ayuda maquina virtual [8](cpu_cores) nucleos [1000](disk_space) GB de capacidad
-- buenas tardes ayuda maquina virtual [16](ram) GB en RAM [4](cpu_cores) nucleos [256](disk_space) GB de disco duro
-- solicito una VM [64](ram) GB en RAM [4](cpu_cores) procesadores
-- buenos dias necesito ayuda acceso a una maquina [16](ram) GB en RAM [1](cpu_cores) nucleos de cpu
-- hola ayuda una VM [32](ram) GB en RAM [1](cpu_cores) nucleos de cpu
-- buenas tardes necesito una VM [16](ram) GB de ram [4](cpu_cores) nucleos de cpu
-- saludos solicito maquina virtual [16](ram) GB de capacidad en RAM [1](cpu_cores) nucleos [8](disk_space) GB de HD
-- buenos dias necesito ayuda una instancia [8](ram) GB de ram [2](cpu_cores) procesadores
-- hola requiero acceso a una maquina [32](ram) GB de capacidad en RAM [2](cpu_cores) procesadores [16](disk_space) GB de HD
-- buenos dias necesito ayuda un servidor [8](cpu_cores) nucleos [128](disk_space) GB de disco duro
-- hola necesito ayuda un servidor [3](cpu_cores) nucleos
-- buenas tardes solicito un servidor [64](ram) GB en RAM [4](cpu_cores) nucleos de cpu [256](disk_space) GB de capacidad
-- buenas tardes solicito maquina virtual [64](ram) GB de ram [8](cpu_cores) nucleos de cpu [8](disk_space) GB de capacidad
-- saludos necesito una instancia [64](ram) GB en RAM [8](disk_space) GB de disco duro
-- solicito una VM [2](cpu_cores) nucleos [512](disk_space) GB de HD
-- buenas tardes solicito una VM [8](ram) GB en RAM [4](cpu_cores) nucleos de cpu [512](disk_space) GB de HD
-- buenos dias necesito ayuda una instancia
-- buenos dias ayuda acceso a una maquina [1](cpu_cores) procesadores [128](disk_space) GB de disco duro
-- hola necesito ayuda una VM [64](ram) GB de ram [512](disk_space) GB de HD
-- buenos dias necesito ayuda maquina virtual [128](ram) GB de ram [4](cpu_cores) procesadores
-- buenos dias requiero maquina virtual [64](ram) GB de capacidad en RAM [1](cpu_cores) nucleos de cpu [256](disk_space) GB de capacidad
-- buenas tardes ayuda acceso a una maquina [64](ram) GB de ram
-- hola necesito una VM [8](ram) GB en RAM [4](cpu_cores) nucleos de cpu [1000](disk_space) GB de capacidad
-- saludos ayuda maquina virtual [128](ram) GB en RAM [1](cpu_cores) nucleos de cpu
-- buenas tardes ayuda una instancia [32](ram) GB de ram [128](disk_space) GB de capacidad
-- solicito un servidor [16](ram) GB en RAM [3](cpu_cores) nucleos de cpu [256](disk_space) GB de disco duro
-- necesito maquina virtual [16](ram) GB en RAM [3](cpu_cores) nucleos de cpu [1000](disk_space) GB de capacidad
-- buenos dias requiero un servidor [128](ram) GB de capacidad en RAM [1](cpu_cores) nucleos de cpu [512](disk_space) GB de disco duro
-- ayuda una instancia [3](cpu_cores) nucleos de cpu [16](disk_space) GB de disco duro
-- buenas tardes ayuda maquina virtual [128](ram) GB de capacidad en RAM [16](disk_space) GB de disco duro
-- saludos solicito una instancia [64](ram) GB de ram [8](cpu_cores) nucleos [16](disk_space) GB de capacidad
-- hola solicito acceso a una maquina [128](ram) GB de ram [4](cpu_cores) nucleos [16](disk_space) GB de capacidad
-- saludos necesito ayuda una instancia [16](disk_space) GB de HD
-- hola ayuda una VM [8](cpu_cores) procesadores
-- buenos dias ayuda una instancia [8](ram) GB en RAM [16](disk_space) GB de HD
-- requiero una instancia [8](cpu_cores) procesadores
-- buenos dias solicito una instancia [16](ram) GB de capacidad en RAM [4](cpu_cores) nucleos
-- hola necesito ayuda una instancia [8](ram) GB en RAM [4](cpu_cores) nucleos de cpu
-- buenos dias necesito ayuda una instancia [64](ram) GB de ram [2](cpu_cores) nucleos de cpu [512](disk_space) GB de HD
-- saludos necesito ayuda un servidor
-- solicito una instancia
-- buenas tardes requiero acceso a una maquina [8](ram) GB en RAM [512](disk_space) GB de disco duro
-- necesito ayuda una VM [8](cpu_cores) nucleos [512](disk_space) GB de HD
-- saludos necesito acceso a una maquina [64](ram) GB en RAM [8](cpu_cores) nucleos [128](disk_space) GB de capacidad
-- hola ayuda un servidor [64](ram) GB de ram [4](cpu_cores) procesadores [512](disk_space) GB de capacidad
-- buenas tardes ayuda maquina virtual [8](ram) GB de ram [1](cpu_cores) procesadores [128](disk_space) GB de HD
-- ayuda una instancia [8](ram) GB de ram [1](cpu_cores) procesadores
-- buenas tardes necesito ayuda un servidor [64](ram) GB de ram [1](cpu_cores) nucleos de cpu
-- hola ayuda acceso a una maquina [64](ram) GB de ram [1](cpu_cores) procesadores [16](disk_space) GB de disco duro
-- buenos dias necesito una instancia [32](ram) GB de capacidad en RAM [4](cpu_cores) procesadores [16](disk_space) GB de capacidad
-- buenos dias necesito ayuda maquina virtual [128](ram) GB de capacidad en RAM [512](disk_space) GB de disco duro
-- buenos dias necesito ayuda una instancia [64](ram) GB de ram [3](cpu_cores) nucleos de cpu
-- buenos dias necesito ayuda una VM [64](ram) GB de capacidad en RAM [1](cpu_cores) procesadores [512](disk_space) GB de disco duro
-- hola ayuda maquina virtual [16](ram) GB de ram [3](cpu_cores) nucleos [16](disk_space) GB de capacidad
-- hola ayuda maquina virtual [16](ram) GB de ram [128](disk_space) GB de capacidad
-- hola necesito ayuda maquina virtual [8](ram) GB de capacidad en RAM [4](cpu_cores) nucleos de cpu [8](disk_space) GB de capacidad
-- buenas tardes solicito acceso a una maquina [2](cpu_cores) nucleos [1000](disk_space) GB de disco duro
-- necesito maquina virtual [16](ram) GB de capacidad en RAM [3](cpu_cores) nucleos de cpu [1000](disk_space) GB de capacidad
-- hola necesito una VM [8](cpu_cores) nucleos [16](disk_space) GB de disco duro
-- hola requiero una VM [4](cpu_cores) nucleos [512](disk_space) GB de disco duro
-- saludos requiero maquina virtual [32](ram) GB en RAM [1](cpu_cores) nucleos de cpu [1000](disk_space) GB de capacidad
-- buenos dias ayuda acceso a una maquina [8](ram) GB de capacidad en RAM [2](cpu_cores) procesadores [8](disk_space) GB de capacidad
-- buenas tardes necesito una instancia [4](cpu_cores) nucleos de cpu [8](disk_space) GB de disco duro
-- buenos dias ayuda una instancia [2](cpu_cores) procesadores [1000](disk_space) GB de disco duro
-- solicito una instancia [128](ram) GB de ram [2](cpu_cores) nucleos [16](disk_space) GB de HD
-- hola solicito una instancia [4](cpu_cores) nucleos [1000](disk_space) GB de disco duro
-- buenos dias necesito acceso a una maquina [8](ram) GB de capacidad en RAM [4](cpu_cores) nucleos de cpu [128](disk_space) GB de capacidad
-- buenas tardes necesito ayuda una instancia [64](ram) GB en RAM [128](disk_space) GB de HD
-- ayuda maquina virtual [1](cpu_cores) nucleos [512](disk_space) GB de capacidad
-- buenas tardes necesito ayuda una instancia [32](ram) GB de ram [1](cpu_cores) procesadores [16](disk_space) GB de capacidad
-- necesito ayuda maquina virtual [64](ram) GB de capacidad en RAM [1](cpu_cores) nucleos [512](disk_space) GB de HD
-- saludos necesito una VM [16](ram) GB de capacidad en RAM [1000](disk_space) GB de HD
-- saludos ayuda una VM [4](cpu_cores) nucleos
-- buenas tardes solicito maquina virtual [64](ram) GB en RAM [2](cpu_cores) nucleos [128](disk_space) GB de disco duro
-- requiero un servidor [8](ram) GB de capacidad en RAM [4](cpu_cores) nucleos de cpu [512](disk_space) GB de HD
-- buenas tardes necesito un servidor [32](ram) GB de ram [3](cpu_cores) nucleos de cpu [16](disk_space) GB de HD
-- buenas tardes solicito una VM [8](ram) GB en RAM [8](cpu_cores) nucleos [256](disk_space) GB de disco duro
-- hola necesito una instancia [16](ram) GB de ram [1000](disk_space) GB de disco duro
-- buenas tardes requiero maquina virtual [16](ram) GB de ram [2](cpu_cores) procesadores [256](disk_space) GB de capacidad
-- hola necesito ayuda un servidor [16](ram) GB de ram [1](cpu_cores) nucleos de cpu
-- ayuda acceso a una maquina [32](ram) GB de capacidad en RAM [2](cpu_cores) nucleos de cpu [16](disk_space) GB de disco duro
-- solicito acceso a una maquina [4](cpu_cores) procesadores [128](disk_space) GB de HD
-- saludos necesito acceso a una maquina [32](ram) GB de ram [128](disk_space) GB de capacidad
-- necesito ayuda una instancia [128](ram) GB de ram
-- solicito acceso a una maquina [64](ram) GB en RAM [1](cpu_cores) procesadores [256](disk_space) GB de capacidad
-- saludos requiero un servidor [128](ram) GB de capacidad en RAM
-- buenos dias ayuda una instancia [64](ram) GB de ram [256](disk_space) GB de disco duro
-- necesito ayuda una instancia [8](ram) GB de ram [4](cpu_cores) procesadores
-- necesito ayuda una VM [8](ram) GB de capacidad en RAM [8](cpu_cores) procesadores [1000](disk_space) GB de disco duro
-- buenas tardes necesito una VM [16](ram) GB de ram [3](cpu_cores) procesadores [256](disk_space) GB de disco duro
-- buenas tardes requiero una instancia [16](ram) GB de capacidad en RAM [8](cpu_cores) procesadores [8](disk_space) GB de capacidad
-- buenas tardes solicito un servidor [8](ram) GB de ram [1](cpu_cores) procesadores [16](disk_space) GB de HD
-- ayuda acceso a una maquina [128](ram) GB de ram [2](cpu_cores) procesadores [1000](disk_space) GB de capacidad
-- solicito una VM [16](ram) GB de capacidad en RAM [8](cpu_cores) nucleos [1000](disk_space) GB de capacidad
-- solicito un servidor [32](ram) GB de ram [8](cpu_cores) nucleos de cpu [256](disk_space) GB de HD
-- saludos requiero una instancia [32](ram) GB en RAM [4](cpu_cores) procesadores [256](disk_space) GB de capacidad
-- saludos ayuda acceso a una maquina
-- hola requiero un servidor [16](ram) GB en RAM [8](cpu_cores) procesadores [128](disk_space) GB de capacidad
-- buenos dias requiero maquina virtual [8](ram) GB de ram [4](cpu_cores) nucleos [8](disk_space) GB de HD
-- hola necesito una VM [128](ram) GB en RAM [8](disk_space) GB de HD
-- buenos dias requiero una VM [128](ram) GB de capacidad en RAM [8](cpu_cores) nucleos de cpu [16](disk_space) GB de HD
-- buenas tardes necesito una VM [32](ram) GB de ram [16](disk_space) GB de HD
-- necesito maquina virtual [32](ram) GB de ram [8](cpu_cores) procesadores
-- necesito ayuda maquina virtual [32](ram) GB en RAM [3](cpu_cores) nucleos de cpu [16](disk_space) GB de disco duro
-- saludos requiero maquina virtual [128](ram) GB de capacidad en RAM [256](disk_space) GB de capacidad
-- saludos ayuda acceso a una maquina [64](ram) GB de capacidad en RAM [4](cpu_cores) nucleos de cpu
-- buenos dias necesito ayuda un servidor [128](ram) GB de capacidad en RAM [3](cpu_cores) nucleos de cpu
-- necesito ayuda una VM [64](ram) GB en RAM [1](cpu_cores) nucleos de cpu [128](disk_space) GB de capacidad
-- solicito una instancia [8](cpu_cores) nucleos de cpu [16](disk_space) GB de capacidad
-- buenas tardes ayuda maquina virtual [32](ram) GB de ram [128](disk_space) GB de capacidad
-- hola ayuda un servidor [8](ram) GB en RAM [4](cpu_cores) nucleos de cpu [16](disk_space) GB de HD
-- hola solicito acceso a una maquina [1000](disk_space) GB de disco duro
-- necesito ayuda un servidor [8](cpu_cores) procesadores
-- saludos requiero una instancia [3](cpu_cores) nucleos de cpu
-- necesito ayuda una VM [32](ram) GB de capacidad en RAM [2](cpu_cores) nucleos de cpu
-- buenos dias solicito una instancia [64](ram) GB de capacidad en RAM [4](cpu_cores) procesadores
-- hola necesito ayuda una instancia [3](cpu_cores) nucleos de cpu [8](disk_space) GB de HD
-- buenas tardes necesito una instancia [16](ram) GB de ram [1](cpu_cores) nucleos de cpu [1000](disk_space) GB de capacidad
-- requiero acceso a una maquina [32](ram) GB en RAM [8](cpu_cores) nucleos [512](disk_space) GB de capacidad
-- hola solicito una VM [16](ram) GB de capacidad en RAM [8](disk_space) GB de HD
-- saludos requiero una VM [16](ram) GB de capacidad en RAM [3](cpu_cores) nucleos [8](disk_space) GB de HD
-- buenas tardes necesito ayuda maquina virtual [1](cpu_cores) nucleos [8](disk_space) GB de disco duro
-- buenos dias ayuda acceso a una maquina [8](cpu_cores) nucleos [256](disk_space) GB de disco duro
-- buenos dias ayuda acceso a una maquina [32](ram) GB de capacidad en RAM [512](disk_space) GB de HD
-- buenas tardes necesito una VM [32](ram) GB de capacidad en RAM [512](disk_space) GB de capacidad
-- saludos necesito acceso a una maquina [64](ram) GB de capacidad en RAM [3](cpu_cores) nucleos
-- saludos solicito maquina virtual [128](ram) GB de capacidad en RAM [3](cpu_cores) nucleos de cpu [512](disk_space) GB de disco duro
-- buenas tardes solicito una VM [64](ram) GB de ram [4](cpu_cores) nucleos [8](disk_space) GB de HD
-- buenas tardes requiero una VM [64](ram) GB de capacidad en RAM [2](cpu_cores) nucleos [256](disk_space) GB de HD
-- saludos requiero acceso a una maquina
-- saludos solicito maquina virtual [128](ram) GB de capacidad en RAM [128](disk_space) GB de capacidad
-- necesito ayuda una instancia [128](ram) GB de capacidad en RAM [2](cpu_cores) nucleos de cpu [1000](disk_space) GB de HD
-- saludos necesito ayuda una VM [128](ram) GB en RAM [4](cpu_cores) nucleos
-- hola requiero un servidor [32](ram) GB de ram [1](cpu_cores) procesadores [8](disk_space) GB de disco duro
-- saludos necesito una instancia [4](cpu_cores) nucleos [8](disk_space) GB de capacidad
-- saludos ayuda maquina virtual [64](ram) GB en RAM [2](cpu_cores) procesadores [128](disk_space) GB de capacidad
-- hola necesito maquina virtual [128](ram) GB en RAM [8](cpu_cores) procesadores [16](disk_space) GB de disco duro
-- saludos necesito ayuda un servidor [128](ram) GB de ram [1](cpu_cores) procesadores [16](disk_space) GB de HD
-- hola necesito ayuda maquina virtual [8](ram) GB en RAM [3](cpu_cores) nucleos [16](disk_space) GB de capacidad
-- saludos necesito ayuda un servidor [16](ram) GB de ram [2](cpu_cores) procesadores [1000](disk_space) GB de disco duro
-- solicito una VM [8](ram) GB de ram [8](cpu_cores) nucleos [1000](disk_space) GB de capacidad
-- hola necesito ayuda un servidor [64](ram) GB de ram [8](cpu_cores) nucleos de cpu [16](disk_space) GB de HD
-- hola necesito una VM [16](ram) GB de ram [4](cpu_cores) nucleos de cpu [512](disk_space) GB de disco duro
-- necesito una VM [8](cpu_cores) nucleos [1000](disk_space) GB de capacidad
-- buenas tardes requiero un servidor [32](ram) GB en RAM [16](disk_space) GB de HD
-- necesito ayuda una instancia [32](ram) GB en RAM [2](cpu_cores) nucleos de cpu [8](disk_space) GB de HD
-- saludos necesito acceso a una maquina [8](ram) GB en RAM [4](cpu_cores) procesadores [16](disk_space) GB de disco duro
-- saludos requiero acceso a una maquina [32](ram) GB de ram
-- ayuda acceso a una maquina [8](cpu_cores) nucleos
-- buenos dias ayuda una VM [1](cpu_cores) nucleos
-- necesito ayuda acceso a una maquina [8](ram) GB de ram [1](cpu_cores) nucleos de cpu [16](disk_space) GB de capacidad
-- buenas tardes solicito maquina virtual [16](ram) GB en RAM [4](cpu_cores) nucleos de cpu [8](disk_space) GB de HD
-- buenas tardes ayuda una instancia [8](cpu_cores) nucleos [256](disk_space) GB de disco duro
-- hola necesito una VM [64](ram) GB de capacidad en RAM
-- saludos ayuda un servidor [16](ram) GB de ram [4](cpu_cores) procesadores [256](disk_space) GB de capacidad
-- buenas tardes requiero maquina virtual [128](ram) GB de ram
-- buenos dias solicito un servidor [16](ram) GB en RAM [8](disk_space) GB de disco duro
-- solicito un servidor [32](ram) GB de ram [4](cpu_cores) nucleos de cpu [128](disk_space) GB de capacidad
-- hola ayuda una instancia [32](ram) GB en RAM [2](cpu_cores) procesadores [256](disk_space) GB de disco duro
-- buenas tardes ayuda acceso a una maquina [16](ram) GB de ram [4](cpu_cores) nucleos [512](disk_space) GB de disco duro
-- buenas tardes solicito una VM
-- saludos ayuda una VM [128](ram) GB de capacidad en RAM [1](cpu_cores) procesadores [16](disk_space) GB de disco duro
-- buenos dias requiero un servidor [32](ram) GB de capacidad en RAM [2](cpu_cores) procesadores
-- saludos solicito una instancia [8](ram) GB de ram [1](cpu_cores) nucleos de cpu
-- saludos necesito ayuda acceso a una maquina [3](cpu_cores) nucleos de cpu
-- buenas tardes necesito una instancia [32](ram) GB de ram
-- hola necesito acceso a una maquina [2](cpu_cores) nucleos [1000](disk_space) GB de capacidad
-- hola necesito ayuda una instancia [128](ram) GB en RAM [2](cpu_cores) nucleos [512](disk_space) GB de disco duro
-- requiero una instancia [16](ram) GB de ram [3](cpu_cores) nucleos de cpu
-- hola requiero una instancia [128](ram) GB de ram [512](disk_space) GB de HD
-- solicito una instancia [4](cpu_cores) nucleos de cpu
-- solicito una VM [128](ram) GB en RAM [8](disk_space) GB de capacidad
-- necesito ayuda una VM [256](disk_space) GB de capacidad
-- buenos dias requiero un servidor [32](ram) GB en RAM [4](cpu_cores) nucleos de cpu
-- saludos ayuda maquina virtual [64](ram) GB en RAM [8](cpu_cores) nucleos de cpu [256](disk_space) GB de disco duro
-- hola necesito acceso a una maquina [128](ram) GB de capacidad en RAM [3](cpu_cores) procesadores [1000](disk_space) GB de HD
-- hola necesito ayuda acceso a una maquina [256](disk_space) GB de disco duro
-- hola ayuda una instancia [16](ram) GB en RAM [8](cpu_cores) nucleos [1000](disk_space) GB de HD
-- buenas tardes ayuda maquina virtual [32](ram) GB de capacidad en RAM [1](cpu_cores) procesadores [512](disk_space) GB de capacidad
-- saludos necesito acceso a una maquina [8](cpu_cores) nucleos [256](disk_space) GB de capacidad
-- saludos necesito acceso a una maquina [1](cpu_cores) nucleos de cpu [16](disk_space) GB de disco duro
-- requiero una instancia [128](ram) GB de capacidad en RAM [1](cpu_cores) nucleos de cpu [128](disk_space) GB de HD
-- buenos dias necesito ayuda acceso a una maquina [256](disk_space) GB de disco duro
-- hola requiero maquina virtual [2](cpu_cores) nucleos [512](disk_space) GB de capacidad
-- hola requiero una instancia [8](ram) GB de ram [3](cpu_cores) nucleos [1000](disk_space) GB de capacidad
-- buenas tardes requiero maquina virtual [8](ram) GB de capacidad en RAM [8](cpu_cores) nucleos
-- saludos requiero maquina virtual [32](ram) GB de ram [4](cpu_cores) procesadores
-- necesito maquina virtual [32](ram) GB de ram
-- saludos ayuda una VM [1000](disk_space) GB de capacidad
-- hola necesito ayuda maquina virtual [16](ram) GB de ram [4](cpu_cores) procesadores [16](disk_space) GB de HD
-- hola necesito ayuda una VM [16](ram) GB de capacidad en RAM [8](cpu_cores) nucleos de cpu [256](disk_space) GB de capacidad
-- necesito ayuda un servidor [64](ram) GB de ram [4](cpu_cores) nucleos [512](disk_space) GB de disco duro
-- saludos requiero maquina virtual [4](cpu_cores) nucleos de cpu [8](disk_space) GB de disco duro
+- necesito maquina virtual [128](ram) GB de ram [1](cpu_cores) procesadores [1000](disk_space) GB de disco duro
+- acceso a una maquina [2](cpu_cores) nucleos de cpu [128](disk_space) GB de capacidad
+- requiero acceso a una maquina [128](disk_space) GB de capacidad
+- requiero maquina virtual [8](ram) GB en RAM [3](cpu_cores) nucleos de cpu [128](disk_space) GB de capacidad
+- maquina virtual [16](ram) GB de ram [128](disk_space) GB de HD
+- una instancia [32](ram) GB en RAM [256](disk_space) GB de disco duro
+- acceso a una maquina [16](ram) GB de capacidad en RAM [16](disk_space) GB de capacidad
+- solicito una instancia [128](ram) GB en RAM [1](cpu_cores) procesadores
+- requiero un servidor [64](ram) GB de ram [4](cpu_cores) nucleos [16](disk_space) GB de capacidad
+- requiero una VM [8](ram) GB de ram [3](cpu_cores) nucleos [1000](disk_space) GB de capacidad
+- requiero maquina virtual [2](cpu_cores) procesadores [256](disk_space) GB de capacidad
+- requiero acceso a una maquina [1](cpu_cores) procesadores [512](disk_space) GB de HD
+- solicito una instancia [2](cpu_cores) procesadores [128](disk_space) GB de HD
+- requiero una VM [16](ram) GB de ram [3](cpu_cores) procesadores
+- un servidor [64](ram) GB de capacidad en RAM [4](cpu_cores) nucleos
+- necesito una instancia [16](ram) GB de capacidad en RAM [1](cpu_cores) nucleos de cpu [512](disk_space) GB de HD
+- solicito un servidor [32](ram) GB de capacidad en RAM [8](cpu_cores) procesadores
+- solicito un servidor [128](ram) GB de ram [4](cpu_cores) nucleos [256](disk_space) GB de HD
+- solicito un servidor [8](ram) GB de ram [1](cpu_cores) nucleos [512](disk_space) GB de capacidad
+- necesito una VM [32](ram) GB de capacidad en RAM
+- requiero un servidor [16](ram) GB de ram [3](cpu_cores) procesadores
+- necesito una VM
+- requiero un servidor [64](ram) GB en RAM
+- necesito un servidor
+- maquina virtual [16](ram) GB en RAM [8](cpu_cores) nucleos de cpu
+- necesito una VM [3](cpu_cores) nucleos
+- requiero una instancia [32](ram) GB de ram [8](cpu_cores) nucleos [256](disk_space) GB de capacidad
+- una instancia [8](ram) GB de ram [3](cpu_cores) nucleos de cpu [16](disk_space) GB de HD
+- requiero una VM [32](ram) GB de capacidad en RAM [2](cpu_cores) procesadores
+- requiero una VM [16](ram) GB en RAM [4](cpu_cores) nucleos de cpu [16](disk_space) GB de HD
+- requiero una VM [8](ram) GB de capacidad en RAM [4](cpu_cores) nucleos de cpu [128](disk_space) GB de capacidad
+- requiero una VM [64](ram) GB de ram [2](cpu_cores) nucleos de cpu
+- solicito maquina virtual [16](ram) GB de capacidad en RAM
+- solicito un servidor [64](ram) GB de capacidad en RAM [4](cpu_cores) nucleos [1000](disk_space) GB de HD
+- necesito una VM [3](cpu_cores) nucleos de cpu
+- necesito maquina virtual [128](ram) GB de ram [256](disk_space) GB de HD
+- solicito maquina virtual [32](ram) GB de ram [2](cpu_cores) nucleos
+- solicito un servidor [64](ram) GB de ram [1](cpu_cores) nucleos de cpu [512](disk_space) GB de HD
+- solicito maquina virtual [16](ram) GB en RAM [2](cpu_cores) procesadores
+- solicito un servidor [1](cpu_cores) procesadores [8](disk_space) GB de capacidad
+- requiero una instancia [16](ram) GB de ram [1](cpu_cores) nucleos [128](disk_space) GB de disco duro
+- necesito una instancia [8](ram) GB de capacidad en RAM [1](cpu_cores) nucleos de cpu [128](disk_space) GB de disco duro
+- necesito maquina virtual
+- maquina virtual [16](ram) GB de capacidad en RAM [128](disk_space) GB de disco duro
+- solicito maquina virtual [16](ram) GB de ram [8](cpu_cores) nucleos de cpu [256](disk_space) GB de HD
+- requiero un servidor [16](ram) GB de capacidad en RAM [4](cpu_cores) nucleos [1000](disk_space) GB de HD
+- requiero maquina virtual [3](cpu_cores) nucleos [1000](disk_space) GB de HD
+- necesito una instancia [16](ram) GB de capacidad en RAM [1](cpu_cores) nucleos de cpu [1000](disk_space) GB de HD
+- necesito un servidor [8](cpu_cores) nucleos [16](disk_space) GB de disco duro
+- un servidor [32](ram) GB de ram [3](cpu_cores) nucleos de cpu [256](disk_space) GB de capacidad
+- requiero un servidor [32](ram) GB de capacidad en RAM [2](cpu_cores) nucleos de cpu [512](disk_space) GB de disco duro
+- solicito maquina virtual [32](ram) GB de capacidad en RAM [3](cpu_cores) procesadores [16](disk_space) GB de HD
+- maquina virtual [32](ram) GB de capacidad en RAM [2](cpu_cores) procesadores [8](disk_space) GB de HD
+- requiero una instancia [32](ram) GB de ram [2](cpu_cores) nucleos [16](disk_space) GB de disco duro
+- un servidor [128](ram) GB de ram [2](cpu_cores) nucleos de cpu [256](disk_space) GB de HD
+- acceso a una maquina [16](ram) GB de ram [1](cpu_cores) procesadores [16](disk_space) GB de HD
+- requiero maquina virtual [128](ram) GB en RAM [256](disk_space) GB de HD
+- solicito un servidor [32](ram) GB en RAM [8](cpu_cores) nucleos de cpu
+- una instancia [8](ram) GB de ram [2](cpu_cores) nucleos [16](disk_space) GB de disco duro
+- necesito maquina virtual [512](disk_space) GB de capacidad
+- requiero una instancia [32](ram) GB de ram
+- solicito un servidor [2](cpu_cores) nucleos [256](disk_space) GB de disco duro
+- necesito acceso a una maquina [8](cpu_cores) nucleos de cpu [128](disk_space) GB de disco duro
+- solicito una VM [8](ram) GB en RAM [1](cpu_cores) nucleos de cpu [512](disk_space) GB de HD
+- requiero una instancia [2](cpu_cores) procesadores [256](disk_space) GB de HD
+- requiero acceso a una maquina [1](cpu_cores) nucleos de cpu [256](disk_space) GB de capacidad
+- una instancia [128](ram) GB de ram [2](cpu_cores) nucleos [256](disk_space) GB de disco duro
+- requiero maquina virtual [2](cpu_cores) procesadores [1000](disk_space) GB de disco duro
+- requiero maquina virtual [128](ram) GB de capacidad en RAM [1](cpu_cores) procesadores [8](disk_space) GB de HD
+- solicito una VM [4](cpu_cores) procesadores [128](disk_space) GB de HD
+- necesito acceso a una maquina [8](ram) GB en RAM [3](cpu_cores) nucleos [128](disk_space) GB de HD
+- un servidor [4](cpu_cores) nucleos [8](disk_space) GB de capacidad
+- solicito una instancia [16](ram) GB en RAM [512](disk_space) GB de capacidad
+- solicito acceso a una maquina [16](ram) GB de capacidad en RAM [2](cpu_cores) nucleos de cpu [8](disk_space) GB de HD
+- necesito maquina virtual [64](ram) GB de ram [1000](disk_space) GB de disco duro
+- necesito un servidor [128](ram) GB en RAM [2](cpu_cores) nucleos de cpu [1000](disk_space) GB de disco duro
+- necesito una VM [8](ram) GB de ram [1](cpu_cores) nucleos de cpu [256](disk_space) GB de disco duro
+- requiero un servidor [8](cpu_cores) nucleos de cpu [8](disk_space) GB de HD
+- necesito una VM [32](ram) GB de ram [4](cpu_cores) procesadores
+- necesito una VM [128](ram) GB de ram [2](cpu_cores) nucleos
+- solicito una instancia [128](ram) GB de ram [8](disk_space) GB de capacidad
+- solicito maquina virtual [64](ram) GB de ram [2](cpu_cores) procesadores [1000](disk_space) GB de disco duro
+- necesito una instancia [64](ram) GB de capacidad en RAM [3](cpu_cores) procesadores [128](disk_space) GB de HD
+- una instancia [64](ram) GB de ram [1000](disk_space) GB de HD
+- necesito un servidor [8](ram) GB en RAM
+- requiero un servidor [32](ram) GB de ram [1](cpu_cores) nucleos [8](disk_space) GB de capacidad
+- requiero maquina virtual [2](cpu_cores) nucleos [512](disk_space) GB de disco duro
+- solicito una VM [128](ram) GB en RAM [3](cpu_cores) nucleos de cpu
+- requiero acceso a una maquina [8](ram) GB de ram [256](disk_space) GB de capacidad
+- requiero acceso a una maquina [32](ram) GB de ram [8](cpu_cores) nucleos de cpu [16](disk_space) GB de disco duro
+- una VM [128](ram) GB en RAM [8](cpu_cores) procesadores [1000](disk_space) GB de HD
+- solicito un servidor [8](ram) GB en RAM
+- maquina virtual [128](ram) GB en RAM [2](cpu_cores) procesadores [128](disk_space) GB de capacidad
+- necesito una VM [8](cpu_cores) nucleos de cpu [128](disk_space) GB de HD
+- requiero un servidor [2](cpu_cores) nucleos
+- necesito una instancia [4](cpu_cores) procesadores
+- requiero una instancia [16](ram) GB de ram [8](cpu_cores) nucleos de cpu [1000](disk_space) GB de HD
+- requiero un servidor [64](ram) GB en RAM [128](disk_space) GB de capacidad
+- necesito acceso a una maquina [8](cpu_cores) nucleos de cpu [1000](disk_space) GB de HD
+- una VM [64](ram) GB de ram [128](disk_space) GB de disco duro
 
 ## intent:recuperar_contrasena
-- hola [renan.freirez](usuario) No hay acceso [eVirtual](sistema)
-- buenas tardes requiero [hernan.gonzalezt](usuario) no recuerda contrasena [GLPI](sistema)
-- hola solicito [renan.freirez](usuario) no recuerda contrasena [eVirtual](sistema)
-- saludos solicito [adrian.narvaezp](usuario) no recuerda contrasena
-- buenas tardes necesito ayuda [hernan.gonzalezt](usuario) no puedo acceder
-- saludos requiero [renan.freirez](usuario) No hay acceso [eVirtual](sistema)
-- saludos ayuda [adrian.narvaezp](usuario) Sin acceso [OpenERP](sistema)
-- buenos dias necesito [hernan.gonzalezt](usuario) no recuerda contrasena [Portafolio](sistema)
-- hola necesito [hernan.gonzalezt](usuario) olvide contrasena [OpenERP](sistema)
-- buenos dias requiero [renan.freirez](usuario) Sin acceso [Sistemas Institucionales](sistema)
-- olvide contrasena [eVirtual](sistema)
-- saludos necesito ayuda [hernan.gonzalezt](usuario) Sin acceso [GLPI](sistema)
-- solicito olvide contrasena [Urkund](sistema)
-- saludos necesito [hernan.gonzalezt](usuario) no puedo acceder [Sistemas Institucionales](sistema)
-- buenas tardes solicito [hernan.gonzalezt](usuario) no puedo acceder [Portafolio](sistema)
-- buenas tardes ayuda [hernan.gonzalezt](usuario) Sin acceso [GLPI](sistema)
-- buenos dias necesito ayuda olvide contrasena [eVirtual](sistema)
-- saludos requiero olvide contrasena [Quipux](sistema)
-- buenas tardes necesito [hernan.gonzalezt](usuario) olvide contrasena [eVirtual](sistema)
-- saludos [hernan.gonzalezt](usuario) olvide contrasena [eVirtual](sistema)
-- buenos dias necesito [hernan.gonzalezt](usuario) olvide contrasena [Sistemas Institucionales](sistema)
-- necesito ayuda [hernan.gonzalezt](usuario) olvide contrasena [Portafolio](sistema)
-- buenas tardes ayuda [adrian.narvaezp](usuario) no recuerda contrasena [Sistemas Institucionales](sistema)
-- buenas tardes requiero [renan.freirez](usuario) No hay acceso [Quipux](sistema)
-- requiero [renan.freirez](usuario) Sin acceso [eVirtual](sistema)
-- buenos dias requiero no recuerda contrasena [eVirtual](sistema)
-- buenas tardes solicito Sin acceso [Sistemas Institucionales](sistema)
-- saludos ayuda [renan.freirez](usuario) no recuerda contrasena [Quipux](sistema)
-- hola necesito ayuda olvide contrasena [Quipux](sistema)
-- buenas tardes solicito [hernan.gonzalezt](usuario) No hay acceso [Portafolio](sistema)
-- buenas tardes requiero [renan.freirez](usuario) Sin acceso [eVirtual](sistema)
-- buenas tardes ayuda [adrian.narvaezp](usuario) No hay acceso [GLPI](sistema)
-- saludos [adrian.narvaezp](usuario) No hay acceso
-- buenas tardes ayuda [adrian.narvaezp](usuario) no puedo acceder [Urkund](sistema)
-- buenos dias ayuda [adrian.narvaezp](usuario) no puedo acceder [Portafolio](sistema)
-- buenas tardes necesito Sin acceso
-- buenas tardes requiero [adrian.narvaezp](usuario) No hay acceso [Sistemas Institucionales](sistema)
-- [hernan.gonzalezt](usuario) Sin acceso [Urkund](sistema)
-- hola necesito [adrian.narvaezp](usuario) no puedo acceder [OpenERP](sistema)
-- buenos dias [renan.freirez](usuario) Sin acceso [OpenERP](sistema)
-- buenos dias ayuda [renan.freirez](usuario) olvide contrasena
-- saludos necesito ayuda [renan.freirez](usuario) no recuerda contrasena [GLPI](sistema)
-- saludos [hernan.gonzalezt](usuario) Sin acceso [eVirtual](sistema)
-- buenos dias requiero no recuerda contrasena [Sistemas Institucionales](sistema)
-- hola requiero [hernan.gonzalezt](usuario) olvide contrasena [Quipux](sistema)
-- buenas tardes [hernan.gonzalezt](usuario) Sin acceso [GLPI](sistema)
-- hola necesito ayuda [hernan.gonzalezt](usuario) olvide contrasena
-- hola ayuda [renan.freirez](usuario) No hay acceso [Quipux](sistema)
-- necesito [renan.freirez](usuario) No hay acceso [GLPI](sistema)
-- buenos dias solicito olvide contrasena
-- requiero [renan.freirez](usuario) olvide contrasena [OpenERP](sistema)
-- solicito [renan.freirez](usuario) no puedo acceder [Quipux](sistema)
-- requiero No hay acceso
-- buenas tardes necesito ayuda [hernan.gonzalezt](usuario) olvide contrasena
-- saludos solicito [hernan.gonzalezt](usuario) olvide contrasena [GLPI](sistema)
-- buenas tardes [hernan.gonzalezt](usuario) No hay acceso [GLPI](sistema)
-- saludos necesito [adrian.narvaezp](usuario) No hay acceso [OpenERP](sistema)
-- buenos dias [hernan.gonzalezt](usuario) no puedo acceder [Urkund](sistema)
-- hola solicito [adrian.narvaezp](usuario) No hay acceso
-- saludos ayuda [hernan.gonzalezt](usuario) no recuerda contrasena [OpenERP](sistema)
-- buenos dias solicito [renan.freirez](usuario) No hay acceso [eVirtual](sistema)
-- necesito [renan.freirez](usuario) no puedo acceder [eVirtual](sistema)
-- buenas tardes requiero Sin acceso [Sistemas Institucionales](sistema)
-- buenas tardes necesito ayuda no puedo acceder [OpenERP](sistema)
-- saludos requiero [hernan.gonzalezt](usuario) No hay acceso
-- saludos necesito ayuda [hernan.gonzalezt](usuario) olvide contrasena [eVirtual](sistema)
-- saludos necesito ayuda [adrian.narvaezp](usuario) Sin acceso [Sistemas Institucionales](sistema)
-- saludos [hernan.gonzalezt](usuario) Sin acceso [GLPI](sistema)
-- hola necesito [renan.freirez](usuario) Sin acceso [Quipux](sistema)
-- hola requiero No hay acceso [Sistemas Institucionales](sistema)
-- buenas tardes ayuda [hernan.gonzalezt](usuario) no puedo acceder [Sistemas Institucionales](sistema)
-- buenos dias necesito ayuda No hay acceso [Portafolio](sistema)
-- saludos solicito [adrian.narvaezp](usuario) olvide contrasena [eVirtual](sistema)
-- ayuda no recuerda contrasena
-- buenas tardes Sin acceso [Sistemas Institucionales](sistema)
-- hola ayuda [renan.freirez](usuario) no recuerda contrasena
-- [renan.freirez](usuario) no puedo acceder
-- necesito [adrian.narvaezp](usuario) No hay acceso [OpenERP](sistema)
-- necesito ayuda no puedo acceder [Quipux](sistema)
-- hola Sin acceso [Quipux](sistema)
-- buenos dias solicito no recuerda contrasena [Portafolio](sistema)
-- requiero [adrian.narvaezp](usuario) no recuerda contrasena [GLPI](sistema)
-- hola [hernan.gonzalezt](usuario) olvide contrasena [Portafolio](sistema)
-- buenas tardes ayuda no recuerda contrasena
-- solicito [adrian.narvaezp](usuario) No hay acceso [OpenERP](sistema)
-- saludos [adrian.narvaezp](usuario) No hay acceso [Sistemas Institucionales](sistema)
-- saludos requiero [adrian.narvaezp](usuario) Sin acceso [GLPI](sistema)
-- buenos dias necesito [hernan.gonzalezt](usuario) No hay acceso
-- saludos solicito [renan.freirez](usuario) Sin acceso [Urkund](sistema)
-- hola requiero [hernan.gonzalezt](usuario) no puedo acceder [Portafolio](sistema)
-- necesito ayuda no puedo acceder [Portafolio](sistema)
-- buenas tardes necesito [renan.freirez](usuario) no puedo acceder [Quipux](sistema)
-- saludos [adrian.narvaezp](usuario) no recuerda contrasena [Sistemas Institucionales](sistema)
-- saludos necesito [renan.freirez](usuario) no puedo acceder [Sistemas Institucionales](sistema)
-- buenos dias ayuda No hay acceso [Quipux](sistema)
-- necesito ayuda [hernan.gonzalezt](usuario) no puedo acceder
-- buenas tardes solicito [renan.freirez](usuario) olvide contrasena [Urkund](sistema)
-- necesito ayuda olvide contrasena [eVirtual](sistema)
-- buenas tardes ayuda [adrian.narvaezp](usuario) No hay acceso
-- ayuda [renan.freirez](usuario) no recuerda contrasena [Sistemas Institucionales](sistema)
+- requiero Sin acceso [Portafolio](sistema)
+- buenos dias necesito olvide contrasena [Portafolio](sistema)
+- saludos Sin acceso [eVirtual](sistema)
+- saludos solicito no recuerda contrasena [Urkund](sistema)
+- hola requiero no puedo acceder [OpenERP](sistema)
+- buenos dias requiero no recuerda contrasena [OpenERP](sistema)
+- buenas tardes No hay acceso [Portafolio](sistema)
+- buenos dias No hay acceso [Portafolio](sistema)
+- buenos dias olvide contrasena
+- buenos dias necesito no puedo acceder [GLPI](sistema)
+- buenas tardes requiero Sin acceso [GLPI](sistema)
+- buenas tardes necesito olvide contrasena [GLPI](sistema)
+- buenas tardes solicito no recuerda contrasena
+- hola requiero No hay acceso [Urkund](sistema)
+- hola necesito No hay acceso [Quipux](sistema)
+- buenos dias requiero olvide contrasena [Urkund](sistema)
+- saludos solicito no puedo acceder [GLPI](sistema)
+- hola necesito Sin acceso [Portafolio](sistema)
+- buenos dias requiero No hay acceso [Portafolio](sistema)
+- buenos dias olvide contrasena [Portafolio](sistema)
+- requiero No hay acceso [Quipux](sistema)
+- buenos dias solicito olvide contrasena [GLPI](sistema)
+- solicito no puedo acceder [GLPI](sistema)
+- necesito No hay acceso [Portafolio](sistema)
+- buenos dias no puedo acceder [Quipux](sistema)
+- saludos requiero No hay acceso
+- necesito olvide contrasena [OpenERP](sistema)
+- buenas tardes requiero Sin acceso [Portafolio](sistema)
+- saludos Sin acceso [Urkund](sistema)
+- buenas tardes no recuerda contrasena [eVirtual](sistema)
+- hola requiero Sin acceso [Portafolio](sistema)
+- saludos solicito no recuerda contrasena [eVirtual](sistema)
+- hola necesito olvide contrasena [eVirtual](sistema)
+- buenas tardes necesito no recuerda contrasena
+- buenos dias solicito No hay acceso [GLPI](sistema)
+- hola necesito no puedo acceder [Urkund](sistema)
+- buenas tardes solicito Sin acceso [eVirtual](sistema)
+- buenos dias solicito Sin acceso [Urkund](sistema)
+- buenos dias solicito No hay acceso [Portafolio](sistema)
+- necesito no puedo acceder [GLPI](sistema)
+- hola requiero no recuerda contrasena [GLPI](sistema)
+- no puedo acceder [Quipux](sistema)
+- buenas tardes necesito Sin acceso [OpenERP](sistema)
+- requiero olvide contrasena
+- hola no recuerda contrasena
+- solicito No hay acceso [Portafolio](sistema)
+- saludos solicito Sin acceso [Portafolio](sistema)
+- hola requiero no recuerda contrasena [OpenERP](sistema)
+- buenos dias solicito no puedo acceder [Portafolio](sistema)
+- hola solicito no recuerda contrasena [GLPI](sistema)
+- buenas tardes solicito No hay acceso [Urkund](sistema)
+- buenos dias requiero Sin acceso [OpenERP](sistema)
+- buenos dias necesito no puedo acceder [Quipux](sistema)
+- no puedo acceder [OpenERP](sistema)
+- necesito No hay acceso
+- saludos solicito no puedo acceder [Quipux](sistema)
+- solicito Sin acceso [Quipux](sistema)
+- buenos dias necesito no recuerda contrasena [eVirtual](sistema)
+- buenas tardes necesito olvide contrasena [Urkund](sistema)
+- necesito olvide contrasena [Urkund](sistema)
+- requiero olvide contrasena [Quipux](sistema)
+- hola requiero No hay acceso [Quipux](sistema)
+- saludos necesito Sin acceso [Urkund](sistema)
+- hola requiero Sin acceso [GLPI](sistema)
+- necesito no puedo acceder
+- saludos necesito No hay acceso [OpenERP](sistema)
+- necesito no recuerda contrasena [OpenERP](sistema)
+- buenas tardes requiero No hay acceso [Portafolio](sistema)
+- no recuerda contrasena [Quipux](sistema)
+- necesito no puedo acceder [Quipux](sistema)
+- buenas tardes no recuerda contrasena [Urkund](sistema)
+- saludos necesito Sin acceso
+- buenas tardes solicito no puedo acceder [GLPI](sistema)
+- buenas tardes necesito no puedo acceder [GLPI](sistema)
+- buenas tardes No hay acceso [eVirtual](sistema)
+- buenas tardes necesito olvide contrasena [OpenERP](sistema)
+- saludos requiero no puedo acceder [OpenERP](sistema)
+- saludos requiero no puedo acceder [Quipux](sistema)
+- saludos No hay acceso [Urkund](sistema)
+- buenos dias requiero no puedo acceder
+- saludos olvide contrasena [OpenERP](sistema)
+- buenos dias necesito olvide contrasena [Urkund](sistema)
+- buenas tardes requiero Sin acceso [Urkund](sistema)
+- saludos solicito no recuerda contrasena [OpenERP](sistema)
+- saludos requiero Sin acceso [eVirtual](sistema)
+- olvide contrasena [Quipux](sistema)
+- saludos no puedo acceder [Urkund](sistema)
+- no recuerda contrasena [GLPI](sistema)
+- hola solicito Sin acceso [OpenERP](sistema)
+- requiero olvide contrasena [OpenERP](sistema)
+- saludos solicito no recuerda contrasena
+- solicito No hay acceso [Quipux](sistema)
+- buenos dias requiero Sin acceso [eVirtual](sistema)
+- saludos necesito no recuerda contrasena
+- requiero No hay acceso [eVirtual](sistema)
+- no recuerda contrasena
+- hola requiero olvide contrasena
+- buenos dias No hay acceso [GLPI](sistema)
+- olvide contrasena [OpenERP](sistema)
+- saludos necesito no recuerda contrasena [GLPI](sistema)
 
 ## intent:saludo
-- hola
+- saludos
 - buenas tardes
 - hey
+- hola hola
 - saludos saludos
 - buenas
 - hola buenos dias
-- hola buenas tardes
 
 ## intent:solicitar_opciones
-- necesito ayuda
+- ayudame
+- solicito ayuda
 - opciones
-- opciones disponibles
 - seleccionar opciones
-- mostrar opciones
 - menu
 - mostrar menu
+- ver menu

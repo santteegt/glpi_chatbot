@@ -1,22 +1,32 @@
 %[creacion_usuarios]('training': '100', 'testing': '20')
-    ~[saludos?] ~[peticion?] ~[nuevo_usuario] @[sistema?] ~[para?] @[trato?] @[sujeto] @[facultad?]
+    ~[nuevo_usuario]
+    ~[saludos?] ~[peticion?] ~[nuevo_usuario] @[sistema?] ~[para?] @[trato?] @[PER] @[facultad?]
 
 %[recuperar_contrasena]('training': '100', 'testing': '20')
-    ~[saludos?] ~[peticion?] @[usuario?] ~[sin_acceso] @[sistema?]
+    ~[sin_acceso]
+    ~[saludos?] ~[peticion?] ~[sin_acceso] @[sistema?]
 
-%[correo_electronico]('training': '4', 'testing': '4')
+%[especifica_sistema]('training': '10', 'testing': '5')
+    @[sistema]
+    ~[el] @[sistema]
+
+%[correo_electronico]('training': '140', 'testing': '60')
     @[email]
-    ~[mi?] ~[correo?] ~[electronico?] @[email]
+    ~[mi correo?] ~[electronico?] @[email]
 
-%[peticion_recurso_computacional]('training': '200', 'testing': '40')
+%[peticion_recurso_computacional]('training': '100', 'testing': '20')
     ~[peticion] ~[recurso_computacional]
-    ~[saludos?] ~[peticion] ~[recurso_computacional] ~[ram_suffix?] ~[cpu_cores_suffix?] ~[disk_space_suffix?]
+    ~[peticion?] ~[recurso_computacional] ~[ram_suffix?] ~[cpu_cores_suffix?] ~[disk_space_suffix?]
 
-%[informacion]('training': '200', 'testing': '40')
+%[informacion]('training': '100', 'testing': '20')
     ~[necesito un?] ~[ambiente de?] @[entorno]
+    ~[ram_suffix]
     ~[peticion?] ~[ram_suffix]
+    ~[cpu_cores_suffix]
     ~[peticion?] ~[cpu_cores_suffix]
+    ~[disk_space_suffix]
     ~[peticion?] ~[disk_space_suffix]
+    ~[escalabilidad]
     ~[peticion?] ~[escalabilidad]
 
 // alias
@@ -29,8 +39,6 @@
 ~[peticion]
     necesito
     requiero
-    necesito ayuda
-    ayuda
     solicito
 
 ~[problema]
@@ -114,7 +122,6 @@
 
 @[sistema]
     Urkund
-    Sistemas Institucionales
     Portafolio
     Quipux
     eVirtual
@@ -132,13 +139,17 @@
     Estudiante
     Director
 
-@[sujeto]
+@[PER]
     Jenny Maricela Redrovan Macas
     Karina Sarmiento
     Juan Perez
     Joselito Juanete
     Cuenca Ciudad Universitaria
     Coordinador Vinculacion Sociedad
+    Santiago
+    Cecilia
+    Oscar Malgiaritta
+    Marcelo Dosantos
 
 @[usuario]
     adrian.narvaezp
@@ -172,6 +183,207 @@
     victor.saquicela@ucuenca.edu.ec
     hernan.gonzalezt@ucuenca.ec
     ronald.gualan@ucuenca.ec
+    victor.saquicela@ucuenca.edu.ec
+    christopher.morochov@ucuenca.edu.ec
+    daniela.barrera@ucuenca.edu.ec
+    diego.paredes@ucuenca.edu.ec
+    luis.espinoza@ucuenca.edu.ec
+    mariajose.torres@ucuenca.edu.ec
+    pablo.palacios@ucuenca.edu.ec
+    juan.urgilesc@ucuenca.edu.ec
+    patricio.juca@ucuenca.edu.ec
+    mjose.zunigaz@ucuenca.edu.ec
+    marlene.roblesg@ucuenca.edu.ec
+    eduardo.bernala@ucuenca.edu.ec
+    diana.espinozag@ucuenca.edu.ec
+    cristian.montero@ucuenca.edu.ec
+    christian.barrera@ucuenca.edu.ec
+    catalina.morochoq@ucuenca.edu.ec
+    sebastian.roman@ucuenca.edu.ec
+    santiago.alvarado@ucuenca.edu.ec
+    rodrigo.padilla@ucuenca.edu.ec
+    santiago.ulloa@ucuenca.edu.ec
+    pablo.garrido@ucuenca.edu.ec
+    mauricio.brito@ucuenca.edu.ec
+    mariaeugenia.fajardo@ucuenca.edu.ec
+    marcelo.olivo@ucuenca.edu.ec
+    luis.juradoc@ucuenca.edu.ec
+    lenin.gonzalez@ucuenca.edu.ec
+    julio.salinas@ucuenca.edu.ec
+    juanc.gomezp@ucuenca.edu.ec
+    jose.zumba@ucuenca.edu.ec
+    jose.guerrerop@ucuenca.edu.ec
+    jaime.perez@ucuenca.edu.ec
+    jackeline.bermeo@ucuenca.edu.ec
+    geovanny.campoverde@ucuenca.edu.ec
+    gabriela.siguenzac@ucuenca.edu.ec
+    elvia.alvarez@ucuenca.edu.ec
+    elias.mora@ucuenca.edu.ec
+    carmita.rojas@ucuenca.edu.ec
+    andres.delosreyes@ucuenca.edu.ec
+    alina.guerrero@ucuenca.edu.ec
+    rosa.dominguez@ucuenca.edu.ec
+    ricardo.merchan@ucuenca.edu.ec
+    raul.cordero@ucuenca.edu.ec
+    rafael.holguin@ucuenca.edu.ec
+    patricio.hidalgo@ucuenca.edu.ec
+    patricia.garces@ucuenca.edu.ec
+    paola.jaramillov@ucuenca.edu.ec
+    pablo.leon@ucuenca.edu.ec
+    nube.mendez@ucuenca.edu.ec
+    nelson.navarro@ucuenca.edu.ec
+    natasha.cabrera@ucuenca.edu.ec
+    natalia.pacurucu@ucuenca.edu.ec
+    monica.mendieta@ucuenca.edu.ec
+    monica.gonzalez@ucuenca.edu.ec
+    marcelo.vazquez@ucuenca.edu.ec
+    luis.crespo@ucuenca.edu.ec
+    lorena.vivanco@ucuenca.edu.ec
+    lorena.vazquez@ucuenca.edu.ec
+    leonardo.ramos@ucuenca.edu.ec
+    klever.mendez@ucuenca.edu.ec
+    karina.sarmiento@ucuenca.edu.ec
+    julia.tamayo@ucuenca.edu.ec
+    juan.sola@ucuenca.edu.ec
+    juan.carvallo@ucuenca.edu.ec
+    juan.briones@ucuenca.edu.ec
+    juan.aviles@ucuenca.edu.ec
+    jose.sanchez@ucuenca.edu.ec
+    jorge.tenesaca@ucuenca.edu.ec
+    johana.avilad@ucuenca.edu.ec
+    jenny.luna@ucuenca.edu.ec
+    javier.saltos@ucuenca.edu.ec
+    javier.duran@ucuenca.edu.ec
+    jaime.guerra@ucuenca.edu.ec
+    ivan.sinchi@ucuenca.edu.ec
+    hernan.garcia@ucuenca.edu.ec
+    gabriela.pinos@ucuenca.edu.ec
+    fernando.pautac@ucuenca.edu.ec
+    fernando.cordero@ucuenca.edu.ec
+    felipe.quesada@ucuenca.edu.ec
+    fausto.cardoso@ucuenca.edu.ec
+    farah.alvarado@ucuenca.edu.ec
+    fabian.cazar@ucuenca.edu.ec
+    eugenio.reyesj@ucuenca.edu.ec
+    esteban.zalamea@ucuenca.edu.ec
+    enrique.luna@ucuenca.edu.ec
+    enrique.flores@ucuenca.edu.ec
+    edison.sinchit@ucuenca.edu.ec
+    edison.castillo@ucuenca.edu.ec
+    diego.jaramillo@ucuenca.edu.ec
+    diana.sarmiento@ucuenca.edu.ec
+    david.munoz@ucuenca.edu.ec
+    daniel.samaniego@ucuenca.edu.ec
+    daniel.idrovo@ucuenca.edu.ec
+    christian.contreras@ucuenca.edu.ec
+    cecilia.rodriguezt16@ucuenca.edu.ec
+    cecilia.achig@ucuenca.edu.ec
+    catalina.vintimilla@ucuenca.edu.ec
+    catalina.rodas@ucuenca.edu.ec
+    boris.orellana@ucuenca.edu.ec
+    augusta.hermida@ucuenca.edu.ec
+    santiago.velez@ucuenca.edu.ec
+    sebastian.astudillo@ucuenca.edu.ec
+    sebastian.mora@ucuenca.edu.ec
+    soledad.moscoso@ucuenca.edu.ec
+    vanessa.guillen@ucuenca.edu.ec
+    veronica.heras@ucuenca.edu.ec
+    veronica.luna@ucuenca.edu.ec
+    xavier.cardenas@ucuenca.edu.ec
+    ximena.salazar@ucuenca.edu.ec
+    andrea.loja@ucuenca.edu.ec
+    andrea.calle@ucuenca.edu.ec
+    andrea.ariasv@ucuenca.edu.ec
+    alfredo.ordonez@ucuenca.edu.ec
+    alexandra.kennedy@ucuenca.edu.ec
+    alex.serrano@ucuenca.edu.ec
+    wilmer.jumbo@ucuenca.edu.ec
+    william.vergara@ucuenca.edu.ec
+    walter.novillo@ucuenca.edu.ec
+    victor.gonzalez@ucuenca.edu.ec
+    veronica.saulaf@ucuenca.edu.ec
+    susanna.khachatryan@ucuenca.edu.ec
+    sonia.pacheco@ucuenca.edu.ec
+    sebastian.martinez@ucuenca.edu.ec
+    santiago.vintimillac@ucuenca.ec
+    santiago.ordonez@ucuenca.edu.ec
+    santiago.calle87@ucuenca.edu.ec
+    sandra.amorosor@ucuenca.edu.ec
+    samia.gallardoh@ucuenca.edu.ec
+    rocio.perez@ucuenca.edu.ec
+    roberto.landivar@ucuenca.edu.ec
+    reynel.alvarado@ucuenca.edu.ec
+    rene.martinez@ucuenca.edu.ec
+    priscila.urgiles@ucuenca.edu.ec
+    pedro.andrade@ucuenca.edu.ec
+    paulina.mejia@ucuenca.edu.ec
+    paul.sanmartin@ucuenca.edu.ec
+    pablo.ramos@ucuenca.edu.ec
+    pablo.carrasco@ucuenca.edu.ec
+    olmedo.alvarado@ucuenca.edu.ec
+    nelson.ortegac11@ucuenca.edu.ec
+    miriam.bojorque@ucuenca.edu.ec
+    mercedes.crespo@ucuenca.edu.ec
+    manuel.leon@ucuenca.edu.ec
+    manuel.guzman@ucuenca.edu.ec
+    manuel.escudero@ucuenca.edu.ec
+    magali.criollo@ucuenca.edu.ec
+    macarena.montes@ucuenca.edu.ec
+    loreto.burgueno@ucuenca.edu.ec
+    karla.ortega@ucuenca.edu.ec
+    karla.leon@ucuenca.edu.ec
+    julio.mosquera@ucuenca.edu.ec
+    julio.alvarezp@ucuenca.edu.ec
+    juan.panora@ucuenca.edu.ec
+    juan.fajardo@ucuenca.edu.ec
+    juan.davila@ucuenca.edu.ec
+    jose.urgiles@ucuenca.edu.ec
+    jose.carrion@ucuenca.edu.ec
+    jorge.salinas@ucuenca.edu.ec
+    jorge.ortega@ucuenca.edu.ec
+    jonathan.ruiz@ucuenca.edu.ec
+    jimena.penaherreraw@ucuenca.edu.ec
+    jesus.rencurrell@ucuenca.edu.ec
+    jannet.alvarado@ucuenca.edu.ec
+    jaime.mora@ucuenca.edu.ec
+    ismael.carpio@ucuenca.edu.ec
+    gustavo.vimos@ucuenca.edu.ec
+    gustavo.novillo@ucuenca.edu.ec
+    grace.inga@ucuenca.edu.ec
+    geovanny.sagbay@ucuenca.edu.ec
+    geovanny.calle77@ucuenca.edu.ec
+    galo.carrion@ucuenca.edu.ec
+    gabriela.ruquey@ucuenca.ec
+    gabriela.granda@ucuenca.edu.ec
+    fausto.paccha@ucuenca.edu.ec
+    fabiola.rodas@ucuenca.edu.ec
+    esteban.torres@ucuenca.edu.ec
+    esteban.orellana@ucuenca.edu.ec
+    ernesto.santos@ucuenca.edu.ec
+    ernesto.ortiz@ucuenca.edu.ec
+    eliza.mosquera@ucuenca.edu.ec
+    edwin.ramon@ucuenca.edu.ec
+    eddie.jumbo@ucuenca.edu.ec
+    diego.uyana@ucuenca.edu.ec
+    diego.pacheco@ucuenca.edu.ec
+    diego.larriva@ucuenca.edu.ec
+    diego.carrasco@ucuenca.edu.ec
+    david.jaramillo@ucuenca.edu.ec
+    david.encalada@ucuenca.edu.ec
+    dario.bueno@ucuenca.edu.ec
+    danilo.saravia@ucuenca.edu.ec
+    daniel.lopez@ucuenca.edu.ec
+    daniel.collaguazo@ucuenca.edu.ec
+    cristina.bustos@ucuenca.edu.ec
+    cristian.vallejo@ucuenca.edu.ec
+    consuelo.maldonado@ucuenca.edu.ec
+    clarita.donoso@ucuenca.edu.ec
+    cecilia.suarez@ucuenca.edu.ec
+    carlos.pesantez@ucuenca.edu.ec
+    carlos.freire@ucuenca.edu.ec
+    blasco.moscoso@ucuenca.edu.ec
+    bernardo.vega@ucuenca.edu.ec
+    belen.pacheco@ucuenca.edu.ec
 
 @[departamento]
     Redes

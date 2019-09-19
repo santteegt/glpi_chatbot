@@ -167,4 +167,7 @@ class ComputeResourceForm(FormAction):
         # utter submit template
         # dispatcher.utter_template("utter_compute_form_values", tracker)
         # dispatcher.utter_message("Nro de ticket: {:s}".format(ticket_no))
+        # return [SlotSet("ticket_no", ticket_no), SlotSet(self.DEPARTMENT, None), SlotSet(self.ENVIRONMENT, None),
+        #         SlotSet(self.RAM, None), SlotSet(self.CPU_CORES, None), SlotSet(self.DISK_SPACE, None),
+        #         SlotSet(self.SCALABILITY, None), SlotSet(self.OBSERVATIONS, None)]
         return [SlotSet("ticket_no", ticket_no)]

@@ -47,6 +47,9 @@ class ActionDefaultAskAffirmation(Action):
             dispatcher.utter_button_message(message, buttons=buttons)
         else:
             # TODO: narrow a list of most probable intents?
-            pass
+            logger.info("NO ACTION FOUND. Showing suggestions")
+            dispatcher.utter_image_url("http://www.crear-meme.com/public/img/memes_users/what-7.jpg")
+            # tracker.trigger_followup_action("utter_sugerencias")
+            dispatcher.utter_template("utter_sugerencias", tracker)
 
         return []
