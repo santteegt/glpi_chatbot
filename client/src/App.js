@@ -14,9 +14,9 @@ class App extends Component {
     return (
       <div className="App">
 		<Widget
-		 interval={2000}
+		 interval={1000}
 		 initPayload={"/saludo"}
-		 socketUrl={"http://localhost:5002"}
+		 socketUrl={"http://localhost:5005"}
 		 socketPath={"/socket.io/"}
 		 customData={{"userId": "123"}} // arbitrary custom data. Stay minimal as this will be added to the socket
 		 title={"DTIC"}
@@ -24,6 +24,7 @@ class App extends Component {
 		 inputTextFieldHint={"Escribe un mensaje..."}
 		 connectingText={"Conectando con el servidor..."}
 		 hideWhenNotConnected
+		 showFullScreenButton
 		 embedded={false}
 		 openLauncherImage="chatlogo.png"
 		 closeLauncherImage="chatlogo.png"
