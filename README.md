@@ -131,7 +131,7 @@ rasa x --data data/train/ --endpoints endpoints.yml --cors '*' --enable-api --po
 Update admin password
 
 ```bash
-python scripts/manage_users.py create me $RASA_X_PASSWORD admin --update
+python scripts/manage_user.py create me $RASA_X_PASSWORD admin --update
 ```
 
 ### Deploy DucklingHTTPExtractor (Optional if Enabled on the NLU pipeline)
