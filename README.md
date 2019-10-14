@@ -128,6 +128,12 @@ Rasa X is a tool designed to make it easier to deploy and improve Rasa-powered a
 rasa x --data data/train/ --endpoints endpoints.yml --cors '*' --enable-api --port 5005 --rasa-x-port 5002
 ```
 
+Update admin password
+
+```bash
+python scripts/manage_users.py create me $RASA_X_PASSWORD admin --update
+```
+
 ### Deploy DucklingHTTPExtractor (Optional if Enabled on the NLU pipeline)
 
 ```bash
