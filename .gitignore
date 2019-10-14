@@ -7,3 +7,5 @@ errors.json
 models/
 
 rasa_core.log
+*.logs
+*.db
