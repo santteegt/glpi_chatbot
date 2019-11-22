@@ -1,0 +1,74 @@
+{
+  "email": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 60
+  },
+  "cpu_cores": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 29
+  },
+  "entorno": {
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1-score": 0.0,
+    "support": 1
+  },
+  "sistema": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 33
+  },
+  "facultad": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 27
+  },
+  "disk_space": {
+    "precision": 1.0,
+    "recall": 0.9047619047619048,
+    "f1-score": 0.9500000000000001,
+    "support": 21
+  },
+  "trato": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 20
+  },
+  "PER": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 61
+  },
+  "ram": {
+    "precision": 0.8888888888888888,
+    "recall": 1.0,
+    "f1-score": 0.9411764705882353,
+    "support": 16
+  },
+  "micro avg": {
+    "precision": 0.9925093632958801,
+    "recall": 0.9888059701492538,
+    "f1-score": 0.9906542056074766,
+    "support": 268
+  },
+  "macro avg": {
+    "precision": 0.8765432098765432,
+    "recall": 0.8783068783068784,
+    "f1-score": 0.876797385620915,
+    "support": 268
+  },
+  "weighted avg": {
+    "precision": 0.9896351575456054,
+    "recall": 0.9888059701492538,
+    "f1-score": 0.9888388937664617,
+    "support": 268
+  }
+}

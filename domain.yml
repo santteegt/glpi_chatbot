@@ -4,7 +4,6 @@ intents:
 - agradecimiento
 - nombre
 - solicitar_opciones
-- finaliza_sesion
 - creacion_usuarios
 - recuperar_contrasena
 - correo_electronico
@@ -14,6 +13,8 @@ intents:
 - peticion_recurso_computacional
 - chitchat
 - informacion
+- restart
+- back
 entities:
 - PER
 - LOC
@@ -126,7 +127,7 @@ templates:
     - title: Si
       payload: /solicitar_opciones
     - title: No
-      payload: /finaliza_sesion
+      payload: /despedida
   utter_confirmar_atencion:
   - text: Hemos podido atender tu requerimiento satisfactoriamente?
     buttons:

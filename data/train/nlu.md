@@ -447,6 +447,7 @@
 - soy [Cuenca Ciudad Universitaria](ORG)
 - [Coordinador Vinculacion Sociedad](ORG)
 - soy [Coordinador Vinculacion Sociedad](ORG)
+- [Daniel](PER)
 
 ## intent:peticion_recurso_computacional
 - necesito maquina virtual [128](ram) GB de ram [1](cpu_cores) procesadores [1000](disk_space) GB de disco duro
@@ -669,3 +670,6 @@
 - menu
 - mostrar menu
 - ver menu
+
+## lookup:sistemas-dtic.txt
+  data/train/sistemas-dtic.txt

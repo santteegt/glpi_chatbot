@@ -27,7 +27,7 @@ If you haven’t installed Rasa NLU and Rasa Core yet, you can do it by navigati
 pip install -r alt_requirements/requirements_full.txt --extra-index-url https://pypi.rasa.com/simple
 ```
 
-You also need to install a spaCy English language model. You can install it by running:
+You also need to install the spaCy Spanish language model. You can install it by running:
 
 ```
 python -m spacy download es_core_news_md
@@ -82,7 +82,7 @@ rasa train --data data/train
 The following command performs a model evaluation of the latest trained NLU model under the `models` directory
 
 ```bash
-rasa test nlu -u data/test/ --report report_metrics/
+rasa test nlu -u data/test/ --out nlu_metrics/
 ```
 
 Finally, check the following files for results:
@@ -90,14 +90,14 @@ Finally, check the following files for results:
 * [Intent Confusion Matrix](confmat.png) 
 * [Intent Confidence Prediction][hist.png]
 * [Misclassified Intents](errors.json)
-* [Intent/Entity Metrics Report](report_metrics/)
+* [Other Intent/Entity Metrics Report](nlu_metrics/)
 
 ### Dialogue (CORE) model evaluation
 
 The following command performs a model evaluation of the latest trained dialogue model under the `models` directory
 
 ```bash
-rasa test core -s data/test/
+rasa test core -s data/test/ --out core_metrics/
 ```
 
 Finally, check the [results](results/) directory for a summary of the performed evaluation
@@ -107,11 +107,18 @@ Finally, check the [results](results/) directory for a summary of the performed 
 ```bash
 rasa visualize -d domain.yml -s data/train/stories.md -u data/train/nlu.md
 ```
+## Chatbot Deployment
 
 ### Deploying custom actions
 
 ```bash
 rasa run actions --actions actions -p 5055
+```
+
+or as a background process
+
+```bash
+sh scripts/startActions.sh
 ```
 
 ### Test your chatbot locally
@@ -120,12 +127,18 @@ rasa run actions --actions actions -p 5055
 rasa shell --endpoints endpoints.yml
 ```
 
-### Run Rasa X (Optional)
+### Run Chatbot + Rasa X
 
 Rasa X is a tool designed to make it easier to deploy and improve Rasa-powered assistants by learning from real conversations
 
 ```bash
 rasa x --data data/train/ --endpoints endpoints.yml --cors '*' --enable-api --port 5005 --rasa-x-port 5002
+```
+
+or as a background process
+
+```bash
+sh scripts/startRasaX.sh
 ```
 
 Update admin password
@@ -140,7 +153,7 @@ python scripts/manage_user.py create me $RASA_X_PASSWORD admin --update
 docker run -p 8000:8000 rasa/duckling
 ```
 
-### Deploy the chatbot with enabled connection to a web channel through socketsio
+### Deploy the chatbot without RasaX & enabled connection to a web channel through socketsio
 
 ```bash
 rasa run --endpoints endpoints.yml --credentials credentials.yml --enable-api --cors "*" --port 5005
@@ -152,4 +165,10 @@ rasa run --endpoints endpoints.yml --credentials credentials.yml --enable-api --
 cd client
 npm install
 npm start
+```
+
+or as a background process
+
+```bash
+sh scripts/startClient.sh
 ```

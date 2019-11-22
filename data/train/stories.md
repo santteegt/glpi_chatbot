@@ -4,11 +4,18 @@
 * nombre{"sujeto": "Santiago Gonzalez"}
  - utter_saludo
  - utter_sugerencias
- 
+
+## story_finaliza_sesion
+> check_mas_ayuda
+* despedida
+ - utter_despedida
+ - action_restart
+
 ## story_opciones
+> check_mas_ayuda
 * solicitar_opciones
  - utter_sugerencias
- 
+
 ## story_despedida
 * despedida
  - utter_despedida
@@ -17,30 +24,25 @@
 * agradecimiento
  - utter_gracias
  - utter_mas_ayuda
- 
-## story_finaliza_sesion
-* agradecimiento
- - utter_gracias
- - utter_mas_ayuda
-* despedida
- - utter_despedida
- - action_restart
- 
+> check_mas_ayuda
+
 ## story_nombre
 * nombre{"sujeto": "Santiago Gonzalez"}
  - utter_saludo
  - utter_sugerencias
- 
+
 ## story_chitchat
 * chitchat
  - utter_chitchat
  - utter_sugerencias
 
 ## story_creacion_usuario
+>check_ask_sugerencias
 * creacion_usuarios
  - action_joke
  - utter_mas_ayuda
- 
+> check_mas_ayuda
+
 ## story_recuperar_contrasena
 * recuperar_contrasena
  - utter_email
@@ -54,7 +56,8 @@
  - slot {"email": null}
  - slot {"sistema": null}
  - utter_mas_ayuda
- 
+> check_mas_ayuda
+
 ## story_recuperar_contrasena_unhappy_path_cancel_and_confirm
 * recuperar_contrasena
  - utter_email
@@ -69,7 +72,8 @@
  - slot {"email": null}
  - slot {"sistema": null}
  - utter_mas_ayuda
- 
+> check_mas_ayuda
+
 ## story_recuperar_contrasena_unhappy_path_cancel_but_continue
 * recuperar_contrasena
  - utter_email
@@ -85,7 +89,8 @@
  - slot {"email": null}
  - slot {"sistema": null}
  - utter_mas_ayuda
- 
+> check_mas_ayuda
+
 ## story_requerimiento_recurso_computacional_happy_path
 * peticion_recurso_computacional
  - compute_resource_form
@@ -97,7 +102,8 @@
  - slot {"ticket_no": "0055"}
  - utter_confirmar_solicitud
  - utter_mas_ayuda
- 
+> check_mas_ayuda
+
 ## story_requerimiento_recurso_computacional_unhappy_path_1
 * peticion_recurso_computacional
  - compute_resource_form
@@ -112,7 +118,8 @@
  - slot {"ticket_no": "0055"}
  - utter_confirmar_solicitud
  - utter_mas_ayuda
- 
+> check_mas_ayuda
+
 ## story_requerimiento_recurso_computacional_unhappy_path_2
 * peticion_recurso_computacional
  - compute_resource_form
@@ -133,6 +140,7 @@
  - slot {"ticket_no": "0055"}
  - utter_confirmar_solicitud
  - utter_mas_ayuda
+> check_mas_ayuda
 
 ## story_requerimiento_recurso_computacional_stop_but_continue
 * peticion_recurso_computacional
@@ -149,6 +157,7 @@
  - slot {"ticket_no": "0055"}
  - utter_confirmar_solicitud
  - utter_mas_ayuda
+> check_mas_ayuda
 
 ## story_requerimiento_recurso_computacional_stop_and_confirm
 * peticion_recurso_computacional
@@ -161,3 +170,4 @@
  - form {"name": null}
  - utter_cancelado
  - utter_mas_ayuda
+> check_mas_ayuda

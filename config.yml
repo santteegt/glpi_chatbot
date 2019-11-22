@@ -1,57 +1,77 @@
 # Configuration for Rasa NLU.
 # https://rasa.com/docs/rasa/nlu/components/
-language: "es"
-
 # The two most important pipelines are supervised_embeddings and pretrained_embeddings_spacy.
 # The biggest difference between them is that the pretrained_embeddings_spacy pipeline uses pre-trained word vectors from either GloVe
 # or fastText. Instead, the supervised_embeddings pipeline doesn’t use any pre-trained word vectors, but instead fits
 # these specifically for your dataset.
 
-
-#pipeline: pretrained_embeddings_spacy
-# pretrained_embeddings_spacy pipeline has the following structure
-#
-pipeline:
-- name: "SpacyNLP"
-- name: "SpacyTokenizer"
-- name: "SpacyFeaturizer"
-- name: "NGramFeaturizer"
-- name: "RegexFeaturizer"
-- name: "SpacyEntityExtractor"
-- name: "CRFEntityExtractor"
-  features: [
-    ["low", "title", "upper", "pos", "pos2"],
-    ["bias", "low", "prefix5", "prefix2", "suffix5", "suffix3", "suffix2", "upper", "title", "digit", "pattern"],
-    ["low", "title", "upper", "pos", "pos2"]
-  ]
-  BILOU_flag: false
-#- name: "DucklingHTTPExtractor"
-#  url: http://localhost:8000
-#  dimensions: ["time", "number", "email", "distance", "amount-of-money", "duration", "url", "phone-number"]
-- name: "EntitySynonymMapper"
-- name: "SklearnIntentClassifier"
+# pipeline is based on the pretrained_embeddings_spacy
 
 # Configuration for Rasa Core.
 # https://rasa.com/docs/rasa/core/policies/
 # - max_history: This controls how much dialogue history the model looks at to decide which action to take next.
 # - nlu-threshold: the fallback action or the utter_default will be executed if the intent recognition has a confidence
 #   below a threshold (0-1). This value can be set based on NLU model evaluation results.
-# TwoStageFallbackPolicy: By splitting the fallback in the two stages affirmation and rephrasing the policy allows
-#                         more natural conversation flows
+# Enabled Policies
+# - KerasPolicy:
+# - MemoizationPolicy:
+# - FormPolicy:
+# - FallbackPolicy: Disabled
+# - TwoStageFallbackPolicy: By splitting the fallback in the two stages affirmation and rephrasing the policy allows
+#                           more natural conversation flows
+
+language: es
+pipeline:
+- name: SpacyNLP
+- name: SpacyTokenizer
+- name: SpacyFeaturizer
+- name: NGramFeaturizer
+- name: RegexFeaturizer
+- name: SpacyEntityExtractor
+- name: CRFEntityExtractor
+  features:
+  - - low
+    - title
+    - upper
+    - pos
+    - pos2
+  - - bias
+    - low
+    - prefix5
+    - prefix2
+    - suffix5
+    - suffix3
+    - suffix2
+    - upper
+    - title
+    - digit
+    - pattern
+  - - low
+    - title
+    - upper
+    - pos
+    - pos2
+  BILOU_flag: false
+#- name: "DucklingHTTPExtractor"
+#  url: http://localhost:8000
+#  dimensions: ["time", "number", "email", "distance", "amount-of-money", "duration", "url", "phone-number"]
+- name: EntitySynonymMapper
+- name: SklearnIntentClassifier
 policies:
-  - name: KerasPolicy
-    epochs: 50
-    max_history: 5
-  - name: MemoizationPolicy
-    max_history: 5
-  - name: FormPolicy
+- name: KerasPolicy
+  epochs: 50
+  max_history: 5
+- name: MemoizationPolicy
+  max_history: 5
+- name: FormPolicy
+- name: MappingPolicy
 #  - name: FallbackPolicy
 #    nlu_threshold: 0.29
 #    core_threshold: 0.29
-#    fallback_action_name: "utter_default"
-  - name: TwoStageFallbackPolicy
-    nlu_threshold: 0.29
-    core_threshold: 0.29
-    fallback_core_action_name: "utter_default"
-    fallback_nlu_action_name: "action_default_ask_affirmation"
-    deny_suggestion_intent_name: "solicitar_opciones"
+#    fallback_action_name: utter_default
+- name: TwoStageFallbackPolicy
+  nlu_threshold: 0.29
+  core_threshold: 0.29
+  fallback_core_action_name: utter_default
+  fallback_nlu_action_name: action_default_ask_affirmation
+  deny_suggestion_intent_name: solicitar_opciones

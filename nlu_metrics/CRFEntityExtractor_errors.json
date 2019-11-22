@@ -1,0 +1,56 @@
+[
+  {
+    "text": "128 GB de disco duro",
+    "entities": [
+      {
+        "start": 0,
+        "end": 3,
+        "value": "128",
+        "entity": "disk_space"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "start": 0,
+        "end": 3,
+        "value": "128",
+        "entity": "ram",
+        "confidence": 0.5116872778564316,
+        "extractor": "CRFEntityExtractor"
+      }
+    ]
+  },
+  {
+    "text": "ambiente de produccion",
+    "entities": [
+      {
+        "start": 12,
+        "end": 22,
+        "value": "produccion",
+        "entity": "entorno"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "necesito 128 GB de capacidad",
+    "entities": [
+      {
+        "start": 9,
+        "end": 12,
+        "value": "128",
+        "entity": "disk_space"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "start": 9,
+        "end": 12,
+        "value": "128",
+        "entity": "ram",
+        "confidence": 0.528896855724052,
+        "extractor": "CRFEntityExtractor"
+      }
+    ]
+  }
+]
