@@ -53,7 +53,7 @@ In order to fix this issue, execute the following commands after installing rasa
 pip uninstall tensorflow -y
 conda create --name glpi-rasax python=3.6.8
 conda activate glpi-rasax
-conda install -c anaconda tensorflow==1.13.1
+conda install -c anaconda -n glpi-rasax tensorflow==1.15.0
 conda deactivate glpi-rasax
 export PYTHONPATH='${HOME}/anaconda3/envs/glpi-rasax/lib/python3.6/site-packages'
 ```
