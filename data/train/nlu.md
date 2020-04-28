@@ -42,6 +42,7 @@
 - si confirma
 - si acepta
 - okay okay
+- confirmar
 
 ## intent:correo_electronico
 - [fausto.cardoso@ucuenca.edu.ec](email)

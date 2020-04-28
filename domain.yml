@@ -1,6 +1,7 @@
 intents:
 - saludo
 - despedida
+- login
 - agradecimiento
 - nombre
 - solicitar_opciones
@@ -33,6 +34,9 @@ entities:
 - disk_space
 - escalabilidad
 - observaciones
+- MISC
+- auth_token
+- logged_in
 slots:
   LOC:
     type: text
@@ -40,6 +44,10 @@ slots:
     type: text
   PER:
     type: text
+  auth_token:
+    type: text
+  logged_in:
+    type: bool
   cpu_cores:
     type: unfeaturized
     auto_fill: false
@@ -242,6 +250,7 @@ actions:
 - utter_chitchat
 - utter_continuar
 - utter_default
+- action_validate_auth
 - action_default_ask_affirmation
 - action_joke
 forms:

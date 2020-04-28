@@ -1,5 +1,12 @@
+## story_saludo_inicial
+* saludo
+ - action_validate_auth
+ - slot{"logged_in": false}
+
 ## story_saludo  <!--- The name of the story. It is not mandatory, but useful for debugging. -->
 * saludo <!--- User input expressed as intent. In this case it represents users message 'Hola'. -->
+ - action_validate_auth
+ - slot{"logged_in": true}
  - utter_intro <!--- The response of the chatbot expressed as an action. In this case it represents chatbot's response '¿En que le puedo ayudar?' -->
 * nombre{"sujeto": "Santiago Gonzalez"}
  - utter_saludo
