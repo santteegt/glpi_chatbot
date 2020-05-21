@@ -1,257 +1,298 @@
+session_config:
+  session_expiration_time: 30
+  carry_over_slots_to_new_session: true
 intents:
-- saludo
-- despedida
-- login
-- agradecimiento
-- nombre
-- solicitar_opciones
-- creacion_usuarios
-- recuperar_contrasena
-- correo_electronico
-- especifica_sistema
-- confirmar
-- cancelar
-- peticion_recurso_computacional
-- chitchat
-- informacion
+- greet
+- goodbye
+- thank
+- bot_challenge
+- help
+- show_menu
+- login:
+    triggers: action_validate_auth
+- open_incident:
+    use_entities:
+      - email
+      - incident_title
+- password_reset
+- problem_email
+- connect_wifi
+- create_user
+- request_biometrics_report
+- request_vm
+- inform
+- confirm
+- deny
+- out_of_scope
 - restart
-- back
+
 entities:
-- PER
-- LOC
-- ORG
-- trato
-- sujeto
-- sistema
-- facultad
-- usuario
-- ubicacion
-- email
-- departamento
-- entorno
-- ram
-- cpu_cores
-- disk_space
-- escalabilidad
-- observaciones
-- MISC
 - auth_token
-- logged_in
+- email
+- priority
 slots:
-  LOC:
-    type: text
-  ORG:
-    type: text
-  PER:
-    type: text
   auth_token:
     type: text
-  logged_in:
-    type: bool
-  cpu_cores:
-    type: unfeaturized
-    auto_fill: false
-  departamento:
-    type: unfeaturized
-    auto_fill: false
-  disk_space:
-    type: unfeaturized
-    auto_fill: false
+  username:
+    type: text
   email:
-    type: text
-  entorno:
+    type: unfeaturized
+  confirm:
+    type: unfeaturized
+  incident_title:
+    type: unfeaturized
+  priority:
+    type: unfeaturized
+  incident_description:
+    type: unfeaturized
+  software:
+    type: unfeaturized
+  department:
+    type: unfeaturized
+  vm_environment:
+    type: unfeaturized
+  vm_ram:
+    type: unfeaturized
+  vm_cpu_cores:
+    type: unfeaturized
+  vm_disk_space:
+    type: unfeaturized
+  vm_scalability:
+    type: unfeaturized
+  observations:
     type: unfeaturized
     auto_fill: false
-  escalabilidad:
+  ticket_no:
     type: unfeaturized
-    auto_fill: false
-  facultad:
-    type: text
-  observaciones:
+  wifi_network:
     type: unfeaturized
-    auto_fill: false
-  prioridad:
-    type: categorical
-    values:
-    - baja
-    - media
-  ram:
+  has_email:
     type: unfeaturized
-    auto_fill: false
+  course_type:
+    type: unfeaturized
+  personal_id:
+    type: unfeaturized
+  biometrics_id:
+    type: unfeaturized
   requested_slot:
     type: unfeaturized
-  sistema:
-    type: text
-  sujeto:
-    type: text
-  ticket_no:
-    type: text
-  ubicacion:
-    type: text
-templates:
-  utter_intro:
-  - text: Hola! Bienvenido al Sistema de Helpdesk de la Universidad de Cuenca. ¿Cual
-      es tu nombre?
-  - text: Bienvenido al Sistema Helpdesk de la U de Cuenca. ¿Con quien tengo el agrado
-      de comunicarme?
-  utter_saludo:
-  - text: Encantado {PER}. ¿En que le puedo ayudar?
-  - text: Hola {PER}! ¿Necesitas ayuda?
-  utter_sugerencias:
-  - text: Tal vez te interesan resolver uno de estos procesos?
-    buttons:
-    - title: Creacion de usuario
-      payload: creacion de usuario
-    - title: Recuperar contrasena
-      payload: no recuerda contrasena
-    - title: Solicitud Recursos Informaticos
-      payload: necesito maquina virtual
-  utter_despedida:
+responses:
+  utter_out_of_scope:
+  - text: Lo siento! No entiendo tu requerimiento. Puedes escribir "ayuda" para mayor asistencia.
+  - text: Perdon. No entiendo tu respuesta. Puedes escribir "ayuda" para mayor asistencia.
+  - text: Tu respuesta no es muy clara. Puedes escribir "ayuda" para mayor asistencia.
+  utter_greet:
+  - text: Hola! Bienvenido al Sistema de Helpdesk de la Universidad de Cuenca.
+  - text: Bienvenido al Sistema Helpdesk de la U de Cuenca (TESTNET)
+    channel: "rasa"
+  utter_goodbye:
   - text: Hasta luego! Gracias por utilizar el servicio
   - text: Gracias por utilizar el servicio. Adiós!
-  utter_gracias:
-  - text: Fue un placer ayudarte {sujeto}
-  - text: '{PER}, un gusto resolver tus consultas'
-  - text: Un placer atender tu requerimiento
-  utter_email:
+  utter_logged_in:
+  - text: Has iniciado sesión con el usuario {username}
+  utter_login_failed:
+  - text: No ha sido posible validar su inicio de sesión. Por favo inténtelo nuevamente
+  utter_iamabot:
+  - text: Soy un robot que trabaja 24/7 para la DTIC de la U de Cuenca
+  utter_ask_email:
+  - text: Cual es su direccion de correo electronico?
   - text: Me puedes ayudar con su cuenta de correo electronico institucional?
   - text: Cual es su cuenta de correo electronico?
-  utter_sistema:
+  utter_ask_incident_title:
+  - text: Cual seria el titulo para el incidente a reportar?
+  utter_ask_incident_description:
+  - text: Cual seria la descripcion de su inconveniente?
+  utter_ask_priority:
+  - text: Que prioridad considera que tiene su incidente?
+    buttons:
+      - title: Baja
+        payload: /inform{"priority":"baja"}
+      - title: Media
+        payload: /inform{"priority":"media"}
+      - title: Alta
+        payload: /inform{"priority":"alta"}
+  utter_ask_open_incident_form_confirm:
+  - text: "Confirma que desea reportar la siguiente incidencia?:\n\
+    \ - Título: {incident_title}\n\
+    \ - Descripción: {incident_description}\n\
+    \ - email: {email}\n\
+    \ - Prioridad: {priority}"
+    buttons:
+      - title: Si
+        payload: /confirm
+      - title: No
+        payload: /deny
+  utter_priority_no_match:
+  - text: Lo siento! "{priority}" no es una prioridad valida. Por favor intentelo nuevamente.
+  utter_no_email:
+  - text: Lo siento! "{email}" no se encuentra registrado en nuestro sistema. Por favor intentelo nuevamente.
+  utter_ask_software:
   - text: A que sistema no tiene acceso?
-  utter_confirma_sistema:
-  - text: Procedemos a restablecer su contraseña para el sistema {sistema}. ¿Es correcto?
-  utter_contrasena:
-  - text: Por favor revise la bandeja de entrada de su correo electronico
-  utter_procesos:
-  - text: '{facultad}. Es esta informacion correcta?'
-    buttons:
-    - title: Si
-      payload: hola buenos dias
-    - title: No
-      payload: gracias hasta luego
-  utter_mas_ayuda:
-  - text: Necesita ayuda en algo mas?
-    buttons:
-    - title: Si
-      payload: /solicitar_opciones
-    - title: No
-      payload: /despedida
-  utter_confirmar_atencion:
-  - text: Hemos podido atender tu requerimiento satisfactoriamente?
-    buttons:
-    - title: Si
-      payload: confirmar
-    - title: No
-      payload: no recuerdo contrasena
-  utter_enviar_ticket_no:
-  - text: 'Su Nro. de ticket de solicitud es: {ticket_no}'
-  utter_confirmar_solicitud:
-  - text: Su solicitud ha sido enviada exitosamente!. Por favor revise su correo electronico
-  utter_cancelado:
-  - text: Su requerimiento ha sido cancelado
-  utter_no_valido:
-  - text: El valor ingresado no es correcto
-  utter_ask_departamento:
-  - text: A que departamento pertenece?
-  utter_ask_entorno:
+  utter_ask_department:
+  - text: A que departamento/facultad pertenece?
+  utter_ask_vm_environment:
   - text: En que entorno desea desplegarlo?
     buttons:
-    - title: Desarrollo
-      payload: desarrollo
-    - title: Pruebas
-      payload: pruebas
-    - title: Produccion
-      payload: produccion
-  utter_ask_ram:
-  - text: Cuanta memoria RAM necesita?
+      - title: Desarrollo
+        payload: /inform{"vm_environment":"desarrollo"}
+      - title: Pruebas
+        payload: /inform{"vm_environment":"pruebas"}
+      - title: Produccion
+        payload: /inform{"vm_environment":"produccion"}
+  utter_ask_vm_ram:
+  - text: Cuanta memoria RAM necesita? (GB)
     buttons:
-    - title: 8 GB
-      payload: '8'
-    - title: 16 GB
-      payload: '16'
-    - title: 32 GB
-      payload: '32'
-  utter_ask_cpu_cores:
+      - title: 8 GB
+        payload: /inform{"vm_ram":"8"}
+      - title: 16 GB
+        payload: /inform{"vm_ram":"16"}
+      - title: 32 GB
+        payload: /inform{"vm_ram":"32"}
+  utter_ask_vm_cpu_cores:
   - text: Cuantos nucles de CPU para procesamiento necesita?
     buttons:
-    - title: 1 CPU
-      payload: '1'
-    - title: 2 CPUs
-      payload: '2'
-    - title: 4 CPUs
-      payload: '4'
-  utter_ask_disk_space:
-  - text: Cuanta capacidad de almacenamiento necesita?
+      - title: 1 CPU
+        payload: /inform{"vm_cpu_cores":"1"}
+      - title: 2 CPUs
+        payload: /inform{"vm_cpu_cores":"2"}
+      - title: 4 CPUs
+        payload: /inform{"vm_cpu_cores":"4"}
+  utter_ask_vm_disk_space:
+  - text: Cuanta capacidad de almacenamiento necesita? (GB)
     buttons:
-    - title: 16 GB
-      payload: '16'
-    - title: 128 GB
-      payload: '128'
-    - title: 256 GB
-      payload: '256'
-  utter_ask_escalabilidad:
+      - title: 16 GB
+        payload: /inform{"vm_disk_space":"16"}
+      - title: 32 GB
+        payload: /inform{"vm_disk_space":"32"}
+      - title: 128 GB
+        payload: /inform{"vm_disk_space":"128"}
+  utter_ask_vm_scalability:
   - text: Su proyecto necesita de ciertas caracteristicas de escalabilidad?
     buttons:
-    - title: Si. Horizontal
-      payload: escalabilidad horizontal
-    - title: Si. Vertical
-      payload: escalabilidad vertical
-  utter_ask_observaciones:
+      - title: Si
+        payload: /confirm
+      - title: No
+        payload: /deny
+  utter_ask_observations:
   - text: Desea incluir algunas observaciones adicionales?
-  utter_compute_form_values:
-  - text: "Confirma que desea pedir los siguientes recursos computacionales?:\n -\
-      \ Maquina virtual para el departamento: {departamento} con las siguientes caracteristicas\n\
-      \ - Entorno: {entorno}\n - Memoria RAM: {ram} GB\n - Nucleos CPU: {cpu_cores}\n\
-      \ - Espacio en disco duro: {disk_space} GB\n - Escalabilidad: {escalabilidad}\n\
-      \ - Observaciones: {observaciones}"
+  utter_ask_compute_resource_form_confirm:
+  - text: "Confirma que desea pedir los siguientes recursos computacionales?:\n\
+    \ - Maquina virtual para el departamento: {department} con las siguientes caracteristicas\n\
+    \ - Entorno: {vm_environment}\n - Memoria RAM: {vm_ram} GB\n - Nucleos CPU: {vm_cpu_cores}\n\
+    \ - Espacio en disco duro: {vm_disk_space} GB\n - Escalabilidad: {vm_scalability}\n\
+    \ - Observaciones: {observations}"
     buttons:
-    - title: Si
-      payload: confirmar
-    - title: No
-      payload: cancelar
-  utter_chitchat:
-  - text: No entiendo tu respuesta
-  - text: Tu respuesta no es muy clara
-  utter_continuar:
-  - text: Desea continuar con su solicitud?
+      - title: Si
+        payload: /confirm
+      - title: No
+        payload: /deny
+  utter_ask_wifi_network:
+  - text: A que red quiere conectarse?
     buttons:
-    - title: Si
-      payload: confirmar
-    - title: No
-      payload: cancelar
+      - title: Red Academica (EDUROAM)
+        payload: /inform{"wifi_network":"eduroam"}
+      - title: Red Institucional (UCWIFI)
+        payload: /inform{"wifi_network":"ucwifi"}
+      - title: Red de Invitados (Guest Token)
+        payload: /inform{"wifi_network":"guest"}
+  utter_no_wifi_network:
+  - text: Lo siento! {wifi_network} no es una opción válida
+  utter_email_no_match:
+  - text: Lo siento. Su dirección de correo no pertenece a una cuenta institucional
+  utter_eduroam_instructions:
+  - text: Para conectarse a la red EDUROAM siga las instrucciones en la siguiente enlace https://cat.eduroam.org/?idp=415
+  utter_ucwifi_instructions:
+  - text: Para conectarse a la red UCWIFI siga las instrucciones en la siguiente enlace http://redinalambrica.ucuenca.edu.ec/#/ucwifi
+  utter_guest_wifi_instructions:
+  - text: Para conectarse a la red WIFI como invitado siga las instrucciones en la siguiente enlace https://cdsdesarrollo.ucuenca.edu.ec:8543/api/documentos/download/13a67403-708c-439e-b1b0-0818beca0ee9
+  utter_ask_has_email:
+  - text: Tal vez ya posee una cuenta de correo en el dominio @ucuenca.edu.ec?
+    buttons:
+      - title: Si
+        payload: /confirm
+      - title: No
+        payload: /deny
+  utter_ask_course_type:
+  - text: Ha sido aceptado en una carrera o curso?
+    buttons:
+      - title: Carrera Universitaria
+        payload: /inform{"course_type":"carrera"}
+      - title: Cursos de corta duración
+        payload: /inform{"course_type":"curso"}
+  utter_recover_password:
+  - text: Para poder recuperar su contraseña visite el siguiente enlace https://usuarios.ucuenca.edu.ec/#/
+  utter_ask_personal_id:
+  - text: Cual es su Nro. de cédula/pasaporte?
+  utter_no_personal_id:
+  - text: Su ID es inválido o no se encuentra registrado en nuestro sistema. Inténtelo nuevamente
+  utter_ask_biometrics_id:
+    - text: Cual es su Nro. único marcación?
+  utter_welcome:
+  - text: Fue un placer ayudarte
+  - text: Un placer atender tu requerimiento
+  utter_help:
+  - text: Puedo ayudarle a crear una incidencia y/o atender su requerimiento a la mesa de servicios de la DTIC.
+      Puedo ayuarte con tu "Conexión a la red WIFI", en la "Creacion de usuario",
+      o con tu "Informe de intentos de marcación".
+  utter_suggest:
+  - text: Tal vez te interesan resolver uno de estos procesos?
+      Tambien puede darme una descripción del problema que necesita resolver.
+    buttons:
+      - title: Conexión a la red WIFI
+        payload: /connect_wifi
+      - title: Creacion de usuario
+        payload: /create_user
+      - title: Recuperar contrasena
+        payload: /problem_email
+      - title: Informe Intentos de Marcacion
+        payload: /request_biometrics_report
+      - title: Solicitar Maquina Virtual
+        payload: /request_vm
+  utter_more_help:
+  - text: Necesita ayuda en algo mas?
+    buttons:
+      - title: Si
+        payload: /confirm
+      - title: No
+        payload: /deny
+  utter_ticket_no:
+  - text: 'El Nro. de ticket de su solicitud es: {ticket_no}'
+  utter_confirm_request:
+  - text: Su solicitud ha sido enviada exitosamente!. Por favor revise su correo electronico
+  utter_process_cancelled:
+  - text: Su requerimiento ha sido cancelado
+  utter_invalid:
+  - text: El valor ingresado no es correcto. Por favor intentelo nuevamente.
+  utter_process_failed:
+  - text: El servicio no se encuentra disponible. Por favor inténtelo más tarde.
+  utter_confirm_ask_success:
+  - text: Hemos podido atender tu requerimiento satisfactoriamente?
+    buttons:
+      - title: Si
+        payload: /confirm
+      - title: No
+        payload: /deny
+  utter_confirm_success:
+  - text: Hemos podido atender tu requerimiento satisfactoriamente?
+  utter_continue:
+  - text: Desea continuar con su requerimiento?
+    buttons:
+      - title: Si
+        payload: /confirm
+      - title: No
+        payload: /deny
   utter_default:
   - text: Lo siento! No entiendo su requerimiento. ¿Puede formular su pregunta de
       manera más específica?
+
 actions:
-- utter_intro
-- utter_saludo
-- utter_gracias
-- utter_despedida
-- utter_email
-- utter_sistema
-- utter_confirma_sistema
-- utter_contrasena
-- utter_procesos
-- utter_mas_ayuda
-- utter_sugerencias
-- utter_confirmar_atencion
-- utter_enviar_ticket_no
-- utter_confirmar_solicitud
-- utter_cancelado
-- utter_no_valido
-- utter_ask_departamento
-- utter_ask_entorno
-- utter_ask_ram
-- utter_ask_cpu_cores
-- utter_ask_disk_space
-- utter_ask_escalabilidad
-- utter_ask_observaciones
-- utter_compute_form_values
-- utter_chitchat
-- utter_continuar
-- utter_default
 - action_validate_auth
 - action_default_ask_affirmation
 - action_joke
+
 forms:
+- open_incident_form
+- wifi_faq_form
+- create_user_faq_form
+- biometrics_report_form
 - compute_resource_form

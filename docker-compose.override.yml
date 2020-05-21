@@ -1,0 +1,21 @@
+version: '3.4'
+services:
+  # app:
+  #   image: 'rasa/rasa-sdk:latest'
+  #   volumes:
+  #     - './actions:/app/actions'
+  #   expose:
+  #     - '5055'
+  #   depends_on:
+  #     - rasa-production
+  app:
+    image: 'santteegt/glpi-chatbot-actions:latest'
+    expose:
+      - '5055'
+    environment:
+      GLPI_API_URI: "${GLPI_API_URI}"
+      GLPI_APP_TOKEN: "${GLPI_APP_TOKEN}"
+      GLPI_AUTH_TOKEN: "${GLPI_AUTH_TOKEN}"
+      GLPI_LOCALMODE: "${GLPI_LOCALMODE}"
+    depends_on:
+      - rasa-production

@@ -4,170 +4,281 @@ import logging
 import random
 from typing import Text, List, Dict, Any, Union, Optional
 from rasa_sdk import Tracker
-from rasa_sdk import Action
-from rasa_sdk.events import SlotSet
+from rasa_sdk.events import EventType, SlotSet
 from rasa_sdk.forms import FormAction
 from rasa_sdk.executor import CollectingDispatcher
 
+from actions.actions_base import request_next_slot
+from actions.constants import EntitySlotEnum, IntentEnum, UtteranceEnum
+from actions.glpi import GLPIService, GlpiException, load_glpi_config
+
 logger = logging.getLogger(__name__)
+
+glpi_api_uri, glpi_app_token, glpi_auth_token, local_mode = load_glpi_config()
+glpi = GLPIService.get_instance(glpi_api_uri, glpi_app_token, glpi_auth_token)
 
 
 class ComputeResourceForm(FormAction):
-    """Contextual ActionForm to handle Compute Resources requests"""
+	"""Contextual ActionForm to handle Compute Resources requests"""
 
-    DEPARTMENT: Text = "departamento"
-    ENVIRONMENT: Text = "entorno"
-    RAM: Text = "ram"
-    CPU_CORES: Text = "cpu_cores"
-    DISK_SPACE: Text = "disk_space"
-    SCALABILITY: Text = "escalabilidad"
-    OBSERVATIONS: Text = "observaciones"
+	def name(self) -> Text:
+		"""Unique identifier of the form"""
 
-    def name(self) -> Text:
-        """Unique identifier of the form"""
+		return "compute_resource_form"
 
-        return "compute_resource_form"
+	@staticmethod
+	def required_slots(tracker: Tracker) -> List[Text]:
+		"""A list of required slots that the form has to fill"""
 
-    @staticmethod
-    def required_slots(tracker: Tracker) -> List[Text]:
-        """A list of required slots that the form has to fill"""
+		# if environment == production
+		if (
+				tracker.get_slot(EntitySlotEnum.VM_ENVIRONMENT)
+				== ComputeResourceForm.valid_environment_types()[2]
+		):
+			return [
+				EntitySlotEnum.DEPARTMENT,
+				EntitySlotEnum.VM_ENVIRONMENT,
+				EntitySlotEnum.VM_RAM,
+				EntitySlotEnum.VM_CPU_CORES,
+				EntitySlotEnum.VM_DISK_SPACE,
+				EntitySlotEnum.VM_SCALABILITY,
+				EntitySlotEnum.OBSERVATIONS,
+				EntitySlotEnum.CONFIRM,
+			]
+		else:
+			return [
+				EntitySlotEnum.DEPARTMENT,
+				EntitySlotEnum.VM_ENVIRONMENT,
+				EntitySlotEnum.VM_RAM,
+				EntitySlotEnum.VM_CPU_CORES,
+				EntitySlotEnum.VM_DISK_SPACE,
+				EntitySlotEnum.OBSERVATIONS,
+				EntitySlotEnum.CONFIRM,
+			]
 
-        # if environment == production
-        if tracker.get_slot(ComputeResourceForm.ENVIRONMENT) == ComputeResourceForm.valid_environment_types()[2]:
-            return [
-                # ComputeResourceForm.DEPARTMENT,
-                ComputeResourceForm.ENVIRONMENT, ComputeResourceForm.RAM,
-                ComputeResourceForm.CPU_CORES, ComputeResourceForm.DISK_SPACE, ComputeResourceForm.SCALABILITY,
-                ComputeResourceForm.OBSERVATIONS
-            ]
-        else:
-            return [
-                # ComputeResourceForm.DEPARTMENT,
-                ComputeResourceForm.ENVIRONMENT, ComputeResourceForm.RAM,
-                ComputeResourceForm.CPU_CORES, ComputeResourceForm.DISK_SPACE, ComputeResourceForm.OBSERVATIONS
-            ]
+	def slot_mappings(self) -> Dict[Text, Union[Dict, List[Dict]]]:
+		"""A dictionary to map required slots to
+			- an extracted entity
+			- intent: value pairs
+			- a whole message
+			or a list of them, where a first match will be picked"""
 
-    def slot_mappings(self) -> Dict[Text, Union[Dict, List[Dict]]]:
-        """A dictionary to map required slots to
-            - an extracted entity
-            - intent: value pairs
-            - a whole message
-            or a list of them, where a first match will be picked"""
+		return {
+			EntitySlotEnum.DEPARTMENT: [
+				self.from_entity(
+					entity=EntitySlotEnum.DEPARTMENT,
+					not_intent=IntentEnum.OUT_OF_SCOPE,
+				),
+				self.from_text(),
+			],
+			EntitySlotEnum.VM_ENVIRONMENT: self.from_entity(
+				entity=EntitySlotEnum.VM_ENVIRONMENT,
+				not_intent=IntentEnum.OUT_OF_SCOPE,
+			),
+			EntitySlotEnum.VM_RAM: self.from_entity(
+				entity=EntitySlotEnum.VM_RAM,
+				not_intent=IntentEnum.OUT_OF_SCOPE,
+			),
+			EntitySlotEnum.VM_CPU_CORES: self.from_entity(
+				entity=EntitySlotEnum.VM_CPU_CORES,
+				not_intent=IntentEnum.OUT_OF_SCOPE,
+			),
+			EntitySlotEnum.VM_DISK_SPACE: self.from_entity(
+				entity=EntitySlotEnum.VM_DISK_SPACE,
+				not_intent=IntentEnum.OUT_OF_SCOPE,
+			),
+			EntitySlotEnum.VM_SCALABILITY: [
+				self.from_entity(entity=EntitySlotEnum.VM_SCALABILITY, not_intent=IntentEnum.OUT_OF_SCOPE),
+				self.from_intent(intent=IntentEnum.CONFIRM, value=True),
+				self.from_intent(intent=IntentEnum.DENY, value=False),
+			],
+			EntitySlotEnum.OBSERVATIONS: [
+				self.from_entity(entity=EntitySlotEnum.OBSERVATIONS),
+				self.from_text(not_intent=IntentEnum.OUT_OF_SCOPE),
+			],
+			EntitySlotEnum.CONFIRM: [
+				self.from_intent(intent=IntentEnum.CONFIRM, value=True),
+				self.from_intent(intent=IntentEnum.DENY, value=False)
+			]
+		}
 
-        return {
-            # ComputeResourceForm.DEPARTMENT: self.from_entity(entity=ComputeResourceForm.DEPARTMENT,
-            #                                                  not_intent="chitchat"),
-            ComputeResourceForm.ENVIRONMENT: self.from_entity(entity=ComputeResourceForm.ENVIRONMENT,
-                                                              not_intent="chitchat"),
-            ComputeResourceForm.RAM: self.from_entity(entity=ComputeResourceForm.RAM,
-                                                      not_intent="chitchat"),
-            ComputeResourceForm.CPU_CORES: self.from_entity(entity=ComputeResourceForm.CPU_CORES,
-                                                            not_intent="chitchat"),
-            ComputeResourceForm.DISK_SPACE: self.from_entity(entity=ComputeResourceForm.DISK_SPACE,
-                                                             not_intent="chitchat"),
-            ComputeResourceForm.SCALABILITY: [
-                self.from_entity(entity=ComputeResourceForm.SCALABILITY),
-                self.from_intent(intent="confirmar", value=True),
-                self.from_intent(intent="cancelar", value=False),
-            ],
-            ComputeResourceForm.OBSERVATIONS: [
-                self.from_entity(entity=ComputeResourceForm.OBSERVATIONS), self.from_text()
-            ],
+	def request_next_slot(
+			self,
+			dispatcher: "CollectingDispatcher",
+			tracker: "Tracker",
+			domain: Dict[Text, Any],
+	) -> Optional[List[EventType]]:
+		"""Customize ask utterance for certain slots
+			This is Required to enable the {form_name}_{confirm} slot
+		"""
+		return request_next_slot(self, dispatcher, tracker, domain)
 
-        }
+	@staticmethod
+	def valid_environment_types() -> List[Text]:
+		"""Database of supported environment types"""
 
-    @staticmethod
-    def valid_environment_types() -> List[Text]:
-        """Database of supported environment types"""
+		return ["desarrollo", "pruebas", "produccion"]
 
-        return [
-            "desarrollo",
-            "pruebas",
-            "produccion"
-        ]
+	@staticmethod
+	def is_int(string: Text) -> bool:
+		"""Check if a string is an integer"""
 
-    @staticmethod
-    def is_int(string: Text) -> bool:
-        """Check if a string is an integer"""
+		try:
+			int(string)
+			return True
+		except ValueError:
+			return False
 
-        try:
-            int(string)
-            return True
-        except ValueError:
-            return False
+	@staticmethod
+	def is_within_bound(
+			value: int, lower_bount: int, upper_bound: int
+	) -> bool:
+		"""Check if an int value is within a specified bound"""
 
-    @staticmethod
-    def is_within_bound(value: int, lower_bount: int, upper_bound: int) -> bool:
-        """Check if an int value is within a specified bound"""
+		return True if lower_bount <= value <= upper_bound else False
 
-        return True if lower_bount <= value <= upper_bound else False
+	def validate_vm_environment(
+			self,
+			value: Text,
+			dispatcher: CollectingDispatcher,
+			tracker: Tracker,
+			domain: Dict[Text, Any],
+	) -> Dict[Text, Any]:
+		"""Validate vm_environment value"""
 
-    def validate_entorno(self, value: Text, dispatcher: CollectingDispatcher, tracker: Tracker,
-                             domain: Dict[Text, Any]) -> Optional[Text]:
-        """Validate environment value"""
+		if value.lower() in self.valid_environment_types():
+			# validation succeeded, set the value of the "cuisine" slot to value
+			return {EntitySlotEnum.VM_ENVIRONMENT: value}
+		else:
+			dispatcher.utter_message(template=UtteranceEnum.INVALID)
+			# validation failed, set this slot to None, meaning the
+			# user will be asked for the slot again
+			return {EntitySlotEnum.VM_ENVIRONMENT: None}
 
-        if value.lower() in self.valid_environment_types():
-            # validation succeeded, set the value of the "cuisine" slot to value
-            return {ComputeResourceForm.ENVIRONMENT: value}
-        else:
-            dispatcher.utter_template("utter_no_valido", tracker)
-            # validation failed, set this slot to None, meaning the
-            # user will be asked for the slot again
-            return {ComputeResourceForm.ENVIRONMENT: None}
+	def validate_vm_ram(
+			self,
+			value: Text,
+			dispatcher: CollectingDispatcher,
+			tracker: Tracker,
+			domain: Dict[Text, Any],
+	) -> Dict[Text, Any]:
+		"""Validate ram value"""
 
-    def validate_ram(self, value: Text, dispatcher: CollectingDispatcher, tracker: Tracker,
-                             domain: Dict[Text, Any]) -> Optional[Text]:
-        """Validate ram value"""
+		if self.is_int(value) and self.is_within_bound(int(value), 8, 64):
+			return {EntitySlotEnum.VM_RAM: value}
+		else:
+			dispatcher.utter_message(template=UtteranceEnum.INVALID)
+			return {EntitySlotEnum.VM_RAM: None}
 
-        if self.is_int(value) and self.is_within_bound(int(value), 8, 64):
-            return {ComputeResourceForm.RAM: value}
-        else:
-            dispatcher.utter_template("utter_no_valido", tracker)
-            return {ComputeResourceForm.RAM: None}
+	def validate_vm_cpu_cores(
+			self,
+			value: Text,
+			dispatcher: CollectingDispatcher,
+			tracker: Tracker,
+			domain: Dict[Text, Any],
+	) -> Dict[Text, Any]:
+		"""Validate CPU cores value"""
 
-    def validate_cpu_cores(self, value: Text, dispatcher: CollectingDispatcher, tracker: Tracker,
-                     domain: Dict[Text, Any]) -> Optional[Text]:
-        """Validate CPU cores value"""
+		if self.is_int(value) and self.is_within_bound(int(value), 1, 8):
+			return {EntitySlotEnum.VM_CPU_CORES: value}
+		else:
+			dispatcher.utter_message(template=UtteranceEnum.INVALID)
+			return {EntitySlotEnum.VM_CPU_CORES: None}
 
-        if self.is_int(value) and self.is_within_bound(int(value), 1, 8):
-            return {ComputeResourceForm.CPU_CORES: value}
-        else:
-            dispatcher.utter_template("utter_no_valido", tracker)
-            return {ComputeResourceForm.CPU_CORES: None}
+	def validate_vm_disk_space(
+			self,
+			value: Text,
+			dispatcher: CollectingDispatcher,
+			tracker: Tracker,
+			domain: Dict[Text, Any],
+	) -> Dict[Text, Any]:
+		"""Validate disk space value"""
 
-    def validate_disk_space(self, value: Text, dispatcher: CollectingDispatcher, tracker: Tracker,
-                     domain: Dict[Text, Any]) -> Optional[Text]:
-        """Validate disk space value"""
+		if self.is_int(value) and self.is_within_bound(int(value), 8, 1000):
+			return {EntitySlotEnum.VM_DISK_SPACE: value}
+		else:
+			dispatcher.utter_message(template=UtteranceEnum.INVALID)
+			return {EntitySlotEnum.VM_DISK_SPACE: None}
 
-        if self.is_int(value) and self.is_within_bound(int(value), 8, 1000):
-            return {ComputeResourceForm.DISK_SPACE: value}
-        else:
-            dispatcher.utter_template("utter_no_numero", tracker)
-            return {ComputeResourceForm.DISK_SPACE: None}
+	def validate_vm_scalability(
+			self,
+			value: Text,
+			dispatcher: CollectingDispatcher,
+			tracker: Tracker,
+			domain: Dict[Text, Any],
+	) -> Dict[Text, Any]:
+		"""Validate scalability value and set it to NO by default"""
 
-    def validate_escalabilidad(
-        self,
-        value: Text,
-        dispatcher: CollectingDispatcher,
-        tracker: Tracker,
-        domain: Dict[Text, Any],
-    ) -> Any:
-        """Validate scalability value and set it to NO by default"""
+		if isinstance(value, str):
+			return {EntitySlotEnum.VM_SCALABILITY: value}
+		else:
+			return {EntitySlotEnum.VM_SCALABILITY: "No"}
 
-        if isinstance(value, str):
-            return {ComputeResourceForm.SCALABILITY: value}
-        else:
-            return {ComputeResourceForm.SCALABILITY: "No"}
+	def submit(
+			self,
+			dispatcher: CollectingDispatcher,
+			tracker: Tracker,
+			domain: Dict[Text, Any],
+	) -> List[Dict]:
+		"""Define what the form has to do after all required slots are filled"""
 
-    def submit(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict]:
-        """Define what the form has to do after all required slots are filled"""
+		department = tracker.get_slot(EntitySlotEnum.DEPARTMENT)
+		vm_environment = tracker.get_slot(EntitySlotEnum.VM_ENVIRONMENT)
+		vm_ram = tracker.get_slot(EntitySlotEnum.VM_RAM)
+		vm_cpu_cores = tracker.get_slot(EntitySlotEnum.VM_CPU_CORES)
+		vm_disk_space = tracker.get_slot(EntitySlotEnum.VM_DISK_SPACE)
+		vm_scalability = tracker.get_slot(EntitySlotEnum.VM_SCALABILITY)
+		observations = tracker.get_slot(EntitySlotEnum.OBSERVATIONS)
 
-        # TODO: do something with the request
-        ticket_no: Text = "{:04d}".format(random.randint(1, 1000))
-        # utter submit template
-        # dispatcher.utter_template("utter_compute_form_values", tracker)
-        # dispatcher.utter_message("Nro de ticket: {:s}".format(ticket_no))
-        # return [SlotSet("ticket_no", ticket_no), SlotSet(self.DEPARTMENT, None), SlotSet(self.ENVIRONMENT, None),
-        #         SlotSet(self.RAM, None), SlotSet(self.CPU_CORES, None), SlotSet(self.DISK_SPACE, None),
-        #         SlotSet(self.SCALABILITY, None), SlotSet(self.OBSERVATIONS, None)]
-        return [SlotSet("ticket_no", ticket_no)]
+		request_description = "Solicito una maquina virtual con las siguientes caracteristicas: " \
+		                       + f"Departamento: {department} ||" \
+		                       + f"Entorno: {vm_environment} ||" \
+		                       + f"Memoria RAM: {vm_ram} ||" \
+		                       + f"No CPUs: {vm_cpu_cores} ||" \
+		                       + f"Disco duro: {vm_disk_space} Gb ||" \
+		                       + f"Escalabilidad: {vm_scalability if vm_scalability is not None else 'No'} ||" \
+		                       + f"Observaciones: {observations}"
+
+		logger.info(f"{self.name()}: {request_description}")
+
+		events = [
+			SlotSet(EntitySlotEnum.DEPARTMENT, None),
+			SlotSet(EntitySlotEnum.VM_ENVIRONMENT, None),
+			SlotSet(EntitySlotEnum.VM_RAM, None),
+			SlotSet(EntitySlotEnum.VM_CPU_CORES, None),
+			SlotSet(EntitySlotEnum.VM_DISK_SPACE, None),
+			SlotSet(EntitySlotEnum.VM_SCALABILITY, None),
+			SlotSet(EntitySlotEnum.OBSERVATIONS, None),
+		]
+
+		if tracker.get_slot(EntitySlotEnum.CONFIRM):
+			if local_mode:
+				ticket_id: Text = "{:04d}".format(random.randint(1, 1000))
+			else:  # TODO: integrate with GLPI
+				priorities = GLPIService.priority_values()
+				priority_values = list(priorities.keys())
+				glpi_priority = priorities[priority_values[1]]  # media
+				ticket = {
+					'username': 'normal',  # TODO: set the actual logged in user
+					'title': 'Peticion de Maquina Virtual',
+					'description': request_description,
+					'priority': glpi_priority
+				}
+				try:
+					response = glpi.create_ticket(ticket)
+					ticket_id = response['id']
+					# This is not actually required as its value is sent directly to the utter_message
+					events.append(SlotSet(EntitySlotEnum.TICKET_NO, ticket_id))
+				except GlpiException as e:
+					logger.error("Error when trying to create a ticket", e)
+					logger.error(f"Ticket: {ticket}")
+					dispatcher.utter_message(template=UtteranceEnum.PROCESS_FAILED)
+					return events
+			dispatcher.utter_message(template=UtteranceEnum.TICKET_NO, ticket_no=ticket_id)
+			dispatcher.utter_message(template=UtteranceEnum.CONFIRM_REQUEST)
+		else:
+			events.append(SlotSet(EntitySlotEnum.TICKET_NO, None))
+			dispatcher.utter_message(template=UtteranceEnum.PROCESS_CANCELLED)
+
+		return events
+

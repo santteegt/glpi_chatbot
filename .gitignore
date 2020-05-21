@@ -1,11 +1,17 @@
-__pycache__
-env/
-.idea
+# Standard Ignores
+.env
+venv
+__pycache__/
 .DS_Store
+.idea
+.vscode/
+.history/
+.pytype/
 
-errors.json
-models/
-
-rasa_core.log
-*.logs
+# Rasa Ignores
+credentials.yml
+*.db-*
+rasa.db*
 *.db
+*.logs
+models/

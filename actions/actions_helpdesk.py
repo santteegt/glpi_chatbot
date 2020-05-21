@@ -1,0 +1,181 @@
+# -*- coding: utf-8 -*-
+
+import logging
+from rasa_sdk import Tracker
+from rasa_sdk.executor import CollectingDispatcher
+from rasa_sdk.forms import FormAction
+from rasa_sdk.events import SlotSet, EventType
+from typing import Dict, Text, Any, List, Union, Optional
+
+from actions.actions_base import request_next_slot
+from actions.constants import UtteranceEnum, IntentEnum, EntitySlotEnum
+from actions.glpi import GLPIService, GlpiException, load_glpi_config
+
+logger = logging.getLogger(__name__)
+
+glpi_api_uri, glpi_app_token, glpi_auth_token, local_mode = load_glpi_config()
+glpi = GLPIService.get_instance(glpi_api_uri, glpi_app_token, glpi_auth_token)
+
+
+class OpenIncidentForm(FormAction):
+
+	def name(self) -> Text:
+		return "open_incident_form"
+
+	@staticmethod
+	def required_slots(tracker: Tracker) -> List[Text]:
+		"""A list of required slots that the form has to fill"""
+
+		return [EntitySlotEnum.EMAIL,
+		        EntitySlotEnum.INCIDENT_TITLE,
+		        EntitySlotEnum.INCIDENT_DESCRIPTION,
+		        EntitySlotEnum.PRIORITY,
+		        EntitySlotEnum.CONFIRM]
+
+	def slot_mappings(self) -> Dict[Text, Union[Dict, List[Dict]]]:
+		"""A dictionary to map required slots to
+		- an extracted entity
+		- intent: value pairs
+		- a whole message
+		or a list of them, where a first match will be picked"""
+
+		return {
+			EntitySlotEnum.EMAIL: self.from_entity(entity=EntitySlotEnum.EMAIL),
+			EntitySlotEnum.INCIDENT_TITLE: [
+				self.from_trigger_intent(
+					intent=IntentEnum.PASSWORD_RESET,
+					value="Problema para recuperar contrasena",
+				),
+				self.from_trigger_intent(
+					intent=IntentEnum.PROBLEM_EMAIL,
+					value="Problema con correo electronico",
+				),
+				self.from_text(
+					intent=[IntentEnum.PASSWORD_RESET, IntentEnum.PROBLEM_EMAIL, IntentEnum.INFORM]
+				),
+				self.from_text()
+			],
+			EntitySlotEnum.INCIDENT_DESCRIPTION: [
+				self.from_text(
+					intent=[IntentEnum.PASSWORD_RESET, IntentEnum.PROBLEM_EMAIL, IntentEnum.INFORM]
+				),
+				self.from_text(not_intent=IntentEnum.OUT_OF_SCOPE)
+			],
+			EntitySlotEnum.PRIORITY: self.from_entity(entity=EntitySlotEnum.PRIORITY),
+			EntitySlotEnum.CONFIRM: [
+				self.from_intent(intent=IntentEnum.CONFIRM, value=True),
+				self.from_intent(intent=IntentEnum.DENY, value=False)
+			]
+		}
+
+	def request_next_slot(
+        self,
+        dispatcher: "CollectingDispatcher",
+        tracker: "Tracker",
+        domain: Dict[Text, Any],
+    ) -> Optional[List[EventType]]:
+		"""Customize ask utterance for certain slots
+			This is Required to enable the {form_name}_{confirm} slot
+		"""
+		return request_next_slot(self, dispatcher, tracker, domain)
+
+	@staticmethod
+	def priority_db() -> List[Text]:
+		"""Database of supported priorities"""
+
+		# return ["baja", "media", "alta"]
+		return GLPIService.priority_values().keys()
+
+	def validate_email(
+			self,
+			value: Text,
+			dispatcher: CollectingDispatcher,
+			tracker: Tracker,
+			domain: Dict[Text, Any],
+	) -> Dict[Text, Any]:
+		"""Validate email is in ticket system."""
+		if local_mode:
+			return {EntitySlotEnum.EMAIL: value}
+
+		# TODO: validate if email format
+		return {EntitySlotEnum.EMAIL: value}
+
+	# results = email_to_sysid(value)
+
+	def validate_priority(
+			self,
+			value: Text,
+			dispatcher: CollectingDispatcher,
+			tracker: Tracker,
+			domain: Dict[Text, Any],
+	) -> Dict[Text, Any]:
+		"""Validate priority is a valid value."""
+
+		if value.lower() in self.priority_db():
+			# validation succeeded,
+			# set the value of the "priority" slot to value
+			return {EntitySlotEnum.PRIORITY: value.lower()}
+		else:
+			dispatcher.utter_message(template=UtteranceEnum.PRIORITY_NO_MATCH)
+			# validation failed, set this slot to None, meaning the
+			# user will be asked for the slot again
+			return {EntitySlotEnum.PRIORITY: None}
+
+	def submit(
+			self,
+			dispatcher: CollectingDispatcher,
+			tracker: Tracker,
+			domain: Dict[Text, Any],
+	) -> List[Dict]:
+		"""Define what the form has to do after all required slots are filled"""
+
+		email = tracker.get_slot(EntitySlotEnum.EMAIL)
+		incident_title = tracker.get_slot(EntitySlotEnum.INCIDENT_TITLE)
+		incident_description = tracker.get_slot(EntitySlotEnum.INCIDENT_DESCRIPTION)
+		priority = tracker.get_slot(EntitySlotEnum.PRIORITY)
+
+		events = [SlotSet(EntitySlotEnum.EMAIL, None),
+		          SlotSet(EntitySlotEnum.INCIDENT_TITLE, None),
+		          SlotSet(EntitySlotEnum.INCIDENT_DESCRIPTION, None),
+		          SlotSet(EntitySlotEnum.PRIORITY, None),
+		          SlotSet(EntitySlotEnum.CONFIRM, None)]
+
+		if tracker.get_slot(EntitySlotEnum.CONFIRM):
+
+			if local_mode:
+				ticket_id = "DUMMY"
+				events.append(SlotSet(EntitySlotEnum.TICKET_NO, ticket_id))
+			else:  # TODO: integrate with GLPI
+				# Check priority and set number value accordingly
+				priorities = GLPIService.priority_values()
+				priority_values = list(priorities.keys())
+				if priority in priority_values:
+					glpi_priority = priorities[priority]
+				else:
+					logger.warning(f'Priority value not found: {priority}. Setting it to default: (media)')
+					glpi_priority = priorities[priority_values[1]]
+
+				ticket = {
+					'username': 'normal',  # TODO: set the actual logged in user
+					'title': incident_title,
+					'description': incident_description,
+					'priority': glpi_priority
+				}
+				# logger.info(f'Ticket to be created: {ticket}')
+				try:
+					response = glpi.create_ticket(ticket)
+					ticket_id = response['id']
+					# This is not actually required as its value is sent directly to the utter_message
+					events.append(SlotSet(EntitySlotEnum.TICKET_NO, ticket_id))
+				except GlpiException as e:
+					logger.error("Error when trying to create a ticket", e)
+					logger.error(f"Ticket: {ticket}")
+					dispatcher.utter_message(template=UtteranceEnum.PROCESS_FAILED)
+					return events
+			dispatcher.utter_message(template=UtteranceEnum.TICKET_NO, ticket_no=ticket_id)
+			dispatcher.utter_message(template=UtteranceEnum.CONFIRM_REQUEST)
+		else:
+			events.append(SlotSet(EntitySlotEnum.TICKET_NO, None))
+			dispatcher.utter_message(template=UtteranceEnum.PROCESS_CANCELLED)
+
+		return events
