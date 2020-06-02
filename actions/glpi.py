@@ -8,9 +8,26 @@ import os
 import re
 import requests
 import ruamel.yaml
-from typing import Text, Dict
+import sys
+from typing import Any, Dict, Optional, Text
+
+if sys.version_info >= (3, 8):
+    from typing import TypedDict
+else:
+    from typing_extensions import TypedDict
 
 logger = logging.getLogger(__name__)
+
+
+class Ticket(TypedDict, total=False):
+	ticket_no: Optional[int]  # Generated
+	username: Optional[Text]  # Optional
+	title: Text
+	description: Text
+	priority: Optional[int]  # Optional (Set by GLPI)
+	requesttypes_id: Optional[int]  # Default value
+	itilcategories_id: Optional[int]  # Default value
+	alternative_email: Optional[Text]  # Optional
 
 
 def load_glpi_config(config_file="glpi_credentials.yml"):
@@ -72,6 +89,9 @@ class GLPIService(object):
 				"Content-Type": "application/json",
 				"Session-Token": session['session_token']
 			}
+			session_data = self.glpi.get('getFullSession')['session']
+			self.agent_id = session_data['glpiID']
+			self.agent_username = session_data['glpiname']
 			GLPIService.__instance = self
 
 	def get_ticket(self, ticket_id: Text):
@@ -82,13 +102,82 @@ class GLPIService(object):
 		"""
 		return self.glpi.get('ticket', ticket_id)
 
+	def get_ticket_status(self, ticket_id: Text):
+		"""
+		Get ticket specific metadata about its status
+		:param ticket_id: integer identifier
+		:return: Ticket metadata based on metacriteria
+		"""
+		metacriteria = [{
+			'id': '1',
+			'field': 'name'  # title
+		}, {
+			'id': '7',
+			'field': 'completename'  # category name
+		}, {
+			'id': '2',
+			'field': 'id'
+		}, {
+			'id': '14',
+			'field': 'type'
+		}, {
+			'id': '12',
+			'field': 'status'
+		}, {
+			'id': '4',
+			'field': 'user_id'  # name
+		}, {
+			'id': '9',
+			'field': 'source'  # name
+		}, {
+			'id': '35',
+			'field': 'use_notification'
+		}, {
+			'id': '34',
+			'field': 'alternative_email'  # name
+		}, {
+			'id': '10',
+			'field': 'urgency'
+		}, {
+			'id': '11',
+			'field': 'impact'
+		}, {
+			'id': '3',
+			'field': 'priority'
+		}, {
+			'id': '15',
+			'field': 'date'  # opendate
+		}, {
+			'id': '16',
+			'field': 'closedate'
+		}, {
+			'id': '17',
+			'field': 'solvedate'
+		}, {
+			'id': '18',
+			'field': 'time_to_solve'
+		}]
+		full_url = f'{self.base_uri}/search/ticket?criteria[0][field]=2&criteria[0][value]={ticket_id}' + \
+		           '&criteria[0][searchtype]=equals'
+
+		for idx, meta in enumerate(metacriteria):
+			full_url += '&forcedisplay[%d]=%s' % (idx, meta['id'])
+
+		opts = self.glpi.search_options('ticket')
+		r = requests.request('GET', full_url, headers=self.headers)
+		if r.status_code != 200:
+			raise GlpiException(f'Failed to fetch info about ticket: {ticket_id} Reason: {r.reason}')
+		json_data = r.json()
+		data = json_data['data'] if 'data' in json_data else []
+		return {opts[k]['field']: v for k, v in data[0].items()}
+
 	def get_user(self, username: Text):
 		"""
 		Get user basic information
 		:param username: username used for authentication
 		:return: User data fields specified in the metacriteria (see below)
 		Example:
-			{'name': None,
+			{'name': john.doe,
 			'id': 5,
 			'firstname': 'John',
 			'realname': 'Doe',
@@ -99,8 +188,8 @@ class GLPIService(object):
 			'criteria': [
 				{
 					'searchtype': 'contains',
-					'field': 'name',
-					'value': f'^{username}$'
+					'field': 1,  # name
+					'value': username
 				}
 			],
 			'metacriteria': [
@@ -119,10 +208,6 @@ class GLPIService(object):
 				{
 					'id': '34',
 					'field': 'realname'
-				},
-				{
-					'id': '99',
-					'field': 'name'
 				},
 				{
 					'id': '5',
@@ -145,35 +230,32 @@ class GLPIService(object):
 		data = json_data['data'] if 'data' in json_data else []
 		return {opts[k]['field']: v for k, v in data[0].items()}
 
-	def create_ticket(self, ticket: Dict):
+	def create_ticket(self, ticket: Ticket, ticket_type: int = 1) -> Dict[Text, Any]:
 		"""
 		Post a new ticket on the GLPI system and assign roles properly
 		:param ticket: Ticket data to be publihsed
-			Example : {
-						'username': 'user',
-						'title': 'An automated ticket',
-						'description': 'Incident description',
-						'priority': 1
-						}
+		:param ticket_type: Ticker type: Incident: 1 | Request: 2
 		:return: id and message from the published ticket
 			Schema: { 'id': int, 'message': str }
 		"""
-		date_string = datetime.now().strftime('%d/%m/%Y %H:%M:%S')
-		username = ticket['username']
-		user = self.get_user(username)
+		requesttypes_id_default = 41  # TODO: Communication but TBD
+		itilcategories_id_default = 65  # TODO: Various but TBD
+		date_string = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+
+		user = self.get_user(ticket['username']) if 'username' in ticket else None
 		new_ticket: Dict = {
 			'name': ticket['title'],
 			'date': date_string,
 			'status': 1,
-			'users_id_recipient': 2,  # User Id
-			'users_id_requester': 2,
-			'requesttypes_id': 1,
+			'_users_id_recipient': self.agent_id,  # User Id from session
+			'_users_id_requester': self.agent_id,
+			'requesttypes_id': requesttypes_id_default if 'requesttypes_id' not in ticket else ticket['requesttypes_id'],
 			'content': ticket['description'],
-			'urgency': 3,  # medium
-			'impact': 2,  # low
-			'priority': ticket['priority'],  # low:2 | medium:3 | high:4
-			# 'itilcategories_id': 1,  # TODO: set category sent by bot?
-			'type': 1,  # incident:1 | Request:2
+			# 'urgency': 3,  # medium
+			# 'impact': 2,  # low
+			# 'priority': ticket['priority'],  # low:2 | medium:3 | high:4
+			'itilcategories_id': itilcategories_id_default if 'itilcategories_id' not in ticket else ticket['itilcategories_id'],
+			'type': ticket_type,
 			'date_creation': date_string,
 		}
 
@@ -183,8 +265,8 @@ class GLPIService(object):
 			rs = self.glpi.create('ticket', new_ticket)
 			# logger.info(f'Response from GLPI: {rs}')
 			if 'id' in rs:
-				ticket_no = rs['id']
-				self.assign_ticket(ticket_no, user_id=user['id'])
+				ticket['ticket_no'] = rs['id']
+				self.assign_ticket(ticket, user_id=user['id'] if user is not None else None)
 			elif type(rs) == list:
 				raise GlpiException(f'Error during GLPI API call: {rs}')
 
@@ -263,44 +345,56 @@ class GLPIService(object):
 
 		return uri_query
 
-	def assign_ticket(self, ticket_no: int, user_id: int):
+	def assign_ticket(self, ticket: Ticket, user_id: int = None):
 		"""
 		Update user roles to assign requester to the actual user that reports the incident
 		while ticket sender through the API is set as Watcher
-		:param ticket_no: ticket No of the newly created ticket
+		:param ticket: metadata of the newly created ticket
 		:param user_id: ID of actual user that reports the incident
 		"""
-		full_url = f'{self.base_uri}/Ticket/{ticket_no}/Ticket_User/'
+		full_url = f'{self.base_uri}/Ticket/{ticket["ticket_no"]}/Ticket_User/'
 		# Fetch current user involved in Ticket
 		r = requests.request('GET', full_url, headers=self.headers)
 		if r.status_code != 200:
-			raise GlpiException(f'Failed to fetch people involved in ticket: {ticket_no} Reason: {r.reason}')
+			raise GlpiException(f'Failed to fetch people involved in ticket: {ticket["ticket_no"]} Reason: {r.reason}')
 		people = r.json()
 		requester = list(filter(lambda x: x['type'] == 1, people))[0]
 		assigned = list(filter(lambda x: x['type'] == 2, people))[0]
 
-		data = {
+		if user_id is not None or "alternative_email" in ticket:
+			requester_payload = {
+				"input": [{
+					"id": requester['id'],
+					"tickets_id": ticket["ticket_no"],
+					"users_id": user_id if user_id is not None else requester['users_id'],
+					"type": requester['type'],  # Requester:1 | Assign: 2 | Observer:3
+					"use_notification": 1
+				}]
+			}
+			if "alternative_email" in ticket:
+				requester_payload["input"][0]["alternative_email"] = ticket['alternative_email']
+			# Update requester role on the created ticket
+			r = requests.request('PUT', full_url, headers=self.headers, json=requester_payload)
+			if r.status_code != 200:
+				error_msg = f'Failed to update user {user_id} with requester role on ticket: {ticket["ticket_no"]} '
+				error_msg += f'Reason: {r.reason} Payload: {requester_payload}'
+				raise GlpiException(error_msg)
+
+		assigned_payload = {
 			"input": [{
-				"id": requester['id'],
-				"tickets_id": ticket_no,
-				"users_id": user_id,
-				"type": 1,  # Requester:1 | Assign: 2 | Observer:3
-				"use_notification": requester['use_notification']
-			}, {
 				"id": assigned['id'],
-				"tickets_id": ticket_no,
+				"tickets_id": ticket['ticket_no'],
 				"users_id": assigned['users_id'],
-				"type": 3,  # Requester:1 | Assign: 2 | Observer:3
-				"use_notification": assigned['use_notification'],
-				# TODO: remove dummy validation
-				# 'alternative_email': assigned['alternative_email'] if len(
-				# 	assigned['alternative_email']) > 0 else 'chatbot@ucuenca.edu.ec',
+				# "type": assigned['type'],  # Requester:1 | Assign: 2 | Observer:3
+				# "use_notification": assigned['use_notification'],
+				# # 'alternative_email': assigned['alternative_email'] if len(
+				# # 	assigned['alternative_email']) > 0 else 'chatbot@ucuenca.edu.ec',
 			}]
 		}
-		# Update user roles on the created ticket
-		r = requests.request('PUT', full_url, headers=self.headers, json=data)
+		# Delete assigned role on the created ticket
+		r = requests.request('DELETE', full_url, headers=self.headers, json=assigned_payload)
 		if r.status_code != 200:
-			raise GlpiException(f'Failed to update user roles on ticket: {ticket_no} Reason: {r.reason}')
+			raise GlpiException(f'Failed to update user roles on ticket: {ticket["ticket_no"]} Reason: {r.reason}')
 
 	@staticmethod
 	def priority_values():

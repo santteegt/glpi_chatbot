@@ -5,8 +5,10 @@ class EntitySlotEnum(object):
     CONFIRM = "confirm"
     EMAIL = "email"
     PRIORITY = "priority"
+    TIME = "time"
     INCIDENT_TITLE = "incident_title"
     INCIDENT_DESCRIPTION = "incident_description"
+    ITILCATEGORY_ID = "itilcategory_id"
     SOFTWARE = "software"
     DEPARTMENT = "department"
     VM_ENVIRONMENT = "vm_environment"
@@ -20,6 +22,9 @@ class EntitySlotEnum(object):
     COURSE_TYPE = "course_type"
     PERSONAL_ID = "personal_id"
     BIOMETRICS_ID = "biometrics_id"
+    START_TIME = "start_time"  # Obtained from Duckling
+    END_TIME = "end_time"  # Obtained from Duckling
+    GRAIN = "grain"  # Obtained from Duckling
     TICKET_NO = "ticket_no"
 
 

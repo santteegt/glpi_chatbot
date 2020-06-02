@@ -118,7 +118,7 @@ class WifiFaqForm(FormAction):
 
         dispatcher.utter_message(template=instructions[wifi_network])
 
-        ask_if_success(dispatcher, incident_title="Problema de conexion a la red WIFI")
+        ask_if_success(dispatcher, incident_title="Problema de conexion a la red WIFI", itilcategory_id=52)
 
         return [SlotSet(EntitySlotEnum.WIFI_NETWORK, None)]
 
@@ -168,8 +168,7 @@ class CreateUserFaqForm(FormAction):
     ) -> Dict[Text, Any]:
         """Validate COURSE_TYPE has a valid value."""
 
-        logger.info(f"COURSE TYPE ===> {value.lower()}:{value.lower() in self.course_type_db()}")
-
+        # logger.info(f"COURSE TYPE ===> {value.lower()}:{value.lower() in self.course_type_db()}")
         if value.lower() in self.course_type_db():
             # validation succeeded
             return {EntitySlotEnum.COURSE_TYPE: value.lower()}
@@ -204,7 +203,7 @@ class CreateUserFaqForm(FormAction):
                 + instructions[course_type]
             )
 
-        ask_if_success(dispatcher, incident_title="Problema para crear un usuario")
+        ask_if_success(dispatcher, incident_title="Problema para crear un usuario", itilcategory_id=56)
 
         return [
             SlotSet(EntitySlotEnum.COURSE_TYPE, None),

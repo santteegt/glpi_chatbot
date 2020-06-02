@@ -3,3 +3,4 @@ requests
 ruamel.yaml
 glpi==0.4.0
 future
+typing-extensions

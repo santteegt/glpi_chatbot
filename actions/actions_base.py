@@ -33,18 +33,25 @@ def request_next_slot(
             return [SlotSet(REQUESTED_SLOT, slot)]
 
 
-def ask_if_success(dispatcher: CollectingDispatcher, incident_title: Text):
+def ask_if_success(dispatcher: CollectingDispatcher, incident_title: Text, itilcategory_id: int = None):
     """
     Ask if request was succesful. Otherwise redirects to report an incident
     :param dispatcher: Rasa SDK Dispatcher
     :param incident_title: Incident title for the ticket
+    :param itilcategory_id: ITIL category for the incident
     """
+
+    params = '{'
+    params += f'"{EntitySlotEnum.INCIDENT_TITLE}":"{incident_title}"'
+    if itilcategory_id:
+        params += f', "{EntitySlotEnum.ITILCATEGORY_ID}":"{itilcategory_id}"'
+    params += '}'
 
     dispatcher.utter_message(template=UtteranceEnum.CONFIRM_SUCCESS, buttons=[
         {"title": "Si", "payload": f"/{IntentEnum.CONFIRM}"},
         {
             "title": "No",
-            "payload": f"/{IntentEnum.DENY}" + '{"' + EntitySlotEnum.INCIDENT_TITLE + '":"' + f"{incident_title}" + '"}'
+            "payload": f"/{IntentEnum.DENY}" + params
         }
     ])
 

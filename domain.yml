@@ -30,6 +30,7 @@ entities:
 - auth_token
 - email
 - priority
+- time
 slots:
   auth_token:
     type: text
@@ -44,6 +45,8 @@ slots:
   priority:
     type: unfeaturized
   incident_description:
+    type: unfeaturized
+  itilcategory_id:
     type: unfeaturized
   software:
     type: unfeaturized
@@ -73,6 +76,14 @@ slots:
   personal_id:
     type: unfeaturized
   biometrics_id:
+    type: unfeaturized
+  time:
+    type: unfeaturized
+  start_time:
+    type: unfeaturized
+  end_time:
+    type: unfeaturized
+  grain:
     type: unfeaturized
   requested_slot:
     type: unfeaturized
@@ -115,8 +126,7 @@ responses:
   - text: "Confirma que desea reportar la siguiente incidencia?:\n\
     \ - Título: {incident_title}\n\
     \ - Descripción: {incident_description}\n\
-    \ - email: {email}\n\
-    \ - Prioridad: {priority}"
+    \ - email: {email}"
     buttons:
       - title: Si
         payload: /confirm
@@ -243,11 +253,11 @@ responses:
       - title: Creacion de usuario
         payload: /create_user
       - title: Recuperar contrasena
-        payload: /problem_email
+        payload: /problem_email{"itilcategory_id":"53"}
       - title: Informe Intentos de Marcacion
-        payload: /request_biometrics_report
+        payload: /request_biometrics_report{"itilcategory_id":"60"}
       - title: Solicitar Maquina Virtual
-        payload: /request_vm
+        payload: /request_vm{"itilcategory_id":"54"}
   utter_more_help:
   - text: Necesita ayuda en algo mas?
     buttons:

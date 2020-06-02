@@ -114,10 +114,11 @@
  - wifi_faq_form
  - form{"name": "wifi_faq_form"}
  - form{"name": null}
-* deny{"incident_title":"Problema de conexion a la red WIFI"}
+* deny{"incident_title":"Problema de conexion a la red WIFI", "itilcategory_id":"52"}
  - open_incident_form
  - form{"name": "open_incident_form"}
  - form{"name":null}
+ - slot {"ticket_no": "0055"}
 
 ## connect_wifi form interrupted
 * connect_wifi
@@ -171,10 +172,11 @@
  - create_user_faq_form
  - form{"name": "create_user_faq_form"}
  - form{"name": null}
-* deny{"incident_title":"Problema para crear un usuario"}
+* deny{"incident_title":"Problema para crear un usuario", "itilcategory_id":"56"}
  - open_incident_form
  - form{"name": "open_incident_form"}
  - form{"name":null}
+ - slot {"ticket_no": "0055"}
 
 ## create_user form interrupted
 * create_user
@@ -199,6 +201,7 @@
  - biometrics_report_form
  - form{"name": "biometrics_report_form"}
  - form{"name": null}
+ - slot {"ticket_no": "0055"}
 
 ## request_biometrics_report form interrupted
 * request_biometrics_report
@@ -208,6 +211,7 @@
  - utter_help
  - biometrics_report_form
  - form{"name":null}
+ - slot {"ticket_no": "0055"}
 
 ## request_biometrics_report form interrupted with chitchat
 * request_biometrics_report
@@ -217,6 +221,7 @@
  - utter_out_of_scope
  - biometrics_report_form
  - form{"name":null}
+ - slot {"ticket_no": "0055"}
 
 ## request_vm form happy_path confirm
 * request_vm

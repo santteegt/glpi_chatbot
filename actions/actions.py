@@ -10,7 +10,8 @@ from rasa_sdk.executor import CollectingDispatcher
 
 from actions.actions_base import request_next_slot
 from actions.constants import EntitySlotEnum, IntentEnum, UtteranceEnum
-from actions.glpi import GLPIService, GlpiException, load_glpi_config
+from actions.glpi import GLPIService, GlpiException, load_glpi_config, Ticket
+from actions.parsing import remove_accents
 
 logger = logging.getLogger(__name__)
 
@@ -255,17 +256,18 @@ class ComputeResourceForm(FormAction):
 			if local_mode:
 				ticket_id: Text = "{:04d}".format(random.randint(1, 1000))
 			else:  # TODO: integrate with GLPI
-				priorities = GLPIService.priority_values()
-				priority_values = list(priorities.keys())
-				glpi_priority = priorities[priority_values[1]]  # media
-				ticket = {
+				# priorities = GLPIService.priority_values()
+				# priority_values = list(priorities.keys())
+				# glpi_priority = priorities[priority_values[1]]  # media
+				ticket: Ticket = Ticket({
 					'username': 'normal',  # TODO: set the actual logged in user
 					'title': 'Peticion de Maquina Virtual',
-					'description': request_description,
-					'priority': glpi_priority
-				}
+					'description': remove_accents(request_description),
+					# 'priority': glpi_priority
+					'itilcategories_id': 54  # Equipos de computo
+				})
 				try:
-					response = glpi.create_ticket(ticket)
+					response = glpi.create_ticket(ticket, ticket_type=2)  # Solicitud
 					ticket_id = response['id']
 					# This is not actually required as its value is sent directly to the utter_message
 					events.append(SlotSet(EntitySlotEnum.TICKET_NO, ticket_id))

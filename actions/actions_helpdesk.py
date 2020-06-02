@@ -9,7 +9,8 @@ from typing import Dict, Text, Any, List, Union, Optional
 
 from actions.actions_base import request_next_slot
 from actions.constants import UtteranceEnum, IntentEnum, EntitySlotEnum
-from actions.glpi import GLPIService, GlpiException, load_glpi_config
+from actions.glpi import GLPIService, GlpiException, load_glpi_config, Ticket
+from actions.parsing import remove_accents
 
 logger = logging.getLogger(__name__)
 
@@ -29,7 +30,8 @@ class OpenIncidentForm(FormAction):
 		return [EntitySlotEnum.EMAIL,
 		        EntitySlotEnum.INCIDENT_TITLE,
 		        EntitySlotEnum.INCIDENT_DESCRIPTION,
-		        EntitySlotEnum.PRIORITY,
+		        # EntitySlotEnum.PRIORITY,
+		        EntitySlotEnum.ITILCATEGORY_ID,
 		        EntitySlotEnum.CONFIRM]
 
 	def slot_mappings(self) -> Dict[Text, Union[Dict, List[Dict]]]:
@@ -61,7 +63,17 @@ class OpenIncidentForm(FormAction):
 				),
 				self.from_text(not_intent=IntentEnum.OUT_OF_SCOPE)
 			],
-			EntitySlotEnum.PRIORITY: self.from_entity(entity=EntitySlotEnum.PRIORITY),
+			# EntitySlotEnum.PRIORITY: self.from_entity(entity=EntitySlotEnum.PRIORITY),
+			EntitySlotEnum.ITILCATEGORY_ID: [
+				self.from_trigger_intent(
+					intent=IntentEnum.PASSWORD_RESET,
+					value="56",  # Gestion de usuarios
+				),
+				self.from_trigger_intent(
+					intent=IntentEnum.PROBLEM_EMAIL,
+					value="41"  # Correo electronico,
+				),
+			],
 			EntitySlotEnum.CONFIRM: [
 				self.from_intent(intent=IntentEnum.CONFIRM, value=True),
 				self.from_intent(intent=IntentEnum.DENY, value=False)
@@ -102,24 +114,24 @@ class OpenIncidentForm(FormAction):
 
 	# results = email_to_sysid(value)
 
-	def validate_priority(
-			self,
-			value: Text,
-			dispatcher: CollectingDispatcher,
-			tracker: Tracker,
-			domain: Dict[Text, Any],
-	) -> Dict[Text, Any]:
-		"""Validate priority is a valid value."""
-
-		if value.lower() in self.priority_db():
-			# validation succeeded,
-			# set the value of the "priority" slot to value
-			return {EntitySlotEnum.PRIORITY: value.lower()}
-		else:
-			dispatcher.utter_message(template=UtteranceEnum.PRIORITY_NO_MATCH)
-			# validation failed, set this slot to None, meaning the
-			# user will be asked for the slot again
-			return {EntitySlotEnum.PRIORITY: None}
+	# def validate_priority(
+	# 		self,
+	# 		value: Text,
+	# 		dispatcher: CollectingDispatcher,
+	# 		tracker: Tracker,
+	# 		domain: Dict[Text, Any],
+	# ) -> Dict[Text, Any]:
+	# 	"""Validate priority is a valid value."""
+	#
+	# 	if value.lower() in self.priority_db():
+	# 		# validation succeeded,
+	# 		# set the value of the "priority" slot to value
+	# 		return {EntitySlotEnum.PRIORITY: value.lower()}
+	# 	else:
+	# 		dispatcher.utter_message(template=UtteranceEnum.PRIORITY_NO_MATCH)
+	# 		# validation failed, set this slot to None, meaning the
+	# 		# user will be asked for the slot again
+	# 		return {EntitySlotEnum.PRIORITY: None}
 
 	def submit(
 			self,
@@ -132,12 +144,14 @@ class OpenIncidentForm(FormAction):
 		email = tracker.get_slot(EntitySlotEnum.EMAIL)
 		incident_title = tracker.get_slot(EntitySlotEnum.INCIDENT_TITLE)
 		incident_description = tracker.get_slot(EntitySlotEnum.INCIDENT_DESCRIPTION)
-		priority = tracker.get_slot(EntitySlotEnum.PRIORITY)
+		# priority = tracker.get_slot(EntitySlotEnum.PRIORITY)
+		itilcategory_id = tracker.get_slot(EntitySlotEnum.ITILCATEGORY_ID)
 
 		events = [SlotSet(EntitySlotEnum.EMAIL, None),
 		          SlotSet(EntitySlotEnum.INCIDENT_TITLE, None),
 		          SlotSet(EntitySlotEnum.INCIDENT_DESCRIPTION, None),
-		          SlotSet(EntitySlotEnum.PRIORITY, None),
+		          # SlotSet(EntitySlotEnum.PRIORITY, None),
+		          SlotSet(EntitySlotEnum.ITILCATEGORY_ID, None),
 		          SlotSet(EntitySlotEnum.CONFIRM, None)]
 
 		if tracker.get_slot(EntitySlotEnum.CONFIRM):
@@ -147,20 +161,22 @@ class OpenIncidentForm(FormAction):
 				events.append(SlotSet(EntitySlotEnum.TICKET_NO, ticket_id))
 			else:  # TODO: integrate with GLPI
 				# Check priority and set number value accordingly
-				priorities = GLPIService.priority_values()
-				priority_values = list(priorities.keys())
-				if priority in priority_values:
-					glpi_priority = priorities[priority]
-				else:
-					logger.warning(f'Priority value not found: {priority}. Setting it to default: (media)')
-					glpi_priority = priorities[priority_values[1]]
+				# priorities = GLPIService.priority_values()
+				# priority_values = list(priorities.keys())
+				# if priority in priority_values:
+				# 	glpi_priority = priorities[priority]
+				# else:
+				# 	logger.warning(f'Priority value not found: {priority}. Setting it to default: (media)')
+				# 	glpi_priority = priorities[priority_values[1]]
 
-				ticket = {
+				ticket: Ticket  = Ticket({
 					'username': 'normal',  # TODO: set the actual logged in user
 					'title': incident_title,
-					'description': incident_description,
-					'priority': glpi_priority
-				}
+					'description': remove_accents(incident_description),
+					# 'priority': glpi_priority
+					'itilcategories_id': int(itilcategory_id),
+					'alternative_email': email  # TODO: set as conditional if username is not logged in
+				})
 				# logger.info(f'Ticket to be created: {ticket}')
 				try:
 					response = glpi.create_ticket(ticket)
