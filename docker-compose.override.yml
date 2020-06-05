@@ -11,3 +11,5 @@ services:
       GLPI_LOCALMODE: "${GLPI_LOCALMODE}"
     depends_on:
       - rasa-production
+    extra_hosts:
+      - "srvpruebas.ucuenca.edu.ec:172.16.0.44"
