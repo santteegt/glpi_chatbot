@@ -16,7 +16,7 @@ from actions.parsing import remove_accents
 logger = logging.getLogger(__name__)
 
 glpi_api_uri, glpi_app_token, glpi_auth_token, local_mode = load_glpi_config()
-glpi = GLPIService.get_instance(glpi_api_uri, glpi_app_token, glpi_auth_token)
+glpi = GLPIService.get_instance(glpi_api_uri, glpi_app_token, glpi_auth_token) if not local_mode else None
 
 
 class ComputeResourceForm(FormAction):
@@ -253,19 +253,22 @@ class ComputeResourceForm(FormAction):
 		]
 
 		if tracker.get_slot(EntitySlotEnum.CONFIRM):
+			# priorities = GLPIService.priority_values()
+			# priority_values = list(priorities.keys())
+			# glpi_priority = priorities[priority_values[1]]  # media
+			ticket: Ticket = Ticket({
+				'username': 'normal',  # TODO: set the actual logged in user
+				'title': 'Peticion de Maquina Virtual',
+				'description': remove_accents(request_description),
+				# 'priority': glpi_priority
+				'itilcategories_id': 54  # Equipos de computo
+			})
 			if local_mode:
-				ticket_id: Text = "{:04d}".format(random.randint(1, 1000))
+				dispatcher.utter_message(f"This action would create a ticket with params: {ticket}")
+				# ticket_id: Text = "{:04d}".format(random.randint(1, 1000))
+				ticket_id: Text = "DUMMY"
+				events.append(SlotSet(EntitySlotEnum.TICKET_NO, ticket_id))
 			else:  # TODO: integrate with GLPI
-				# priorities = GLPIService.priority_values()
-				# priority_values = list(priorities.keys())
-				# glpi_priority = priorities[priority_values[1]]  # media
-				ticket: Ticket = Ticket({
-					'username': 'normal',  # TODO: set the actual logged in user
-					'title': 'Peticion de Maquina Virtual',
-					'description': remove_accents(request_description),
-					# 'priority': glpi_priority
-					'itilcategories_id': 54  # Equipos de computo
-				})
 				try:
 					response = glpi.create_ticket(ticket, ticket_type=2)  # Solicitud
 					ticket_id = response['id']

@@ -15,7 +15,7 @@ from actions.parsing import remove_accents
 logger = logging.getLogger(__name__)
 
 glpi_api_uri, glpi_app_token, glpi_auth_token, local_mode = load_glpi_config()
-glpi = GLPIService.get_instance(glpi_api_uri, glpi_app_token, glpi_auth_token)
+glpi = GLPIService.get_instance(glpi_api_uri, glpi_app_token, glpi_auth_token) if not local_mode else None
 
 
 class OpenIncidentForm(FormAction):
@@ -155,29 +155,29 @@ class OpenIncidentForm(FormAction):
 		          SlotSet(EntitySlotEnum.CONFIRM, None)]
 
 		if tracker.get_slot(EntitySlotEnum.CONFIRM):
+			# Check priority and set number value accordingly
+			# priorities = GLPIService.priority_values()
+			# priority_values = list(priorities.keys())
+			# if priority in priority_values:
+			# 	glpi_priority = priorities[priority]
+			# else:
+			# 	logger.warning(f'Priority value not found: {priority}. Setting it to default: (media)')
+			# 	glpi_priority = priorities[priority_values[1]]
+
+			ticket: Ticket = Ticket({
+				'username': 'normal',  # TODO: set the actual logged in user
+				'title': incident_title,
+				'description': remove_accents(incident_description),
+				# 'priority': glpi_priority
+				'itilcategories_id': int(itilcategory_id),
+				'alternative_email': email  # TODO: set as conditional if username is not logged in
+			})
 
 			if local_mode:
+				dispatcher.utter_message(f"This action would create a ticket with params: {ticket}")
 				ticket_id = "DUMMY"
 				events.append(SlotSet(EntitySlotEnum.TICKET_NO, ticket_id))
 			else:  # TODO: integrate with GLPI
-				# Check priority and set number value accordingly
-				# priorities = GLPIService.priority_values()
-				# priority_values = list(priorities.keys())
-				# if priority in priority_values:
-				# 	glpi_priority = priorities[priority]
-				# else:
-				# 	logger.warning(f'Priority value not found: {priority}. Setting it to default: (media)')
-				# 	glpi_priority = priorities[priority_values[1]]
-
-				ticket: Ticket  = Ticket({
-					'username': 'normal',  # TODO: set the actual logged in user
-					'title': incident_title,
-					'description': remove_accents(incident_description),
-					# 'priority': glpi_priority
-					'itilcategories_id': int(itilcategory_id),
-					'alternative_email': email  # TODO: set as conditional if username is not logged in
-				})
-				# logger.info(f'Ticket to be created: {ticket}')
 				try:
 					response = glpi.create_ticket(ticket)
 					ticket_id = response['id']

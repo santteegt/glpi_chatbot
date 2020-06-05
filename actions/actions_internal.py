@@ -16,7 +16,7 @@ from actions.parsing import get_entity_details, parse_duckling_time_as_interval,
 logger = logging.getLogger(__name__)
 
 glpi_api_uri, glpi_app_token, glpi_auth_token, local_mode = load_glpi_config()
-glpi = GLPIService.get_instance(glpi_api_uri, glpi_app_token, glpi_auth_token)
+glpi = GLPIService.get_instance(glpi_api_uri, glpi_app_token, glpi_auth_token) if not local_mode else None
 
 
 class BiometricsReportForm(FormAction):
@@ -152,16 +152,21 @@ class BiometricsReportForm(FormAction):
             'itilcategories_id': 60  # Reporte de datos
         })
 
-        try:
-            response = glpi.create_ticket(ticket, ticket_type=2)  # Solicitud
-            ticket_id = response['id']
-            # This is not actually required as its value is sent directly to the utter_message
+        if local_mode:
+            dispatcher.utter_message(f"This action would create a ticket with params: {ticket}")
+            ticket_id = 'DUMMY'
             events.append(SlotSet(EntitySlotEnum.TICKET_NO, ticket_id))
-        except GlpiException as e:
-            logger.error("Error when trying to create a ticket", e)
-            logger.error(f"Ticket: {ticket}")
-            dispatcher.utter_message(template=UtteranceEnum.PROCESS_FAILED)
-            return events
+        else:
+            try:
+                response = glpi.create_ticket(ticket, ticket_type=2)  # Solicitud
+                ticket_id = response['id']
+                # This is not actually required as its value is sent directly to the utter_message
+                events.append(SlotSet(EntitySlotEnum.TICKET_NO, ticket_id))
+            except GlpiException as e:
+                logger.error("Error when trying to create a ticket", e)
+                logger.error(f"Ticket: {ticket}")
+                dispatcher.utter_message(template=UtteranceEnum.PROCESS_FAILED)
+                return events
         dispatcher.utter_message(template=UtteranceEnum.TICKET_NO, ticket_no=ticket_id)
         dispatcher.utter_message(template=UtteranceEnum.CONFIRM_REQUEST)
         # dispatcher.utter_message(
