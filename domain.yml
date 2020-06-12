@@ -79,6 +79,8 @@ slots:
     type: unfeaturized
   time:
     type: unfeaturized
+  time_period:
+    type: unfeaturized
   start_time:
     type: unfeaturized
   end_time:
@@ -237,6 +239,8 @@ responses:
   - text: Su ID es inválido o no se encuentra registrado en nuestro sistema. Inténtelo nuevamente
   utter_ask_biometrics_id:
     - text: Cual es su Nro. único marcación?
+  utter_ask_time_period:
+    - text: En que periodo desea realizar su consulta?
   utter_welcome:
   - text: Fue un placer ayudarte
   - text: Un placer atender tu requerimiento

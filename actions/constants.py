@@ -22,6 +22,7 @@ class EntitySlotEnum(object):
     COURSE_TYPE = "course_type"
     PERSONAL_ID = "personal_id"
     BIOMETRICS_ID = "biometrics_id"
+    TIME_PERIOD = "time_period"  # dummy to get from time entity
     START_TIME = "start_time"  # Obtained from Duckling
     END_TIME = "end_time"  # Obtained from Duckling
     GRAIN = "grain"  # Obtained from Duckling

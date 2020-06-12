@@ -30,7 +30,7 @@ class BiometricsReportForm(FormAction):
         return [
             EntitySlotEnum.PERSONAL_ID,
             EntitySlotEnum.BIOMETRICS_ID,
-            EntitySlotEnum.TIME
+            EntitySlotEnum.TIME_PERIOD
         ]
 
     def slot_mappings(self) -> Dict[Text, Union[Dict, List[Dict]]]:
@@ -49,7 +49,7 @@ class BiometricsReportForm(FormAction):
                 self.from_entity(entity=EntitySlotEnum.BIOMETRICS_ID),
                 self.from_text(not_intent=IntentEnum.OUT_OF_SCOPE),
             ],
-            EntitySlotEnum.TIME: [
+            EntitySlotEnum.TIME_PERIOD: [
                 self.from_entity(entity=EntitySlotEnum.TIME)
             ]
         }
@@ -102,7 +102,7 @@ class BiometricsReportForm(FormAction):
             # user will get info to connect to the guest network
             return {EntitySlotEnum.BIOMETRICS_ID: None}
 
-    def validate_time(
+    def validate_time_period(
             self,
             value: Text,
             dispatcher: CollectingDispatcher,
@@ -110,11 +110,11 @@ class BiometricsReportForm(FormAction):
             domain: Dict[Text, Any],
     ) -> Dict[Text, Any]:
         """Validate time value."""
-        time_entity = get_entity_details(tracker, "time")
+        time_entity = get_entity_details(tracker, EntitySlotEnum.TIME)
         parsed_interval = parse_duckling_time_as_interval(time_entity)
         if not parsed_interval:
-            dispatcher.utter_message(template="utter_no_transactdate")
-            return {EntitySlotEnum.TIME: None}
+            dispatcher.utter_message(template=UtteranceEnum.INVALID)
+            return {EntitySlotEnum.TIME_PERIOD: None}
         # Returns { EntitySlotEnum.START_TIME, EntitySlotEnum.END_TIME, EntitySlotEnum.GRAIN }
         return parsed_interval
 
@@ -134,9 +134,11 @@ class BiometricsReportForm(FormAction):
         end_time = tracker.get_slot(EntitySlotEnum.END_TIME)
         grain = tracker.get_slot(EntitySlotEnum.GRAIN)
 
-        events = [SlotSet(EntitySlotEnum.PERSONAL_ID, None),
+        events = [SlotSet(EntitySlotEnum.ITILCATEGORY_ID, None),
+                  SlotSet(EntitySlotEnum.PERSONAL_ID, None),
                   SlotSet(EntitySlotEnum.BIOMETRICS_ID, None),
                   SlotSet(EntitySlotEnum.TIME, None),
+                  SlotSet(EntitySlotEnum.TIME_PERIOD, None),
                   SlotSet(EntitySlotEnum.START_TIME, None),
                   SlotSet(EntitySlotEnum.END_TIME, None),
                   SlotSet(EntitySlotEnum.GRAIN, None)]
@@ -169,9 +171,5 @@ class BiometricsReportForm(FormAction):
                 return events
         dispatcher.utter_message(template=UtteranceEnum.TICKET_NO, ticket_no=ticket_id)
         dispatcher.utter_message(template=UtteranceEnum.CONFIRM_REQUEST)
-        # dispatcher.utter_message(
-        #     "This action will create a ticket for requesting a biometrics report with "
-        #     + f"ID: {personal_id} BIO_ID: {biometrics_id}"
-        # )
-        # return [AllSlotsReset()]
-        return events
+
+        return [AllSlotsReset(), SlotSet(EntitySlotEnum.TICKET_NO, ticket_id)]
