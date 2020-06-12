@@ -100,6 +100,50 @@
  - action_deactivate_form
  - form{"name":null}
  - slot {"ticket_no": null}
+
+## get incident status form
+* get_incident_status
+ - incident_status_form
+ - form{"name": "incident_status_form"}
+ - form{"name": null}
+
+## get incident status form interrupted
+* get_incident_status
+ - incident_status_form
+ - form{"name": "incident_status_form"}
+* help
+ - utter_help
+ - incident_status_form
+ - form{"name":null}
+
+## get incident status form interrupted
+* get_incident_status
+ - incident_status_form
+ - form{"name": "incident_status_form"}
+* out_of_scope
+ - utter_out_of_scope
+ - incident_status_form
+ - form{"name":null}
+
+## get incident status form stop but continue
+* get_incident_status
+ - incident_status_form
+ - form{"name": "incident_status_form"}
+* deny
+ - utter_continue
+* confirm
+ - incident_status_form
+ - form{"name":null}
+
+## get incident status form stop and cancel
+* get_incident_status
+ - incident_status_form
+ - form{"name": "incident_status_form"}
+* deny
+ - utter_continue
+* deny
+ - action_deactivate_form
+ - form{"name":null}
  
 ## connect_wifi form happy_path success
 * connect_wifi

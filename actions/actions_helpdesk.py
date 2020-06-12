@@ -5,6 +5,7 @@ from rasa_sdk import Tracker
 from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.forms import FormAction
 from rasa_sdk.events import SlotSet, EventType
+import re
 from typing import Dict, Text, Any, List, Union, Optional
 
 from actions.actions_base import request_next_slot
@@ -193,5 +194,111 @@ class OpenIncidentForm(FormAction):
 		else:
 			events.append(SlotSet(EntitySlotEnum.TICKET_NO, None))
 			dispatcher.utter_message(template=UtteranceEnum.PROCESS_CANCELLED)
+
+		return events
+
+
+class IncidentStatusForm(FormAction):
+
+	def name(self) -> Text:
+		return "incident_status_form"
+
+	@staticmethod
+	def required_slots(tracker: Tracker) -> List[Text]:
+		"""A list of required slots that the form has to fill"""
+		return [
+			EntitySlotEnum.TICKET_NO,
+			EntitySlotEnum.EMAIL
+		]
+
+	def slot_mappings(self) -> Dict[Text, Union[Dict, List[Dict]]]:
+		"""A dictionary to map required slots to
+		- an extracted entity
+		- intent: value pairs
+		- a whole message
+		or a list of them, where a first match will be picked"""
+
+		return {
+			EntitySlotEnum.TICKET_NO: [
+				self.from_entity(entity=EntitySlotEnum.TICKET_NO),
+				self.from_text(not_intent=IntentEnum.OUT_OF_SCOPE)
+			],
+			EntitySlotEnum.EMAIL: self.from_entity(entity=EntitySlotEnum.EMAIL)
+		}
+
+	def validate_ticket_no(
+			self,
+			value: Text,
+			dispatcher: CollectingDispatcher,
+			tracker: Tracker,
+			domain: Dict[Text, Any],
+	) -> Dict[Text, Any]:
+		"""Validate email is in ticket system."""
+		if local_mode:
+			return {EntitySlotEnum.TICKET_NO: value}
+
+		if re.match(r"^[0-9]+$", value) is not None:
+			return {EntitySlotEnum.TICKET_NO: value}
+		else:
+			dispatcher.utter_message(template=UtteranceEnum.INVALID)
+			# validation failed, set this slot to None, meaning the
+			# user will get info to connect to the guest network
+			return {EntitySlotEnum.TICKET_NO: None}
+
+	def validate_email(
+			self,
+			value: Text,
+			dispatcher: CollectingDispatcher,
+			tracker: Tracker,
+			domain: Dict[Text, Any],
+	) -> Dict[Text, Any]:
+		"""Validate email is in ticket system."""
+		if local_mode:
+			return {EntitySlotEnum.EMAIL: value}
+
+		# TODO: validate if email format
+		return {EntitySlotEnum.EMAIL: value}
+
+	def submit(
+			self,
+			dispatcher: CollectingDispatcher,
+			tracker: Tracker,
+			domain: Dict[Text, Any],
+	) -> List[Dict]:
+		"""Define what the form has to do after all required slots are filled"""
+
+		ticket_no = tracker.get_slot(EntitySlotEnum.TICKET_NO)
+		email = tracker.get_slot(EntitySlotEnum.EMAIL)
+
+		events = []
+
+		if local_mode:
+			dispatcher.utter_message(f"This action would retrieve a status for ticket with code: {ticket_no}")
+		else:
+			try:
+				response = glpi.get_ticket_status(ticket_no)  # to get alternative_email?
+				# TODO: validate ticket with provided username and email
+				if len(response['alternative_email']) == 0:
+					user = glpi.get_user(user_id=response['user_id'])
+					logger.warning(f'User found: {user}')
+					# TODO: complete logic
+				elif response['alternative_email'] != email:
+					message = 'Lo siento! No se ha encontrado un ticket asociado a la información especificada'
+					dispatcher.utter_message(message)
+					events.append(SlotSet(EntitySlotEnum.TICKET_NO, None))
+					events.append(SlotSet(EntitySlotEnum.EMAIL, None))
+
+				# TODO: set values properly
+				# closedate
+				status = response['status']
+				resolution = response['solvedate'] if response['solvedate'] else 'No disponible'
+
+				dispatcher.utter_message('A continuación se encuentra la última información sobre su incidencia')
+				dispatcher.utter_message(template=UtteranceEnum.TICKET_STATUS, ticket_no=ticket_no,
+				                         title=response['title'], category=response['category'],
+				                         status=status, resolution=resolution, date_mod=response['date_mod'])
+			except GlpiException as e:
+				logger.error(f"Error when trying to fetch ticket status: {ticket_no}", e)
+				dispatcher.utter_message(template=UtteranceEnum.PROCESS_FAILED)
 
 		return events

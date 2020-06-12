@@ -116,6 +116,26 @@
 - Tengo un problem y necesito reportar una incidecia
 - Tengo un inconveniente y necesito abrir una incidencia
 
+## intent:get_incident_status
+- cual es el estado actual de mi ticket [0055](ticket_no)
+- estado de incidencia
+- ya fue solucionado mi inconveniente?
+- quiero saber el estado de mi incidencia
+- consultar el estado de incidencia
+- consulta ticket numero [64524](ticket_no)
+- estado de ticket [1234546](ticket_no)
+- solucionaron mi ticket?
+- cual fue la resolucion de mi incidencia?
+- estado de ticket [2356](ticket_no)
+- ver estado de ticket con id [653354](ticket_no)
+- que paso con la incidencia que reporte?
+- atendieron mi ticket?
+- cual es el progreso de la incidencia [0055](ticket_no)
+- cual es el estado de mi requerimiento
+- consultar el estado de mi requerimiento
+- quiero saber el estado de mi requerimiento
+- como va mi requerimiento
+
 ## intent:password_reset
 - necesito recuperar mi contraseña
 - necesito ayuda para recuperar mi contaseña

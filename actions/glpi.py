@@ -110,10 +110,10 @@ class GLPIService(object):
 		"""
 		metacriteria = [{
 			'id': '1',
-			'field': 'name'  # title
+			'field': 'title'  # title
 		}, {
 			'id': '7',
-			'field': 'completename'  # category name
+			'field': 'category'  # category name
 		}, {
 			'id': '2',
 			'field': 'id'
@@ -156,6 +156,9 @@ class GLPIService(object):
 		}, {
 			'id': '18',
 			'field': 'time_to_solve'
+		}, {
+			'id': '19',
+			'field': 'date_mod'
 		}]
 		full_url = f'{self.base_uri}/search/ticket?criteria[0][field]=2&criteria[0][value]={ticket_id}' + \
 		           '&criteria[0][searchtype]=equals'
@@ -169,12 +172,14 @@ class GLPIService(object):
 			raise GlpiException(f'Failed to fetch info about ticket: {ticket_id} Reason: {r.reason}')
 		json_data = r.json()
 		data = json_data['data'] if 'data' in json_data else []
-		return {opts[k]['field']: v for k, v in data[0].items()}
+		# return {f"{opts[k]['field']}_k": v for k, v in data[0].items()}
+		return {next(field for field in metacriteria if field['id'] == k)["field"]: v for k, v in data[0].items()}
 
-	def get_user(self, username: Text):
+	def get_user(self, username: Text = '', user_id: int = None):
 		"""
 		Get user basic information
 		:param username: username used for authentication
+		:param user_id: user id in case you don't have the exact username
 		:return: User data fields specified in the metacriteria (see below)
 		Example:
 			{'name': john.doe,
@@ -187,9 +192,9 @@ class GLPIService(object):
 		user_criteria: Dict = {
 			'criteria': [
 				{
-					'searchtype': 'contains',
-					'field': 1,  # name
-					'value': username
+					'searchtype': 'equals' if user_id else 'contains',
+					'field': 2 if user_id else 1,
+					'value': user_id if user_id else username
 				}
 			],
 			'metacriteria': [

@@ -243,6 +243,7 @@ class ComputeResourceForm(FormAction):
 		logger.info(f"{self.name()}: {request_description}")
 
 		events = [
+			SlotSet(EntitySlotEnum.ITILCATEGORY_ID, None),
 			SlotSet(EntitySlotEnum.DEPARTMENT, None),
 			SlotSet(EntitySlotEnum.VM_ENVIRONMENT, None),
 			SlotSet(EntitySlotEnum.VM_RAM, None),

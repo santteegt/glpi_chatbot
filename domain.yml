@@ -14,6 +14,10 @@ intents:
     use_entities:
       - email
       - incident_title
+- get_incident_status:
+    use_entities:
+      - ticket_no
+      - email
 - password_reset
 - problem_email
 - connect_wifi
@@ -107,6 +111,8 @@ responses:
   - text: No ha sido posible validar su inicio de sesión. Por favo inténtelo nuevamente
   utter_iamabot:
   - text: Soy un robot que trabaja 24/7 para la DTIC de la U de Cuenca
+  utter_ask_ticket_no:
+  - text: Cual es el No de ticket asignado a su incidencia?
   utter_ask_email:
   - text: Cual es su direccion de correo electronico?
   - text: Me puedes ayudar con su cuenta de correo electronico institucional?
@@ -271,6 +277,13 @@ responses:
         payload: /deny
   utter_ticket_no:
   - text: 'El Nro. de ticket de su solicitud es: {ticket_no}'
+  utter_ticket_status:
+  - text: "Ticket #{ticket_no}:\n\
+  \ - Título: {title}\n\
+  \ - Categoria: {category}\n\
+  \ - Estado: {status}\n\
+  \ - Resolución: {resolution}\n\
+  \ - Última actualización: {date_mod}"
   utter_confirm_request:
   - text: Su solicitud ha sido enviada exitosamente!. Por favor revise su correo electronico
   utter_process_cancelled:
@@ -306,6 +319,7 @@ actions:
 
 forms:
 - open_incident_form
+- incident_status_form
 - wifi_faq_form
 - create_user_faq_form
 - biometrics_report_form
