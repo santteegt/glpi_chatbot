@@ -175,7 +175,7 @@ class OpenIncidentForm(FormAction):
 			})
 
 			if local_mode:
-				dispatcher.utter_message(f"This action would create a ticket with params: {ticket}")
+				dispatcher.utter_message(f"Esta acción crearía un ticket con la siguiente información: {ticket}")
 				ticket_id = "DUMMY"
 				events.append(SlotSet(EntitySlotEnum.TICKET_NO, ticket_id))
 			else:  # TODO: integrate with GLPI
@@ -273,7 +273,7 @@ class IncidentStatusForm(FormAction):
 		events = []
 
 		if local_mode:
-			dispatcher.utter_message(f"This action would retrieve a status for ticket with code: {ticket_no}")
+			dispatcher.utter_message(f"Esta acción obtendría información del ticket con id: {ticket_no}")
 		else:
 			try:
 				response = glpi.get_ticket_status(ticket_no)  # to get alternative_email?

@@ -3,6 +3,7 @@
 from datetime import datetime
 from future.utils import viewitems
 from glpi import GLPI
+import json
 import logging
 import os
 import re
@@ -45,10 +46,11 @@ def load_glpi_config(config_file="glpi_credentials.yml"):
 	glpi_app_token = os.environ.get("GLPI_APP_TOKEN") if os.environ.get("GLPI_APP_TOKEN") else glpi_config.get("app_token")
 	glpi_auth_token = os.environ.get("GLPI_AUTH_TOKEN") if os.environ.get("GLPI_AUTH_TOKEN") else glpi_config.get("auth_token")
 	local_mode = os.environ.get("GLPI_LOCALMODE") if os.environ.get("GLPI_LOCALMODE") else glpi_config.get("localmode", True)
+	local_mode = json.loads(local_mode.lower()) if type(local_mode) == str else local_mode
 
 	if not os.environ.get("GLPI_CONFIG_LOADED"):
 		os.environ["GLPI_CONFIG_LOADED"] = "1"
-		logger.info(f"GLPI Helpdesk settings in {config_file}: "
+		logger.info(f"GLPI Helpdesk settings: "
 		            f"URI: {glpi_api_uri} | Auth Token?: {glpi_app_token is not None}"
 		            f"| App Token?: {glpi_auth_token is not None} | Local Mode?: {local_mode}")
 

@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 
 import logging
-import random
 from typing import Text, List, Dict, Any, Union, Optional
 from rasa_sdk import Tracker
 from rasa_sdk.events import EventType, SlotSet
@@ -265,8 +264,7 @@ class ComputeResourceForm(FormAction):
 				'itilcategories_id': 54  # Equipos de computo
 			})
 			if local_mode:
-				dispatcher.utter_message(f"This action would create a ticket with params: {ticket}")
-				# ticket_id: Text = "{:04d}".format(random.randint(1, 1000))
+				dispatcher.utter_message(f"Esta acción crearía un ticket con la siguiente información: {ticket}")
 				ticket_id: Text = "DUMMY"
 				events.append(SlotSet(EntitySlotEnum.TICKET_NO, ticket_id))
 			else:  # TODO: integrate with GLPI

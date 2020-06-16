@@ -155,7 +155,7 @@ class BiometricsReportForm(FormAction):
         })
 
         if local_mode:
-            dispatcher.utter_message(f"This action would create a ticket with params: {ticket}")
+            dispatcher.utter_message(f"Esta acción crearía un ticket con la siguiente información: {ticket}")
             ticket_id = 'DUMMY'
             events.append(SlotSet(EntitySlotEnum.TICKET_NO, ticket_id))
         else:
