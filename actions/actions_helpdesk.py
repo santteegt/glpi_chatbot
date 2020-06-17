@@ -74,6 +74,10 @@ class OpenIncidentForm(FormAction):
 					intent=IntentEnum.PROBLEM_EMAIL,
 					value="41"  # Correo electronico,
 				),
+				self.from_trigger_intent(
+					intent=IntentEnum.OPEN_INCIDENT,
+					value="65"  # Varios
+				)
 			],
 			EntitySlotEnum.CONFIRM: [
 				self.from_intent(intent=IntentEnum.CONFIRM, value=True),
