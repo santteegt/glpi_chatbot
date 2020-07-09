@@ -255,6 +255,72 @@ responses:
       Puedo ayuarte con tu "Conexión a la red WIFI", en la "Creacion de usuario",
       o con tu "Informe de intentos de marcación".
   utter_suggest:
+  - custom:
+    attachment:
+      type: "template"
+      payload:
+        template_type: "generic"
+        elements:
+        - default_action:
+            type: "carousel_item" # web_url
+            url: ""
+            payload: ""
+            title: ""
+          image_url: "https://www.aupairconecta.com/sites/default/files/v211batch11-aum-546-questionmark_2.jpg"
+          title: Preguntas Frecuentes
+          subtitle: Información de procesos de la U
+          buttons:
+            - title: Conexión a la red WiFi
+              payload: /connect_wifi
+              type: "postback" # web_url
+              url: ""
+            - title: ¿Cómo crear un usuario?
+              payload: /create_user
+              type: "postback" # web_url
+              url: ""
+        - default_action:
+            type: "carousel_item" # web_url
+            url: ""
+            payload: ""
+            title: ""
+          image_url: "https://www.infochannel.info/sites/default/files/2019/04/02/help_desk_app.jpg"
+          title: Mesa de Servicios DTIC
+          subtitle: Ayuda con servicios informáticos
+          buttons:
+            - title: Reportar una incidencia
+              payload: /open_incident
+              type: "postback" # web_url
+              url: ""
+            - title: Estado de mi incidencia
+              payload: /get_incident_status
+              type: "postback" # web_url
+              url: ""
+            - title: No recuerdo la contraseña
+              payload: /password_reset
+              type: "postback" # web_url
+              url: ""
+            - title: Problem con correo electrónico
+              payload: /problem_email
+              type: "postback" # web_url
+              url: ""
+        - default_action:
+            type: "carousel_item" # web_url
+            url: ""
+            payload: ""
+            title: ""
+          image_url: "https://www.universidades.com.ec/logos/original/logo-universidad-de-cuenca.png"
+          title: Procesos Internos
+          subtitle: Uso exclusivo para el personal
+          buttons:
+            - title: Reporte Biométrico
+              payload: /request_biometrics_report
+              type: "postback" # web_url
+              url: ""
+            - title: Solicitud de máquina virtual
+              payload: /request_vm
+              type: "postback" # web_url
+              url: ""
+    channel: socketio
   - text: Tal vez te interesan resolver uno de estos procesos?
       Tambien puede darme una descripción del problema que necesita resolver.
     buttons:

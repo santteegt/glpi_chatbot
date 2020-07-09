@@ -149,6 +149,9 @@
 - perdi mi contraseña
 - no me acuerdo de la contraseña
 - no recuerdo mi contraseña
+- ayuda no recuerdo mi clave
+- olvide mi clave de usuario
+- como puedo recuperar mi clave de usuario?
 
 ## intent:problem_email
 - no puedo acceder a mi cuenta de correo electrónico

@@ -9,7 +9,6 @@
 ## happy path
 * greet
  - utter_greet
- - utter_help
  - utter_suggest
  
 ## login happy path
