@@ -100,8 +100,11 @@ responses:
   - text: Tu respuesta no es muy clara. Puedes escribir "ayuda" para mayor asistencia.
   utter_greet:
   - text: Hola! Bienvenido al Sistema de Helpdesk de la Universidad de Cuenca.
-  - text: Bienvenido al Sistema Helpdesk de la U de Cuenca (TESTNET)
-    channel: "rasa"
+  - text: Hola! Bienvenido al Sistema de Helpdesk de la Universidad de Cuenca.
+      ¿Tal vez le puedo ayudar a resolver uno de estos requerimientos?
+    channel: socketio
+  - text: Bienvenido al Sistema Helpdesk de la U de Cuenca (TEST)
+    channel: rasa
   utter_goodbye:
   - text: Hasta luego! Gracias por utilizar el servicio
   - text: Gracias por utilizar el servicio. Adiós!
@@ -321,7 +324,7 @@ responses:
               type: "postback" # web_url
               url: ""
     channel: socketio
-  - text: Tal vez te interesan resolver uno de estos procesos?
+  - text: Tal vez le interesa resolver uno de estos requerimientos?
       Tambien puede darme una descripción del problema que necesita resolver.
     buttons:
       - title: Conexión a la red WIFI
