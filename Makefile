@@ -28,22 +28,22 @@ clean:
 	rm -rf docs/_build
 
 formatter:
-	black actions/* --line-length 79
+	black actions/* --line-length 90
 
 lint:
 	flake8 actions/*
-	black --check actions/* --line-length 79
+	black actions/* --line-length 90
 
 types:
-	pytype --keep-going actions.py
+	pytype --keep-going actions
 
 validate:
-	rasa train
-	rasa data validate --debug
+# 	rasa train
+	rasa data validate --max-history 5 --debug
 
-test:
-	rasa train
-	rasa test --stories tests/e2e-stories.md --fail-on-prediction-errors --e2e
+e2e:
+# 	rasa train
+	rasa test core --stories tests/conversation_tests.md --fail-on-prediction-errors --e2e
 
 crossval:
 	rasa test nlu -f 5 --cross-validation
