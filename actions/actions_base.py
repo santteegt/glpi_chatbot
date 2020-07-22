@@ -14,10 +14,11 @@ logger = logging.getLogger(__name__)
 
 
 def request_next_slot(
-        form: FormAction,
-        dispatcher: CollectingDispatcher,
-        tracker: Tracker,
-        domain: Dict[Text, Any]) -> Optional[List[EventType]]:
+    form: FormAction,
+    dispatcher: CollectingDispatcher,
+    tracker: Tracker,
+    domain: Dict[Text, Any],
+) -> Optional[List[EventType]]:
     """
     Custom method to set a custom utterance templata if slot == confirm
     :param form: Form Action object
@@ -33,7 +34,9 @@ def request_next_slot(
             return [SlotSet(REQUESTED_SLOT, slot)]
 
 
-def ask_if_success(dispatcher: CollectingDispatcher, incident_title: Text, itilcategory_id: int = None):
+def ask_if_success(
+    dispatcher: CollectingDispatcher, incident_title: Text, itilcategory_id: int = None
+):
     """
     Ask if request was succesful. Otherwise redirects to report an incident
     :param dispatcher: Rasa SDK Dispatcher
@@ -41,19 +44,19 @@ def ask_if_success(dispatcher: CollectingDispatcher, incident_title: Text, itilc
     :param itilcategory_id: ITIL category for the incident
     """
 
-    params = '{'
+    params = "{"
     params += f'"{EntitySlotEnum.INCIDENT_TITLE}":"{incident_title}"'
     if itilcategory_id:
         params += f', "{EntitySlotEnum.ITILCATEGORY_ID}":"{itilcategory_id}"'
-    params += '}'
+    params += "}"
 
-    dispatcher.utter_message(template=UtteranceEnum.CONFIRM_SUCCESS, buttons=[
-        {"title": "Si", "payload": f"/{IntentEnum.CONFIRM}"},
-        {
-            "title": "No",
-            "payload": f"/{IntentEnum.DENY}" + params
-        }
-    ])
+    dispatcher.utter_message(
+        template=UtteranceEnum.CONFIRM_SUCCESS,
+        buttons=[
+            {"title": "Si", "payload": f"/{IntentEnum.CONFIRM}"},
+            {"title": "No", "payload": f"/{IntentEnum.DENY}" + params},
+        ],
+    )
 
 
 class ActionDefaultAskAffirmation(Action):

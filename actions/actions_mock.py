@@ -52,9 +52,9 @@ class ValidateAuth(Action):
 
             # events.append(FollowupAction("utter_intro"))
             # TODO get username & email from token info
-            username = 'normal'
-            email = 'normal@ucuenca.edu.ec'
-            events.append(SlotSet('username', username))
-            events.append(SlotSet('email', email))
+            username = "normal"
+            email = "normal@ucuenca.edu.ec"
+            events.append(SlotSet("username", username))
+            events.append(SlotSet("email", email))
 
         return events

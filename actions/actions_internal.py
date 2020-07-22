@@ -11,12 +11,20 @@ import re
 
 from actions.constants import EntitySlotEnum, IntentEnum, UtteranceEnum
 from actions.glpi import GLPIService, GlpiException, load_glpi_config, Ticket
-from actions.parsing import get_entity_details, parse_duckling_time_as_interval, remove_accents
+from actions.parsing import (
+    get_entity_details,
+    parse_duckling_time_as_interval,
+    remove_accents,
+)
 
 logger = logging.getLogger(__name__)
 
 glpi_api_uri, glpi_app_token, glpi_auth_token, local_mode = load_glpi_config()
-glpi = GLPIService.get_instance(glpi_api_uri, glpi_app_token, glpi_auth_token) if not local_mode else None
+glpi = (
+    GLPIService.get_instance(glpi_api_uri, glpi_app_token, glpi_auth_token)
+    if not local_mode
+    else None
+)
 
 
 class BiometricsReportForm(FormAction):
@@ -30,7 +38,7 @@ class BiometricsReportForm(FormAction):
         return [
             EntitySlotEnum.PERSONAL_ID,
             EntitySlotEnum.BIOMETRICS_ID,
-            EntitySlotEnum.TIME_PERIOD
+            EntitySlotEnum.TIME_PERIOD,
         ]
 
     def slot_mappings(self) -> Dict[Text, Union[Dict, List[Dict]]]:
@@ -49,9 +57,7 @@ class BiometricsReportForm(FormAction):
                 self.from_entity(entity=EntitySlotEnum.BIOMETRICS_ID),
                 self.from_text(not_intent=IntentEnum.OUT_OF_SCOPE),
             ],
-            EntitySlotEnum.TIME_PERIOD: [
-                self.from_entity(entity=EntitySlotEnum.TIME)
-            ]
+            EntitySlotEnum.TIME_PERIOD: [self.from_entity(entity=EntitySlotEnum.TIME)],
         }
 
     @staticmethod
@@ -71,10 +77,7 @@ class BiometricsReportForm(FormAction):
         """Validate personal_id has a valid value."""
 
         # TODO: Validate it is registered as employee
-        if (
-            re.match(r"[0-9]+$", value) is not None
-            and value in self.query_employee_db()
-        ):
+        if re.match(r"[0-9]+$", value) is not None and value in self.query_employee_db():
             # validation succeeded
             return {EntitySlotEnum.PERSONAL_ID: value}
         else:
@@ -103,11 +106,11 @@ class BiometricsReportForm(FormAction):
             return {EntitySlotEnum.BIOMETRICS_ID: None}
 
     def validate_time_period(
-            self,
-            value: Text,
-            dispatcher: CollectingDispatcher,
-            tracker: Tracker,
-            domain: Dict[Text, Any],
+        self,
+        value: Text,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: Dict[Text, Any],
     ) -> Dict[Text, Any]:
         """Validate time value."""
         time_entity = get_entity_details(tracker, EntitySlotEnum.TIME)
@@ -119,10 +122,7 @@ class BiometricsReportForm(FormAction):
         return parsed_interval
 
     def submit(
-        self,
-        dispatcher: CollectingDispatcher,
-        tracker: Tracker,
-        domain: Dict[Text, Any],
+        self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any],
     ) -> List[Dict]:
         """Define what the form has to do
             after all required slots are filled"""
@@ -134,34 +134,40 @@ class BiometricsReportForm(FormAction):
         end_time = tracker.get_slot(EntitySlotEnum.END_TIME)
         grain = tracker.get_slot(EntitySlotEnum.GRAIN)
 
-        events = [SlotSet(EntitySlotEnum.ITILCATEGORY_ID, None),
-                  SlotSet(EntitySlotEnum.PERSONAL_ID, None),
-                  SlotSet(EntitySlotEnum.BIOMETRICS_ID, None),
-                  SlotSet(EntitySlotEnum.TIME, None),
-                  SlotSet(EntitySlotEnum.TIME_PERIOD, None),
-                  SlotSet(EntitySlotEnum.START_TIME, None),
-                  SlotSet(EntitySlotEnum.END_TIME, None),
-                  SlotSet(EntitySlotEnum.GRAIN, None)]
+        events = [
+            SlotSet(EntitySlotEnum.ITILCATEGORY_ID, None),
+            SlotSet(EntitySlotEnum.PERSONAL_ID, None),
+            SlotSet(EntitySlotEnum.BIOMETRICS_ID, None),
+            SlotSet(EntitySlotEnum.TIME, None),
+            SlotSet(EntitySlotEnum.TIME_PERIOD, None),
+            SlotSet(EntitySlotEnum.START_TIME, None),
+            SlotSet(EntitySlotEnum.END_TIME, None),
+            SlotSet(EntitySlotEnum.GRAIN, None),
+        ]
 
-        description = f'Datos de Validacion: \n ID: {personal_id}\n BIOMETRICS_ID: {biometrics_id}\n'
-        description += f'Periodo: {start_time} / {end_time} ({grain})'
+        description = f"Datos de Validacion: \n ID: {personal_id}\n BIOMETRICS_ID: {biometrics_id}\n"
+        description += f"Periodo: {start_time} / {end_time} ({grain})"
 
-        ticket: Ticket = Ticket({
-            'username': 'normal',  # TODO: set the actual logged in user
-            'title': 'Solicitud Informe Sistema Biometrico',
-            'description': remove_accents(description),
-            # 'priority': glpi_priority
-            'itilcategories_id': 60  # Reporte de datos
-        })
+        ticket: Ticket = Ticket(
+            {
+                "username": "normal",  # TODO: set the actual logged in user
+                "title": "Solicitud Informe Sistema Biometrico",
+                "description": remove_accents(description),
+                # 'priority': glpi_priority
+                "itilcategories_id": 60,  # Reporte de datos
+            }
+        )
 
         if local_mode:
-            dispatcher.utter_message(f"Esta acción crearía un ticket con la siguiente información: {ticket}")
-            ticket_id = 'DUMMY'
+            dispatcher.utter_message(
+                f"Esta acción crearía un ticket con la siguiente información: {ticket}"
+            )
+            ticket_id = "DUMMY"
             events.append(SlotSet(EntitySlotEnum.TICKET_NO, ticket_id))
         else:
             try:
                 response = glpi.create_ticket(ticket, ticket_type=2)  # Solicitud
-                ticket_id = response['id']
+                ticket_id = response["id"]
                 # This is not actually required as its value is sent directly to the utter_message
                 events.append(SlotSet(EntitySlotEnum.TICKET_NO, ticket_id))
             except GlpiException as e:

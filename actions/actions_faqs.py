@@ -42,9 +42,7 @@ class WifiFaqForm(FormAction):
             or a list of them, where a first match will be picked"""
 
         return {
-            EntitySlotEnum.EMAIL: self.from_entity(
-                entity=EntitySlotEnum.EMAIL
-            ),
+            EntitySlotEnum.EMAIL: self.from_entity(entity=EntitySlotEnum.EMAIL),
             EntitySlotEnum.WIFI_NETWORK: [
                 self.from_entity(entity=EntitySlotEnum.WIFI_NETWORK),
                 self.from_text(intent=[IntentEnum.CONNECT_WIFI, IntentEnum.INFORM]),
@@ -100,10 +98,7 @@ class WifiFaqForm(FormAction):
             }
 
     def submit(
-        self,
-        dispatcher: CollectingDispatcher,
-        tracker: Tracker,
-        domain: Dict[Text, Any],
+        self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any],
     ) -> List[Dict]:
         """Define what the form has to do
             after all required slots are filled"""
@@ -118,7 +113,11 @@ class WifiFaqForm(FormAction):
 
         dispatcher.utter_message(template=instructions[wifi_network])
 
-        ask_if_success(dispatcher, incident_title="Problema de conexion a la red WIFI", itilcategory_id=52)
+        ask_if_success(
+            dispatcher,
+            incident_title="Problema de conexion a la red WIFI",
+            itilcategory_id=52,
+        )
 
         return [SlotSet(EntitySlotEnum.WIFI_NETWORK, None)]
 
@@ -150,7 +149,7 @@ class CreateUserFaqForm(FormAction):
             ],
             EntitySlotEnum.COURSE_TYPE: [
                 self.from_entity(entity=EntitySlotEnum.COURSE_TYPE),
-            ]
+            ],
         }
 
     @staticmethod
@@ -179,10 +178,7 @@ class CreateUserFaqForm(FormAction):
             return {EntitySlotEnum.COURSE_TYPE: None}
 
     def submit(
-        self,
-        dispatcher: CollectingDispatcher,
-        tracker: Tracker,
-        domain: Dict[Text, Any],
+        self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any],
     ) -> List[Dict]:
         """Define what the form has to do
             after all required slots are filled"""
@@ -203,9 +199,13 @@ class CreateUserFaqForm(FormAction):
                 + instructions[course_type]
             )
 
-        ask_if_success(dispatcher, incident_title="Problema para crear un usuario", itilcategory_id=56)
+        ask_if_success(
+            dispatcher,
+            incident_title="Problema para crear un usuario",
+            itilcategory_id=56,
+        )
 
         return [
             SlotSet(EntitySlotEnum.COURSE_TYPE, None),
-            SlotSet(EntitySlotEnum.HAS_EMAIL, None)
+            SlotSet(EntitySlotEnum.HAS_EMAIL, None),
         ]

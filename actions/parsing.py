@@ -31,7 +31,7 @@ def close_interval_duckling_time(time_info: Dict[Text, Any]) -> Optional[Dict[Te
         return {
             EntitySlotEnum.START_TIME: format_time_by_grain(parsed_start, grain),
             EntitySlotEnum.END_TIME: format_time_by_grain(parsed_end, grain),
-            EntitySlotEnum.GRAIN: grain
+            EntitySlotEnum.GRAIN: grain,
         }
 
 
@@ -50,11 +50,13 @@ def make_interval_from_value_duckling_time(time_info: Dict[Text, Any]) -> Dict[T
     return {
         EntitySlotEnum.START_TIME: format_time_by_grain(parsed_start, grain),
         EntitySlotEnum.END_TIME: format_time_by_grain(parsed_end, grain),
-        EntitySlotEnum.GRAIN: grain
+        EntitySlotEnum.GRAIN: grain,
     }
 
 
-def parse_duckling_time_as_interval(time_entity: Dict[Text, Any]) -> Optional[Dict[Text, Any]]:
+def parse_duckling_time_as_interval(
+    time_entity: Dict[Text, Any]
+) -> Optional[Dict[Text, Any]]:
     """
 
     :param time_entity: metadata returned from duckling
@@ -73,8 +75,8 @@ def remove_accents(text: Text) -> Text:
     :param text: original text
     :return: normalized text
     """
-    nkfd_form = unicodedata.normalize('NFKD', text)
-    return u"".join([c for c in nkfd_form if not unicodedata.combining(c)])
+    nkfd_form = unicodedata.normalize("NFKD", text)
+    return "".join([c for c in nkfd_form if not unicodedata.combining(c)])
 
 
 # TODO: To be reviewed
@@ -90,9 +92,7 @@ def format_time_by_grain(time, grain=None):
     return time.strftime(timeformat)
 
 
-def parse_duckling_time(
-    timeentity: Dict[Text, Any]
-) -> Optional[Dict[Text, Any]]:
+def parse_duckling_time(timeentity: Dict[Text, Any]) -> Optional[Dict[Text, Any]]:
     timeinfo = timeentity.get("additional_info", {})
     if timeinfo.get("type") == "value":
         value = timeinfo.get("value")
@@ -104,18 +104,14 @@ def parse_duckling_time(
         return parsedtime
 
 
-def get_entity_details(
-    tracker: Tracker, entity_type: Text
-) -> Optional[Dict[Text, Any]]:
+def get_entity_details(tracker: Tracker, entity_type: Text) -> Optional[Dict[Text, Any]]:
     all_entities = tracker.latest_message.get("entities", [])
     entities = [e for e in all_entities if e.get("entity") == entity_type]
     if entities:
         return entities[0]
 
 
-def parse_duckling_currency(
-    entity: Dict[Text, Any]
-) -> Optional[Dict[Text, Any]]:
+def parse_duckling_currency(entity: Dict[Text, Any]) -> Optional[Dict[Text, Any]]:
     if entity.get("entity") == "amount-of-money":
         amount = entity.get("additional_info", {}).get("value")
         currency = entity.get("additional_info", {}).get("unit")
