@@ -1,0 +1,80 @@
+{
+  "vm_environment": {
+    "precision": 1.0,
+    "recall": 0.7777777777777778,
+    "f1-score": 0.8750000000000001,
+    "support": 9
+  },
+  "course_type": {
+    "precision": 0.8888888888888888,
+    "recall": 0.8,
+    "f1-score": 0.8421052631578948,
+    "support": 10
+  },
+  "vm_cpu_cores": {
+    "precision": 0.5714285714285714,
+    "recall": 0.5714285714285714,
+    "f1-score": 0.5714285714285714,
+    "support": 7
+  },
+  "vm_scalability": {
+    "precision": 1.0,
+    "recall": 0.5,
+    "f1-score": 0.6666666666666666,
+    "support": 4
+  },
+  "wifi_network": {
+    "precision": 1.0,
+    "recall": 0.875,
+    "f1-score": 0.9333333333333333,
+    "support": 8
+  },
+  "vm_disk_space": {
+    "precision": 0.5555555555555556,
+    "recall": 0.7142857142857143,
+    "f1-score": 0.6250000000000001,
+    "support": 7
+  },
+  "priority": {
+    "precision": 1.0,
+    "recall": 0.8,
+    "f1-score": 0.888888888888889,
+    "support": 10
+  },
+  "faculty": {
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1-score": 0.0,
+    "support": 2
+  },
+  "vm_ram": {
+    "precision": 0.5714285714285714,
+    "recall": 0.6666666666666666,
+    "f1-score": 0.6153846153846153,
+    "support": 6
+  },
+  "ticket_no": {
+    "precision": 1.0,
+    "recall": 0.8333333333333334,
+    "f1-score": 0.9090909090909091,
+    "support": 6
+  },
+  "micro avg": {
+    "precision": 0.819672131147541,
+    "recall": 0.7246376811594203,
+    "f1-score": 0.7692307692307692,
+    "support": 69
+  },
+  "macro avg": {
+    "precision": 0.7587301587301587,
+    "recall": 0.6538492063492064,
+    "f1-score": 0.692689824795088,
+    "support": 69
+  },
+  "weighted avg": {
+    "precision": 0.8290775247296986,
+    "recall": 0.7246376811594203,
+    "f1-score": 0.765798956531222,
+    "support": 69
+  }
+}
