@@ -1,22 +1,11 @@
 ﻿# GLPI Helpdesk bot
 
-Looked through the [Rasa NLU](http://rasa.com/docs/nlu/) and [Rasa Core](http://rasa.com/docs/core/) documentation and ready to build your first intelligent assistant? We have some resources to help you get started! This repository contains the foundations of your first custom assistant. This starter-pack also comes with a step-by-step video tutorial which you can find [here](https://youtu.be/lQZ_x0LRUbI).  
-
-This starter-pack comes with a small amount of training data which lets you build a simple assistant. **You can find more training data here in the [forum](https://forum.rasa.com/t/grab-the-nlu-training-dataset-and-starter-packs/903) and use it to teach your assistant new skills and make it more engaging.**
-
-We would recommend downloading this before getting started, although the tutorial will also work with just the data in this repo. 
-
-The initial version of this starter-pack lets you build a simple assistant capable of cheering you up with Chuck Norris jokes.
-
-
-<p align="center">
-  <img src="./rasa-stack-mockup.gif">
-</p>
+AI assistant for the GLPI IT Helpdesk. It includes an integration with its API to open incident reports.
 
 ## Supported features
 * Login & Auth validation using Google OAuth (TODO) (login)
 * Open an incident ticket on GLPI (open_incident)
-* Get the current status of a ticket (TODO)
+* Get the current status of a ticket (get_incident_status)
 * Reset my password (password_reset)
 * Issues with email (problem_email)
 * Request biometrics report (request_biometrics_report)
@@ -37,11 +26,13 @@ The initial version of this starter-pack lets you build a simple assistant capab
 * out_of_scope
 
 ## Lookup Tables
-* [software](data/software-dtic.txt)
+* [Software](data/software-dtic.txt)
+* [Faculties](data/faculties.txt)
+* [Departments](data/departments.txt)
 
 ## Requirements
 
-* Python 3.6.8+
+* Python 3.7+
 * Pip3
 * Virtualenv or Conda (Recommended for isolated env creation)
 
@@ -60,39 +51,12 @@ python -m spacy download es_core_news_md
 python -m spacy link es_core_news_md es
 ```
 
-## Caveat for using the Webchat client (DEPRECATED)
-
-See this [issue](https://github.com/mrbot-ai/rasa-webchat/issues/28)
-
-```bash
-pip install git+git://github.com/RasaHQ/rasa.git
-
-```
-
-## Workaround to make Rasa work if AVX is not compatible with your CPU
-
-You may experience the following error on an on-premise and/or cloud server (deployed with Kubernetes): `The TensorFlow library was compiled to use AVX instructions`
-
-In order to fix this issue, execute the following commands after installing rasa dependencies as shown above:
-
-```bash
-pip uninstall tensorflow -y
-conda create --name glpi-rasax python=3.6.8
-conda activate glpi-rasax
-conda install -c anaconda -n glpi-rasax tensorflow==1.15.0
-conda deactivate glpi-rasax
-export PYTHONPATH='${HOME}/anaconda3/envs/glpi-rasax/lib/python3.6/site-packages'
-```
-
 ## Development instructions
 
-### Prepare dataset for training/testing
-
-If you're (re-)generating data using Chatito, paste the related files under the `data/nlu_chatito` folder and then execute the following commands:
+### Validate training data
 
 ```bash
-rasa data convert nlu --data data/nlu_chatito/train/ --out data/train/nlu.md -l es -f md
-rasa data convert nlu --data data/nlu_chatito/test/ --out data/test/nlu.md -l es -f md
+rasa data validate
 ```
 
 ### Training Rasa Core & NLU models
@@ -100,7 +64,7 @@ rasa data convert nlu --data data/nlu_chatito/test/ --out data/test/nlu.md -l es
 The following command trains both the Core and NLU models
 
 ```bash
-rasa train --data data/train
+rasa train
 ```
 
 ### NLU model evaluation
@@ -108,22 +72,26 @@ rasa train --data data/train
 The following command performs a model evaluation of the latest trained NLU model under the `models` directory
 
 ```bash
-rasa test nlu -u data/test/ --out nlu_metrics/
+rasa data split nlu
+rasa test nlu -u train_test_split/test_data.md --out nlu_metrics/
+# or 5 (default -f) cross validation
+rasa test nlu -u data/nlu.md --cross-validation --out nlu_metrics/
 ```
 
 Finally, check the following files for results:
  
 * [Intent Confusion Matrix](nlu_metrics/confmat.png) 
 * [Intent Confidence Prediction][nlu_metrics/hist.png]
-* [Misclassified Intents](nlu_metrics/intent_errors.json)
-* [Other Intent/Entity Metrics Report](nlu_metrics/)
+* [Intent/Entity Metrics Report](nlu_metrics/intent_report.json)
+
+Within the [nlu_metrics](nlu_metrics) folder there are also other reportes for each the NLU pipeline components (e.g. DIETClassifier report and errors)
 
 ### Dialogue (CORE) model evaluation
 
 The following command performs a model evaluation of the latest trained dialogue model under the `models` directory
 
 ```bash
-rasa test core -s data/test/ --out core_metrics/
+rasa test core --stories tests/e2e-stories.md --out core_metrics/
 ```
 
 Finally, check the [results](core_metrics/) directory for a summary of the performed evaluation
@@ -131,11 +99,11 @@ Finally, check the [results](core_metrics/) directory for a summary of the perfo
 ### Visualizing stories
 
 ```bash
-rasa visualize -d domain.yml -s data/train/stories.md -u data/train/nlu.md
+rasa visualize -d domain.yml --stories data/stories.md -u data/nlu.md --out core_metrics/graph.html
 ```
 ## Chatbot Deployment
 
-### Deploying custom actions
+### Deploying custom actions locally
 
 ```bash
 rasa run actions --actions actions -p 5055
@@ -166,7 +134,7 @@ docker run -p 8000:8000 rasa/duckling
 rasa shell --endpoints endpoints.yml
 ```
 
-### Run Chatbot + Rasa X
+### Run Chatbot + Rasa X Locally (*DEPRECATED*)
 
 Rasa X is a tool designed to make it easier to deploy and improve Rasa-powered assistants by learning from real conversations
 
@@ -186,7 +154,7 @@ Update admin password
 python scripts/manage_user.py create me $RASA_X_PASSWORD admin --update
 ```
 
-### Deploy the chatbot without RasaX & enabled connection to a web channel through socketsio
+### Deploy the chatbot without RasaX & enabled connection to a web channel through `sockets.io`
 
 ```bash
 rasa run --endpoints endpoints.yml --credentials credentials.yml --enable-api --cors "*" --port 5005
@@ -208,20 +176,26 @@ sh scripts/startClient.sh
 
 ### Deployment on server
 
-* Install Rasa + RasaX using one-click docker
+* Install Rasa + RasaX using [Docker Compose Quick Start Guide](https://rasa.com/docs/rasa-x/installation-and-setup/docker-compose-script/#)
 
-```
-TODO
-```
+* To upgrade the components to their latest release, follow this [instructions](https://rasa.com/docs/rasa-x/installation-and-setup/updating/#docker-compose-quick-install)
 
-* Build Action Server Docker Image
+* To update the admin password run the following command within `RASA_HOME`
 
 ```bash
-export GLPI_DOCKER_IMAGE=santteegt/glpi-chatbot-actions:0.0.1
+python rasa_x_commands.py create --update admin me glpi@dmin
+```
+
+* Build the Action Server Docker Image (in case you want to build your own locally)
+
+```bash
+export GLPI_DOCKER_IMAGE=santteegt/glpi-chatbot-actions:latest
 docker build -t $GLPI_DOCKER_IMAGE .
 ```
 
-* Push the Docker action server image to DockerHub  (Optional for local testing)
+* Each time a commit is pushed to the `develop` branch, the DockerHub registry deploys a new image with the latest changes 
+
+* To do a manual push to DockerHub (Optional)
 
 ```bash
 docker login --username santteegt
@@ -230,6 +204,91 @@ docker push $GLPI_DOCKER_IMAGE
 
 * Copy `socketio` settings from [credentials.yml](credentials.yml) to the `credentials.yml` file in the `RASA_HOME` directory
 
-* Copy the contents from [.env.sample](.env.sample) to the `.env` file in the `RASA_HOME` directory
-
 * Copy the [docker-compose.override.yml](docker-compose.override.yml) file to the `RASA_HOME` directory
+
+* Set the following environment variables on the `.env` file within the `RASA_HOME` directory
+
+    - GLPI_API_URI: (Setup > General > API) <- where you can find the info on your GLPI instance
+    - GLPI_APP_TOKEN: (Setup > General > API)
+    - GLPI_AUTH_TOKEN: (User Preferences > API Token)
+    - GLPI_LOCALMODE: false (true if you don't want )
+
+* Start Docker Compose:
+
+```bash
+docker-compose up -d
+```
+
+* If you started the service for the first time or just updated it, you need to install the ES Spacy language model in both `rasa-production` and `rasa-worker` containers:
+
+```
+docker-compose exec -u 0 rasa-production bash -c "python -m spacy download es_core_news_md && python -m spacy link es_core_news_md es"
+docker-compose exec -u 0 rasa-worker bash -c "python -m spacy download es_core_news_md && python -m spacy link es_core_news_md es"
+```
+
+#### Workaround with connection timeout error when trying to add your Git project to RasaX
+
+1. Access the `rasa-x` container shell
+
+```
+docker exec -u 0 -it <rasa-x-container-id> bash
+```
+
+1. Add an SSH config file in `/app/.ssh/config` with the following:
+
+```
+Host github.com
+ Hostname ssh.github.com
+ Port 443
+```
+
+1. Add **-F /app/.ssh/config** as parameter on the ssh executable script `/usr/local/lib/python3.7/site-packages/rasax/community/services/integrated_version_control/git_service.py`:
+
+```
+def _save_ssh_executable(path: Path, path_to_key: Path) -> None:
+    command = f"""
+        #!/bin/sh
+        ID_RSA={path_to_key}
+        # Kubernetes tends to reset file permissions on restart. Hence, re-apply the required
+        # permissions whenever using the key.
+        chmod 600 $ID_RSA
+        exec /usr/bin/ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -i $ID_RSA -F /app/.ssh/config "$@"
+        """
+```
+
+1. Restart the compose environment
+
+## MISC Suggestions / Instructions
+
+### Caveat for using the Webchat client (DEPRECATED)
+
+See this [issue](https://github.com/mrbot-ai/rasa-webchat/issues/28)
+
+```bash
+pip install git+git://github.com/RasaHQ/rasa.git
+
+```
+
+### Workaround to make Rasa work if AVX is not compatible with your CPU (DEPRECATED)
+
+You may experience the following error on an on-premise and/or cloud server (deployed with Kubernetes): `The TensorFlow library was compiled to use AVX instructions`
+
+In order to fix this issue, execute the following commands after installing rasa dependencies as shown above:
+
+```bash
+pip uninstall tensorflow -y
+conda create --name glpi-rasax python=3.6.8
+conda activate glpi-rasax
+conda install -c anaconda -n glpi-rasax tensorflow==1.15.0
+conda deactivate glpi-rasax
+export PYTHONPATH='${HOME}/anaconda3/envs/glpi-rasax/lib/python3.6/site-packages'
+```
+
+### Prepare dataset for training/testing (DEPRECATED)
+
+If you're (re-)generating data using Chatito, paste the related files under the `data/nlu_chatito` folder and then execute the following commands:
+
+```bash
+rasa data convert nlu --data data/nlu_chatito/train/ --out data/train/nlu.md -l es -f md
+rasa data convert nlu --data data/nlu_chatito/test/ --out data/test/nlu.md -l es -f md
+```
