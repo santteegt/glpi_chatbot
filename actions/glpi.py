@@ -109,16 +109,40 @@ class GLPIService(object):
                 )
             self.base_uri = uri
             self.glpi: GLPI = GLPI(uri, app_token, auth_token)
-            session = self.glpi.init_api()
-            self.headers = {
-                "App-Token": app_token,
-                "Content-Type": "application/json",
-                "Session-Token": session["session_token"],
-            }
+            self.app_token = app_token
+            self.headers = self.get_headers()
             session_data = self.glpi.get("getFullSession")["session"]
             self.agent_id = session_data["glpiID"]
             self.agent_username = session_data["glpiname"]
             GLPIService.__instance = self
+
+    def get_headers(self):
+        """
+        Get Headers to be sent to the GLPI API
+        :return:
+        """
+        session = self.glpi.init_api()
+        return {
+            "App-Token": self.app_token,
+            "Content-Type": "application/json",
+            "Session-Token": session["session_token"],
+        }
+
+    def api_request(self, request_type: Text, url: Text, **kwargs):
+        """
+        Makes an API request
+        :param request_type: HTTP Request type
+        :param url: Full API URL
+        :param kwargs: extra parameters to be sent to the `requests.request` method
+        :return: r API response
+        """
+        while True:
+            r = requests.request(request_type, url, headers=self.headers, **kwargs)
+            if r.status_code == 401:
+                self.headers = self.get_headers()
+            else:
+                break
+        return r
 
     def get_ticket(self, ticket_id: Text):
         """
@@ -162,7 +186,7 @@ class GLPIService(object):
             full_url += "&forcedisplay[%d]=%s" % (idx, meta["id"])
 
         # opts = self.glpi.search_options("ticket")
-        r = requests.request("GET", full_url, headers=self.headers)
+        r = self.api_request("GET", full_url)
         if r.status_code != 200:
             raise GlpiException(
                 f"Failed to fetch info about ticket: {ticket_id} Reason: {r.reason}"
@@ -210,7 +234,7 @@ class GLPIService(object):
         opts = self.glpi.search_options("user")
         uri_query = self.build_user_query(user_criteria, opts)
         full_url = f"{self.base_uri}/search/{uri_query}"
-        r = requests.request("GET", full_url, headers=self.headers)
+        r = self.api_request("GET", full_url)
         if r.status_code != 200:
             raise GlpiException(
                 f"Failed to fetch info about username: {username} Reason: {r.reason}"
@@ -263,6 +287,7 @@ class GLPIService(object):
                     ticket, user_id=user["id"] if user is not None else None
                 )
             elif type(rs) == list:
+                # TODO: handle 401 error (Unauthorized)
                 raise GlpiException(f"Error during GLPI API call: {rs}")
 
         except Exception as e:
@@ -361,7 +386,7 @@ class GLPIService(object):
 		"""
         full_url = f'{self.base_uri}/Ticket/{ticket["ticket_no"]}/Ticket_User/'
         # Fetch current user involved in Ticket
-        r = requests.request("GET", full_url, headers=self.headers)
+        r = self.api_request("GET", full_url)
         if r.status_code != 200:
             raise GlpiException(
                 f'Failed to fetch people involved in ticket: {ticket["ticket_no"]} Reason: {r.reason}'
@@ -389,9 +414,7 @@ class GLPIService(object):
                     "alternative_email"
                 ]
             # Update requester role on the created ticket
-            r = requests.request(
-                "PUT", full_url, headers=self.headers, json=requester_payload
-            )
+            r = self.api_request("PUT", full_url, json=requester_payload)
             if r.status_code != 200:
                 error_msg = f'Failed to update user {user_id} with requester role on ticket: {ticket["ticket_no"]} '
                 error_msg += f"Reason: {r.reason} Payload: {requester_payload}"
@@ -411,9 +434,7 @@ class GLPIService(object):
             ]
         }
         # Delete assigned role on the created ticket
-        r = requests.request(
-            "DELETE", full_url, headers=self.headers, json=assigned_payload
-        )
+        r = self.api_request("DELETE", full_url, json=assigned_payload)
         if r.status_code != 200:
             raise GlpiException(
                 f'Failed to update user roles on ticket: {ticket["ticket_no"]} Reason: {r.reason}'
