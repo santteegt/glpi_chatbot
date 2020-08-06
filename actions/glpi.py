@@ -161,7 +161,7 @@ class GLPIService(object):
         for idx, meta in enumerate(metacriteria):
             full_url += "&forcedisplay[%d]=%s" % (idx, meta["id"])
 
-        opts = self.glpi.search_options("ticket")
+        # opts = self.glpi.search_options("ticket")
         r = requests.request("GET", full_url, headers=self.headers)
         if r.status_code != 200:
             raise GlpiException(
@@ -170,7 +170,7 @@ class GLPIService(object):
         json_data = r.json()
         data = json_data["data"] if "data" in json_data else []
         # return {f"{opts[k]['field']}_k": v for k, v in data[0].items()}
-        return {
+        return {} if len(data) == 0 else {
             next(field for field in metacriteria if field["id"] == k)["field"]: v
             for k, v in data[0].items()
         }

@@ -289,40 +289,50 @@ class IncidentStatusForm(FormAction):
                 f"Esta acción obtendría información del ticket con id: {ticket_no}"
             )
         else:
+            show_info = True
+            message = "Lo siento! No se ha encontrado un ticket asociado a la información especificada"
             try:
                 response = glpi.get_ticket_status(ticket_no)  # to get alternative_email?
                 # TODO: validate ticket with provided username and email
-                if len(response["alternative_email"]) == 0:
-                    user = glpi.get_user(user_id=response["user_id"])
-                    logger.warning(f"User found: {user}")
-                    # TODO: complete logic
-                elif response["alternative_email"] != email:
-                    message = "Lo siento! No se ha encontrado un ticket asociado a la información especificada"
+                if not response:
+                    show_info = False
+                else:
+                    if len(response["alternative_email"]) == 0:
+                        user = glpi.get_user(user_id=response["user_id"])
+                        logger.warning(f"User found: {user}")
+                        # TODO: complete logic
+                    elif response["alternative_email"] != email:
+                        logger.warning(f'User email does not match: {email} != {response["alternative_email"]}')
+                        show_info = False
+
+                if not show_info:
                     dispatcher.utter_message(message)
-                    events.append(SlotSet(EntitySlotEnum.TICKET_NO, None))
-                    events.append(SlotSet(EntitySlotEnum.EMAIL, None))
+                else:
 
-                # TODO: set values properly
-                # closedate
-                status = response["status"]
-                resolution = (
-                    response["solvedate"] if response["solvedate"] else "No disponible"
-                )
+                    # TODO: set values properly
+                    # closedate
+                    status = response["status"]
+                    resolution = (
+                        response["solvedate"] if response["solvedate"] else "No disponible"
+                    )
 
-                dispatcher.utter_message(
-                    "A continuación se encuentra la última información sobre su incidencia"
-                )
-                dispatcher.utter_message(
-                    template=UtteranceEnum.TICKET_STATUS,
-                    ticket_no=ticket_no,
-                    title=response["title"],
-                    category=response["category"],
-                    status=status,
-                    resolution=resolution,
-                    date_mod=response["date_mod"],
-                )
+                    dispatcher.utter_message(
+                        "A continuación se encuentra la última información sobre su incidencia"
+                    )
+                    dispatcher.utter_message(
+                        template=UtteranceEnum.TICKET_STATUS,
+                        ticket_no=ticket_no,
+                        title=response["title"],
+                        category=response["category"],
+                        status=status,
+                        resolution=resolution,
+                        date_mod=response["date_mod"],
+                    )
             except GlpiException as e:
                 logger.error(f"Error when trying to fetch ticket status: {ticket_no}", e)
                 dispatcher.utter_message(template=UtteranceEnum.PROCESS_FAILED)
+
+            events.append(SlotSet(EntitySlotEnum.TICKET_NO, None))
+            events.append(SlotSet(EntitySlotEnum.EMAIL, None))
 
         return events
