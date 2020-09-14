@@ -74,6 +74,7 @@ class ActionDefaultAskAffirmation(Action):
             IntentEnum.PASSWORD_RESET: "Recuperar contraseña",
             IntentEnum.PROBLEM_EMAIL: "Problema con el correo electrónico",
             IntentEnum.OPEN_INCIDENT: "Reportar una incidencia",
+            IntentEnum.GET_INCIDENT_STATUS: "Obtener estado de una incidencia",
             IntentEnum.SHOW_MENU: "Ver menu de opciones",
         }
         # read the mapping from a csv and store it in a dictionary
@@ -106,8 +107,8 @@ class ActionDefaultAskAffirmation(Action):
         else:
             # TODO: narrow a list of most probable intents?
             logger.info("NO ACTION FOUND. Showing suggestions")
-            dispatcher.utter_image_url(
-                "http://www.crear-meme.com/public/img/memes_users/what-7.jpg"
+            dispatcher.utter_message(
+                image="http://www.crear-meme.com/public/img/memes_users/what-7.jpg"
             )
             # tracker.trigger_followup_action("utter_sugerencias")
             dispatcher.utter_message(template=UtteranceEnum.SUGGEST)

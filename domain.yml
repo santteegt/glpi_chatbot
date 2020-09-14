@@ -380,6 +380,9 @@ responses:
   utter_default:
   - text: Lo siento! No entiendo su requerimiento. ¿Puede formular su pregunta de
       manera más específica?
+  utter_ask_rephrase:
+  - text: Lo siento! No entiendo su requerimiento. ¿Puede reformular su pregunta de
+      manera más específica?
 
 actions:
 - action_validate_auth
