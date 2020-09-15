@@ -10,7 +10,11 @@ services:
       GLPI_APP_TOKEN: "${GLPI_APP_TOKEN}"
       GLPI_AUTH_TOKEN: "${GLPI_AUTH_TOKEN}"
       GLPI_LOCALMODE: "${GLPI_LOCALMODE}"
+      USERS_API_BASE_URI: "${USERS_API_BASE_URI}"
+      USERS_API_CLIENT_ID: "${USERS_API_CLIENT_ID}"
+      USERS_API_CLIENT_SECRET: "${USERS_API_CLIENT_SECRET}"
     depends_on:
       - rasa-production
     extra_hosts:
       - "srvpruebas.ucuenca.edu.ec:172.16.0.44"
+      - "cdsdesarrollo.ucuenca.edu.ec:172.16.1.76"

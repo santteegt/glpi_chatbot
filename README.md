@@ -212,6 +212,9 @@ docker push $GLPI_DOCKER_IMAGE
     - GLPI_APP_TOKEN: (Setup > General > API)
     - GLPI_AUTH_TOKEN: (User Preferences > API Token)
     - GLPI_LOCALMODE: false (true if you don't want )
+    - USERS_API_BASE_URI: e.g. https://cdsdesarrollo.ucuenca.edu.ec:8500/api
+    - USERS_API_CLIENT_ID: OAuth Client ID
+    - USERS_API_CLIENT_SECRET: OAuth Client Secret
 
 * Start Docker Compose:
 
@@ -242,18 +245,16 @@ Host github.com
  Port 443
 ```
 
-1. Add **-F /app/.ssh/config** as parameter on the ssh executable script `/usr/local/lib/python3.7/site-packages/rasax/community/services/integrated_version_control/git_service.py`:
+1. Add `-F /app/.ssh/config` as parameter on the ssh executable script `/usr/local/lib/python3.7/site-packages/rasax/community/services/integrated_version_control/git_service.py`:
 
 ```
-def _save_ssh_executable(path: Path, path_to_key: Path) -> None:
-    command = f"""
-        #!/bin/sh
-        ID_RSA={path_to_key}
-        # Kubernetes tends to reset file permissions on restart. Hence, re-apply the required
-        # permissions whenever using the key.
-        chmod 600 $ID_RSA
-        exec /usr/bin/ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -i $ID_RSA -F /app/.ssh/config "$@"
-        """
+SSH_SCRIPT f"""#!/bin/sh
+ID_RSA={path_to_key}
+# Kubernetes tends to reset file permissions on restart. Hence, re-apply the required
+# permissions whenever using the key.
+chmod 600 $ID_RSA
+exec /usr/bin/ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -i $ID_RSA -F /app/.ssh/config "$@"
+"""
 ```
 
 1. Restart the compose environment
