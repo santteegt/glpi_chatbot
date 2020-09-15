@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import logging
-from typing import Dict, Text, Any, List, Union
+from typing import Any, Dict, List, Optional, Text, Union
 from rasa_sdk import Tracker
 from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.forms import FormAction
@@ -9,8 +9,10 @@ from rasa_sdk.events import AllSlotsReset, SlotSet
 
 import re
 
-from actions.constants import EntitySlotEnum, IntentEnum, UtteranceEnum
+from actions import users_api
+from actions.constants import EntitySlotEnum, GLPICategories, IntentEnum, TicketTypes, UtteranceEnum
 from actions.glpi import GLPIService, GlpiException, load_glpi_config, Ticket
+from actions.user_api import User
 from actions.parsing import (
     get_entity_details,
     parse_duckling_time_as_interval,
@@ -19,6 +21,7 @@ from actions.parsing import (
 
 logger = logging.getLogger(__name__)
 
+# Loading GLPI API config
 glpi_api_uri, glpi_app_token, glpi_auth_token, local_mode = load_glpi_config()
 glpi = (
     GLPIService.get_instance(glpi_api_uri, glpi_app_token, glpi_auth_token)
@@ -60,12 +63,13 @@ class BiometricsReportForm(FormAction):
             EntitySlotEnum.TIME_PERIOD: [self.from_entity(entity=EntitySlotEnum.TIME)],
         }
 
-    @staticmethod
-    def query_employee_db() -> List[Text]:
-        """Database of supported wifi networks"""
+    def fetch_employee(self, identity: Text) -> (Optional[User], bool):
+        """Fetch Users API using personal Id"""
 
-        # TODO: Validate user is employee
-        return ["1111111111"]
+        user_data = users_api.validate_user(identity=identity)
+        # TODO: create ad-hoc metohod to validate user is employee => 'nombreGestor': 'GestorOpenLdap'
+        is_employee = True
+        return user_data, is_employee
 
     def validate_personal_id(
         self,
@@ -77,9 +81,13 @@ class BiometricsReportForm(FormAction):
         """Validate personal_id has a valid value."""
 
         # TODO: Validate it is registered as employee
-        if re.match(r"[0-9]+$", value) is not None and value in self.query_employee_db():
+        user, is_employee = self.fetch_employee(value)
+        if re.match(r"[0-9]+$", value) and user and is_employee:
             # validation succeeded
-            return {EntitySlotEnum.PERSONAL_ID: value}
+            return {
+                EntitySlotEnum.PERSONAL_ID: value,
+                EntitySlotEnum.EMAIL: user['email']
+            }
         else:
             dispatcher.utter_message(template=UtteranceEnum.NO_PERSONAL_ID)
             # validation failed, set this slot to None, meaning the
@@ -128,6 +136,7 @@ class BiometricsReportForm(FormAction):
             after all required slots are filled"""
 
         personal_id = tracker.get_slot(EntitySlotEnum.PERSONAL_ID)
+        email = tracker.get_slot(EntitySlotEnum.EMAIL)
         biometrics_id = tracker.get_slot(EntitySlotEnum.BIOMETRICS_ID)
 
         start_time = tracker.get_slot(EntitySlotEnum.START_TIME)
@@ -137,6 +146,7 @@ class BiometricsReportForm(FormAction):
         events = [
             SlotSet(EntitySlotEnum.ITILCATEGORY_ID, None),
             SlotSet(EntitySlotEnum.PERSONAL_ID, None),
+            SlotSet(EntitySlotEnum.EMAIL, None),
             SlotSet(EntitySlotEnum.BIOMETRICS_ID, None),
             SlotSet(EntitySlotEnum.TIME, None),
             SlotSet(EntitySlotEnum.TIME_PERIOD, None),
@@ -154,9 +164,11 @@ class BiometricsReportForm(FormAction):
                 "title": "Solicitud Informe Sistema Biometrico",
                 "description": remove_accents(description),
                 # 'priority': glpi_priority
-                "itilcategories_id": 60,  # Reporte de datos
+                "itilcategories_id": GLPICategories.DATA_REPORT,
             }
         )
+        if email:
+            ticket['alternative_email'] = email
 
         if local_mode:
             dispatcher.utter_message(
@@ -166,7 +178,7 @@ class BiometricsReportForm(FormAction):
             events.append(SlotSet(EntitySlotEnum.TICKET_NO, ticket_id))
         else:
             try:
-                response = glpi.create_ticket(ticket, ticket_type=2)  # Solicitud
+                response = glpi.create_ticket(ticket, ticket_type=TicketTypes.REQUEST)
                 ticket_id = response["id"]
                 # This is not actually required as its value is sent directly to the utter_message
                 events.append(SlotSet(EntitySlotEnum.TICKET_NO, ticket_id))

@@ -8,17 +8,19 @@ from rasa_sdk.events import SlotSet, EventType
 import re
 from typing import Dict, Text, Any, List, Union, Optional
 
+from actions import users_api
 from actions.actions_base import request_next_slot
-from actions.constants import UtteranceEnum, IntentEnum, EntitySlotEnum
+from actions.constants import EntitySlotEnum, GLPICategories, IntentEnum, UtteranceEnum
 from actions.glpi import GLPIService, GlpiException, load_glpi_config, Ticket
 from actions.parsing import remove_accents
 
 logger = logging.getLogger(__name__)
 
-glpi_api_uri, glpi_app_token, glpi_auth_token, local_mode = load_glpi_config()
+# Loading GLPI API config
+glpi_api_uri, glpi_app_token, glpi_auth_token, glpi_local_mode = load_glpi_config()
 glpi = (
     GLPIService.get_instance(glpi_api_uri, glpi_app_token, glpi_auth_token)
-    if not local_mode
+    if not glpi_local_mode
     else None
 )
 
@@ -78,15 +80,22 @@ class OpenIncidentForm(FormAction):
                 self.from_text(not_intent=IntentEnum.OUT_OF_SCOPE),
             ],
             # EntitySlotEnum.PRIORITY: self.from_entity(entity=EntitySlotEnum.PRIORITY),
+            # IMPORTANT
+            # Here, we map intents that directly triggers this action
+            # However, you can also map this Slot either when:
+            #   a) defining user stories
+            #       e.g. deny{"incident_title":"Problema para crear un usuario", "itilcategory_id":"56"}
+            #   b) using a button payload within domain.yml
+            #       e.g. payload: /request_biometrics_report{"itilcategory_id":"60"}
             EntitySlotEnum.ITILCATEGORY_ID: [
                 self.from_trigger_intent(
-                    intent=IntentEnum.PASSWORD_RESET, value="56",  # Gestion de usuarios
+                    intent=IntentEnum.PROBLEM_EMAIL, value=GLPICategories.EMAIL_ISSUE
                 ),
                 self.from_trigger_intent(
-                    intent=IntentEnum.PROBLEM_EMAIL, value="41"  # Correo electronico,
+                    intent=IntentEnum.PASSWORD_RESET, value=GLPICategories.USER_MGMT
                 ),
                 self.from_trigger_intent(
-                    intent=IntentEnum.OPEN_INCIDENT, value="65"  # Varios
+                    intent=IntentEnum.OPEN_INCIDENT, value=GLPICategories.MISC
                 ),
             ],
             EntitySlotEnum.CONFIRM: [
@@ -121,11 +130,22 @@ class OpenIncidentForm(FormAction):
         domain: Dict[Text, Any],
     ) -> Dict[Text, Any]:
         """Validate email is in ticket system."""
-        if local_mode:
-            return {EntitySlotEnum.EMAIL: value}
-
         # TODO: validate if email format
-        return {EntitySlotEnum.EMAIL: value}
+        intents = [
+            IntentEnum.PROBLEM_EMAIL,
+            IntentEnum.PASSWORD_RESET,
+        ]
+        trigger_intent = dict(tracker.active_form)['trigger_message']['intent']['name']
+        logger.info(f"intent: {trigger_intent} in {intents} ?")
+        if not users_api or trigger_intent not in intents:
+            return {EntitySlotEnum.EMAIL: value.lower()}
+        user = users_api.validate_user(email=value.lower())
+        logger.info(f'user for {value.lower()}: {user}')
+        if user:
+            return {EntitySlotEnum.EMAIL: value.lower()}
+        else:
+            dispatcher.utter_message(template=UtteranceEnum.EMAIL_NO_MATCH)
+            return {EntitySlotEnum.EMAIL: None}
 
     # results = email_to_sysid(value)
 
@@ -189,7 +209,7 @@ class OpenIncidentForm(FormAction):
                 }
             )
 
-            if local_mode:
+            if glpi_local_mode:
                 dispatcher.utter_message(
                     f"Esta acción crearía un ticket con la siguiente información: {ticket}"
                 )
@@ -249,7 +269,7 @@ class IncidentStatusForm(FormAction):
         domain: Dict[Text, Any],
     ) -> Dict[Text, Any]:
         """Validate email is in ticket system."""
-        if local_mode:
+        if glpi_local_mode:
             return {EntitySlotEnum.TICKET_NO: value}
 
         if re.match(r"^[0-9]+$", value) is not None:
@@ -268,7 +288,7 @@ class IncidentStatusForm(FormAction):
         domain: Dict[Text, Any],
     ) -> Dict[Text, Any]:
         """Validate email is in ticket system."""
-        if local_mode:
+        if not users_api:
             return {EntitySlotEnum.EMAIL: value}
 
         # TODO: validate if email format
@@ -284,7 +304,7 @@ class IncidentStatusForm(FormAction):
 
         events = []
 
-        if local_mode:
+        if glpi_local_mode:
             dispatcher.utter_message(
                 f"Esta acción obtendría información del ticket con id: {ticket_no}"
             )

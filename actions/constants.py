@@ -64,3 +64,18 @@ class UtteranceEnum(object):
     PROCESS_CANCELLED = "utter_process_cancelled"
     CONFIRM_ASK_SUCCESS = "utter_confirm_ask_success"  # With default buttons
     CONFIRM_SUCCESS = "utter_confirm_success"  # Template to use custom buttons
+
+
+class TicketTypes(object):
+    INCIDENT = 1
+    REQUEST = 2
+
+
+class GLPICategories(object):
+    NETWORK_CONNECTIVITY = 52
+    EMAIL_ISSUE = 53  # Correo electronico 41 ?
+    EQUIP_MGMT = 54  # Equipos de Computo
+    USER_MGMT = 56  # Gestion de usuarios
+    DATA_REPORT = 60  # Reporte de datos
+    MISC = 65  # Varios 61 ?
+

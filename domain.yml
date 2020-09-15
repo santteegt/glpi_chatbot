@@ -299,11 +299,11 @@ responses:
               type: "postback" # web_url
               url: ""
             - title: No recuerdo la contraseña
-              payload: /password_reset
+              payload: /password_reset{"itilcategory_id":"56"}
               type: "postback" # web_url
               url: ""
             - title: Problem con correo electrónico
-              payload: /problem_email
+              payload: /problem_email{"itilcategory_id":"53"}
               type: "postback" # web_url
               url: ""
         - default_action:
@@ -316,10 +316,10 @@ responses:
           subtitle: Uso exclusivo para el personal
           buttons:
             - title: Reporte Biométrico
-              payload: /request_biometrics_report
+              payload: /request_biometrics_report{"itilcategory_id":"60"}
               type: "postback" # web_url
               url: ""
-            - title: Solicitud de máquina virtual
+            - title: Solicitud de máquina virtual{"itilcategory_id":"54"}
               payload: /request_vm
               type: "postback" # web_url
               url: ""
