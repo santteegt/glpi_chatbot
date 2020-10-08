@@ -72,26 +72,27 @@ rasa train
 The following command performs a model evaluation of the latest trained NLU model under the `models` directory
 
 ```bash
-rasa data split nlu
-rasa test nlu -u train_test_split/test_data.md --out nlu_metrics/
+rasa data split nlu # (Optional)
+# rasa test nlu -u train_test_split/test_data.md --out nlu_metrics/
+rasa test nlu
 # or 5 (default -f) cross validation
 rasa test nlu -u data/nlu.md --cross-validation --out nlu_metrics/
 ```
 
 Finally, check the following files for results:
  
-* [Intent Confusion Matrix](nlu_metrics/confmat.png) 
-* [Intent Confidence Prediction][nlu_metrics/hist.png]
-* [Intent/Entity Metrics Report](nlu_metrics/intent_report.json)
+* [Intent Confusion Matrix](results/confmat.png) 
+* [Intent Confidence Prediction](results/hist.png)
+* [Intent/Entity Metrics Report](results/intent_report.json)
 
-Within the [nlu_metrics](nlu_metrics) folder there are also other reportes for each the NLU pipeline components (e.g. DIETClassifier report and errors)
+Within the [results](results) folder there are also other reportes for each the NLU pipeline components (e.g. DIETClassifier report and errors)
 
 ### Dialogue (CORE) model evaluation
 
 The following command performs a model evaluation of the latest trained dialogue model under the `models` directory
 
 ```bash
-rasa test core --stories tests/e2e-stories.md --out core_metrics/
+rasa test core --stories tests/e2e-stories.md
 ```
 
 Finally, check the [results](core_metrics/) directory for a summary of the performed evaluation
@@ -99,7 +100,7 @@ Finally, check the [results](core_metrics/) directory for a summary of the perfo
 ### Visualizing stories
 
 ```bash
-rasa visualize -d domain.yml --stories data/stories.md -u data/nlu.md --out core_metrics/graph.html
+rasa visualize -d domain.yml --stories data/stories.md -u data/nlu.md --out graph.html
 ```
 ## Chatbot Deployment
 
