@@ -20,16 +20,19 @@ def request_next_slot(
     domain: Dict[Text, Any],
 ) -> Optional[List[EventType]]:
     """
-    Custom method to set a custom utterance templata if slot == confirm
+    Custom method to set a custom utterance template if slot == confirm
     :param form: Form Action object
     :param dispatcher: Rasa SDK Dispatcher
     :param tracker: Rasa SDK tracker
     :param domain: Rasa domain
     :return: SlotSet event
     """
+    confirm_slots = [
+        EntitySlotEnum.CONFIRM
+    ]
     for slot in form.required_slots(tracker):
         if form._should_request_slot(tracker, slot):
-            utter_template = f"utter_ask{f'_{form.name()}' if slot == EntitySlotEnum.CONFIRM else ''}_{slot}"
+            utter_template = f"utter_ask{f'_{form.name()}' if slot in confirm_slots else ''}_{slot}"
             dispatcher.utter_message(template=utter_template, **tracker.slots)
             return [SlotSet(REQUESTED_SLOT, slot)]
 
@@ -68,7 +71,7 @@ class ActionDefaultAskAffirmation(Action):
     def __init__(self):
         self.intent_mappings = {
             IntentEnum.CONNECT_WIFI: "Ayuda con conexión al WiFI",
-            IntentEnum.CREATE_USER: "Ayuda a crear un usuario",
+            IntentEnum.CREATE_APP_USER: "Ayuda a crear un usuario",
             IntentEnum.REQUEST_BIOMETRICS_REPORT: "Informe de marcación en biométrico",
             IntentEnum.REQUEST_VM: "Solicitud de máquina virtual",
             IntentEnum.PASSWORD_RESET: "Recuperar contraseña",

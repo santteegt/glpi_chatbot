@@ -203,16 +203,16 @@
  - wifi_faq_form
  - form{"name":null}
  
-## create_user form happy_path success
-* create_user
+## faq_create_user form happy_path success
+* faq_create_user
  - create_user_faq_form
  - form{"name": "create_user_faq_form"}
  - form{"name": null}
 * confirm
  - utter_welcome
 
-## create_user form happy_path fail
-* create_user
+## faq_create_user form happy_path fail
+* faq_create_user
  - create_user_faq_form
  - form{"name": "create_user_faq_form"}
  - form{"name": null}
@@ -222,8 +222,8 @@
  - form{"name":null}
  - slot {"ticket_no": "0055"}
 
-## create_user form interrupted
-* create_user
+## faq_create_user form interrupted
+* faq_create_user
  - create_user_faq_form
  - form{"name":"create_user_faq_form"}
 * help
@@ -231,14 +231,84 @@
  - create_user_faq_form
  - form{"name":null}
 
-## create_user form interrupted with chitchat
-* create_user
+## faq_create_user form interrupted with chitchat
+* faq_create_user
  - create_user_faq_form
  - form{"name":"create_user_faq_form"}
 * out_of_scope
  - utter_out_of_scope
  - create_user_faq_form
  - form{"name":null}
+ 
+## faq_create_user form stop but continue
+* faq_create_user
+ - create_user_faq_form
+ - form{"name":"create_user_faq_form"}
+* deny
+ - utter_continue
+* confirm
+ - create_user_faq_form
+ - form{"name":null}
+
+## faq_create_user form stop + cancel
+* faq_create_user
+ - create_user_faq_form
+ - form{"name":"create_user_faq_form"}
+* deny
+ - utter_continue
+* deny
+ - action_deactivate_form
+ - form{"name":null}
+ - utter_process_cancelled
+
+## create_app_user form happy_path success
+* create_app_user
+ - create_app_user_form
+ - form{"name": "create_app_user_form"}
+ - form{"name": null}
+ - slot {"ticket_no": "0055"}
+
+## create_app_user form interrupted
+* create_app_user
+ - create_app_user_form
+ - form{"name":"create_app_user_form"}
+* help
+ - utter_help
+ - create_app_user_form
+ - form{"name":null}
+ - slot {"ticket_no": "0055"}
+
+## create_app_user form interrupted with chitchat
+* create_app_user
+ - create_app_user_form
+ - form{"name":"create_app_user_form"}
+* out_of_scope
+ - utter_out_of_scope
+ - create_app_user_form
+ - form{"name":null}
+ - slot {"ticket_no": "0055"}
+ 
+## create_app_user form stop but continue
+* create_app_user
+ - create_app_user_form
+ - form{"name":"create_app_user_form"}
+* deny
+ - utter_continue
+* confirm
+ - create_app_user_form
+ - form{"name":null}
+ - slot {"ticket_no": "0055"}
+
+## create_app_user form stop + cancel
+* create_app_user
+ - create_app_user_form
+ - form{"name":"create_app_user_form"}
+* deny
+ - utter_continue
+* deny
+ - action_deactivate_form
+ - form{"name":null}
+ - utter_process_cancelled
 
 ## request_biometrics_report form
 * request_biometrics_report

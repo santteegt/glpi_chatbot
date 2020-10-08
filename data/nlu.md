@@ -181,7 +181,13 @@
 - no tengo acceso a la red wifi
 - como conectarme a la red de [invitado]{"entity":"wifi_network", "value":"guest"}
 
-## intent:create_user
+## intent:faq_create_user
+- crear cuenta para estudiante de curso
+- nueva cuenta para estudiente de carrera
+- me he inscrito en un curso y necesito una cuenta de usuario
+- soy un nuevo estudiante de carrera y necesito crear una cuenta
+
+## intent:create_app_user
 - Ayuda a crear un usuario
 - Necesito registrarme como usuario
 - Necesito una cuenta de usuario
@@ -192,6 +198,23 @@
 - Como crear una cuenta de usuario de la u
 - crear cuenta de usuario
 - registar una nueva cuenta de sistema
+- necesito un usuario para el sistema [koha](application)
+- no tengo usuario en sistema de la [biblioteca](application)
+- No puedo ingresar al [catalogo de libros](application)
+- necesito crear un cuenta para el sistema [sgb](application)
+- como puedo acceder al sistema [koha](application)
+- quiero crear un usuario para el sistema de [silabos](application)
+- quiero ingresar al sistema de [gestion academica](application)
+- quiero utilizar el sistema de [clinicas](application)
+- no puedo acceder al portal de [bolsa de trabajo](application)
+- quiero entrar al sistema de [estudiantes](application)
+- necesito acceso al sitema de [docentes](application)
+- necesito un usuario [urkund](application)
+- necesito usuario y contraseña para [urkund](application)
+- como puedo tener un usuario en [urkund](application)
+- como puedo ingresar a [urkund](application)
+- necesito un usuario para el sistema antiplagio [urkund](application)
+- necesito credenciales para el [sistema antiplagio](application)
 
 ## intent:request_biometrics_report
 - necesito un informe de marcación en el biométrico
@@ -241,6 +264,25 @@
 - [taller]{"entity":"course_type", "value":"curso"} de informática
 - un [seminario]{"entity":"course_type", "value":"curso"} de emprendimiento
 - una [charla]{"entity":"course_type", "value":"curso"} técnica
+- facultad de [arquitectura y urbanismo](faculty)
+- en [arquitectura](faculty)
+- facultad de [artes](faculty)
+- facu de [agropecuarias](faculty)
+- [ciencias medicas](faculty)
+- [ciencias quimicas](faculty)
+- facultad de [economia](faculty)
+- soy de [filosofia](faculty)
+- la facultad de [hospitalidad](faculty)
+- [ingenieria](faculty)
+- [jurisprudencia](faculty)
+- [medicina](faculty)
+- faultad de [odontologia](faculty)
+- [psicologia]](faculty)
+- facultad de [quimica](faculty)
+- soy [alumno](role)
+- soy [empleado](role)
+- rol de [trabajador](role)
+- soy [docente](role)
 
 ## intent:out_of_scope
 - cual es la raiz cuadrada de 5
@@ -259,7 +301,7 @@
 - como te llamas
 - quiero comida
 
-## lookup:software
+## lookup:application
 data/software-dtic.txt
 
 ## lookup:faculty
@@ -267,3 +309,19 @@ data/faculties.txt
 
 ## lookup:department
 data/departments.txt
+
+## lookup:role
+data/roles.txt
+
+## synonym:koha
+- biblioteca
+- catalogo de libros
+- sistema de gestion de biblioteca
+- sgb
+
+## synonym:urkund
+- sistema antiplagio
+
+## synonym:alumno
+- estudiante
+- universitario

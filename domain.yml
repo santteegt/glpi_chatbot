@@ -21,7 +21,8 @@ intents:
 - password_reset
 - problem_email
 - connect_wifi
-- create_user
+- faq_create_user
+- create_app_user
 - request_biometrics_report
 - inform
 - confirm
@@ -39,8 +40,20 @@ slots:
     type: text
   username:
     type: text
+  role:
+    type: unfeaturized
   email:
     type: unfeaturized
+  found_email:
+    type: unfeaturized
+  faculty:
+    type: unfeaturized
+  agreement_reason:
+    type: unfeaturized
+  data_confirmation:
+    type: unfeaturized
+  accept_agreement:
+    type: bool
   confirm:
     type: unfeaturized
   incident_title:
@@ -51,7 +64,7 @@ slots:
     type: unfeaturized
   itilcategory_id:
     type: unfeaturized
-  software:
+  application:
     type: unfeaturized
   department:
     type: unfeaturized
@@ -105,10 +118,23 @@ responses:
   - text: Soy un robot que trabaja 24/7 para la DTIC de la U de Cuenca
   utter_ask_ticket_no:
   - text: Cual es el No de ticket asignado a su incidencia?
+  utter_ask_role:
+  - text: Elija su rol de usuario
+    buttons:
+      - title: Estudiante
+        payload: /inform{"role":"alumno"}
+      - title: Docente
+        payload: /inform{"role":"docente"}
+      - title: Empleado
+        payload: /inform{"role":"empleado"}
+      - title: Trabajador
+        payload: /inform{"role":"trabajador"}
   utter_ask_email:
   - text: Cual es su direccion de correo electronico?
   - text: Me puedes ayudar con su cuenta de correo electronico institucional?
   - text: Cual es su cuenta de correo electronico?
+  utter_ask_faculty:
+  - text: A que Facultad pertenece?
   utter_ask_incident_title:
   - text: Cual seria el titulo para el incidente a reportar?
   utter_ask_incident_description:
@@ -132,12 +158,31 @@ responses:
         payload: /confirm
       - title: No
         payload: /deny
+  utter_ask_create_app_user_form_confirm:
+  - text: "Confirma la siguiente informacion para crear su usuario?\n\
+    \ - Aplicacion: {application}\n\
+    \ - email: {email}\n\
+    \ - Rol: {role}"
+    buttons:
+      - title: Si
+        payload: /confirm
+      - title: No
+        payload: /deny
+  utter_ask_accept_agreement_form:
+  - text: "Confirma que la informacion es correcta y acepta\
+    \ los terminos y condiciones para {agreement_reason}?\n\
+    \ {data_confirmation}"
+    buttons:
+      - title: Acepto
+        payload: /confirm
+      - title: No Acepto
+        payload: /deny
   utter_priority_no_match:
   - text: Lo siento! "{priority}" no es una prioridad valida. Por favor intentelo nuevamente.
   utter_no_email:
   - text: Lo siento! "{email}" no se encuentra registrado en nuestro sistema. Por favor intentelo nuevamente.
-  utter_ask_software:
-  - text: A que sistema no tiene acceso?
+  utter_ask_application:
+  - text: A que sistema necesita tener acceso?
   utter_ask_department:
   - text: A que departamento/facultad pertenece?
   utter_ask_observations:
@@ -154,7 +199,7 @@ responses:
   utter_no_wifi_network:
   - text: Lo siento! {wifi_network} no es una opción válida
   utter_email_no_match:
-  - text: Lo siento. Su dirección de correo no pertenece a una cuenta institucional
+  - text: Lo siento. La dirección de correo no concuerda con nuestros registros
   utter_eduroam_instructions:
   - text: Para conectarse a la red EDUROAM siga las instrucciones en la siguiente enlace https://cat.eduroam.org/?idp=415
   utter_ucwifi_instructions:
@@ -212,8 +257,8 @@ responses:
               payload: /connect_wifi
               type: "postback" # web_url
               url: ""
-            - title: ¿Cómo crear un usuario?
-              payload: /create_user
+            - title: ¿Cómo crear un usuario para carrera/curso?
+              payload: /faq_create_user
               type: "postback" # web_url
               url: ""
         - default_action:
@@ -260,8 +305,8 @@ responses:
     buttons:
       - title: Conexión a la red WIFI
         payload: /connect_wifi
-      - title: Creacion de usuario
-        payload: /create_user
+      - title: Creacion de usuario para carrera/curso
+        payload: /faq_create_user
       - title: Recuperar contrasena
         payload: /problem_email{"itilcategory_id":"53"}
       - title: Informe Intentos de Marcacion
@@ -323,4 +368,5 @@ forms:
 - incident_status_form
 - wifi_faq_form
 - create_user_faq_form
+- create_app_user_form
 - biometrics_report_form

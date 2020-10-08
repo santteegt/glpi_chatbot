@@ -1,4 +1,102 @@
 {
+  "password_reset": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 15,
+    "confused_with": {}
+  },
+  "bot_challenge": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 8,
+    "confused_with": {}
+  },
+  "request_biometrics_report": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 10,
+    "confused_with": {}
+  },
+  "open_incident": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 12,
+    "confused_with": {}
+  },
+  "thank": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 8,
+    "confused_with": {}
+  },
+  "goodbye": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 13,
+    "confused_with": {}
+  },
+  "help": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 11,
+    "confused_with": {}
+  },
+  "deny": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 12,
+    "confused_with": {}
+  },
+  "connect_wifi": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 11,
+    "confused_with": {}
+  },
+  "faq_create_user": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 4,
+    "confused_with": {}
+  },
+  "inform": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 53,
+    "confused_with": {}
+  },
+  "greet": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 12,
+    "confused_with": {}
+  },
+  "create_app_user": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 27,
+    "confused_with": {}
+  },
+  "out_of_scope": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 15,
+    "confused_with": {}
+  },
   "show_menu": {
     "precision": 1.0,
     "recall": 1.0,
@@ -6,168 +104,38 @@
     "support": 6,
     "confused_with": {}
   },
-  "problem_email": {
-    "precision": 0.8125,
-    "recall": 1.0,
-    "f1-score": 0.896551724137931,
-    "support": 13,
-    "confused_with": {}
-  },
-  "request_vm": {
-    "precision": 0.5555555555555556,
-    "recall": 0.5,
-    "f1-score": 0.5263157894736842,
-    "support": 10,
-    "confused_with": {
-      "inform": 4,
-      "request_biometrics_report": 1
-    }
-  },
-  "password_reset": {
-    "precision": 0.9375,
-    "recall": 1.0,
-    "f1-score": 0.967741935483871,
-    "support": 15,
-    "confused_with": {}
-  },
-  "help": {
-    "precision": 0.7,
-    "recall": 0.6363636363636364,
-    "f1-score": 0.6666666666666666,
-    "support": 11,
-    "confused_with": {
-      "out_of_scope": 1,
-      "confirm": 1
-    }
-  },
-  "goodbye": {
-    "precision": 0.8181818181818182,
-    "recall": 0.6923076923076923,
-    "f1-score": 0.7500000000000001,
-    "support": 13,
-    "confused_with": {
-      "help": 1,
-      "confirm": 1
-    }
-  },
-  "thank": {
-    "precision": 0.7272727272727273,
-    "recall": 1.0,
-    "f1-score": 0.8421052631578948,
-    "support": 8,
-    "confused_with": {}
-  },
-  "open_incident": {
-    "precision": 0.8461538461538461,
-    "recall": 0.9166666666666666,
-    "f1-score": 0.8799999999999999,
-    "support": 12,
-    "confused_with": {
-      "help": 1
-    }
-  },
-  "connect_wifi": {
-    "precision": 0.7333333333333333,
-    "recall": 1.0,
-    "f1-score": 0.846153846153846,
-    "support": 11,
-    "confused_with": {}
-  },
-  "bot_challenge": {
-    "precision": 0.8571428571428571,
-    "recall": 0.75,
-    "f1-score": 0.7999999999999999,
-    "support": 8,
-    "confused_with": {
-      "out_of_scope": 2
-    }
-  },
-  "inform": {
-    "precision": 0.8936170212765957,
-    "recall": 0.75,
-    "f1-score": 0.8155339805825244,
-    "support": 56,
-    "confused_with": {
-      "request_vm": 4,
-      "connect_wifi": 4
-    }
-  },
-  "out_of_scope": {
-    "precision": 0.6470588235294118,
-    "recall": 0.7333333333333333,
-    "f1-score": 0.6875,
-    "support": 15,
-    "confused_with": {
-      "problem_email": 2,
-      "password_reset": 1
-    }
-  },
-  "deny": {
-    "precision": 0.75,
-    "recall": 0.5,
-    "f1-score": 0.6,
-    "support": 12,
-    "confused_with": {
-      "thank": 1,
-      "confirm": 1
-    }
-  },
-  "create_user": {
-    "precision": 1.0,
-    "recall": 0.9,
-    "f1-score": 0.9473684210526316,
-    "support": 10,
-    "confused_with": {
-      "get_incident_status": 1
-    }
-  },
-  "greet": {
-    "precision": 1.0,
-    "recall": 0.5833333333333334,
-    "f1-score": 0.7368421052631579,
-    "support": 12,
-    "confused_with": {
-      "confirm": 2,
-      "help": 1
-    }
-  },
-  "request_biometrics_report": {
-    "precision": 0.7692307692307693,
-    "recall": 1.0,
-    "f1-score": 0.8695652173913044,
-    "support": 10,
-    "confused_with": {}
-  },
   "confirm": {
-    "precision": 0.6875,
-    "recall": 0.8461538461538461,
-    "f1-score": 0.7586206896551724,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
     "support": 13,
-    "confused_with": {
-      "thank": 1,
-      "out_of_scope": 1
-    }
+    "confused_with": {}
+  },
+  "problem_email": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 13,
+    "confused_with": {}
   },
   "get_incident_status": {
-    "precision": 0.7727272727272727,
-    "recall": 0.9444444444444444,
-    "f1-score": 0.85,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
     "support": 18,
-    "confused_with": {
-      "open_incident": 1
-    }
+    "confused_with": {}
   },
-  "accuracy": 0.8063241106719368,
+  "accuracy": 1.0,
   "macro avg": {
-    "precision": 0.8059874458002327,
-    "recall": 0.8195890529223864,
-    "f1-score": 0.8022758688343714,
-    "support": 253
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 261
   },
   "weighted avg": {
-    "precision": 0.8169964064568609,
-    "recall": 0.8063241106719368,
-    "f1-score": 0.8018902791020264,
-    "support": 253
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 261
   }
 }

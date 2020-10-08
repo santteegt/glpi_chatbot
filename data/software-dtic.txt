@@ -1,11 +1,19 @@
-Urkund
-Sistemas Institucionales
-Portafolio
-Quipux
-eVirtual
-OpenERP
-GLPI
-SIUC
-Koha
-SCGI
-Sistema Academico
+urkund
+sistema antiplagio
+portafolio
+quipux
+evirtual
+openerp
+glpi
+siuc
+koha
+biblioteca
+catalogo de libros
+sistema de gestion de biblioteca
+sgb
+silabos
+gestion academica
+clinicas
+bolsa de trabajo
+estudiantes
+docentes

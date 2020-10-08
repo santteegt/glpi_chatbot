@@ -1,10 +1,15 @@
-Ingeniería
-Psicología
-Derecho
-Química
-Arquitectura
-Medicina
-Hospitalidad
-Artes
-Agropecuaria
-Filosofía
+arquitectura y urbanismo
+arquitectura
+artes
+agropecuarias
+ciencias medicas
+medicina
+ciencias quimicas
+quimica
+economia
+filosofia
+hospitalidad
+ingenieria
+jurisprudencia
+odontologia
+psicologia

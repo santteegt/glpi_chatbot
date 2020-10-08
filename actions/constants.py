@@ -3,13 +3,16 @@
 
 class EntitySlotEnum(object):
     CONFIRM = "confirm"
+    ROLE = "role"
     EMAIL = "email"
+    FOUND_EMAIL = "found_email"
+    FACULTY = "faculty"
     PRIORITY = "priority"
     TIME = "time"
     INCIDENT_TITLE = "incident_title"
     INCIDENT_DESCRIPTION = "incident_description"
     ITILCATEGORY_ID = "itilcategory_id"
-    SOFTWARE = "software"
+    APPLICATION = "application"
     DEPARTMENT = "department"
     VM_ENVIRONMENT = "vm_environment"
     VM_RAM = "vm_ram"
@@ -27,6 +30,9 @@ class EntitySlotEnum(object):
     END_TIME = "end_time"  # Obtained from Duckling
     GRAIN = "grain"  # Obtained from Duckling
     TICKET_NO = "ticket_no"
+    AGREEMENT_REASON = "agreement_reason"
+    DATA_CONFIRMATION = "data_confirmation"
+    ACCEPT_AGREEMENT = "accept_agreement"
 
 
 class IntentEnum(object):
@@ -38,7 +44,8 @@ class IntentEnum(object):
     OPEN_INCIDENT = "open_incident"
     GET_INCIDENT_STATUS = "get_incident_status"
     CONNECT_WIFI = "connect_wifi"
-    CREATE_USER = "create_user"
+    FAQ_CREATE_USER = "faq_create_user"
+    CREATE_APP_USER = "create_app_user"
     REQUEST_BIOMETRICS_REPORT = "request_biometrics_report"
     REQUEST_VM = "request_vm"
     PASSWORD_RESET = "password_reset"
@@ -63,6 +70,7 @@ class UtteranceEnum(object):
     PROCESS_CANCELLED = "utter_process_cancelled"
     CONFIRM_ASK_SUCCESS = "utter_confirm_ask_success"  # With default buttons
     CONFIRM_SUCCESS = "utter_confirm_success"  # Template to use custom buttons
+    ACCEPT_AGREEMENT_FORM = "utter_ask_accept_agreement_form"
 
 
 class TicketTypes(object):
@@ -77,4 +85,10 @@ class GLPICategories(object):
     USER_MGMT = 56  # Gestion de usuarios
     DATA_REPORT = 60  # Reporte de datos
     MISC = 65  # Varios 61 ?
+
+
+class DTICApplication(object):
+    URKUND = "urkund"
+    KOHA = "koha"
+    GAS = "gas"
 

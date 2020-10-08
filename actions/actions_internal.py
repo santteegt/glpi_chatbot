@@ -190,4 +190,5 @@ class BiometricsReportForm(FormAction):
         dispatcher.utter_message(template=UtteranceEnum.TICKET_NO, ticket_no=ticket_id)
         dispatcher.utter_message(template=UtteranceEnum.CONFIRM_REQUEST)
 
+        # return events
         return [AllSlotsReset(), SlotSet(EntitySlotEnum.TICKET_NO, ticket_id)]

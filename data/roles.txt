@@ -1,0 +1,4 @@
+alumno
+docente
+empleado
+trabajador
