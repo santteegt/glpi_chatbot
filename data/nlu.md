@@ -205,18 +205,6 @@
 - reporte diario de marcacion en sistema biometrico
 - requiero un informe de intentos de marcacion de esta semana
 
-## intent:request_vm
-- necesito una maquina virtual
-- requiero acceso a una maquina virtual
-- requiero una maquina virtual 
-- necesito un servidor de [desarrollo](vm_environment)
-- requiero una VM para [pruebas](vm_environment)
-- solicito una instancia para [producción](vm_environment)
-- pedir una maquina virtual de [16](vm_ram) GB en RAM y [128](vm_disk_space) GB de disco duro
-- solicito maquina virtual [16](vm_ram) GB de ram [8](vm_cpu_cores) nucleos de cpu
-- acceso a una maquina de [16](vm_ram) GB de ram [2](vm_cpu_cores) CPUs y [16](vm_disk_space) GB de disco
-- solicito un servidor para [desarrollo](vm_environment)
-
 ## intent:inform
 - mi correo es test@ucuenca.edu.ec
 - mi correo es abraham.lincoln@ucuenca.edu.ec
@@ -253,28 +241,6 @@
 - [taller]{"entity":"course_type", "value":"curso"} de informática
 - un [seminario]{"entity":"course_type", "value":"curso"} de emprendimiento
 - una [charla]{"entity":"course_type", "value":"curso"} técnica
-- necesito [512](vm_disk_space) GB de disco duro
-- [8](vm_disk_space) GB de capacidad
-- escalabilidad [horizontal](vm_scalability)
-- necesito escalabilidad [vertical](vm_scalability)
-- [32](vm_ram) GB de ram
-- necesito un ambiente de [desarrollo](vm_environment)
-- [16](vm_disk_space) GB de HD
-- solicito [64](vm_ram) GB de ram
-- [8](vm_ram) GB de ram
-- [32](vm_cpu_cores) nucleos de cpu
-- [4](vm_cpu_cores) nucleos
-- necesito [8](vm_cpu_cores) procesadores
-- necesito un entorno de [pruebas](vm_environment)
-- [2](vm_cpu_cores) procesadores
-- necesito [16](vm_disk_space) GB de HD
-- necesito [3](vm_cpu_cores) procesadores
-- [512](vm_disk_space) GB de disco duro
-- ambiente de [producción](vm_environment)
-- ambiente de [pruebas](vm_environment)
-- ambiente de [desarrollo](vm_environment)
-- escalable [horizontalmente]{"entity": "vm_scalability", "value": "horizontal"}
-- para escalar [verticalmente]{"entity": "vm_scalability", "value": "vertical"}
 
 ## intent:out_of_scope
 - cual es la raiz cuadrada de 5

@@ -23,7 +23,9 @@ glpi = (
 
 
 class ComputeResourceForm(FormAction):
-    """Contextual ActionForm to handle Compute Resources requests"""
+    """Contextual ActionForm to handle Compute Resources requests
+        CURRENTLY unused!
+    """
 
     def name(self) -> Text:
         """Unique identifier of the form"""

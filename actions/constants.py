@@ -55,7 +55,6 @@ class UtteranceEnum(object):
     GUEST_WIFI_INSTRUCTIONS = "utter_guest_wifi_instructions"
     RECOVER_PASSWORD = "utter_recover_password"
     NO_PERSONAL_ID = "utter_no_personal_id"
-    COMPUTE_FORM_VALUES = "utter_compute_form_values"
     PRIORITY_NO_MATCH = "utter_priority_no_match"
     TICKET_NO = "utter_ticket_no"
     TICKET_STATUS = "utter_ticket_status"

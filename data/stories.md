@@ -89,7 +89,7 @@
  - form{"name":null}
  - slot {"ticket_no": "0055"}
 
-## incident form stop and cancel
+## incident form stop + cancel
 * open_incident OR password_reset OR problem_email
  - open_incident_form
  - form{"name":"open_incident_form"}
@@ -98,7 +98,7 @@
 * deny
  - action_deactivate_form
  - form{"name":null}
- - slot {"ticket_no": null}
+ - utter_process_cancelled
 
 ## get incident status form
 * get_incident_status
@@ -134,7 +134,7 @@
  - incident_status_form
  - form{"name":null}
 
-## get incident status form stop and cancel
+## get incident status form stop + cancel
 * get_incident_status
  - incident_status_form
  - form{"name": "incident_status_form"}
@@ -143,6 +143,7 @@
 * deny
  - action_deactivate_form
  - form{"name":null}
+ - utter_process_cancelled
  
 ## connect_wifi form happy_path success
 * connect_wifi
@@ -181,7 +182,7 @@
  - wifi_faq_form
  - form{"name":null}
 
-## connect_wifi form cancelled
+## connect_wifi form stop + cancel
 * connect_wifi
  - wifi_faq_form
  - form{"name":"wifi_faq_form"}
@@ -192,7 +193,7 @@
  - form{"name":null}
  - utter_process_cancelled
 
-## connect_wifi form cancelled + resume
+## connect_wifi form stop but continue
 * connect_wifi
  - wifi_faq_form
  - form{"name":"wifi_faq_form"}
@@ -266,57 +267,24 @@
  - form{"name":null}
  - slot {"ticket_no": "0055"}
 
-## request_vm form happy_path confirm
-* request_vm
- - compute_resource_form
- - form {"name": "compute_resource_form"}
- - form {"name": null}
- - slot {"ticket_no": "0055"}
-
-## request_vm form interrupted 
-* request_vm
- - compute_resource_form
- - form {"name": "compute_resource_form"}
-* out_of_scope
- - utter_out_of_scope
- - compute_resource_form
- - form {"name": null}
- - slot {"ticket_no": "0055"}
-
-## request_vm form interrupted multiple
-* request_vm
- - compute_resource_form
- - form {"name": "compute_resource_form"}
-* out_of_scope
- - utter_out_of_scope
- - compute_resource_form
-* out_of_scope
- - utter_out_of_scope
- - compute_resource_form
-* out_of_scope
- - utter_out_of_scope
- - compute_resource_form
- - form {"name": null}
- - slot {"ticket_no": "0055"}
-
-## request_vm form stop but continue
-* request_vm
- - compute_resource_form
- - form {"name": "compute_resource_form"}
+## request_biometrics_report form stop but continue
+* request_biometrics_report
+ - biometrics_report_form
+ - form{"name":"biometrics_report_form"}
 * deny
  - utter_continue
 * confirm
- - compute_resource_form
+ - biometrics_report_form
  - form {"name": null}
  - slot {"ticket_no": "0055"}
-
-## request_vm form stop + cancel
-* request_vm
- - compute_resource_form
- - form {"name": "compute_resource_form"}
+ 
+## request_biometrics_report form stop + cancel
+* request_biometrics_report
+ - biometrics_report_form
+ - form{"name":"biometrics_report_form"}
 * deny
  - utter_continue
 * deny
  - action_deactivate_form
  - form{"name":null}
- - slot {"ticket_no": null}
+ - utter_process_cancelled
