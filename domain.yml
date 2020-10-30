@@ -1,3 +1,4 @@
+version: '2.0'
 session_config:
   session_expiration_time: 30
   carry_over_slots_to_new_session: true
@@ -8,16 +9,15 @@ intents:
 - bot_challenge
 - help
 - show_menu
-- login:
-    triggers: action_validate_auth
+- login
 - open_incident:
     use_entities:
-      - email
-      - incident_title
+    - incident_title
+    - email
 - get_incident_status:
     use_entities:
-      - ticket_no
-      - email
+    - email
+    - ticket_no
 - password_reset
 - problem_email
 - connect_wifi
@@ -29,72 +29,102 @@ intents:
 - deny
 - out_of_scope
 - restart
-
 entities:
+- application
 - auth_token
 - email
+- number
 - priority
 - time
 slots:
-  auth_token:
-    type: text
-  username:
-    type: text
-  role:
-    type: unfeaturized
-  email:
-    type: unfeaturized
-  found_email:
-    type: unfeaturized
-  faculty:
-    type: unfeaturized
-  agreement_reason:
-    type: unfeaturized
-  data_confirmation:
-    type: unfeaturized
   accept_agreement:
     type: bool
-  confirm:
-    type: unfeaturized
-  incident_title:
-    type: unfeaturized
-  priority:
-    type: unfeaturized
-  incident_description:
-    type: unfeaturized
-  itilcategory_id:
-    type: unfeaturized
+    influence_conversation: true
+  agreement_reason:
+    type: text
+    influence_conversation: false
   application:
-    type: unfeaturized
-  department:
-    type: unfeaturized
-  observations:
-    type: unfeaturized
-    auto_fill: false
-  ticket_no:
-    type: unfeaturized
-  wifi_network:
-    type: unfeaturized
-  has_email:
-    type: unfeaturized
-  course_type:
-    type: unfeaturized
-  personal_id:
-    type: unfeaturized
+    type: text
+    influence_conversation: true
+  auth_token:
+    type: text
+    influence_conversation: true
   biometrics_id:
-    type: unfeaturized
-  time:
-    type: unfeaturized
-  time_period:
-    type: unfeaturized
-  start_time:
-    type: unfeaturized
+    type: text
+    influence_conversation: false
+  confirm:
+    type: text
+    influence_conversation: false
+  course_type:
+    type: text
+    influence_conversation: false
+  data_confirmation:
+    type: text
+    influence_conversation: false
+  department:
+    type: text
+    influence_conversation: false
+  email:
+    type: text
+    influence_conversation: false
   end_time:
-    type: unfeaturized
+    type: text
+    influence_conversation: false
+  faculty:
+    type: text
+    influence_conversation: false
+  found_email:
+    type: text
+    influence_conversation: false
   grain:
-    type: unfeaturized
+    type: text
+    influence_conversation: false
+  has_email:
+    type: text
+    influence_conversation: false
+  incident_description:
+    type: text
+    influence_conversation: false
+  incident_title:
+    type: text
+    influence_conversation: false
+  itilcategory_id:
+    type: text
+    influence_conversation: false
+  observations:
+    type: text
+    auto_fill: false
+    influence_conversation: false
+  personal_id:
+    type: text
+    influence_conversation: false
+  priority:
+    type: text
+    influence_conversation: false
   requested_slot:
-    type: unfeaturized
+    type: text
+    influence_conversation: false
+  role:
+    type: text
+    influence_conversation: false
+  start_time:
+    type: text
+    influence_conversation: false
+  ticket_no:
+    type: text
+    influence_conversation: false
+  time:
+    type: text
+    influence_conversation: false
+  time_period:
+    type: text
+    influence_conversation: false
+  username:
+    type: text
+    influence_conversation: true
+  wifi_network:
+    type: text
+    influence_conversation: false
 responses:
   utter_out_of_scope:
   - text: Lo siento! No entiendo tu requerimiento. Puedes escribir "ayuda" para mayor asistencia.
@@ -102,8 +132,7 @@ responses:
   - text: Tu respuesta no es muy clara. Puedes escribir "ayuda" para mayor asistencia.
   utter_greet:
   - text: Hola! Bienvenido al Sistema de Helpdesk de la Universidad de Cuenca.
-  - text: Hola! Bienvenido al Sistema de Helpdesk de la Universidad de Cuenca.
-      ¿Tal vez le puedo ayudar a resolver uno de estos requerimientos?
+  - text: Hola! Bienvenido al Sistema de Helpdesk de la Universidad de Cuenca. ¿Tal vez le puedo ayudar a resolver uno de estos requerimientos?
     channel: socketio
   - text: Bienvenido al Sistema Helpdesk de la U de Cuenca (TEST)
     channel: rasa
@@ -121,14 +150,14 @@ responses:
   utter_ask_role:
   - text: Elija su rol de usuario
     buttons:
-      - title: Estudiante
-        payload: /inform{"role":"alumno"}
-      - title: Docente
-        payload: /inform{"role":"docente"}
-      - title: Empleado
-        payload: /inform{"role":"empleado"}
-      - title: Trabajador
-        payload: /inform{"role":"trabajador"}
+    - title: Estudiante
+      payload: /inform{"role":"alumno"}
+    - title: Docente
+      payload: /inform{"role":"docente"}
+    - title: Empleado
+      payload: /inform{"role":"empleado"}
+    - title: Trabajador
+      payload: /inform{"role":"trabajador"}
   utter_ask_email:
   - text: Cual es su direccion de correo electronico?
   - text: Me puedes ayudar con su cuenta de correo electronico institucional?
@@ -142,41 +171,33 @@ responses:
   utter_ask_priority:
   - text: Que prioridad considera que tiene su incidente?
     buttons:
-      - title: Baja
-        payload: /inform{"priority":"baja"}
-      - title: Media
-        payload: /inform{"priority":"media"}
-      - title: Alta
-        payload: /inform{"priority":"alta"}
+    - title: Baja
+      payload: /inform{"priority":"baja"}
+    - title: Media
+      payload: /inform{"priority":"media"}
+    - title: Alta
+      payload: /inform{"priority":"alta"}
   utter_ask_open_incident_form_confirm:
-  - text: "Confirma que desea reportar la siguiente incidencia?:\n\
-    \ - Título: {incident_title}\n\
-    \ - Descripción: {incident_description}\n\
-    \ - email: {email}"
+  - text: "Confirma que desea reportar la siguiente incidencia?:\n - Título: {incident_title}\n - Descripción: {incident_description}\n - email: {email}"
     buttons:
-      - title: Si
-        payload: /confirm
-      - title: No
-        payload: /deny
+    - title: Si
+      payload: /confirm
+    - title: No
+      payload: /deny
   utter_ask_create_app_user_form_confirm:
-  - text: "Confirma la siguiente informacion para crear su usuario?\n\
-    \ - Aplicacion: {application}\n\
-    \ - email: {email}\n\
-    \ - Rol: {role}"
+  - text: "Confirma la siguiente informacion para crear su usuario?\n - Aplicacion: {application}\n - email: {email}\n - Rol: {role}"
     buttons:
-      - title: Si
-        payload: /confirm
-      - title: No
-        payload: /deny
-  utter_ask_accept_agreement_form:
-  - text: "Confirma que la informacion es correcta y acepta\
-    \ los terminos y condiciones para {agreement_reason}?\n\
-    \ {data_confirmation}"
+    - title: Si
+      payload: /confirm
+    - title: No
+      payload: /deny
+  utter_ask_accept_agreement:
+  - text: "Confirma que la informacion es correcta y acepta los terminos y condiciones para {agreement_reason}?\n {data_confirmation}"
     buttons:
-      - title: Acepto
-        payload: /confirm
-      - title: No Acepto
-        payload: /deny
+    - title: Acepto
+      payload: /confirm
+    - title: No Acepto
+      payload: /deny
   utter_priority_no_match:
   - text: Lo siento! "{priority}" no es una prioridad valida. Por favor intentelo nuevamente.
   utter_no_email:
@@ -190,12 +211,12 @@ responses:
   utter_ask_wifi_network:
   - text: A que red quiere conectarse?
     buttons:
-      - title: Red Academica (EDUROAM)
-        payload: /inform{"wifi_network":"eduroam"}
-      - title: Red Institucional (UCWIFI)
-        payload: /inform{"wifi_network":"ucwifi"}
-      - title: Red de Invitados (Guest Token)
-        payload: /inform{"wifi_network":"guest"}
+    - title: Red Academica (EDUROAM)
+      payload: /inform{"wifi_network":"eduroam"}
+    - title: Red Institucional (UCWIFI)
+      payload: /inform{"wifi_network":"ucwifi"}
+    - title: Red de Invitados (Guest Token)
+      payload: /inform{"wifi_network":"guest"}
   utter_no_wifi_network:
   - text: Lo siento! {wifi_network} no es una opción válida
   utter_email_no_match:
@@ -209,17 +230,17 @@ responses:
   utter_ask_has_email:
   - text: Tal vez ya posee una cuenta de correo en el dominio @ucuenca.edu.ec?
     buttons:
-      - title: Si
-        payload: /confirm
-      - title: No
-        payload: /deny
+    - title: Si
+      payload: /confirm
+    - title: No
+      payload: /deny
   utter_ask_course_type:
   - text: Ha sido aceptado en una carrera o curso?
     buttons:
-      - title: Carrera Universitaria
-        payload: /inform{"course_type":"carrera"}
-      - title: Cursos de corta duración
-        payload: /inform{"course_type":"curso"}
+    - title: Carrera Universitaria
+      payload: /inform{"course_type":"carrera"}
+    - title: Cursos de corta duración
+      payload: /inform{"course_type":"curso"}
   utter_recover_password:
   - text: Para poder recuperar su contraseña visite el siguiente enlace https://usuarios.ucuenca.edu.ec/#/
   utter_ask_personal_id:
@@ -227,106 +248,122 @@ responses:
   utter_no_personal_id:
   - text: Su ID es inválido o no se encuentra registrado en nuestro sistema. Inténtelo nuevamente
   utter_ask_biometrics_id:
-    - text: Cual es su Nro. único marcación?
+  - text: Cual es su Nro. único marcación?
   utter_ask_time_period:
-    - text: En que periodo desea realizar su consulta?
+  - text: En que periodo desea realizar su consulta?
   utter_welcome:
   - text: Fue un placer ayudarte
   - text: Un placer atender tu requerimiento
   utter_help:
-  - text: Puedo ayudarle a crear una incidencia y/o atender su requerimiento a la mesa de servicios de la DTIC.
-      Puedo ayuarte con tu "Conexión a la red WIFI", en la "Creacion de usuario",
-      o con tu "Informe de intentos de marcación".
+  - text: Puedo ayudarle a crear una incidencia y/o atender su requerimiento a la mesa de servicios de la DTIC. Puedo ayuarte con tu "Conexión a la red WIFI", en la "Creacion de usuario", o con tu "Informe de intentos de marcación".
   utter_suggest:
-  - custom:
-    attachment:
-      type: "template"
-      payload:
-        template_type: "generic"
-        elements:
-        - default_action:
-            type: "carousel_item" # web_url
-            url: ""
-            payload: ""
-            title: ""
-          image_url: "https://www.aupairconecta.com/sites/default/files/v211batch11-aum-546-questionmark_2.jpg"
-          title: Preguntas Frecuentes
-          subtitle: Información de procesos de la U
-          buttons:
-            - title: Conexión a la red WiFi
-              payload: /connect_wifi
-              type: "postback" # web_url
-              url: ""
-            - title: ¿Cómo crear un usuario para carrera/curso?
-              payload: /faq_create_user
-              type: "postback" # web_url
-              url: ""
-        - default_action:
-            type: "carousel_item" # web_url
-            url: ""
-            payload: ""
-            title: ""
-          image_url: "https://www.infochannel.info/sites/default/files/2019/04/02/help_desk_app.jpg"
-          title: Mesa de Servicios DTIC
-          subtitle: Ayuda con servicios informáticos
-          buttons:
-            - title: Reportar una incidencia
-              payload: /open_incident
-              type: "postback" # web_url
-              url: ""
-            - title: Estado de mi incidencia
-              payload: /get_incident_status
-              type: "postback" # web_url
-              url: ""
-            - title: No recuerdo la contraseña
-              payload: /password_reset{"itilcategory_id":"56"}
-              type: "postback" # web_url
-              url: ""
-            - title: Problem con correo electrónico
-              payload: /problem_email{"itilcategory_id":"53"}
-              type: "postback" # web_url
-              url: ""
-        - default_action:
-            type: "carousel_item" # web_url
-            url: ""
-            payload: ""
-            title: ""
-          image_url: "https://www.universidades.com.ec/logos/original/logo-universidad-de-cuenca.png"
-          title: Procesos Internos
-          subtitle: Uso exclusivo para el personal
-          buttons:
-            - title: Reporte Biométrico
-              payload: /request_biometrics_report{"itilcategory_id":"60"}
-              type: "postback" # web_url
-              url: ""
-    channel: socketio
-  - text: Tal vez le interesa resolver uno de estos requerimientos?
-      Tambien puede darme una descripción del problema que necesita resolver.
+  - text: Tal vez le interesa resolver uno de estos requerimientos? Tambien puede darme una descripción del problema que necesita resolver.
     buttons:
-      - title: Conexión a la red WIFI
-        payload: /connect_wifi
-      - title: Creacion de usuario para carrera/curso
-        payload: /faq_create_user
-      - title: Recuperar contrasena
-        payload: /problem_email{"itilcategory_id":"53"}
-      - title: Informe Intentos de Marcacion
-        payload: /request_biometrics_report{"itilcategory_id":"60"}
+    - title: Conexión a la red WIFI
+      payload: /connect_wifi
+    - title: Creacion de usuario para carrera/curso
+      payload: /faq_create_user
+    - title: Recuperar contrasena
+      payload: /problem_email{"itilcategory_id":"53"}
+    - title: Informe Intentos de Marcacion
+      payload: /request_biometrics_report{"itilcategory_id":"60"}
+  - custom:
+      attachment:
+        type: template
+        payload:
+          template_type: generic
+          elements:
+            - default_action:
+                type: "carousel_item"  # web_url
+                url: ""
+                payload: ""
+                title: ""
+              image_url: "https://www.aupairconecta.com/sites/default/files/v211batch11-aum-546-questionmark_2.jpg"
+              title: "Preguntas Frecuentes"
+              subtitle: "Información de procesos de la U"
+              buttons:
+                - title: "Conexión a la red WiFi"
+                  payload: /connect_wifi
+                  type: "postback" # web_url
+                  url: ""
+                - title: "¿Cómo crear un usuario para carrera/curso?"
+                  payload: /faq_create_user
+                  type: "postback" # web_url
+                  url: ""
+            - default_action:
+                type: "carousel_item"  # web_url
+                url: ""
+                payload: ""
+                title: ""
+              image_url: "https://www.infochannel.info/sites/default/files/2019/04/02/help_desk_app.jpg"
+              title: "Mesa de Servicios DTIC"
+              subtitle: "Ayuda con servicios informáticos"
+              buttons:
+                - title: "Reportar una incidencia"
+                  payload: /open_incident
+                  type: "postback" # web_url
+                  url: ""
+                - title: "Estado de mi incidencia"
+                  payload: /get_incident_status
+                  type: "postback" # web_url
+                  url: ""
+                - title: "Crear un usuario de sistema"
+                  payload: /create_app_user
+                  type: "postback" # web_url
+                  url: ""
+                - title: "No recuerdo la contraseña"
+                  payload: /password_reset{"itilcategory_id":"56"}
+                  type: "postback" # web_url
+                  url: ""
+                - title: "Problem con correo electrónico"
+                  payload: /problem_email{"itilcategory_id":"53"}
+                  type: "postback" # web_url
+                  url: ""
+            - default_action:
+                type: "carousel_item"  # web_url
+                url: ""
+                payload: ""
+                title: ""
+              image_url: "https://www.universidades.com.ec/logos/original/logo-universidad-de-cuenca.png"
+              title: "Procesos Internos"
+              subtitle: "Uso exclusivo para el personal"
+              buttons:
+                - title: "Reporte Biométrico"
+                  payload: /request_biometrics_report{"itilcategory_id":"60"}
+                  type: "postback" # web_url
+                  url: ""
+    channel: socketio
+  utter_sample:
+  - text: sample sample
+    buttons:
+    - title: Conexión a la red WIFI
+      payload: /connect_wifi
+    - title: Creacion de usuario para carrera/curso
+      payload: /faq_create_user
+  - custom:
+      blocks:
+        - type: section
+          text:
+            text: "Make a bet on when the world will end:"
+            type: mrkdwn
+          accessory:
+            type: datepicker
+            initial_date: '2019-05-21'
+            placeholder:
+              type: plain_text
+              text: Select a date
+    channel: socketio
   utter_more_help:
   - text: Necesita ayuda en algo mas?
     buttons:
-      - title: Si
-        payload: /confirm
-      - title: No
-        payload: /deny
+    - title: Si
+      payload: /confirm
+    - title: No
+      payload: /deny
   utter_ticket_no:
   - text: 'El Nro. de ticket de su solicitud es: {ticket_no}'
   utter_ticket_status:
-  - text: "Ticket #{ticket_no}:\n\
-  \ - Título: {title}\n\
-  \ - Categoria: {category}\n\
-  \ - Estado: {status}\n\
-  \ - Resolución: {resolution}\n\
-  \ - Última actualización: {date_mod}"
+  - text: "Ticket #{ticket_no}:\n - Título: {title}\n - Categoria: {category}\n - Estado: {status}\n - Resolución: {resolution}\n - Última actualización: {date_mod}"
   utter_confirm_request:
   - text: Su solicitud ha sido enviada exitosamente!. Por favor revise su correo electronico
   utter_process_cancelled:
@@ -338,35 +375,167 @@ responses:
   utter_confirm_ask_success:
   - text: Hemos podido atender tu requerimiento satisfactoriamente?
     buttons:
-      - title: Si
-        payload: /confirm
-      - title: No
-        payload: /deny
+    - title: Si
+      payload: /confirm
+    - title: No
+      payload: /deny
   utter_confirm_success:
   - text: Hemos podido atender tu requerimiento satisfactoriamente?
   utter_continue:
   - text: Desea continuar con su requerimiento?
     buttons:
-      - title: Si
-        payload: /confirm
-      - title: No
-        payload: /deny
+    - title: Si
+      payload: /confirm
+    - title: No
+      payload: /deny
   utter_default:
-  - text: Lo siento! No entiendo su requerimiento. ¿Puede formular su pregunta de
-      manera más específica?
+  - text: Lo siento! No entiendo su requerimiento. ¿Puede formular su pregunta de manera más específica?
   utter_ask_rephrase:
-  - text: Lo siento! No entiendo su requerimiento. ¿Puede reformular su pregunta de
-      manera más específica?
-
+  - text: Lo siento! No entiendo su requerimiento. ¿Puede reformular su pregunta de manera más específica?
 actions:
+#- action_two_stage_fallback
+#- action_default_ask_affirmation
+#- action_default_ask_rephrase
 - action_validate_auth
-- action_default_ask_affirmation
 - action_joke
-
+- validate_open_incident_form
+- action_open_incident
+- validate_incident_status_form
+- action_incident_status
+- validate_wifi_faq_form
+- validate_create_user_faq_form
+- validate_create_app_user_form
+- action_create_app_user
+- validate_biometrics_report_form
+- action_biometrics_report
 forms:
-- open_incident_form
-- incident_status_form
-- wifi_faq_form
-- create_user_faq_form
-- create_app_user_form
-- biometrics_report_form
+  open_incident_form:
+    email:
+      - type: from_entity
+        entity: email
+    incident_title:
+      - type: from_trigger_intent
+        value: Problema para recuperar contrasena
+        intent: password_reset
+      - type: from_trigger_intent
+        value: Problema para recuperar contrasena
+        intent: problem_email
+      - type: from_text
+        intent:
+          - password_reset
+          - problem_email
+          - inform
+      - type: from_text
+    incident_description:
+      - type: from_text
+        intent:
+          - password_reset
+          - problem_email
+          - inform
+        not_intent:
+          - out_of_scope
+      - type: from_text
+    itilcategory_id:
+      - type: from_trigger_intent
+        value: 56  # Gestion de usuarios
+        intent: password_reset
+      - type: from_trigger_intent
+        value: 53  # Correo electronico 41 ?
+        intent: problem_email
+      - type: from_trigger_intent
+        value: 65  # Varios 61 ?
+        intent: open_incident
+    confirm:
+      - type: from_intent
+        value: true
+        intent: confirm
+      - type: from_intent
+        value: false
+        intent: deny
+  incident_status_form:
+    ticket_no:
+      - type: from_entity
+        entity: ticket_no
+      - type: from_text
+        not_intent:
+          - out_of_scope
+    email:
+      - type: from_entity
+        entity: email
+  wifi_faq_form:
+    wifi_network:
+      - type: from_entity
+        entity: wifi_network
+      - type: from_text
+        intent:
+          - connect_wifi
+          - inform
+    email:
+      - type: from_entity
+        entity: email
+  create_user_faq_form:
+    has_email:
+      - type: from_intent
+        value: true
+        intent: confirm
+      - type: from_intent
+        value: false
+        intent: deny
+    course_type:
+      - type: from_entity
+        entity: course_type
+  create_app_user_form:
+    application:
+      - type: from_entity
+        entity: application
+    personal_id:
+      - type: from_entity
+        entity: personal_id
+      - type: from_text
+        not_intent:
+          - out_of_scope
+    email:
+      - type: from_entity
+        entity: email
+    faculty:
+      - type: from_entity
+        entity: faculty
+      - type: from_text
+        not_intent:
+          - out_of_scope
+    accept_agreement:
+      - type: from_intent
+        value: true
+        intent: confirm
+      - type: from_intent
+        value: false
+        intent: deny
+    role:
+      - type: from_entity
+        entity: role
+      - type: from_text
+        not_intent:
+          - out_of_scope
+    confirm:
+      - type: from_intent
+        value: true
+        intent: confirm
+      - type: from_intent
+        value: false
+        intent: deny
+  biometrics_report_form:
+    personal_id:
+      - type: from_entity
+        entity: personal_id
+      - type: from_text
+        not_intent:
+          - out_of_scope
+    biometrics_id:
+      - type: from_entity
+        entity: biometrics_id
+      - type: from_text
+        not_intent:
+          - out_of_scope
+    time_period:
+      - type: from_entity
+        entity: time

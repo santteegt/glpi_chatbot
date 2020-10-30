@@ -1,0 +1,116 @@
+version: "2.0"
+stories:
+- story: create_app_user form happy_path success
+  steps:
+  - intent: create_app_user
+  - action: create_app_user_form
+  - active_loop: create_app_user_form
+  - active_loop: null
+  - action: action_create_app_user
+  - slot_was_set:
+    - ticket_no: '0055'
+- story: create_app_user form interrupted
+  steps:
+  - intent: create_app_user
+  - action: create_app_user_form
+  - active_loop: create_app_user_form
+  - intent: help
+  - action: utter_help
+  - action: create_app_user_form
+  - active_loop: null
+  - action: action_create_app_user
+  - slot_was_set:
+    - ticket_no: '0055'
+- story: create_app_user form interrupted with chitchat
+  steps:
+  - intent: create_app_user
+  - action: create_app_user_form
+  - active_loop: create_app_user_form
+  - intent: out_of_scope
+  - action: utter_out_of_scope
+  - action: create_app_user_form
+  - active_loop: null
+  - action: action_create_app_user
+  - slot_was_set:
+    - ticket_no: '0055'
+- story: create_app_user form stop but continue
+  steps:
+  - intent: create_app_user
+  - action: create_app_user_form
+  - active_loop: create_app_user_form
+  - intent: deny
+  - action: utter_continue
+  - intent: confirm
+  - action: create_app_user_form
+  - active_loop: null
+  - action: action_create_app_user
+  - slot_was_set:
+    - ticket_no: '0055'
+- story: create_app_user form stop + cancel
+  steps:
+  - intent: create_app_user
+  - action: create_app_user_form
+  - active_loop: create_app_user_form
+  - intent: deny
+  - action: utter_continue
+  - intent: deny
+  - action: action_deactivate_loop
+  - active_loop: null
+  - action: utter_process_cancelled
+- story: request_biometrics_report form
+  steps:
+  - intent: request_biometrics_report
+  - action: biometrics_report_form
+  - active_loop: biometrics_report_form
+  - active_loop: null
+  - action: action_biometrics_report
+  - slot_was_set:
+    - ticket_no: '0055'
+- story: request_biometrics_report form interrupted
+  steps:
+  - intent: request_biometrics_report
+  - action: biometrics_report_form
+  - active_loop: biometrics_report_form
+  - intent: help
+  - action: utter_help
+  - action: biometrics_report_form
+  - active_loop: null
+  - action: action_biometrics_report
+  - slot_was_set:
+    - ticket_no: '0055'
+- story: request_biometrics_report form interrupted with chitchat
+  steps:
+  - intent: request_biometrics_report
+  - action: biometrics_report_form
+  - active_loop: biometrics_report_form
+  - intent: out_of_scope
+  - action: utter_out_of_scope
+  - action: biometrics_report_form
+  - active_loop: null
+  - action: action_biometrics_report
+  - slot_was_set:
+    - ticket_no: '0055'
+- story: request_biometrics_report form stop but continue
+  steps:
+  - intent: request_biometrics_report
+  - action: biometrics_report_form
+  - active_loop: biometrics_report_form
+  - intent: deny
+  - action: utter_continue
+  - intent: confirm
+  - action: biometrics_report_form
+  - active_loop: null
+  - action: action_biometrics_report
+  - slot_was_set:
+    - ticket_no: '0055'
+- story: request_biometrics_report form stop + cancel
+  steps:
+  - intent: request_biometrics_report
+  - action: biometrics_report_form
+  - active_loop: biometrics_report_form
+  - intent: deny
+  - action: utter_continue
+  - intent: deny
+  - action: action_deactivate_loop
+  - active_loop: null
+  - action: utter_process_cancelled

@@ -1,23 +1,14 @@
 # -*- coding: utf-8 -*-
 
 import logging
-from typing import Any, Dict, List, Optional, Text, Union
-from rasa_sdk import Tracker
+from typing import Any, Dict, List, Text
+from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
-from rasa_sdk.forms import FormAction
 from rasa_sdk.events import AllSlotsReset, SlotSet
 
-import re
-
-from actions import users_api
-from actions.constants import EntitySlotEnum, GLPICategories, IntentEnum, TicketTypes, UtteranceEnum
+from actions.constants import EntitySlotEnum, GLPICategories, TicketTypes, UtteranceEnum
 from actions.glpi import GLPIService, GlpiException, load_glpi_config, Ticket
-from actions.user_api import User
-from actions.parsing import (
-    get_entity_details,
-    parse_duckling_time_as_interval,
-    remove_accents,
-)
+from actions.parsing import remove_accents
 
 logger = logging.getLogger(__name__)
 
@@ -30,106 +21,11 @@ glpi = (
 )
 
 
-class BiometricsReportForm(FormAction):
+class BiometricsReportForm(Action):
     def name(self) -> Text:
-        return "biometrics_report_form"
+        return "action_biometrics_report"
 
-    @staticmethod
-    def required_slots(tracker: Tracker) -> List[Text]:
-        """A list of required slots that the form has to fill"""
-
-        return [
-            EntitySlotEnum.PERSONAL_ID,
-            EntitySlotEnum.BIOMETRICS_ID,
-            EntitySlotEnum.TIME_PERIOD,
-        ]
-
-    def slot_mappings(self) -> Dict[Text, Union[Dict, List[Dict]]]:
-        """A dictionary to map required slots to
-            - an extracted entity
-            - intent: value pairs
-            - a whole message
-            or a list of them, where a first match will be picked"""
-
-        return {
-            EntitySlotEnum.PERSONAL_ID: [
-                self.from_entity(entity=EntitySlotEnum.PERSONAL_ID),
-                self.from_text(not_intent=IntentEnum.OUT_OF_SCOPE),
-            ],
-            EntitySlotEnum.BIOMETRICS_ID: [
-                self.from_entity(entity=EntitySlotEnum.BIOMETRICS_ID),
-                self.from_text(not_intent=IntentEnum.OUT_OF_SCOPE),
-            ],
-            EntitySlotEnum.TIME_PERIOD: [self.from_entity(entity=EntitySlotEnum.TIME)],
-        }
-
-    def fetch_employee(self, identity: Text) -> (Optional[User], bool):
-        """Fetch Users API using personal Id"""
-
-        user_data = users_api.validate_user(identity=identity)
-        # TODO: create ad-hoc metohod to validate user is employee => 'nombreGestor': 'GestorOpenLdap'
-        is_employee = True
-        return user_data, is_employee
-
-    def validate_personal_id(
-        self,
-        value: Text,
-        dispatcher: CollectingDispatcher,
-        tracker: Tracker,
-        domain: Dict[Text, Any],
-    ) -> Dict[Text, Any]:
-        """Validate personal_id has a valid value."""
-
-        # TODO: Validate it is registered as employee
-        user, is_employee = self.fetch_employee(value)
-        if re.match(r"[0-9]+$", value) and user and is_employee:
-            # validation succeeded
-            return {
-                EntitySlotEnum.PERSONAL_ID: value,
-                EntitySlotEnum.EMAIL: user['email']
-            }
-        else:
-            dispatcher.utter_message(template=UtteranceEnum.NO_PERSONAL_ID)
-            # validation failed, set this slot to None, meaning the
-            # user will get info to connect to the guest network
-            return {EntitySlotEnum.PERSONAL_ID: None}
-
-    def validate_biometrics_id(
-        self,
-        value: Text,
-        dispatcher: CollectingDispatcher,
-        tracker: Tracker,
-        domain: Dict[Text, Any],
-    ) -> Dict[Text, Any]:
-        """Validate personal_id has a valid value."""
-
-        # TODO: Validate it is registered
-        if re.match(r"[0-9]{10}$", value) is not None:
-            # validation succeeded
-            return {EntitySlotEnum.BIOMETRICS_ID: value}
-        else:
-            dispatcher.utter_message(template=UtteranceEnum.INVALID)
-            # validation failed, set this slot to None, meaning the
-            # user will get info to connect to the guest network
-            return {EntitySlotEnum.BIOMETRICS_ID: None}
-
-    def validate_time_period(
-        self,
-        value: Text,
-        dispatcher: CollectingDispatcher,
-        tracker: Tracker,
-        domain: Dict[Text, Any],
-    ) -> Dict[Text, Any]:
-        """Validate time value."""
-        time_entity = get_entity_details(tracker, EntitySlotEnum.TIME)
-        parsed_interval = parse_duckling_time_as_interval(time_entity)
-        if not parsed_interval:
-            dispatcher.utter_message(template=UtteranceEnum.INVALID)
-            return {EntitySlotEnum.TIME_PERIOD: None}
-        # Returns { EntitySlotEnum.START_TIME, EntitySlotEnum.END_TIME, EntitySlotEnum.GRAIN }
-        return parsed_interval
-
-    def submit(
+    def run(
         self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any],
     ) -> List[Dict]:
         """Define what the form has to do

@@ -1,211 +1,171 @@
 # -*- coding: utf-8 -*-
 
 import logging
-from typing import Dict, Text, Any, List, Union
-from rasa_sdk import Tracker
+from typing import Any, Dict, List, Text
+from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
-from rasa_sdk.forms import FormAction
 from rasa_sdk.events import SlotSet
+from rasa_sdk.forms import REQUESTED_SLOT
 
 import re
 
-from actions.actions_base import ask_if_success
-from actions.constants import EntitySlotEnum, IntentEnum, UtteranceEnum
+from actions.actions import ask_if_success
+from actions.constants import EntitySlotEnum, GLPICategories, UtteranceEnum
 
 logger = logging.getLogger(__name__)
 
 
-class WifiFaqForm(FormAction):
-    def name(self) -> Text:
-        return "wifi_faq_form"
+class WifiFaq(Action):
+	def name(self) -> Text:
+		return "validate_wifi_faq_form"
 
-    @staticmethod
-    def required_slots(tracker: Tracker) -> List[Text]:
-        """A list of required slots that the form has to fill"""
+	@staticmethod
+	def wifi_network_db() -> List[Text]:
+		"""Database of supported wifi networks"""
 
-        # logger.info(f'Current WIFI NET: {tracker.get_slot(EntitySlotEnum.WIFI_NETWORK)}')
-        # TODO: check why it isn't asking for an email
+		return ["eduroam", "ucwifi", "guest"]
 
-        if (
-            tracker.get_slot(EntitySlotEnum.WIFI_NETWORK)
-            in WifiFaqForm.wifi_network_db()[:2]
-        ):
-            return [EntitySlotEnum.WIFI_NETWORK, EntitySlotEnum.EMAIL]
-        else:
-            return [EntitySlotEnum.WIFI_NETWORK]
+	def validate_wifi_network(
+			self,
+			value: Text,
+			dispatcher: CollectingDispatcher,
+			tracker: Tracker,
+			domain: Dict[Text, Any],
+	) -> Dict[Text, Any]:
+		"""Validate wifi_network has a valid value."""
 
-    def slot_mappings(self) -> Dict[Text, Union[Dict, List[Dict]]]:
-        """A dictionary to map required slots to
-            - an extracted entity
-            - intent: value pairs
-            - a whole message
-            or a list of them, where a first match will be picked"""
+		if value.lower() in self.wifi_network_db():
+			# validation succeeded
+			return {EntitySlotEnum.WIFI_NETWORK: value}
+		else:
+			dispatcher.utter_message(template=UtteranceEnum.NO_WIFI_NETWORK)
+			dispatcher.utter_message(
+				text=f"Redes WiFi disponibles: {self.wifi_network_db()}"
+			)
+			# validation failed, set this slot to None, meaning the
+			# user will be asked for the slot again
+			return {EntitySlotEnum.WIFI_NETWORK: None}
 
-        return {
-            EntitySlotEnum.EMAIL: self.from_entity(entity=EntitySlotEnum.EMAIL),
-            EntitySlotEnum.WIFI_NETWORK: [
-                self.from_entity(entity=EntitySlotEnum.WIFI_NETWORK),
-                self.from_text(intent=[IntentEnum.CONNECT_WIFI, IntentEnum.INFORM]),
-            ],
-        }
+	def validate_email(
+			self,
+			value: Text,
+			dispatcher: CollectingDispatcher,
+			tracker: Tracker,
+			domain: Dict[Text, Any],
+	) -> Dict[Text, Any]:
+		"""Validate email has a valid value."""
 
-    @staticmethod
-    def wifi_network_db() -> List[Text]:
-        """Database of supported wifi networks"""
+		if re.search(r"@ucuenca\.edu\.ec$", value.lower()) is not None:
+			# validation succeeded
+			return {EntitySlotEnum.EMAIL: value.lower()}
+		else:
+			dispatcher.utter_message(template=UtteranceEnum.EMAIL_NO_MATCH)
+			# validation failed, set this slot to None, meaning the
+			# user will get info to connect to the guest network
+			return {
+				EntitySlotEnum.WIFI_NETWORK: "guest",
+				EntitySlotEnum.EMAIL: value.lower(),
+			}
 
-        return ["eduroam", "ucwifi", "guest"]
+	def run(
+			self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any],
+	) -> List[Dict]:
+		"""
+			Define what the form has to do after all required slots are filled
+		"""
 
-    def validate_wifi_network(
-        self,
-        value: Text,
-        dispatcher: CollectingDispatcher,
-        tracker: Tracker,
-        domain: Dict[Text, Any],
-    ) -> Dict[Text, Any]:
-        """Validate wifi_network has a valid value."""
+		wifi_network = tracker.slots.get(EntitySlotEnum.WIFI_NETWORK)
+		wifi_networks = self.wifi_network_db()
 
-        if value.lower() in self.wifi_network_db():
-            # validation succeeded
-            return {EntitySlotEnum.WIFI_NETWORK: value}
-        else:
-            dispatcher.utter_message(template=UtteranceEnum.NO_WIFI_NETWORK)
-            dispatcher.utter_message(
-                text=f"Redes WiFi disponibles: {self.wifi_network_db()}"
-            )
-            # validation failed, set this slot to None, meaning the
-            # user will be asked for the slot again
-            return {EntitySlotEnum.WIFI_NETWORK: None}
+		if wifi_network is None:
+			return [SlotSet(REQUESTED_SLOT, EntitySlotEnum.WIFI_NETWORK)]
+		elif wifi_network.lower() in wifi_networks[:2] and \
+				tracker.slots.get(EntitySlotEnum.EMAIL) is None:
+			return [SlotSet(REQUESTED_SLOT, EntitySlotEnum.EMAIL)]
 
-    def validate_email(
-        self,
-        value: Text,
-        dispatcher: CollectingDispatcher,
-        tracker: Tracker,
-        domain: Dict[Text, Any],
-    ) -> Dict[Text, Any]:
-        """Validate email has a valid value."""
+		instructions = {
+			wifi_networks[0]: UtteranceEnum.EDUROAM_INSTRUCTIONS,
+			wifi_networks[1]: UtteranceEnum.UCWIFI_INSTRUCTIONS,
+			wifi_networks[2]: UtteranceEnum.GUEST_WIFI_INSTRUCTIONS,
+		}
 
-        if re.search(r"@ucuenca\.edu\.ec$", value.lower()) is not None:
-            # validation succeeded
-            return {EntitySlotEnum.EMAIL: value.lower()}
-        else:
-            dispatcher.utter_message(template=UtteranceEnum.EMAIL_NO_MATCH)
-            # validation failed, set this slot to None, meaning the
-            # user will get info to connect to the guest network
-            return {
-                EntitySlotEnum.WIFI_NETWORK: "guest",
-                EntitySlotEnum.EMAIL: value.lower(),
-            }
+		dispatcher.utter_message(template=instructions[wifi_network.lower()])
 
-    def submit(
-        self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any],
-    ) -> List[Dict]:
-        """Define what the form has to do
-            after all required slots are filled"""
+		ask_if_success(
+			dispatcher,
+			incident_title="Problema de conexion a la red WIFI",
+			itilcategory_id=GLPICategories.NETWORK_CONNECTIVITY,
+		)
 
-        wifi_network = tracker.get_slot(EntitySlotEnum.WIFI_NETWORK).lower()
-        wifi_networks = self.wifi_network_db()
-        instructions = {
-            wifi_networks[0]: UtteranceEnum.EDUROAM_INSTRUCTIONS,
-            wifi_networks[1]: UtteranceEnum.UCWIFI_INSTRUCTIONS,
-            wifi_networks[2]: UtteranceEnum.GUEST_WIFI_INSTRUCTIONS,
-        }
-
-        dispatcher.utter_message(template=instructions[wifi_network])
-
-        ask_if_success(
-            dispatcher,
-            incident_title="Problema de conexion a la red WIFI",
-            itilcategory_id=52,
-        )
-
-        return [SlotSet(EntitySlotEnum.WIFI_NETWORK, None)]
+		return [
+			SlotSet(REQUESTED_SLOT, None),
+			SlotSet(EntitySlotEnum.WIFI_NETWORK, None),
+			SlotSet(EntitySlotEnum.EMAIL, None)
+		]
 
 
-class CreateUserFaqForm(FormAction):
-    def name(self) -> Text:
-        return "create_user_faq_form"
+class CreateUserFaq(Action):
+	def name(self) -> Text:
+		return "validate_create_user_faq_form"
 
-    @staticmethod
-    def required_slots(tracker: Tracker) -> List[Text]:
-        """A list of required slots that the form has to fill"""
+	@staticmethod
+	def course_type_db() -> List[Text]:
+		"""Database of supported student types"""
 
-        if tracker.get_slot(EntitySlotEnum.HAS_EMAIL):
-            return [EntitySlotEnum.HAS_EMAIL]
-        else:
-            return [EntitySlotEnum.HAS_EMAIL, EntitySlotEnum.COURSE_TYPE]
+		return ["carrera", "curso"]
 
-    def slot_mappings(self) -> Dict[Text, Union[Dict, List[Dict]]]:
-        """A dictionary to map required slots to
-            - an extracted entity
-            - intent: value pairs
-            - a whole message
-            or a list of them, where a first match will be picked"""
+	def validate_course_type(
+		self,
+		value: Text,
+		dispatcher: CollectingDispatcher,
+		tracker: Tracker,
+		domain: Dict[Text, Any],
+	) -> Dict[Text, Any]:
+		"""Validate COURSE_TYPE has a valid value."""
 
-        return {
-            EntitySlotEnum.HAS_EMAIL: [
-                self.from_intent(intent="confirm", value=True),
-                self.from_intent(intent="deny", value=False),
-            ],
-            EntitySlotEnum.COURSE_TYPE: [
-                self.from_entity(entity=EntitySlotEnum.COURSE_TYPE),
-            ],
-        }
+		# logger.info(f"COURSE TYPE ===> {value.lower()}:{value.lower() in self.course_type_db()}")
+		if value.lower() in self.course_type_db():
+			# validation succeeded
+			return {EntitySlotEnum.COURSE_TYPE: value.lower()}
+		else:
+			dispatcher.utter_message(template=UtteranceEnum.INVALID)
+			# validation failed, set this slot to None, meaning the
+			# user will be asked for the slot again
+			return {EntitySlotEnum.COURSE_TYPE: None}
 
-    @staticmethod
-    def course_type_db() -> List[Text]:
-        """Database of supported student types"""
+	def run(
+		self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any],
+	) -> List[Dict]:
 
-        return ["carrera", "curso"]
+		has_email = tracker.slots.get(EntitySlotEnum.HAS_EMAIL)
+		course_type = tracker.slots.get(EntitySlotEnum.COURSE_TYPE)
+		if has_email is None:
+			return [SlotSet(REQUESTED_SLOT, EntitySlotEnum.HAS_EMAIL)]
+		elif has_email:
+			dispatcher.utter_message(template=UtteranceEnum.RECOVER_PASSWORD)
+		elif course_type is None:
+			return [SlotSet(REQUESTED_SLOT, EntitySlotEnum.COURSE_TYPE)]
+		else:
+			course_types = self.course_type_db()
+			instructions = {
+				course_types[0]: "https://admision.ucuenca.edu.ec/",
+				course_types[1]: "https://registro.ucuenca.edu.ec/",
+			}
 
-    def validate_course_type(
-        self,
-        value: Text,
-        dispatcher: CollectingDispatcher,
-        tracker: Tracker,
-        domain: Dict[Text, Any],
-    ) -> Dict[Text, Any]:
-        """Validate COURSE_TYPE has a valid value."""
+			dispatcher.utter_message(
+				"Para poder registrar una cuenta por favor visita el siguiente enlace: "
+				+ instructions[course_type]
+			)
 
-        # logger.info(f"COURSE TYPE ===> {value.lower()}:{value.lower() in self.course_type_db()}")
-        if value.lower() in self.course_type_db():
-            # validation succeeded
-            return {EntitySlotEnum.COURSE_TYPE: value.lower()}
-        else:
-            dispatcher.utter_message(template=UtteranceEnum.INVALID)
-            # validation failed, set this slot to None, meaning the
-            # user will be asked for the slot again
-            return {EntitySlotEnum.COURSE_TYPE: None}
+		logger.info('final')
+		ask_if_success(
+			dispatcher,
+			incident_title="Problema para crear un usuario",
+			itilcategory_id=GLPICategories.USER_MGMT,
+		)
 
-    def submit(
-        self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any],
-    ) -> List[Dict]:
-        """Define what the form has to do
-            after all required slots are filled"""
-
-        has_email = tracker.get_slot(EntitySlotEnum.HAS_EMAIL)
-        if has_email:
-            dispatcher.utter_message(template=UtteranceEnum.RECOVER_PASSWORD)
-        else:
-            course_type = tracker.get_slot(EntitySlotEnum.COURSE_TYPE)
-            course_types = self.course_type_db()
-            instructions = {
-                course_types[0]: "https://admision.ucuenca.edu.ec/",
-                course_types[1]: "https://registro.ucuenca.edu.ec/",
-            }
-
-            dispatcher.utter_message(
-                "Para poder registrar una cuenta por favor visita el siguiente enlace: "
-                + instructions[course_type]
-            )
-
-        ask_if_success(
-            dispatcher,
-            incident_title="Problema para crear un usuario",
-            itilcategory_id=56,
-        )
-
-        return [
-            SlotSet(EntitySlotEnum.COURSE_TYPE, None),
-            SlotSet(EntitySlotEnum.HAS_EMAIL, None),
-        ]
+		return [
+			SlotSet(REQUESTED_SLOT, None),
+			SlotSet(EntitySlotEnum.HAS_EMAIL, None),
+			SlotSet(EntitySlotEnum.COURSE_TYPE, None),
+		]

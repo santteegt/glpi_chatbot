@@ -1,0 +1,128 @@
+version: "2.0"
+stories:
+- story: connect_wifi form happy_path success
+  steps:
+  - intent: connect_wifi
+  - action: wifi_faq_form
+  - active_loop: wifi_faq_form
+  - active_loop: null
+  - intent: confirm
+  - action: utter_welcome
+- story: connect_wifi form happy_path fail
+  steps:
+  - intent: connect_wifi
+  - action: wifi_faq_form
+  - active_loop: wifi_faq_form
+  - active_loop: null
+  - intent: deny
+    entities:
+    - incident_title: Problema de conexion a la red WIFI
+    - itilcategory_id: '52'
+  - action: open_incident_form
+  - active_loop: open_incident_form
+  - active_loop: null
+  - action: action_open_incident
+  - slot_was_set:
+    - ticket_no: '0055'
+- story: connect_wifi form interrupted
+  steps:
+  - intent: connect_wifi
+  - action: wifi_faq_form
+  - active_loop: wifi_faq_form
+  - intent: help
+  - action: utter_help
+  - action: wifi_faq_form
+  - active_loop: null
+- story: connect_wifi form interrupted with chitchat
+  steps:
+  - intent: connect_wifi
+  - action: wifi_faq_form
+  - active_loop: wifi_faq_form
+  - intent: out_of_scope
+  - action: utter_out_of_scope
+  - action: wifi_faq_form
+  - active_loop: null
+- story: connect_wifi form stop + cancel
+  steps:
+  - intent: connect_wifi
+  - action: wifi_faq_form
+  - active_loop: wifi_faq_form
+  - intent: deny
+  - action: utter_continue
+  - intent: deny
+  - action: action_deactivate_loop
+  - active_loop: null
+  - action: utter_process_cancelled
+- story: connect_wifi form stop but continue
+  steps:
+  - intent: connect_wifi
+  - action: wifi_faq_form
+  - active_loop: wifi_faq_form
+  - intent: deny
+  - action: utter_continue
+  - intent: confirm
+  - action: wifi_faq_form
+  - active_loop: null
+- story: faq_create_user form happy_path success
+  steps:
+  - intent: faq_create_user
+  - action: create_user_faq_form
+  - active_loop: create_user_faq_form
+  - active_loop: null
+  - intent: confirm
+  - action: utter_welcome
+- story: faq_create_user form happy_path fail
+  steps:
+  - intent: faq_create_user
+  - action: create_user_faq_form
+  - active_loop: create_user_faq_form
+  - active_loop: null
+  - intent: deny
+    entities:
+    - incident_title: Problema para crear un usuario
+    - itilcategory_id: '56'
+  - action: open_incident_form
+  - active_loop: open_incident_form
+  - active_loop: null
+  - action: action_open_incident
+  - slot_was_set:
+    - ticket_no: '0055'
+- story: faq_create_user form interrupted
+  steps:
+  - intent: faq_create_user
+  - action: create_user_faq_form
+  - active_loop: create_user_faq_form
+  - intent: help
+  - action: utter_help
+  - action: create_user_faq_form
+  - active_loop: null
+- story: faq_create_user form interrupted with chitchat
+  steps:
+  - intent: faq_create_user
+  - action: create_user_faq_form
+  - active_loop: create_user_faq_form
+  - intent: out_of_scope
+  - action: utter_out_of_scope
+  - action: create_user_faq_form
+  - active_loop: null
+- story: faq_create_user form stop but continue
+  steps:
+  - intent: faq_create_user
+  - action: create_user_faq_form
+  - active_loop: create_user_faq_form
+  - intent: deny
+  - action: utter_continue
+  - intent: confirm
+  - action: create_user_faq_form
+  - active_loop: null
+- story: faq_create_user form stop + cancel
+  steps:
+  - intent: faq_create_user
+  - action: create_user_faq_form
+  - active_loop: create_user_faq_form
+  - intent: deny
+  - action: utter_continue
+  - intent: deny
+  - action: action_deactivate_loop
+  - active_loop: null
+  - action: utter_process_cancelled

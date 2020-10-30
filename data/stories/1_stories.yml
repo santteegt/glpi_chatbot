@@ -1,0 +1,65 @@
+version: "2.0"
+stories:
+- story: out of scope path
+  steps:
+  - intent: out_of_scope
+  - action: utter_out_of_scope
+- story: help
+  steps:
+  - intent: help
+  - action: utter_help
+- story: greet happy path
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - action: utter_suggest
+#- story: login happy path
+#  steps:
+#  - intent: login
+#    entities:
+#    - auth_token: a_token_auth
+#  - action: action_validate_auth
+#  - slot_was_set:
+#    - username: normal
+#  - slot_was_set:
+#    - email: normal@ucuenca.edu.ec
+#  - action: utter_logged_in
+#- story: login failed to validate
+#  steps:
+#  - intent: login
+#    entities:
+#    - auth_token: a_token_auth
+#  - action: action_validate_auth
+#  - slot_was_set:
+#    - username: null
+#  - slot_was_set:
+#    - email: null
+#  - action: utter_login_failed
+- story: ask for options
+  steps:
+  - intent: show_menu
+  - action: utter_help
+  - action: utter_suggest
+- story: say goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+- story: bot challenge
+  steps:
+  - intent: bot_challenge
+  - action: utter_iamabot
+- story: ask more help + confirm
+  steps:
+  - intent: thank
+  - action: utter_welcome
+  - action: utter_more_help
+  - intent: confirm
+  - action: utter_suggest
+- story: ask more help + deny
+  steps:
+  - intent: thank
+  - action: utter_welcome
+  - action: utter_more_help
+  - intent: deny
+  - action: utter_goodbye
+  - action: action_restart

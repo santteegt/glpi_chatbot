@@ -1,0 +1,52 @@
+version: "2.0"
+nlu:
+- lookup: department
+  examples: |
+    - DTIC
+    - DIUC
+    - Recursos Humanos
+    - Idiomas
+- lookup: faculty
+  examples: |
+    - arquitectura y urbanismo
+    - arquitectura
+    - artes
+    - agropecuarias
+    - ciencias medicas
+    - medicina
+    - ciencias quimicas
+    - quimica
+    - economia
+    - filosofia
+    - hospitalidad
+    - ingenieria
+    - jurisprudencia
+    - odontologia
+    - psicologia
+- lookup: role
+  examples: |
+    - alumno
+    - docente
+    - empleado
+    - trabajador
+- lookup: application
+  examples: |
+    - urkund
+    - sistema antiplagio
+    - portafolio
+    - quipux
+    - evirtual
+    - openerp
+    - glpi
+    - siuc
+    - koha
+    - biblioteca
+    - catalogo de libros
+    - sistema de gestion de biblioteca
+    - sgb
+    - silabos
+    - gestion academica
+    - clinicas
+    - bolsa de trabajo
+    - estudiantes
+    - docentes

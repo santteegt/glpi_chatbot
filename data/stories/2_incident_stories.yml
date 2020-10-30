@@ -1,0 +1,123 @@
+version: "2.0"
+stories:
+- story: incident form
+  steps:
+  - or:
+    - intent: open_incident
+    - intent: password_reset
+    - intent: problem_email
+  - action: open_incident_form
+  - active_loop: open_incident_form
+  - active_loop: null
+  - action: action_open_incident
+  - slot_was_set:
+    - ticket_no: '0055'
+- story: incident form interrupted with help
+  steps:
+  - or:
+    - intent: open_incident
+    - intent: password_reset
+    - intent: problem_email
+  - action: open_incident_form
+  - active_loop: open_incident_form
+  - intent: help
+  - action: utter_help
+  - action: open_incident_form
+  - active_loop: null
+  - action: action_open_incident
+  - slot_was_set:
+    - ticket_no: '0055'
+- story: incident form interrupted with chitchat
+  steps:
+  - or:
+    - intent: open_incident
+    - intent: password_reset
+    - intent: problem_email
+  - action: open_incident_form
+  - active_loop: open_incident_form
+  - intent: out_of_scope
+  - action: utter_out_of_scope
+  - action: open_incident_form
+  - active_loop: null
+  - action: action_open_incident
+  - slot_was_set:
+    - ticket_no: '0055'
+- story: incident form stop but continue
+  steps:
+  - or:
+    - intent: open_incident
+    - intent: password_reset
+    - intent: problem_email
+  - action: open_incident_form
+  - active_loop: open_incident_form
+  - intent: deny
+  - action: utter_continue
+  - intent: confirm
+  - action: open_incident_form
+  - active_loop: null
+  - action: action_open_incident
+  - slot_was_set:
+    - ticket_no: '0055'
+- story: incident form stop + cancel
+  steps:
+  - or:
+    - intent: open_incident
+    - intent: password_reset
+    - intent: problem_email
+  - action: open_incident_form
+  - active_loop: open_incident_form
+  - intent: deny
+  - action: utter_continue
+  - intent: deny
+  - action: action_deactivate_loop
+  - active_loop: null
+  - action: utter_process_cancelled
+- story: get incident status form
+  steps:
+  - intent: get_incident_status
+  - action: incident_status_form
+  - active_loop: incident_status_form
+  - active_loop: null
+  - action: action_incident_status
+- story: get incident status form interrupted
+  steps:
+  - intent: get_incident_status
+  - action: incident_status_form
+  - active_loop: incident_status_form
+  - intent: help
+  - action: utter_help
+  - action: incident_status_form
+  - active_loop: null
+  - action: action_incident_status
+- story: get incident status form interrupted
+  steps:
+  - intent: get_incident_status
+  - action: incident_status_form
+  - active_loop: incident_status_form
+  - intent: out_of_scope
+  - action: utter_out_of_scope
+  - action: incident_status_form
+  - active_loop: null
+  - action: action_incident_status
+- story: get incident status form stop but continue
+  steps:
+  - intent: get_incident_status
+  - action: incident_status_form
+  - active_loop: incident_status_form
+  - intent: deny
+  - action: utter_continue
+  - intent: confirm
+  - action: incident_status_form
+  - active_loop: null
+  - action: action_incident_status
+- story: get incident status form stop + cancel
+  steps:
+  - intent: get_incident_status
+  - action: incident_status_form
+  - active_loop: incident_status_form
+  - intent: deny
+  - action: utter_continue
+  - intent: deny
+  - action: action_deactivate_loop
+  - active_loop: null
+  - action: utter_process_cancelled

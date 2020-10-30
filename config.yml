@@ -1,151 +1,38 @@
-# Configuration for Rasa NLU.
-# https://rasa.com/docs/rasa/nlu/choosing-a-pipeline/
-
-# Configuration for Rasa Core.
-# https://rasa.com/docs/rasa/core/policies/
-# - max_history: This controls how much dialogue history the model looks at to decide which action to take next.
-# - nlu-threshold: the fallback action or the utter_default will be executed if the intent recognition has a confidence
-#   below a threshold (0-1). This value can be set based on NLU model evaluation results.
-# Enabled Policies
-# - KerasPolicy:
-# - MemoizationPolicy:
-# - FormPolicy:
-# - FallbackPolicy: Disabled
-# - TwoStageFallbackPolicy: By splitting the fallback in the two stages affirmation and rephrasing the policy allows
-#                           more natural conversation flows
-
 language: es
-
-#pipeline:
-#- name: SpacyNLP
-#- name: SpacyTokenizer
-#- name: SpacyFeaturizer
-#- name: RegexFeaturizer
-#- name: LexicalSyntacticFeaturizer
-#- name: CountVectorsFeaturizer
-#- name: CountVectorsFeaturizer
-#  analyzer: "char_wb"
-#  min_ngram: 1
-#  max_ngram: 4
-#- name: DucklingHTTPExtractor
-#  url: http://localhost:8000
-#  dimensions:
-#  - email
-##- name: "DucklingHTTPExtractor"
-##  url: http://localhost:8000
-##  dimensions: ["time", "number", "email", "distance", "amount-of-money", "duration", "url", "phone-number"]
-#- name: EntitySynonymMapper
-#- name: SpacyEntityExtractor
-#  # https://spacy.io/api/annotation#section-named-entities
-#  dimensions: ["PER", "LOC", "ORG"]
-##- name: CRFEntityExtractor
-##  # BILOU_flag determines whether to use BILOU tagging or not.
-##  BILOU_flag: True
-##  features: [
-##    ["low", "title", "upper"],
-##    [
-##      "bias",
-##      "low",
-##      "prefix5",
-##      "prefix2",
-##      "suffix5",
-##      "suffix3",
-##      "suffix2",
-##      "upper",
-##      "title",
-##      "digit",
-##      "pattern",
-##    ],
-##    ["low", "title", "upper"],
-##  ]
-### # Last features. Why?
-###  BILOU_flag: false
-###  features: [
-###    ["low", "title", "upper", "pos", "pos2"],
-###    [
-###      "bias",
-###      "low",
-###      "prefix5",
-###      "prefix2",
-###      "suffix5",
-###      "suffix3",
-###      "suffix2",
-###      "upper",
-###      "title",
-###      "digit",
-###      "pattern",
-###    ],
-###    [ "low", "title", "upper", "pos", "pos2" ],
-###  ]
-##  # The maximum number of iterations for optimization algorithms.
-##  max_iterations: 50
-##  # weight of the L1 regularization
-##  L1_c: 0.1
-##  # weight of the L2 regularization
-##  L2_c: 0.1
-##- name: SklearnIntentClassifier
-#- name: DIETClassifier
-#  epochs: 150
-#  random_seed: 1
-#policies:
-#- name: TEDPolicy
-#  max_history: 5
-#  epochs: 100
-#- name: MappingPolicy
-#- name: MemoizationPolicy
-#  max_history: 5
-#- name: FallbackPolicy
-#  nlu_threshold: 0.29
-#  ambiguity_threshold: 0.1
-#  core_threshold: 0.29
-#  fallback_action_name: utter_default
-##- name: TwoStageFallbackPolicy
-##  nlu_threshold: 0.29
-##  ambiguity_threshold: 0.1
-##  core_threshold: 0.29
-##  fallback_core_action_name: utter_default
-##  fallback_nlu_action_name: action_default_ask_affirmation
-##  deny_suggestion_intent_name: solicitar_opciones
-#- name: FormPolicy
-
 pipeline:
-  - name: SpacyNLP
-  - name: SpacyTokenizer
-  - name: SpacyFeaturizer
-  - name: RegexFeaturizer
-  - name: LexicalSyntacticFeaturizer
-  - name: CountVectorsFeaturizer
-  - name: CountVectorsFeaturizer
-    analyzer: "char_wb"
-    min_ngram: 1
-    max_ngram: 4
-  - name: DIETClassifier
-    epochs: 150
-    random_seed: 1
-  - name: DucklingHTTPExtractor
-    url: http://localhost:8000
-    dimensions:
-    - email
-    - time
-    - number
-    - duration
-    locale: "es_CO"
-    timezone: "America/Guayaquil"
-  - name: EntitySynonymMapper
+- name: SpacyNLP
+- name: SpacyTokenizer
+- name: SpacyFeaturizer
+- name: RegexFeaturizer
+- name: LexicalSyntacticFeaturizer
+- name: CountVectorsFeaturizer
+- name: CountVectorsFeaturizer
+  analyzer: char_wb
+  min_ngram: 1
+  max_ngram: 4
+- name: DIETClassifier
+  epochs: 150
+  random_seed: 1
+- name: DucklingEntityExtractor
+  url: http://localhost:8000
+  dimensions:
+  - email
+  - time
+  - number
+  - duration
+  locale: es_CO
+  timezone: America/Guayaquil
+- name: EntitySynonymMapper
+- name: FallbackClassifier
+  threshold: 0.7
+  ambiguity_threshold: 0.1
 policies:
-  - name: TEDPolicy
-    max_history: 4
-    epochs: 100
-  - name: MappingPolicy
-  - name: AugmentedMemoizationPolicy
-    max_history: 4
-#  - name: FallbackPolicy
-#    nlu_threshold: 0.7
-  - name: TwoStageFallbackPolicy
-    nlu_threshold: 0.7
-    ambiguity_threshold: 0.1
-    core_threshold: 0.7
-    fallback_core_action_name: utter_default
-    fallback_nlu_action_name: action_default_ask_affirmation
-    deny_suggestion_intent_name: out_of_scope
-  - name: FormPolicy
+- name: TEDPolicy
+  max_history: 4
+  epochs: 100
+- name: AugmentedMemoizationPolicy
+  max_history: 4
+- name: RulePolicy
+  core_fallback_threshold: 0.7
+  core_fallback_action_name: action_default_fallback
+  enable_fallback_prediction: True

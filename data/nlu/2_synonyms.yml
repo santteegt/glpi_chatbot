@@ -1,0 +1,29 @@
+version: "2.0"
+nlu:
+- synonym: guest
+  examples: |
+    - invitado
+    - invitados
+- synonym: alta
+  examples: |
+    - urgente
+    - muy urgente
+    - crucial
+- synonym: curso
+  examples: |
+    - taller
+    - seminario
+    - charla
+- synonym: koha
+  examples: |
+    - biblioteca
+    - catalogo de libros
+    - sistema de gestion de biblioteca
+    - sgb
+- synonym: urkund
+  examples: |
+    - sistema antiplagio
+- synonym: alumno
+  examples: |
+    - estudiante
+    - universitario
