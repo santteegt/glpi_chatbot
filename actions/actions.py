@@ -1,12 +1,13 @@
 # -*- coding: utf-8 -*-
 
 import logging
+from typing import Dict, Text, Any, List
 
+from rasa.core.actions.action import ACTION_DEFAULT_ASK_AFFIRMATION_NAME
+from rasa.shared.constants import DEFAULT_NLU_FALLBACK_INTENT_NAME
+from rasa.shared.nlu.constants import INTENT_NAME_KEY, INTENT_RANKING_KEY
 from rasa_sdk import Action, Tracker
-from rasa_sdk.events import EventType, SlotSet
 from rasa_sdk.executor import CollectingDispatcher
-from rasa_sdk.forms import FormAction, REQUESTED_SLOT
-from typing import Dict, Text, Any, List, Optional
 
 from actions.constants import EntitySlotEnum, IntentEnum, UtteranceEnum
 
@@ -38,58 +39,56 @@ def ask_if_success(
     )
 
 
-# class ActionDefaultAskAffirmation(Action):
-#     """Asks for an affirmation of the intent if NLU threshold is not met."""
-#
-#     def name(self):
-#         return "action_default_ask_affirmation"
-#
-#     def __init__(self):
-#         self.intent_mappings = {
-#             IntentEnum.CONNECT_WIFI: "Ayuda con conexión al WiFI",
-#             IntentEnum.CREATE_APP_USER: "Ayuda a crear un usuario",
-#             IntentEnum.REQUEST_BIOMETRICS_REPORT: "Informe de marcación en biométrico",
-#             IntentEnum.REQUEST_VM: "Solicitud de máquina virtual",
-#             IntentEnum.PASSWORD_RESET: "Recuperar contraseña",
-#             IntentEnum.PROBLEM_EMAIL: "Problema con el correo electrónico",
-#             IntentEnum.OPEN_INCIDENT: "Reportar una incidencia",
-#             IntentEnum.GET_INCIDENT_STATUS: "Obtener estado de una incidencia",
-#             IntentEnum.SHOW_MENU: "Ver menu de opciones",
-#         }
-#         # read the mapping from a csv and store it in a dictionary
-#         # with open('intent_mapping.csv', newline='', encoding='utf-8') as file:
-#         #     csv_reader = csv.reader(file)
-#         #     for row in csv_reader:
-#         #         self.intent_mappings[row[0]] = row[1]
-#
-#     def run(self, dispatcher, tracker, domain):
-#         # get the most likely intent
-#         last_intent_name = tracker.latest_message["intent"]["name"]
-#
-#         mapping_exists = (
-#             True if last_intent_name in self.intent_mappings.keys() else False
-#         )
-#
-#         if mapping_exists:
-#             # get the prompt for the intent
-#             intent_prompt = self.intent_mappings[last_intent_name]
-#
-#             # Create the affirmation message and add two buttons to it.
-#             # Use '/<intent_name>' as payload to directly trigger '<intent_name>'
-#             # when the button is clicked.
-#             message = "Tal vez quiso decir '{}'?".format(intent_prompt)
-#             buttons = [
-#                 {"title": "Si", "payload": f"/{last_intent_name}"},
-#                 {"title": "No", "payload": f"/{IntentEnum.SHOW_MENU}"},
-#             ]
-#             dispatcher.utter_button_message(message, buttons=buttons)
-#         else:
-#             # TODO: narrow a list of most probable intents?
-#             logger.info("NO ACTION FOUND. Showing suggestions")
-#             dispatcher.utter_message(
-#                 image="http://www.crear-meme.com/public/img/memes_users/what-7.jpg"
-#             )
-#             # tracker.trigger_followup_action("utter_sugerencias")
-#             dispatcher.utter_message(template=UtteranceEnum.SUGGEST)
-#
-#         return []
+class ActionDefaultAskAffirmation(Action):
+    """Asks for an affirmation of the intent if NLU threshold is not met."""
+
+    def name(self) -> Text:
+        return ACTION_DEFAULT_ASK_AFFIRMATION_NAME
+
+    def __init__(self):
+        self.intent_mappings = {
+            IntentEnum.CONNECT_WIFI: "Ayuda con conexión al WiFI",
+            IntentEnum.FAQ_CREATE_USER: "Como crear un usuario?",
+            IntentEnum.CREATE_APP_USER: "Ayuda a crear un usuario",
+            IntentEnum.REQUEST_BIOMETRICS_REPORT: "Informe de marcación en biométrico",
+            IntentEnum.PASSWORD_RESET: "Recuperar contraseña",
+            IntentEnum.PROBLEM_EMAIL: "Problema con el correo electrónico",
+            IntentEnum.OPEN_INCIDENT: "Reportar una incidencia",
+            IntentEnum.GET_INCIDENT_STATUS: "Obtener estado de una incidencia",
+            IntentEnum.SHOW_MENU: "Ver menu de opciones",
+        }
+
+    def run(
+            self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]
+    ) -> List[Dict[Text, Any]]:
+
+        # get the most likely intent
+        intent_to_affirm = tracker.latest_message['intent']["name"]
+        intent_ranking = tracker.latest_message[INTENT_RANKING_KEY]
+        if intent_to_affirm == DEFAULT_NLU_FALLBACK_INTENT_NAME \
+                and intent_ranking and len(intent_ranking) > 1:
+            intent_to_affirm = intent_ranking[1][INTENT_NAME_KEY]
+
+        mapping_exists = (
+            True if intent_to_affirm in self.intent_mappings.keys() else False
+        )
+
+        if mapping_exists:
+            # get the prompt for the intent
+            intent_description = self.intent_mappings[intent_to_affirm]
+            affirmation_message = f"Talvez quiso decir '{intent_description}'?"
+            buttons = [
+                {"title": "Si", "payload": f"/{intent_to_affirm}"},
+                {"title": "No", "payload": f"/{IntentEnum.OUT_OF_SCOPE}"},
+            ]
+            dispatcher.utter_message(text=affirmation_message, buttons=buttons)
+        else:
+            # TODO: narrow a list of most probable intents?
+            logger.info(f"NO DESCRIPTION FOUND for {intent_to_affirm}. Showing suggestions")
+            dispatcher.utter_message(
+                image="http://www.crear-meme.com/public/img/memes_users/what-7.jpg"
+            )
+            dispatcher.utter_message(template=UtteranceEnum.OUT_OF_SCOPE)
+            dispatcher.utter_message(template=UtteranceEnum.SUGGEST)
+
+        return []

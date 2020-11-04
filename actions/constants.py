@@ -47,7 +47,6 @@ class IntentEnum(object):
     FAQ_CREATE_USER = "faq_create_user"
     CREATE_APP_USER = "create_app_user"
     REQUEST_BIOMETRICS_REPORT = "request_biometrics_report"
-    REQUEST_VM = "request_vm"
     PASSWORD_RESET = "password_reset"
     PROBLEM_EMAIL = "problem_email"
 
@@ -71,6 +70,7 @@ class UtteranceEnum(object):
     CONFIRM_ASK_SUCCESS = "utter_confirm_ask_success"  # With default buttons
     CONFIRM_SUCCESS = "utter_confirm_success"  # Template to use custom buttons
     ACCEPT_AGREEMENT_FORM = "utter_ask_accept_agreement_form"
+    OUT_OF_SCOPE = "utter_out_of_scope"
 
 
 class TicketTypes(object):
