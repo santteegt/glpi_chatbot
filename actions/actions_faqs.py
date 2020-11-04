@@ -69,7 +69,7 @@ class WifiFaq(Action):
 
 	def run(
 			self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any],
-	) -> List[Dict]:
+	) -> List[Dict[Text, Any]]:
 		"""
 			Define what the form has to do after all required slots are filled
 		"""
@@ -135,7 +135,7 @@ class CreateUserFaq(Action):
 
 	def run(
 		self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any],
-	) -> List[Dict]:
+	) -> List[Dict[Text, Any]]:
 
 		has_email = tracker.slots.get(EntitySlotEnum.HAS_EMAIL)
 		course_type = tracker.slots.get(EntitySlotEnum.COURSE_TYPE)

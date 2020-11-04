@@ -26,7 +26,7 @@ class OpenIncident(Action):
 	def run(self,
 	        dispatcher: CollectingDispatcher,
 	        tracker: Tracker,
-	        domain: Dict[Text, Any]) -> List[Dict]:
+	        domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 		"""
 				Define what the form has to do after all required slots are filled
 			:param dispatcher:
@@ -96,7 +96,7 @@ class IncidentStatus(Action):
 	def run(self,
 	        dispatcher: CollectingDispatcher,
 	        tracker: Tracker,
-	        domain: Dict[Text, Any]) -> List[Dict]:
+	        domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 		"""
 			Define what the form has to do after all required slots are filled
 		"""

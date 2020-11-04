@@ -27,7 +27,7 @@ class BiometricsReportForm(Action):
 
     def run(
         self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any],
-    ) -> List[Dict]:
+    ) -> List[Dict[Text, Any]]:
         """Define what the form has to do
             after all required slots are filled"""
 
