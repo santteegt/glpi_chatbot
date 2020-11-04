@@ -18,3 +18,11 @@ rules:
   # My custom action
 #  - action: action_default_ask_affirmation
 #  - active_loop: action_default_ask_affirmation
+- rule: Respond to FAQs
+  steps:
+  - intent: faq
+  - action: utter_faq
+- rule: Respond to chitchat
+  steps:
+  - intent: chitchat
+  - action: utter_chitchat

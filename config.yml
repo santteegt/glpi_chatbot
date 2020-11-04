@@ -13,6 +13,16 @@ pipeline:
 - name: DIETClassifier
   epochs: 150
   random_seed: 1
+- name: ResponseSelector
+  epochs: 100
+  random_seed: 1
+  use_text_as_label: False
+  retrieval_intent: faq
+- name: ResponseSelector
+  epochs: 100
+  random_seed: 1
+  use_text_as_label: False
+  retrieval_intent: chitchat
 - name: DucklingEntityExtractor
   url: http://localhost:8000
   dimensions:

@@ -1,0 +1,30 @@
+version: "2.0"
+nlu:
+- intent: chitchat/bot_challenge
+  examples: |
+    - eres un robot?
+    - eres humano?
+    - estoy hablando con un robot?
+    - estoy hablando con un humano?
+    - eres un robot verdad?
+    - acaso eres un robot?
+    - como te llamas?
+    - cual es tu nombre?
+
+- intent: chitchat/how_are_you
+  examples: |
+    - como estas?
+    - como va tu dia?
+    - estas bien?
+
+
+responses:
+  utter_chitchat/bot_challenge:
+    - text: "Soy un robot que trabaja 24/7 para la DTIC de la U de Cuenca"
+    - text: "Soy un asistente de la DTIC"
+    - text: "Soy un asistente virtual de la DTIC"
+    - text: "Soy un robot de la mesa de servicios de la DTIC"
+  utter_chitchat/how_are_you:
+    - text: "Estoy bien, Gracias"
+    - text: "Soy un robot. A menos que me desconecten siempre estoy bien"
+    - text: "Excelente! bip bop!"

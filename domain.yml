@@ -6,7 +6,6 @@ intents:
 - greet
 - goodbye
 - thank
-- bot_challenge
 - help
 - show_menu
 - login
@@ -21,6 +20,7 @@ intents:
 - password_reset
 - problem_email
 - connect_wifi
+- faq
 - faq_create_user
 - create_app_user
 - request_biometrics_report
@@ -28,6 +28,7 @@ intents:
 - confirm
 - deny
 - out_of_scope
+- chitchat
 - restart
 entities:
 - application
@@ -333,26 +334,6 @@ responses:
                   type: "postback" # web_url
                   url: ""
     channel: socketio
-  utter_sample:
-  - text: sample sample
-    buttons:
-    - title: Conexión a la red WIFI
-      payload: /connect_wifi
-    - title: Creacion de usuario para carrera/curso
-      payload: /faq_create_user
-  - custom:
-      blocks:
-        - type: section
-          text:
-            text: "Make a bet on when the world will end:"
-            type: mrkdwn
-          accessory:
-            type: datepicker
-            initial_date: '2019-05-21'
-            placeholder:
-              type: plain_text
-              text: Select a date
-    channel: socketio
   utter_more_help:
   - text: Necesita ayuda en algo mas?
     buttons:
@@ -394,7 +375,7 @@ responses:
   - text: Lo siento! No entiendo su requerimiento. ¿Puede reformular su pregunta de manera más específica?
 actions:
 #- action_two_stage_fallback
-#- action_default_ask_affirmation
+- action_default_ask_affirmation
 #- action_default_ask_rephrase
 - action_validate_auth
 - action_joke

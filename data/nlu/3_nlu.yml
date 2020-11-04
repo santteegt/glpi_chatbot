@@ -60,16 +60,6 @@ nlu:
     - mostrar menu
     - ver menu
     - mostrar opciones disponibles
-- intent: bot_challenge
-  examples: |
-    - eres un robot?
-    - eres humano?
-    - estoy hablando con un robot?
-    - estoy hablando con un humano?
-    - eres un robot verdad?
-    - acaso eres un robot?
-    - como te llamas?
-    - cual es tu nombre?
 - intent: confirm
   examples: |
     - si
@@ -297,5 +287,4 @@ nlu:
     - como sera el clima el dia de hoy
     - que dia es hoy
     - que fecha es hoy
-    - como te llamas
     - quiero comida
