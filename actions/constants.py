@@ -92,3 +92,10 @@ class DTICApplication(object):
     KOHA = "koha"
     GAS = "gas"
 
+
+class RasaConstants(object):
+    # Intents
+    INTENT_RANKING_KEY = "intent_ranking"
+    DEFAULT_NLU_FALLBACK_INTENT_NAME = "nlu_fallback"
+    # Actions
+    ACTION_DEFAULT_ASK_AFFIRMATION_NAME = "action_default_ask_affirmation"

@@ -3,13 +3,10 @@
 import logging
 from typing import Dict, Text, Any, List
 
-from rasa.core.actions.action import ACTION_DEFAULT_ASK_AFFIRMATION_NAME
-from rasa.shared.constants import DEFAULT_NLU_FALLBACK_INTENT_NAME
-from rasa.shared.nlu.constants import INTENT_NAME_KEY, INTENT_RANKING_KEY
 from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
 
-from actions.constants import EntitySlotEnum, IntentEnum, UtteranceEnum
+from actions.constants import EntitySlotEnum, IntentEnum, RasaConstants, UtteranceEnum
 
 logger = logging.getLogger(__name__)
 
@@ -43,7 +40,7 @@ class ActionDefaultAskAffirmation(Action):
     """Asks for an affirmation of the intent if NLU threshold is not met."""
 
     def name(self) -> Text:
-        return ACTION_DEFAULT_ASK_AFFIRMATION_NAME
+        return RasaConstants.ACTION_DEFAULT_ASK_AFFIRMATION_NAME
 
     def __init__(self):
         self.intent_mappings = {
@@ -64,10 +61,10 @@ class ActionDefaultAskAffirmation(Action):
 
         # get the most likely intent
         intent_to_affirm = tracker.latest_message['intent']["name"]
-        intent_ranking = tracker.latest_message[INTENT_RANKING_KEY]
-        if intent_to_affirm == DEFAULT_NLU_FALLBACK_INTENT_NAME \
+        intent_ranking = tracker.latest_message[RasaConstants.INTENT_RANKING_KEY]
+        if intent_to_affirm == RasaConstants.DEFAULT_NLU_FALLBACK_INTENT_NAME \
                 and intent_ranking and len(intent_ranking) > 1:
-            intent_to_affirm = intent_ranking[1][INTENT_NAME_KEY]
+            intent_to_affirm = intent_ranking[1]["name"]
 
         mapping_exists = (
             True if intent_to_affirm in self.intent_mappings.keys() else False
