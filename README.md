@@ -3,32 +3,37 @@
 AI assistant for the GLPI IT Helpdesk. It includes an integration with its API to open incident reports.
 
 ## Supported features
-* Login & Auth validation using Google OAuth (TODO) (login)
+
 * Open an incident ticket on GLPI (open_incident)
 * Get the current status of a ticket (get_incident_status)
 * Reset my password (password_reset)
 * Issues with email (problem_email)
 * Request biometrics report (request_biometrics_report)
-* Request a VM (request_vm)
+* Create an App User (create_app_user) 
 * FAQ: How to connect to the WiFi? (connect_wifi)
-* FAQ: How to create a user? (create_user)
+* FAQ: How to create a user? (faq_create_user)
+* FAQ: Helpdesk working hours (faq/helpdesk_availability)
+* FAQ: DTIC Info (faq/dtic_info)
+* Login & Auth validation using Google OAuth (WIP) (login)
 
 ## MISC Intents
 * greet
 * goodbye
 * thank
-* bot_challenge
 * help
 * show_menu
 * inform
 * confirm
 * deny
 * out_of_scope
+* chitchat/*
 
 ## Lookup Tables
-* [Software](data/software-dtic.txt)
-* [Faculties](data/faculties.txt)
-* [Departments](data/departments.txt)
+* [Lookup tables file](data/nlu/1_lookup-tables.yml) contains:
+  * Faculties
+  * Departments
+  * Roles
+  * Applications
 
 ## Requirements
 
@@ -41,7 +46,7 @@ AI assistant for the GLPI IT Helpdesk. It includes an integration with its API t
 If you haven’t installed Rasa NLU and Rasa Core yet, you can do it by navigating to the project directory and running:  
 
 ```
-pip install -r requirements.txt
+pip install -r requirements-dev.txt
 ```
 
 You also need to install the spaCy Spanish language model. You can install it by running:
@@ -53,7 +58,7 @@ python -m spacy link es_core_news_md es
 
 ## Development instructions
 
-### Validate training data
+### Validate Bot's domain & config files as well as training data
 
 ```bash
 rasa data validate
@@ -76,16 +81,18 @@ rasa data split nlu # (Optional)
 # rasa test nlu -u train_test_split/test_data.md --out nlu_metrics/
 rasa test nlu
 # or 5 (default -f) cross validation
-rasa test nlu -u data/nlu.md --cross-validation --out nlu_metrics/
+rasa test nlu -u data/nlu/ --cross-validation --out results/
 ```
 
-Finally, check the following files for results:
+Finally, check the following files in [results](results) folder:
  
-* [Intent Confusion Matrix](results/confmat.png) 
-* [Intent Confidence Prediction](results/hist.png)
+* [Intent Confusion Matrix](results/intent_confusion_matrix.png) 
+* [Intent Confidence Prediction](results/intent_histogram.png)
 * [Intent/Entity Metrics Report](results/intent_report.json)
-
-Within the [results](results) folder there are also other reportes for each the NLU pipeline components (e.g. DIETClassifier report and errors)
+* [DIETClassifier Confusion Matrix](results/DIETClassifier_confusion_matrix.png) 
+* [DIETClassifier Confidence Prediction](results/DIETClassifier_histogram.png)
+* [ResponseSelector Confusion Matrix](results/response_selection_confusion_matrix.png) 
+* [ResponseSelector Confidence Prediction](results/response_selection_histogram.png)
 
 ### Dialogue (CORE) model evaluation
 
@@ -100,7 +107,7 @@ Finally, check the [results](core_metrics/) directory for a summary of the perfo
 ### Visualizing stories
 
 ```bash
-rasa visualize -d domain.yml --stories data/stories.md -u data/nlu.md --out graph.html
+rasa visualize -d domain.yml --stories data/stories/ -u data/nlu/ --out results/graph.html
 ```
 ## Chatbot Deployment
 
@@ -175,11 +182,11 @@ or as a background process
 sh scripts/startClient.sh
 ```
 
-### Deployment on server
+### Server Deployment (Test | Production)
 
-* Install Rasa + RasaX using [Docker Compose Quick Start Guide](https://rasa.com/docs/rasa-x/installation-and-setup/docker-compose-script/#)
+* Install Rasa + RasaX using [Docker Compose Quick Start Guide](https://rasa.com/docs/rasa-x/installation-and-setup/install/docker-compose/#docker-compose-install-script)
 
-* To upgrade the components to their latest release, follow this [instructions](https://rasa.com/docs/rasa-x/installation-and-setup/updating/#docker-compose-quick-install)
+* To upgrade the components to their latest release, follow this [instructions](https://rasa.com/docs/rasa-x/changelog/updating#docker-compose)
 
 * To update the admin password run the following command within `RASA_HOME`
 
@@ -249,7 +256,7 @@ Host github.com
 1. Add `-F /app/.ssh/config` as parameter on the ssh executable script `/usr/local/lib/python3.7/site-packages/rasax/community/services/integrated_version_control/git_service.py`:
 
 ```
-SSH_SCRIPT f"""#!/bin/sh
+SSH_SCRIPT = f"""#!/bin/sh
 ID_RSA={path_to_key}
 # Kubernetes tends to reset file permissions on restart. Hence, re-apply the required
 # permissions whenever using the key.
