@@ -140,6 +140,8 @@ docker run -p 8000:8000 rasa/duckling
 
 ```bash
 rasa shell --endpoints endpoints.yml
+# OR by using it through a client
+rasa run --cors '*'
 ```
 
 ### Run Chatbot + Rasa X Locally (*DEPRECATED*)
