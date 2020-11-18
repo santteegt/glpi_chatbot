@@ -8,7 +8,7 @@ intents:
 - thank
 - help
 - show_menu
-- login
+#- login
 - open_incident:
     use_entities:
     - incident_title
@@ -32,7 +32,7 @@ intents:
 - restart
 entities:
 - application
-- auth_token
+#- auth_token
 - email
 - number
 - priority
@@ -152,13 +152,13 @@ responses:
   - text: Elija su rol de usuario
     buttons:
     - title: Estudiante
-      payload: /inform{"role":"alumno"}
+      payload: '/inform{{"role":"alumno"}}'
     - title: Docente
-      payload: /inform{"role":"docente"}
+      payload: '/inform{{"role":"docente"}}'
     - title: Empleado
-      payload: /inform{"role":"empleado"}
+      payload: '/inform{{"role":"empleado"}}'
     - title: Trabajador
-      payload: /inform{"role":"trabajador"}
+      payload: '/inform{{"role":"trabajador"}}'
   utter_ask_email:
   - text: Cual es su direccion de correo electronico?
   - text: Me puedes ayudar con su cuenta de correo electronico institucional?
@@ -173,11 +173,11 @@ responses:
   - text: Que prioridad considera que tiene su incidente?
     buttons:
     - title: Baja
-      payload: /inform{"priority":"baja"}
+      payload: '/inform{{"priority":"baja"}}'
     - title: Media
-      payload: /inform{"priority":"media"}
+      payload: '/inform{{"priority":"media"}}'
     - title: Alta
-      payload: /inform{"priority":"alta"}
+      payload: '/inform{{"priority":"alta"}}'
   utter_ask_open_incident_form_confirm:
   - text: "Confirma que desea reportar la siguiente incidencia?:\n - Título: {incident_title}\n - Descripción: {incident_description}\n - email: {email}"
     buttons:
@@ -213,11 +213,11 @@ responses:
   - text: A que red quiere conectarse?
     buttons:
     - title: Red Academica (EDUROAM)
-      payload: /inform{"wifi_network":"eduroam"}
+      payload: '/inform{{"wifi_network":"eduroam"}}'
     - title: Red Institucional (UCWIFI)
-      payload: /inform{"wifi_network":"ucwifi"}
+      payload: '/inform{{"wifi_network":"ucwifi"}}'
     - title: Red de Invitados (Guest Token)
-      payload: /inform{"wifi_network":"guest"}
+      payload: '/inform{{"wifi_network":"guest"}}'
   utter_no_wifi_network:
   - text: Lo siento! {wifi_network} no es una opción válida
   utter_email_no_match:
@@ -239,9 +239,9 @@ responses:
   - text: Ha sido aceptado en una carrera o curso?
     buttons:
     - title: Carrera Universitaria
-      payload: /inform{"course_type":"carrera"}
+      payload: '/inform{{"course_type":"carrera"}}'
     - title: Cursos de corta duración
-      payload: /inform{"course_type":"curso"}
+      payload: '/inform{{"course_type":"curso"}}'
   utter_recover_password:
   - text: Para poder recuperar su contraseña visite el siguiente enlace https://usuarios.ucuenca.edu.ec/#/
   utter_ask_personal_id:
@@ -258,16 +258,16 @@ responses:
   utter_help:
   - text: Puedo ayudarle a crear una incidencia y/o atender su requerimiento a la mesa de servicios de la DTIC. Puedo ayuarte con tu "Conexión a la red WIFI", en la "Creacion de usuario", o con tu "Informe de intentos de marcación".
   utter_suggest:
-  - text: Tal vez le interesa resolver uno de estos requerimientos? Tambien puede darme una descripción del problema que necesita resolver.
+  - text: Puedo ayudarle a resolver uno de estos requerimientos? o tambien puede darme una descripción del problema que necesita resolver.
     buttons:
     - title: Conexión a la red WIFI
       payload: /connect_wifi
     - title: Creacion de usuario para carrera/curso
       payload: /faq_create_user
     - title: Recuperar contrasena
-      payload: /problem_email{"itilcategory_id":"53"}
+      payload: '/problem_email{{"itilcategory_id":"53"}}'
     - title: Informe Intentos de Marcacion
-      payload: /request_biometrics_report{"itilcategory_id":"60"}
+      payload: '/request_biometrics_report{{"itilcategory_id":"60"}}'
   - custom:
       attachment:
         type: template
@@ -313,11 +313,11 @@ responses:
                   type: "postback" # web_url
                   url: ""
                 - title: "No recuerdo la contraseña"
-                  payload: /password_reset{"itilcategory_id":"56"}
+                  payload: '/password_reset{{"itilcategory_id":"56"}}'
                   type: "postback" # web_url
                   url: ""
                 - title: "Problem con correo electrónico"
-                  payload: /problem_email{"itilcategory_id":"53"}
+                  payload: '/problem_email{{"itilcategory_id":"53"}}'
                   type: "postback" # web_url
                   url: ""
             - default_action:
@@ -330,10 +330,10 @@ responses:
               subtitle: "Uso exclusivo para el personal"
               buttons:
                 - title: "Reporte Biométrico"
-                  payload: /request_biometrics_report{"itilcategory_id":"60"}
+                  payload: '/request_biometrics_report{{"itilcategory_id":"60"}}'
                   type: "postback" # web_url
                   url: ""
-    channel: socketio
+    channel: "socketio"
   utter_more_help:
   - text: Necesita ayuda en algo mas?
     buttons:
