@@ -373,6 +373,39 @@ responses:
   - text: Lo siento! No entiendo su requerimiento. ¿Puede formular su pregunta de manera más específica?
   utter_ask_rephrase:
   - text: Lo siento! No entiendo su requerimiento. ¿Puede reformular su pregunta de manera más específica?
+  utter_chitchat/bot_challenge:
+  - text: "Soy un robot que trabaja 24/7 para la DTIC de la U de Cuenca"
+  - text: "Soy un asistente de la DTIC"
+  - text: "Soy un asistente virtual de la DTIC"
+  - text: "Soy un robot de la mesa de servicios de la DTIC"
+  utter_chitchat/how_are_you:
+  - text: "Estoy bien, Gracias"
+  - text: "Soy un robot. A menos que me desconecten siempre estoy bien"
+  - text: "Excelente! bip bop!"
+  utter_faq/helpdesk_availability:
+  - text: "El horario de atencion de la mesa de Servicios de la DTIC es de 08:00 13:00 - 15:00 19:00"
+  - custom:
+      attachment:
+        type: template
+        payload:
+          template_type: generic
+          elements:
+            - default_action:
+                type: "carousel_item"  # web_url
+                url: ""
+                payload: ""
+                title: ""
+              image_url: "https://www.aupairconecta.com/sites/default/files/v211batch11-aum-546-questionmark_2.jpg"
+              title: "Mesa de Servicio"
+              subtitle: "Horarios Atencion: 08:00 13:00 - 15:00 19:00"
+              buttons:
+                - title: "Reportar/Consultar una Incidencia"
+                  payload: ""
+                  type: "postback" # web_url
+                  url: "https://servicios.ucuenca.edu.ec/"
+    channel: socketio
+  utter_faq/dtic_info:
+  - text: "Puedes encontrar mas informacion sobre la DTIC (Direccion de Tecnologias de Informacion y Comunicacion) de la Universidad de Cuenca aqui https://www.ucuenca.edu.ec/dtics"
 actions:
 #- action_two_stage_fallback
 - action_default_ask_affirmation
