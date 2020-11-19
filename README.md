@@ -216,7 +216,7 @@ docker push $GLPI_DOCKER_IMAGE
 
 * Copy the [docker-compose.override.yml](docker-compose.override.yml) file to the `RASA_HOME` directory
 
-* Set the following environment variables on the `.env` file within the `RASA_HOME` directory
+* Set the following environment variables on the `${RASA_HOME}/.env` file:
 
     - GLPI_API_URI: (Setup > General > API) <- where you can find the info on your GLPI instance
     - GLPI_APP_TOKEN: (Setup > General > API)
@@ -225,6 +225,17 @@ docker push $GLPI_DOCKER_IMAGE
     - USERS_API_BASE_URI: e.g. https://cdsdesarrollo.ucuenca.edu.ec:8500/api
     - USERS_API_CLIENT_ID: OAuth Client ID
     - USERS_API_CLIENT_SECRET: OAuth Client Secret
+
+* Enable socketio channel on `${RASA_HOME}/credentials.yml`
+
+```
+...
+...
+socketio:
+  user_message_evt: user_uttered
+  bot_message_evt: bot_uttered
+  session_persistence: true
+```
 
 * Start Docker Compose:
 
