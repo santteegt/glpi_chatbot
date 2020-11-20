@@ -10,7 +10,7 @@ nlu:
     - acaso eres un robot?
     - como te llamas?
     - cual es tu nombre?
-
+    - quien eres tu?
 - intent: chitchat/how_are_you
   examples: |
     - como estas?
