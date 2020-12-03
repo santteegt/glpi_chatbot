@@ -99,7 +99,7 @@ Finally, check the following files in [results](results) folder:
 The following command performs a model evaluation of the latest trained dialogue model under the `models` directory
 
 ```bash
-rasa test core --stories tests/e2e-stories.md
+rasa test core --stories tests/ --out results/
 ```
 
 Finally, check the [results](core_metrics/) directory for a summary of the performed evaluation
