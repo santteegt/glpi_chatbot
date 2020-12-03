@@ -1,0 +1,158 @@
+version: "2.0"
+stories:
+- story: Open an Incident
+  steps:
+  - user: |
+      hola! quiero crear una incidencia
+    intent: open_incident
+  - action: open_incident_form
+  - active_loop: open_incident_form
+  - user: |
+      [name.lastname@ucuenca.edu.ec]("email")
+    intent: inform
+  - action: open_incident_form
+  - active_loop: open_incident_form
+  - user: |
+      titulo de incidente
+    intent: inform
+  - action: open_incident_form
+  - active_loop: open_incident_form
+  - user: |
+      descripcion de incidente
+    intent: inform
+  - action: open_incident_form
+  - active_loop: open_incident_form
+  - user: |
+      confirmar
+    intent: confirm
+  - action: open_incident_form
+  - active_loop: null
+  - action: action_open_incident
+  - slot_was_set:
+      - ticket_no: 'T1234567890'
+  - action: utter_more_help
+- story: Open Incident - Password Reset
+  steps:
+  - user: |
+      como puedo restablecer mi contraseña?
+    intent: password_reset
+  - action: open_incident_form
+  - active_loop: open_incident_form
+  - user: |
+      perdi mi contrasena
+    intent: inform
+  - action: open_incident_form
+  - active_loop: open_incident_form
+  - user: |
+      confirmar
+    intent: confirm
+  - action: open_incident_form
+  - active_loop: null
+  - action: action_open_incident
+  - slot_was_set:
+      - ticket_no: 'T1234567890'
+  - action: utter_more_help
+- story: Open Incident - Problem email
+  steps:
+  - user: |
+      ayuda! no puedo acceder a mi correo
+    intent: problem_email
+  - action: open_incident_form
+  - active_loop: open_incident_form
+  - user: |
+      perdi mi contrasena
+    intent: inform
+  - action: open_incident_form
+  - active_loop: open_incident_form
+  - user: |
+      confirmar
+    intent: confirm
+  - action: open_incident_form
+  - active_loop: null
+  - action: action_open_incident
+  - slot_was_set:
+      - ticket_no: 'T1234567890'
+  - action: utter_more_help
+- story: Open Incident - Interrupted with chitchat
+  steps:
+  - user: |
+      hola! quiero crear una incidencia
+    intent: open_incident
+  - action: open_incident_form
+  - active_loop: open_incident_form
+  - user: |
+      titulo de incidente
+    intent: inform
+  - action: open_incident_form
+  - active_loop: open_incident_form
+  - user: |
+      que dia es hoy?
+    intent: out_of_scope
+  - action: utter_out_of_scope
+  - action: open_incident_form
+  - active_loop: null
+  - action: action_open_incident
+  - slot_was_set:
+      - ticket_no: 'T1234567890'
+  - action: utter_more_help
+- story: Open Incident - Stop but continue
+  steps:
+  - user: |
+      hola! necesito reportar una incidencia
+    intent: open_incident
+  - action: open_incident_form
+  - active_loop: open_incident_form
+  - user: |
+      titulo de incidente
+    intent: inform
+  - action: open_incident_form
+  - active_loop: open_incident_form
+  - user: |
+      cancelar proceso
+    intent: deny
+  - action: utter_continue
+  - user: |
+      si
+    intent: confirm
+  - action: open_incident_form
+  - active_loop: null
+  - action: action_open_incident
+  - slot_was_set:
+      - ticket_no: 'T1234567890'
+  - action: utter_more_help
+- story: Open Incident - Stop & Cancel process
+  steps:
+  - user: |
+      hola! necesito reportar una incidencia
+    intent: open_incident
+  - action: open_incident_form
+  - active_loop: open_incident_form
+  - user: |
+      titulo de incidente
+    intent: inform
+  - action: open_incident_form
+  - active_loop: open_incident_form
+  - user: |
+      cancelar proceso
+    intent: deny
+  - action: utter_continue
+  - user: |
+      no
+    intent: deny
+  - action: action_deactivate_loop
+  - active_loop: null
+  - action: utter_process_cancelled
+- story: Get Incident Status
+  steps:
+  - user: |
+      cual es el estado de mi ticket
+    intent: get_incident_status
+  - action: incident_status_form
+  - active_loop: incident_status_form
+  - user: |
+      [T1234567890]("ticket_no")
+    intent: inform
+  - action: incident_status_form
+  - active_loop: null
+  - action: action_incident_status
+  - action: utter_more_help

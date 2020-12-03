@@ -1,0 +1,250 @@
+[
+  {
+    "text": "salir",
+    "intent": "goodbye",
+    "intent_prediction": {
+      "name": "deny",
+      "confidence": 0.47634047269821167
+    }
+  },
+  {
+    "text": "esta bien",
+    "intent": "confirm",
+    "intent_prediction": {
+      "name": "chitchat",
+      "confidence": 0.9913440942764282
+    }
+  },
+  {
+    "text": "que paso con la incidencia que reporte?",
+    "intent": "get_incident_status",
+    "intent_prediction": {
+      "name": "open_incident",
+      "confidence": 0.9387680888175964
+    }
+  },
+  {
+    "text": "la red de invitados",
+    "intent": "inform",
+    "intent_prediction": {
+      "name": "connect_wifi",
+      "confidence": 0.9975467920303345
+    }
+  },
+  {
+    "text": "facu de agropecuarias",
+    "intent": "inform",
+    "intent_prediction": {
+      "name": "create_app_user",
+      "confidence": 0.6169723272323608
+    }
+  },
+  {
+    "text": "horario de atencion al usuario",
+    "intent": "faq",
+    "intent_prediction": {
+      "name": "create_app_user",
+      "confidence": 0.6083393692970276
+    }
+  },
+  {
+    "text": "nos vemos",
+    "intent": "goodbye",
+    "intent_prediction": {
+      "name": "show_menu",
+      "confidence": 0.6405298709869385
+    }
+  },
+  {
+    "text": "Ayuda con un problema",
+    "intent": "help",
+    "intent_prediction": {
+      "name": "open_incident",
+      "confidence": 0.5866817235946655
+    }
+  },
+  {
+    "text": "no gracias",
+    "intent": "deny",
+    "intent_prediction": {
+      "name": "thank",
+      "confidence": 0.9840773344039917
+    }
+  },
+  {
+    "text": "hoy",
+    "intent": "inform",
+    "intent_prediction": {
+      "name": "out_of_scope",
+      "confidence": 0.9847767949104309
+    }
+  },
+  {
+    "text": "ciencias quimicas",
+    "intent": "inform",
+    "intent_prediction": {
+      "name": "get_incident_status",
+      "confidence": 0.5136608481407166
+    }
+  },
+  {
+    "text": "soy estudiante",
+    "intent": "inform",
+    "intent_prediction": {
+      "name": "create_app_user",
+      "confidence": 0.7224312424659729
+    }
+  },
+  {
+    "text": "fin",
+    "intent": "goodbye",
+    "intent_prediction": {
+      "name": "confirm",
+      "confidence": 0.5619816184043884
+    }
+  },
+  {
+    "text": "consulta ticket numero T1234567891",
+    "intent": "get_incident_status",
+    "intent_prediction": {
+      "name": "inform",
+      "confidence": 0.9425163269042969
+    }
+  },
+  {
+    "text": "eduroam",
+    "intent": "inform",
+    "intent_prediction": {
+      "name": "connect_wifi",
+      "confidence": 0.998894453048706
+    }
+  },
+  {
+    "text": "que a\u00f1o es",
+    "intent": "out_of_scope",
+    "intent_prediction": {
+      "name": "deny",
+      "confidence": 0.558804452419281
+    }
+  },
+  {
+    "text": "a que hora atienden incidencias",
+    "intent": "faq",
+    "intent_prediction": {
+      "name": "open_incident",
+      "confidence": 0.4597534239292145
+    }
+  },
+  {
+    "text": "nada",
+    "intent": "deny",
+    "intent_prediction": {
+      "name": "confirm",
+      "confidence": 0.7736881375312805
+    }
+  },
+  {
+    "text": "crucial",
+    "intent": "inform",
+    "intent_prediction": {
+      "name": "thank",
+      "confidence": 0.482114315032959
+    }
+  },
+  {
+    "text": "ucwifi",
+    "intent": "inform",
+    "intent_prediction": {
+      "name": "connect_wifi",
+      "confidence": 0.9997696876525879
+    }
+  },
+  {
+    "text": "una charla t\u00e9cnica",
+    "intent": "inform",
+    "intent_prediction": {
+      "name": "out_of_scope",
+      "confidence": 0.34425514936447144
+    }
+  },
+  {
+    "text": "soy de filosofia",
+    "intent": "inform",
+    "intent_prediction": {
+      "name": "get_incident_status",
+      "confidence": 0.270309716463089
+    }
+  },
+  {
+    "text": "mi ticket es T1234567890",
+    "intent": "inform",
+    "intent_prediction": {
+      "name": "get_incident_status",
+      "confidence": 0.9725877642631531
+    }
+  },
+  {
+    "text": "cual es el significado de la vida",
+    "intent": "out_of_scope",
+    "intent_prediction": {
+      "name": "get_incident_status",
+      "confidence": 0.4671575427055359
+    }
+  },
+  {
+    "text": "mi lavadora esta da\u00f1ada",
+    "intent": "out_of_scope",
+    "intent_prediction": {
+      "name": "open_incident",
+      "confidence": 0.4807133376598358
+    }
+  },
+  {
+    "text": "estas bien?",
+    "intent": "chitchat",
+    "intent_prediction": {
+      "name": "confirm",
+      "confidence": 0.9186946749687195
+    }
+  },
+  {
+    "text": "cual es el estado actual de mi ticket T1234567890",
+    "intent": "get_incident_status",
+    "intent_prediction": {
+      "name": "inform",
+      "confidence": 0.7638059258460999
+    }
+  },
+  {
+    "text": "atendieron mi ticket?",
+    "intent": "get_incident_status",
+    "intent_prediction": {
+      "name": "faq",
+      "confidence": 0.9585195183753967
+    }
+  },
+  {
+    "text": "esta semana",
+    "intent": "inform",
+    "intent_prediction": {
+      "name": "out_of_scope",
+      "confidence": 0.5226984024047852
+    }
+  },
+  {
+    "text": "la semana anterior",
+    "intent": "inform",
+    "intent_prediction": {
+      "name": "request_biometrics_report",
+      "confidence": 0.8132997155189514
+    }
+  },
+  {
+    "text": "la TV no funciona",
+    "intent": "out_of_scope",
+    "intent_prediction": {
+      "name": "deny",
+      "confidence": 0.5621423721313477
+    }
+  }
+]

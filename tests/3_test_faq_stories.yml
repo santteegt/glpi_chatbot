@@ -1,0 +1,118 @@
+version: "2.0"
+stories:
+- story: FAQ - How to connect to the eduroam WiFi network
+  steps:
+  - user: |
+      hola buenos dias. Necesito conectarme a la red [eduroam]("wifi_network")
+    intent: connect_wifi
+  - action: wifi_faq_form
+  - active_loop: wifi_faq_form
+  - user: |
+      [name.lastname@ucuenca.edu.ec]("email")
+    intent: inform
+  - action: wifi_faq_form
+  - active_loop: null
+#  - action: utter_eduroam_instructions
+#  - action: utter_confirm_success
+  - user: |
+      si
+    intent: confirm
+  - action: utter_welcome
+  - action: utter_more_help
+- story: FAQ - User wants to connect to the a WiFi network and fails to do it
+  steps:
+  - user: |
+      Hola! Necesito conectarme a la red wifi
+    intent: connect_wifi
+  - action: wifi_faq_form
+  - active_loop: wifi_faq_form
+  - user: |
+      a la red de [invitados]("wifi_network")
+    intent: inform
+  - action: wifi_faq_form
+  - active_loop: null
+#  - action: utter_guest_wifi_instructions
+#  - action: utter_confirm_success
+  - user: |
+      no funciona
+    intent: deny
+    entities:
+      - incident_title: Problema de conexion a la red WIFI
+      - itilcategory_id: '52'
+  - action: open_incident_form
+  - active_loop: open_incident_form
+  - active_loop: null
+  - action: action_open_incident
+  - slot_was_set:
+    - ticket_no: 'T1234567890'
+  - action: utter_more_help
+- story: FAQ - User asks how to connect to the a WiFi network but interrupts the process with chitchat
+  steps:
+  - user: |
+      Hola! como puedo conectarme a la red wifi del campus?
+    intent: connect_wifi
+  - action: wifi_faq_form
+  - active_loop: wifi_faq_form
+  - user: |
+      a la red de [invitados]("wifi_network")
+    intent: inform
+  - action: wifi_faq_form
+  - user: |
+      que dia es hoy?
+    intent: out_of_scope
+  - action: utter_out_of_scope
+  - action: wifi_faq_form
+  - active_loop: null
+  - user: |
+      si
+    intent: confirm
+  - action: utter_welcome
+  - action: utter_more_help
+- story: FAQ - User asks how to connect to the a WiFi network but stops the bot
+  steps:
+  - user: |
+      Hola! como puedo conectarme a la red [ucwifi]("wifi_network")?
+    intent: connect_wifi
+  - action: wifi_faq_form
+  - active_loop: wifi_faq_form
+  - user: |
+      [name.lastname@ucuenca.edu.ec]("email")
+    intent: inform
+  - action: wifi_faq_form
+  - user: |
+      cancelar
+    intent: deny
+  - action: utter_continue
+  - user: |
+      no
+    intent: deny
+  - action: action_deactivate_loop
+  - active_loop: null
+  - action: utter_process_cancelled
+- story: FAQ - Helpdesk working hours
+  steps:
+  - user: |
+      Hola. Cuál es el horario de atención de la mesa de servicios de la DTIC?
+    intent: faq #/helpdesk_availability
+  - action: utter_faq #/helpdesk_availability
+  - user: |
+      muchas gracias
+    intent: thank
+  - action: utter_welcome
+  - action: utter_more_help
+- story: FAQ - Asking DTIC info
+  steps:
+  - user: |
+      ¿Qué es la DTIC?
+    intent: faq #/dtic_info
+  - action: utter_faq #/dtic_info
+  - user: |
+      muchas gracias
+    intent: thank
+  - action: utter_welcome
+  - action: utter_more_help
+  - user: |
+      no
+    intent: deny
+  - action: utter_goodbye
+  - action: action_restart

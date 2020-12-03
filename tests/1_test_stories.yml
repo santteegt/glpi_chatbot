@@ -1,0 +1,51 @@
+version: "2.0"
+stories:
+- story: Welcome user, onboard, and say good bye
+  steps:
+  - user: |
+      hola
+    intent: greet
+  - action: utter_greet
+  - action: utter_help
+  - action: utter_suggest
+  - user: |
+      muchas gracias
+    intent: thank
+  - action: utter_welcome
+  - action: utter_more_help
+  - user: |
+      no
+    intent: deny
+  - action: utter_goodbye
+  - action: action_restart
+- story: Give some help and show menu options
+  steps:
+  - user: |
+      necesito ayuda
+    intent: help
+  - action: utter_help
+  - user: |
+      ver menu
+    intent: show_menu
+  - action: utter_suggest
+  - user: |
+      muchas gracias
+    intent: thank
+  - action: utter_welcome
+  - action: utter_more_help
+  - user: |
+      si
+    intent: confirm
+  - action: utter_suggest
+- story: Chitchat - Bot challenge
+  steps:
+  - user: |
+      eres un robot?
+    intent: chitchat #/bot_challenge
+  - action: utter_chitchat #/bot_challenge
+- story: Chitchat - How are you?
+  steps:
+  - user: |
+      ¿cómo estas hoy?
+    intent: chitchat #/how_are_you
+  - action: utter_chitchat #/how_are_you

@@ -6,110 +6,134 @@
     "support": 15,
     "confused_with": {}
   },
-  "bot_challenge": {
-    "precision": 1.0,
-    "recall": 1.0,
-    "f1-score": 1.0,
-    "support": 8,
-    "confused_with": {}
-  },
-  "request_biometrics_report": {
-    "precision": 1.0,
-    "recall": 1.0,
-    "f1-score": 1.0,
-    "support": 10,
-    "confused_with": {}
-  },
-  "open_incident": {
-    "precision": 1.0,
-    "recall": 1.0,
-    "f1-score": 1.0,
-    "support": 12,
-    "confused_with": {}
-  },
-  "thank": {
-    "precision": 1.0,
-    "recall": 1.0,
-    "f1-score": 1.0,
-    "support": 8,
-    "confused_with": {}
-  },
-  "goodbye": {
-    "precision": 1.0,
-    "recall": 1.0,
-    "f1-score": 1.0,
-    "support": 13,
-    "confused_with": {}
-  },
-  "help": {
-    "precision": 1.0,
-    "recall": 1.0,
-    "f1-score": 1.0,
-    "support": 11,
-    "confused_with": {}
-  },
-  "deny": {
-    "precision": 1.0,
-    "recall": 1.0,
-    "f1-score": 1.0,
-    "support": 12,
-    "confused_with": {}
-  },
-  "connect_wifi": {
-    "precision": 1.0,
-    "recall": 1.0,
-    "f1-score": 1.0,
-    "support": 11,
-    "confused_with": {}
-  },
-  "faq_create_user": {
-    "precision": 1.0,
-    "recall": 1.0,
-    "f1-score": 1.0,
-    "support": 4,
-    "confused_with": {}
-  },
-  "inform": {
-    "precision": 1.0,
-    "recall": 1.0,
-    "f1-score": 1.0,
-    "support": 53,
-    "confused_with": {}
-  },
   "greet": {
     "precision": 1.0,
     "recall": 1.0,
     "f1-score": 1.0,
+    "support": 11,
+    "confused_with": {}
+  },
+  "faq": {
+    "precision": 0.9166666666666666,
+    "recall": 0.8461538461538461,
+    "f1-score": 0.8799999999999999,
+    "support": 13,
+    "confused_with": {
+      "create_app_user": 1,
+      "open_incident": 1
+    }
+  },
+  "inform": {
+    "precision": 0.9615384615384616,
+    "recall": 0.7936507936507936,
+    "f1-score": 0.8695652173913043,
+    "support": 63,
+    "confused_with": {
+      "get_incident_status": 3,
+      "connect_wifi": 3
+    }
+  },
+  "help": {
+    "precision": 1.0,
+    "recall": 0.9090909090909091,
+    "f1-score": 0.9523809523809523,
+    "support": 11,
+    "confused_with": {
+      "open_incident": 1
+    }
+  },
+  "create_app_user": {
+    "precision": 0.9302325581395349,
+    "recall": 1.0,
+    "f1-score": 0.963855421686747,
+    "support": 40,
+    "confused_with": {}
+  },
+  "open_incident": {
+    "precision": 0.75,
+    "recall": 1.0,
+    "f1-score": 0.8571428571428571,
     "support": 12,
     "confused_with": {}
   },
-  "create_app_user": {
+  "chitchat": {
+    "precision": 0.9444444444444444,
+    "recall": 0.9444444444444444,
+    "f1-score": 0.9444444444444444,
+    "support": 18,
+    "confused_with": {
+      "confirm": 1
+    }
+  },
+  "goodbye": {
     "precision": 1.0,
+    "recall": 0.7857142857142857,
+    "f1-score": 0.88,
+    "support": 14,
+    "confused_with": {
+      "show_menu": 1,
+      "confirm": 1
+    }
+  },
+  "confirm": {
+    "precision": 0.7692307692307693,
+    "recall": 0.9090909090909091,
+    "f1-score": 0.8333333333333333,
+    "support": 11,
+    "confused_with": {
+      "chitchat": 1
+    }
+  },
+  "deny": {
+    "precision": 0.75,
+    "recall": 0.8181818181818182,
+    "f1-score": 0.7826086956521738,
+    "support": 11,
+    "confused_with": {
+      "thank": 1,
+      "confirm": 1
+    }
+  },
+  "thank": {
+    "precision": 0.8,
     "recall": 1.0,
-    "f1-score": 1.0,
-    "support": 27,
+    "f1-score": 0.888888888888889,
+    "support": 8,
     "confused_with": {}
   },
-  "out_of_scope": {
-    "precision": 1.0,
-    "recall": 1.0,
-    "f1-score": 1.0,
-    "support": 15,
-    "confused_with": {}
+  "get_incident_status": {
+    "precision": 0.7777777777777778,
+    "recall": 0.7777777777777778,
+    "f1-score": 0.7777777777777778,
+    "support": 18,
+    "confused_with": {
+      "inform": 2,
+      "open_incident": 1
+    }
   },
   "show_menu": {
-    "precision": 1.0,
+    "precision": 0.8571428571428571,
     "recall": 1.0,
-    "f1-score": 1.0,
+    "f1-score": 0.923076923076923,
     "support": 6,
     "confused_with": {}
   },
-  "confirm": {
-    "precision": 1.0,
+  "request_biometrics_report": {
+    "precision": 0.9230769230769231,
     "recall": 1.0,
-    "f1-score": 1.0,
-    "support": 13,
+    "f1-score": 0.9600000000000001,
+    "support": 12,
     "confused_with": {}
+  },
+  "out_of_scope": {
+    "precision": 0.7692307692307693,
+    "recall": 0.7142857142857143,
+    "f1-score": 0.7407407407407408,
+    "support": 14,
+    "confused_with": {
+      "deny": 2,
+      "open_incident": 1
+    }
   },
   "problem_email": {
     "precision": 1.0,
@@ -118,24 +142,24 @@
     "support": 13,
     "confused_with": {}
   },
-  "get_incident_status": {
-    "precision": 1.0,
+  "connect_wifi": {
+    "precision": 0.85,
     "recall": 1.0,
-    "f1-score": 1.0,
-    "support": 18,
+    "f1-score": 0.9189189189189189,
+    "support": 17,
     "confused_with": {}
   },
-  "accuracy": 1.0,
+  "accuracy": 0.8990228013029316,
   "macro avg": {
-    "precision": 1.0,
-    "recall": 1.0,
-    "f1-score": 1.0,
-    "support": 261
+    "precision": 0.888852290402678,
+    "recall": 0.9165772499105833,
+    "f1-score": 0.8984852317463923,
+    "support": 307
   },
   "weighted avg": {
-    "precision": 1.0,
-    "recall": 1.0,
-    "f1-score": 1.0,
-    "support": 261
+    "precision": 0.906363001692901,
+    "recall": 0.8990228013029316,
+    "f1-score": 0.8983571898548274,
+    "support": 307
   }
 }

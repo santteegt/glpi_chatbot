@@ -6,49 +6,469 @@
         "start": 30,
         "end": 46,
         "value": "bolsa de trabajo",
-        "entity": "application"
+        "entity": "\"application\""
       }
     ],
     "predicted_entities": [
       {
-        "entity": "application",
-        "start": 30,
-        "end": 35,
-        "value": "bolsa",
+        "entity": "\"application\"",
+        "start": 27,
+        "end": 29,
+        "confidence_entity": 0.7063562273979187,
+        "value": "de",
         "extractor": "DIETClassifier"
       },
       {
-        "entity": "application",
-        "start": 39,
+        "entity": "\"application\"",
+        "start": 30,
         "end": 46,
-        "value": "trabajo",
+        "confidence_entity": 0.9487333297729492,
+        "value": "bolsa de trabajo",
         "extractor": "DIETClassifier"
       }
     ]
   },
   {
-    "text": "necesito credenciales para el sistema antiplagio",
+    "text": "facu de agropecuarias",
     "entities": [
       {
-        "start": 30,
-        "end": 48,
-        "value": "sistema antiplagio",
-        "entity": "application"
+        "start": 8,
+        "end": 21,
+        "value": "agropecuarias",
+        "entity": "\"faculty\""
       }
     ],
     "predicted_entities": []
   },
   {
-    "text": "cual es la raiz cuadrada de 5",
-    "entities": [],
+    "text": "facultad de economia",
+    "entities": [
+      {
+        "start": 12,
+        "end": 20,
+        "value": "economia",
+        "entity": "\"faculty\""
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "soy alumno",
+    "entities": [
+      {
+        "start": 4,
+        "end": 10,
+        "value": "alumno",
+        "entity": "\"role\""
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "soy docente",
+    "entities": [
+      {
+        "start": 4,
+        "end": 11,
+        "value": "docente",
+        "entity": "\"role\""
+      }
+    ],
     "predicted_entities": [
       {
-        "entity": "ticket_no",
-        "start": 28,
-        "end": 29,
-        "value": "5",
+        "entity": "\"application\"",
+        "start": 4,
+        "end": 11,
+        "confidence_entity": 0.8003041744232178,
+        "value": "docente",
         "extractor": "DIETClassifier"
       }
     ]
+  },
+  {
+    "text": "yo soy docente",
+    "entities": [
+      {
+        "start": 7,
+        "end": 14,
+        "value": "docente",
+        "entity": "\"role\""
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "\"application\"",
+        "start": 7,
+        "end": 14,
+        "confidence_entity": 0.8257063627243042,
+        "value": "docente",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "quiero conectarme a la red wifi del campus",
+    "entities": [],
+    "predicted_entities": [
+      {
+        "entity": "\"application\"",
+        "start": 36,
+        "end": 42,
+        "confidence_entity": 0.3321971595287323,
+        "value": "campus",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "como puedo acceder al portal de bolsa de trabajo",
+    "entities": [
+      {
+        "start": 32,
+        "end": 48,
+        "value": "bolsa de trabajo",
+        "entity": "\"application\""
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "\"application\"",
+        "start": 29,
+        "end": 31,
+        "confidence_entity": 0.5036306977272034,
+        "value": "de",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "\"application\"",
+        "start": 32,
+        "end": 48,
+        "confidence_entity": 0.885410487651825,
+        "value": "bolsa de trabajo",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "taller de escritura cientifica",
+    "entities": [
+      {
+        "start": 0,
+        "end": 6,
+        "value": "taller",
+        "entity": "\"course_type\""
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "\"course_type\"",
+        "start": 0,
+        "end": 6,
+        "confidence_entity": 0.9988864064216614,
+        "value": "curso",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "\"wifi_network\"",
+        "start": 20,
+        "end": 30,
+        "confidence_entity": 0.2618207633495331,
+        "value": "cientifica",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "ciencias medicas",
+    "entities": [
+      {
+        "start": 0,
+        "end": 16,
+        "value": "ciencias medicas",
+        "entity": "\"faculty\""
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "\"faculty\"",
+        "start": 9,
+        "end": 16,
+        "confidence_entity": 0.7438256740570068,
+        "value": "medicas",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "ciencias quimicas",
+    "entities": [
+      {
+        "start": 0,
+        "end": 17,
+        "value": "ciencias quimicas",
+        "entity": "\"faculty\""
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "\"application\"",
+        "start": 9,
+        "end": 17,
+        "confidence_entity": 0.3870276212692261,
+        "value": "quimicas",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "facultad de quimica",
+    "entities": [
+      {
+        "start": 12,
+        "end": 19,
+        "value": "quimica",
+        "entity": "\"faculty\""
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "soy estudiante",
+    "entities": [
+      {
+        "start": 4,
+        "end": 14,
+        "value": "estudiante",
+        "entity": "\"role\""
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "Como puedo crear mi cuenta de estudiante?",
+    "entities": [],
+    "predicted_entities": [
+      {
+        "entity": "\"application\"",
+        "start": 27,
+        "end": 29,
+        "confidence_entity": 0.6143524646759033,
+        "value": "de",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "\"role\"",
+        "start": 30,
+        "end": 40,
+        "confidence_entity": 0.9549858570098877,
+        "value": "alumno",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "como puedo crear un usuario en la bolsa de empleo",
+    "entities": [
+      {
+        "start": 34,
+        "end": 49,
+        "value": "bolsa de empleo",
+        "entity": "\"application\""
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "\"application\"",
+        "start": 34,
+        "end": 39,
+        "confidence_entity": 0.9986127614974976,
+        "value": "bolsa",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "\"role\"",
+        "start": 43,
+        "end": 49,
+        "confidence_entity": 0.9632203578948975,
+        "value": "empleo",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "un seminario de emprendimiento",
+    "entities": [
+      {
+        "start": 3,
+        "end": 12,
+        "value": "seminario",
+        "entity": "\"course_type\""
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "\"role\"",
+        "start": 16,
+        "end": 30,
+        "confidence_entity": 0.4658154547214508,
+        "value": "emprendimiento",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "la facultad de hospitalidad",
+    "entities": [
+      {
+        "start": 15,
+        "end": 27,
+        "value": "hospitalidad",
+        "entity": "\"faculty\""
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "faultad de odontologia",
+    "entities": [
+      {
+        "start": 11,
+        "end": 22,
+        "value": "odontologia",
+        "entity": "\"faculty\""
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "necesito crear un cuenta para el sistema sgb",
+    "entities": [
+      {
+        "start": 41,
+        "end": 44,
+        "value": "sgb",
+        "entity": "\"application\""
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "quiero utilizar el sistema de clinicas",
+    "entities": [
+      {
+        "start": 30,
+        "end": 38,
+        "value": "clinicas",
+        "entity": "\"application\""
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "crucial",
+    "entities": [
+      {
+        "start": 0,
+        "end": 7,
+        "value": "crucial",
+        "entity": "\"priority\""
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "una charla t\u00e9cnica",
+    "entities": [
+      {
+        "start": 4,
+        "end": 10,
+        "value": "charla",
+        "entity": "\"course_type\""
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "facultad de arquitectura y urbanismo",
+    "entities": [
+      {
+        "start": 12,
+        "end": 36,
+        "value": "arquitectura y urbanismo",
+        "entity": "\"faculty\""
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "\"faculty\"",
+        "start": 12,
+        "end": 24,
+        "confidence_entity": 0.9987816214561462,
+        "value": "arquitectura",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "\"role\"",
+        "start": 27,
+        "end": 36,
+        "confidence_entity": 0.48426446318626404,
+        "value": "urbanismo",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "soy de filosofia",
+    "entities": [
+      {
+        "start": 7,
+        "end": 16,
+        "value": "filosofia",
+        "entity": "\"faculty\""
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "muy urgente",
+    "entities": [
+      {
+        "start": 0,
+        "end": 11,
+        "value": "muy urgente",
+        "entity": "\"priority\""
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "\"priority\"",
+        "start": 4,
+        "end": 11,
+        "confidence_entity": 0.9912556409835815,
+        "value": "alta",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "jurisprudencia",
+    "entities": [
+      {
+        "start": 0,
+        "end": 14,
+        "value": "jurisprudencia",
+        "entity": "\"faculty\""
+      }
+    ],
+    "predicted_entities": []
   }
 ]

@@ -1,0 +1,139 @@
+version: "2.0"
+stories:
+- story: Create User App
+  steps:
+  - user: |
+      necesito crear un usuario
+    intent: create_app_user
+  - action: create_app_user_form
+  - active_loop: create_app_user_form
+  - user: |
+      [name.lastname@mail.com]("email")
+    intent: inform
+  - action: create_app_user_form
+  - active_loop: null
+  - action: action_create_app_user
+  - slot_was_set:
+    - ticket_no: 'T1234567890'
+  - action: utter_more_help
+- story: Create User in Gestion Academica
+  steps:
+  - user: |
+      necesito ayuda para crear una cuenta en el sistema de [gestion academica]("application")
+    intent: create_app_user
+  - action: create_app_user_form
+  - active_loop: create_app_user_form
+  - user: |
+      [name.lastname@mail.com]("email")
+    intent: inform
+  - action: create_app_user_form
+  - active_loop: null
+  - action: action_create_app_user
+  - slot_was_set:
+    - ticket_no: 'T1234567890'
+  - action: utter_more_help
+- story: Create User App but interrupts with chitchat
+  steps:
+  - user: |
+      crear un usuario en el sistema [koha]("application")
+    intent: create_app_user
+  - action: create_app_user_form
+  - active_loop: create_app_user_form
+  - user: |
+      [name.lastname@mail.com]("email")
+    intent: inform
+  - action: create_app_user_form
+  - active_loop: create_app_user_form
+  - user: |
+      que hora es?
+    intent: out_of_scope
+  - action: utter_out_of_scope
+  - action: create_app_user_form
+  - active_loop: null
+  - action: action_create_app_user
+  - slot_was_set:
+    - ticket_no: 'T1234567890'
+  - action: utter_more_help
+- story: Create User App but interrupts and cancel
+  steps:
+  - user: |
+      como puedo crear un usuario en el sistema de [silabos]("application")
+    intent: create_app_user
+  - action: create_app_user_form
+  - active_loop: create_app_user_form
+  - user: |
+      [name.lastname@mail.com]("email")
+    intent: inform
+  - action: create_app_user_form
+  - active_loop: create_app_user_form
+  - user: |
+      ya no quiero continuar el proceso
+    intent: deny
+  - action: utter_continue
+  - user: |
+      no
+    intent: deny
+  - action: action_deactivate_loop
+  - active_loop: null
+  - action: utter_process_cancelled
+- story: Request biometrics report
+  steps:
+  - user: |
+      necesito un reporte del sistema de marcacion
+    intent: request_biometrics_report
+  - action: biometrics_report_form
+  - active_loop: biometrics_report_form
+  - user: |
+      [1234567890]("biometrics_id")
+    intent: inform
+  - action: biometrics_report_form
+  - active_loop: null
+  - action: action_biometrics_report
+  - slot_was_set:
+     - ticket_no: 'T1234567890'
+  - action: utter_more_help
+- story: Request biometrics report but interrupts with chitchat
+  steps:
+  - user: |
+      necesito un reporte del biometrico mes de agosto
+    intent: request_biometrics_report
+  - action: biometrics_report_form
+  - active_loop: biometrics_report_form
+  - user: |
+      [1234567890]("biometrics_id")
+    intent: inform
+  - action: biometrics_report_form
+  - active_loop: biometrics_report_form
+  - user: |
+      que dia es hoy?
+    intent: out_of_scope
+  - action: utter_out_of_scope
+  - action: biometrics_report_form
+  - active_loop: null
+  - action: action_biometrics_report
+  - slot_was_set:
+     - ticket_no: 'T1234567890'
+  - action: utter_more_help
+- story: Request biometrics report but interrupts and cancel
+  steps:
+  - user: |
+      necesito un reporte del biometrico mes de agosto
+    intent: request_biometrics_report
+  - action: biometrics_report_form
+  - active_loop: biometrics_report_form
+  - user: |
+      [1234567890]("biometrics_id")
+    intent: inform
+  - action: biometrics_report_form
+  - active_loop: biometrics_report_form
+  - user: |
+      parar
+    intent: deny
+  - action: utter_continue
+  - user: |
+      ya no
+    intent: deny
+  - action: action_deactivate_loop
+  - active_loop: null
+  - action: utter_process_cancelled
+

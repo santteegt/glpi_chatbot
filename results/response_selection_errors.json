@@ -1,0 +1,10 @@
+[
+  {
+    "text": "como has pasado?",
+    "intent_response_key_target": "chitchat/how_are_you",
+    "intent_response_key_prediction": {
+      "name": "chitchat/bot_challenge",
+      "confidence": 1.0
+    }
+  }
+]
