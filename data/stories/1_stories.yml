@@ -1,14 +1,5 @@
 version: "2.0"
 stories:
-- story: help
-  steps:
-  - intent: help
-  - action: utter_help
-- story: greet happy path
-  steps:
-  - intent: greet
-  - action: utter_greet
-  - action: utter_suggest
 #- story: login happy path
 #  steps:
 #  - intent: login
@@ -31,10 +22,19 @@ stories:
 #  - slot_was_set:
 #    - email: null
 #  - action: utter_login_failed
+- story: greet happy path
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - action: utter_help
+  - action: utter_suggest
+- story: help
+  steps:
+  - intent: help
+  - action: utter_help
 - story: ask for options
   steps:
   - intent: show_menu
-  - action: utter_help
   - action: utter_suggest
 - story: say goodbye
   steps:

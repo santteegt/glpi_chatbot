@@ -8,6 +8,7 @@ stories:
   - active_loop: null
   - intent: confirm
   - action: utter_welcome
+  - action: utter_more_help
 - story: connect_wifi form happy_path fail
   steps:
   - intent: connect_wifi
@@ -23,7 +24,8 @@ stories:
   - active_loop: null
   - action: action_open_incident
   - slot_was_set:
-    - ticket_no: '0055'
+    - ticket_no: 'T1234567890'
+  - action: utter_more_help
 - story: connect_wifi form interrupted
   steps:
   - intent: connect_wifi
@@ -33,6 +35,9 @@ stories:
   - action: utter_help
   - action: wifi_faq_form
   - active_loop: null
+  - intent: confirm
+  - action: utter_welcome
+  - action: utter_more_help
 - story: connect_wifi form interrupted with chitchat
   steps:
   - intent: connect_wifi
@@ -42,6 +47,9 @@ stories:
   - action: utter_out_of_scope
   - action: wifi_faq_form
   - active_loop: null
+  - intent: confirm
+  - action: utter_welcome
+  - action: utter_more_help
 - story: connect_wifi form stop + cancel
   steps:
   - intent: connect_wifi
@@ -63,6 +71,9 @@ stories:
   - intent: confirm
   - action: wifi_faq_form
   - active_loop: null
+  - intent: confirm
+  - action: utter_welcome
+  - action: utter_more_help
 - story: faq_create_user form happy_path success
   steps:
   - intent: faq_create_user
@@ -71,6 +82,7 @@ stories:
   - active_loop: null
   - intent: confirm
   - action: utter_welcome
+  - action: utter_more_help
 - story: faq_create_user form happy_path fail
   steps:
   - intent: faq_create_user
@@ -86,7 +98,8 @@ stories:
   - active_loop: null
   - action: action_open_incident
   - slot_was_set:
-    - ticket_no: '0055'
+    - ticket_no: 'T1234567890'
+  - action: utter_more_help
 - story: faq_create_user form interrupted
   steps:
   - intent: faq_create_user

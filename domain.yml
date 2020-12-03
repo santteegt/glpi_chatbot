@@ -34,9 +34,11 @@ entities:
 - application
 #- auth_token
 - email
+- faculty
 - number
 - priority
 - time
+- ticket_no
 slots:
   accept_agreement:
     type: bool
@@ -132,20 +134,17 @@ responses:
   - text: Perdon. No entiendo tu respuesta. Puedes escribir "ayuda" para mayor asistencia.
   - text: Tu respuesta no es muy clara. Puedes escribir "ayuda" para mayor asistencia.
   utter_greet:
-  - text: Hola! Bienvenido al Sistema de Helpdesk de la Universidad de Cuenca.
-  - text: Hola! Bienvenido al Sistema de Helpdesk de la Universidad de Cuenca. ¿Tal vez le puedo ayudar a resolver uno de estos requerimientos?
+  - text: Hola! Soy el asistente virtual de la Universidad de Cuenca.
     channel: socketio
-  - text: Bienvenido al Sistema Helpdesk de la U de Cuenca (TEST)
+  - text: Hola! Soy el asistente virtual de la Universidad de Cuenca (TEST Env.)
     channel: rasa
   utter_goodbye:
   - text: Hasta luego! Gracias por utilizar el servicio
   - text: Gracias por utilizar el servicio. Adiós!
-  utter_logged_in:
-  - text: Has iniciado sesión con el usuario {username}
-  utter_login_failed:
-  - text: No ha sido posible validar su inicio de sesión. Por favo inténtelo nuevamente
-  utter_iamabot:
-  - text: Soy un robot que trabaja 24/7 para la DTIC de la U de Cuenca
+#  utter_logged_in:
+#  - text: Has iniciado sesión con el usuario {username}
+#  utter_login_failed:
+#  - text: No ha sido posible validar su inicio de sesión. Por favo inténtelo nuevamente
   utter_ask_ticket_no:
   - text: Cual es el No de ticket asignado a su incidencia?
   utter_ask_role:
@@ -201,8 +200,8 @@ responses:
       payload: /deny
   utter_priority_no_match:
   - text: Lo siento! "{priority}" no es una prioridad valida. Por favor intentelo nuevamente.
-  utter_no_email:
-  - text: Lo siento! "{email}" no se encuentra registrado en nuestro sistema. Por favor intentelo nuevamente.
+#  utter_no_email:
+#  - text: Lo siento! "{email}" no se encuentra registrado en nuestro sistema. Por favor intentelo nuevamente.
   utter_ask_application:
   - text: A que sistema necesita tener acceso?
   utter_ask_department:
@@ -256,9 +255,9 @@ responses:
   - text: Fue un placer ayudarte
   - text: Un placer atender tu requerimiento
   utter_help:
-  - text: Puedo ayudarle a crear una incidencia y/o atender su requerimiento a la mesa de servicios de la DTIC. Puedo ayuarte con tu "Conexión a la red WIFI", en la "Creacion de usuario", o con tu "Informe de intentos de marcación".
+  - text: Puedo ayudarle a crear una incidencia y/o atender su requerimiento a través la mesa de servicios. Puede ver las opciones disponibles al escribir "ver menu", o también puede darme una descripción del problema que necesita resolver.
   utter_suggest:
-  - text: Puedo ayudarle a resolver uno de estos requerimientos? o tambien puede darme una descripción del problema que necesita resolver.
+  - text: ¿Tal vez le puedo ayudar a resolver uno de estos requerimientos?
     buttons:
     - title: Conexión a la red WIFI
       payload: /connect_wifi
@@ -266,74 +265,76 @@ responses:
       payload: /faq_create_user
     - title: Recuperar contrasena
       payload: '/problem_email{{"itilcategory_id":"53"}}'
-    - title: Informe Intentos de Marcacion
+    - title: Informe Intentos de Marcación
       payload: '/request_biometrics_report{{"itilcategory_id":"60"}}'
-  - custom:
-      attachment:
-        type: template
-        payload:
-          template_type: generic
-          elements:
-            - default_action:
-                type: "carousel_item"  # web_url
-                url: ""
-                payload: ""
-                title: ""
-              image_url: "https://www.aupairconecta.com/sites/default/files/v211batch11-aum-546-questionmark_2.jpg"
-              title: "Preguntas Frecuentes"
-              subtitle: "Información de procesos de la U"
-              buttons:
-                - title: "Conexión a la red WiFi"
-                  payload: /connect_wifi
-                  type: "postback" # web_url
-                  url: ""
-                - title: "¿Cómo crear un usuario para carrera/curso?"
-                  payload: /faq_create_user
-                  type: "postback" # web_url
-                  url: ""
-            - default_action:
-                type: "carousel_item"  # web_url
-                url: ""
-                payload: ""
-                title: ""
-              image_url: "https://www.infochannel.info/sites/default/files/2019/04/02/help_desk_app.jpg"
-              title: "Mesa de Servicios DTIC"
-              subtitle: "Ayuda con servicios informáticos"
-              buttons:
-                - title: "Reportar una incidencia"
-                  payload: /open_incident
-                  type: "postback" # web_url
-                  url: ""
-                - title: "Estado de mi incidencia"
-                  payload: /get_incident_status
-                  type: "postback" # web_url
-                  url: ""
-                - title: "Crear un usuario de sistema"
-                  payload: /create_app_user
-                  type: "postback" # web_url
-                  url: ""
-                - title: "No recuerdo la contraseña"
-                  payload: '/password_reset{{"itilcategory_id":"56"}}'
-                  type: "postback" # web_url
-                  url: ""
-                - title: "Problem con correo electrónico"
-                  payload: '/problem_email{{"itilcategory_id":"53"}}'
-                  type: "postback" # web_url
-                  url: ""
-            - default_action:
-                type: "carousel_item"  # web_url
-                url: ""
-                payload: ""
-                title: ""
-              image_url: "https://www.universidades.com.ec/logos/original/logo-universidad-de-cuenca.png"
-              title: "Procesos Internos"
-              subtitle: "Uso exclusivo para el personal"
-              buttons:
-                - title: "Reporte Biométrico"
-                  payload: '/request_biometrics_report{{"itilcategory_id":"60"}}'
-                  type: "postback" # web_url
-                  url: ""
-    channel: "socketio"
+    - title: Otro
+      payload: '/other_request'
+#  - custom:
+#      attachment:
+#        type: template
+#        payload:
+#          template_type: generic
+#          elements:
+#            - default_action:
+#                type: "carousel_item"  # web_url
+#                url: ""
+#                payload: ""
+#                title: ""
+#              image_url: "https://www.aupairconecta.com/sites/default/files/v211batch11-aum-546-questionmark_2.jpg"
+#              title: "Preguntas Frecuentes"
+#              subtitle: "Información de procesos de la U"
+#              buttons:
+#                - title: "Conexión a la red WiFi"
+#                  payload: /connect_wifi
+#                  type: "postback" # web_url
+#                  url: ""
+#                - title: "¿Cómo crear un usuario para carrera/curso?"
+#                  payload: /faq_create_user
+#                  type: "postback" # web_url
+#                  url: ""
+#            - default_action:
+#                type: "carousel_item"  # web_url
+#                url: ""
+#                payload: ""
+#                title: ""
+#              image_url: "https://www.infochannel.info/sites/default/files/2019/04/02/help_desk_app.jpg"
+#              title: "Mesa de Servicios DTIC"
+#              subtitle: "Ayuda con servicios informáticos"
+#              buttons:
+#                - title: "Reportar una incidencia"
+#                  payload: /open_incident
+#                  type: "postback" # web_url
+#                  url: ""
+#                - title: "Estado de mi incidencia"
+#                  payload: /get_incident_status
+#                  type: "postback" # web_url
+#                  url: ""
+#                - title: "Crear un usuario de sistema"
+#                  payload: /create_app_user
+#                  type: "postback" # web_url
+#                  url: ""
+#                - title: "No recuerdo la contraseña"
+#                  payload: '/password_reset{{"itilcategory_id":"56"}}'
+#                  type: "postback" # web_url
+#                  url: ""
+#                - title: "Problem con correo electrónico"
+#                  payload: '/problem_email{{"itilcategory_id":"53"}}'
+#                  type: "postback" # web_url
+#                  url: ""
+#            - default_action:
+#                type: "carousel_item"  # web_url
+#                url: ""
+#                payload: ""
+#                title: ""
+#              image_url: "https://www.universidades.com.ec/logos/original/logo-universidad-de-cuenca.png"
+#              title: "Procesos Internos"
+#              subtitle: "Uso exclusivo para el personal"
+#              buttons:
+#                - title: "Reporte Sistema de Marcación (Biométrico)"
+#                  payload: '/request_biometrics_report{{"itilcategory_id":"60"}}'
+#                  type: "postback" # web_url
+#                  url: ""
+#    channel: socketio
   utter_more_help:
   - text: Necesita ayuda en algo mas?
     buttons:
@@ -374,36 +375,36 @@ responses:
   utter_ask_rephrase:
   - text: Lo siento! No entiendo su requerimiento. ¿Puede reformular su pregunta de manera más específica?
   utter_chitchat/bot_challenge:
-  - text: "Soy un robot que trabaja 24/7 para la DTIC de la U de Cuenca"
-  - text: "Soy un asistente de la DTIC"
-  - text: "Soy un asistente virtual de la DTIC"
-  - text: "Soy un robot de la mesa de servicios de la DTIC"
+  - text: "Soy UCBot!. Un robot que trabaja 24/7 para la DTIC de la U de Cuenca"
+  - text: "Soy UCBot!. un asistente virtual de la DTIC"
+  - text: "Mi nombre es UCBot y soy un asistente virtual de la DTIC"
+  - text: "Soy UCBot!. Un robot de la mesa de servicios de la DTIC"
   utter_chitchat/how_are_you:
-  - text: "Estoy bien, Gracias"
-  - text: "Soy un robot. A menos que me desconecten siempre estoy bien"
-  - text: "Excelente! bip bop!"
+  - text: "Estoy bien, gracias 🤖"
+  - text: "Soy un robot 🤖. A menos que me desconecten siempre estoy bien. Gracias por preguntar"
+  - text: "Estoy Excelente! bip bop! 🤖"
   utter_faq/helpdesk_availability:
   - text: "El horario de atencion de la mesa de Servicios de la DTIC es de 08:00 13:00 - 15:00 19:00"
-  - custom:
-      attachment:
-        type: template
-        payload:
-          template_type: generic
-          elements:
-            - default_action:
-                type: "carousel_item"  # web_url
-                url: ""
-                payload: ""
-                title: ""
-              image_url: "https://www.aupairconecta.com/sites/default/files/v211batch11-aum-546-questionmark_2.jpg"
-              title: "Mesa de Servicio"
-              subtitle: "Horarios Atencion: 08:00 13:00 - 15:00 19:00"
-              buttons:
-                - title: "Reportar/Consultar una Incidencia"
-                  payload: ""
-                  type: "postback" # web_url
-                  url: "https://servicios.ucuenca.edu.ec/"
-    channel: socketio
+#  - custom:
+#      attachment:
+#        type: template
+#        payload:
+#          template_type: generic
+#          elements:
+#            - default_action:
+#                type: "carousel_item"  # web_url
+#                url: ""
+#                payload: ""
+#                title: ""
+#              image_url: "https://www.aupairconecta.com/sites/default/files/v211batch11-aum-546-questionmark_2.jpg"
+#              title: "Mesa de Servicio"
+#              subtitle: "Horarios Atencion: 08:00 13:00 - 15:00 19:00"
+#              buttons:
+#                - title: "Reportar/Consultar una Incidencia"
+#                  payload: ""
+#                  type: "postback" # web_url
+#                  url: "https://servicios.ucuenca.edu.ec/"
+#    channel: socketio
   utter_faq/dtic_info:
   - text: "Puedes encontrar mas informacion sobre la DTIC (Direccion de Tecnologias de Informacion y Comunicacion) de la Universidad de Cuenca aqui https://www.ucuenca.edu.ec/dtics"
 actions:

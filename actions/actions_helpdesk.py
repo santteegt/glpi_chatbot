@@ -64,12 +64,12 @@ class OpenIncident(Action):
 				dispatcher.utter_message(
 					f"Esta acción crearía un ticket con la siguiente información: {ticket}"
 				)
-				ticket_id = "DUMMY"
+				ticket_id = "T1234567890"
 				events.append(SlotSet(EntitySlotEnum.TICKET_NO, ticket_id))
 			else:  # TODO: integrate with GLPI
 				try:
 					response = glpi.create_ticket(ticket)
-					ticket_id = response["id"]
+					ticket_id = f'T{response["id"]}'
 					# This is not actually required as its value is sent directly to the utter_message
 					events.append(SlotSet(EntitySlotEnum.TICKET_NO, ticket_id))
 				except GlpiException as e:
@@ -100,7 +100,7 @@ class IncidentStatus(Action):
 		"""
 			Define what the form has to do after all required slots are filled
 		"""
-		ticket_no = tracker.get_slot(EntitySlotEnum.TICKET_NO)
+		ticket_no = tracker.get_slot(EntitySlotEnum.TICKET_NO)[1:]  # Remove T-prefix
 		email = tracker.get_slot(EntitySlotEnum.EMAIL)
 
 		events = []

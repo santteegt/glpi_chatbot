@@ -5,7 +5,6 @@ nlu:
     - DTIC
     - DIUC
     - Recursos Humanos
-    - Idiomas
 - lookup: faculty
   examples: |
     - arquitectura y urbanismo
@@ -48,5 +47,5 @@ nlu:
     - gestion academica
     - clinicas
     - bolsa de trabajo
-    - estudiantes
-    - docentes
+    - sistema de estudiantes
+    - sistema de docentes

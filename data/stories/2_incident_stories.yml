@@ -11,7 +11,8 @@ stories:
   - active_loop: null
   - action: action_open_incident
   - slot_was_set:
-    - ticket_no: '0055'
+    - ticket_no: 'T1234567890'
+  - action: utter_more_help
 - story: incident form interrupted with help
   steps:
   - or:
@@ -26,7 +27,8 @@ stories:
   - active_loop: null
   - action: action_open_incident
   - slot_was_set:
-    - ticket_no: '0055'
+    - ticket_no: 'T1234567890'
+  - action: utter_more_help
 - story: incident form interrupted with chitchat
   steps:
   - or:
@@ -41,7 +43,8 @@ stories:
   - active_loop: null
   - action: action_open_incident
   - slot_was_set:
-    - ticket_no: '0055'
+    - ticket_no: 'T1234567890'
+  - action: utter_more_help
 - story: incident form stop but continue
   steps:
   - or:
@@ -57,7 +60,8 @@ stories:
   - active_loop: null
   - action: action_open_incident
   - slot_was_set:
-    - ticket_no: '0055'
+    - ticket_no: 'T1234567890'
+  - action: utter_more_help
 - story: incident form stop + cancel
   steps:
   - or:
@@ -79,6 +83,7 @@ stories:
   - active_loop: incident_status_form
   - active_loop: null
   - action: action_incident_status
+  - action: utter_more_help
 - story: get incident status form interrupted
   steps:
   - intent: get_incident_status
@@ -89,6 +94,7 @@ stories:
   - action: incident_status_form
   - active_loop: null
   - action: action_incident_status
+  - action: utter_more_help
 - story: get incident status form interrupted
   steps:
   - intent: get_incident_status
@@ -99,6 +105,7 @@ stories:
   - action: incident_status_form
   - active_loop: null
   - action: action_incident_status
+  - action: utter_more_help
 - story: get incident status form stop but continue
   steps:
   - intent: get_incident_status
@@ -110,6 +117,7 @@ stories:
   - action: incident_status_form
   - active_loop: null
   - action: action_incident_status
+  - action: utter_more_help
 - story: get incident status form stop + cancel
   steps:
   - intent: get_incident_status

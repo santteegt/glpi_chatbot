@@ -44,13 +44,13 @@ class ValidateFormBase(FormValidationAction):
         tracker: Tracker,
         domain: Dict[Text, Any],
     ) -> Dict[Text, Any]:
-        """Validate email is in ticket system."""
+        """Validate ticket No"""
         if glpi_local_mode:
             return {EntitySlotEnum.TICKET_NO: value}
 
         # logger.info(f'ticket value => {value}:{type(value)}')
 
-        if re.match(r"^[0-9]+$", f'{value}') is not None:
+        if re.match(r"^T[0-9]+$", f'{value}') is not None:
             return {EntitySlotEnum.TICKET_NO: value}
         else:
             dispatcher.utter_message(template=UtteranceEnum.INVALID)

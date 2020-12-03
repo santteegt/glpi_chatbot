@@ -9,6 +9,7 @@ nlu:
     - urgente
     - muy urgente
     - crucial
+    - prioridad alta
 - synonym: curso
   examples: |
     - taller
@@ -23,6 +24,12 @@ nlu:
 - synonym: urkund
   examples: |
     - sistema antiplagio
+- synonym: bolsa de trabajo
+  examples: |
+    - bolsa trabajo
+    - bolsa de empleo
+    - bolsa empleo
+    - portal de empleo
 - synonym: alumno
   examples: |
     - estudiante

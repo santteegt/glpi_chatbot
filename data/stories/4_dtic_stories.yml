@@ -8,7 +8,8 @@ stories:
   - active_loop: null
   - action: action_create_app_user
   - slot_was_set:
-    - ticket_no: '0055'
+    - ticket_no: 'T1234567890'
+  - action: utter_more_help
 - story: create_app_user form interrupted
   steps:
   - intent: create_app_user
@@ -20,7 +21,8 @@ stories:
   - active_loop: null
   - action: action_create_app_user
   - slot_was_set:
-    - ticket_no: '0055'
+    - ticket_no: 'T1234567890'
+  - action: utter_more_help
 - story: create_app_user form interrupted with chitchat
   steps:
   - intent: create_app_user
@@ -32,7 +34,8 @@ stories:
   - active_loop: null
   - action: action_create_app_user
   - slot_was_set:
-    - ticket_no: '0055'
+    - ticket_no: 'T1234567890'
+  - action: utter_more_help
 - story: create_app_user form stop but continue
   steps:
   - intent: create_app_user
@@ -45,7 +48,8 @@ stories:
   - active_loop: null
   - action: action_create_app_user
   - slot_was_set:
-    - ticket_no: '0055'
+    - ticket_no: 'T1234567890'
+  - action: utter_more_help
 - story: create_app_user form stop + cancel
   steps:
   - intent: create_app_user
@@ -65,7 +69,8 @@ stories:
   - active_loop: null
   - action: action_biometrics_report
   - slot_was_set:
-    - ticket_no: '0055'
+    - ticket_no: 'T1234567890'
+  - action: utter_more_help
 - story: request_biometrics_report form interrupted
   steps:
   - intent: request_biometrics_report
@@ -77,7 +82,8 @@ stories:
   - active_loop: null
   - action: action_biometrics_report
   - slot_was_set:
-    - ticket_no: '0055'
+    - ticket_no: 'T1234567890'
+  - action: utter_more_help
 - story: request_biometrics_report form interrupted with chitchat
   steps:
   - intent: request_biometrics_report
@@ -89,7 +95,8 @@ stories:
   - active_loop: null
   - action: action_biometrics_report
   - slot_was_set:
-    - ticket_no: '0055'
+    - ticket_no: 'T1234567890'
+  - action: utter_more_help
 - story: request_biometrics_report form stop but continue
   steps:
   - intent: request_biometrics_report
@@ -102,7 +109,8 @@ stories:
   - active_loop: null
   - action: action_biometrics_report
   - slot_was_set:
-    - ticket_no: '0055'
+    - ticket_no: 'T1234567890'
+  - action: utter_more_help
 - story: request_biometrics_report form stop + cancel
   steps:
   - intent: request_biometrics_report

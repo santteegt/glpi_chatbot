@@ -2,32 +2,32 @@ version: "2.0"
 nlu:
 - intent: greet
   examples: |
-    - hey
-    - hola
-    - hola que tal
     - buenos dias
+    - buenas
     - buenas tardes
     - buenas noches
-    - Que hay
-    - holas
-    - saludos
+    - hola
     - hola hola
-    - buenas
+    - holas
+    - hola que hay
+    - hola que tal
+    - hola buenas
     - hola buenos dias
 - intent: goodbye
   examples: |
-    - chao
     - adios
-    - nos vemos
-    - nos vemos luego
+    - chao
+    - chao chao
     - chau
-    - pues adios
+    - fin
+    - finaliza sesion
     - hasta luego
     - hasta pronto
+    - nos vemos
+    - nos vemos luego
+    - pues adios
     - salir
-    - finaliza sesion
-    - chao chao
-    - fin
+    - saludos
     - terminar sesion
 - intent: thank
   examples: |
@@ -63,13 +63,11 @@ nlu:
 - intent: confirm
   examples: |
     - si
-    - bueno
     - esta bien
     - acepto
     - confirmar
     - aceptar
     - si si
-    - bueno bueno
     - ok
     - si acepto
     - si confirmo
@@ -86,7 +84,6 @@ nlu:
     - no es lo que deseo
     - no gracias
     - denegar
-    - nop
     - nada
     - no soluciona
 - intent: open_incident
@@ -105,20 +102,20 @@ nlu:
     - Tengo un inconveniente y necesito abrir una incidencia
 - intent: get_incident_status
   examples: |
-    - cual es el estado actual de mi ticket [0055](ticket_no)
+    - cual es el estado actual de mi ticket [T1234567890]("ticket_no")
     - estado de incidencia
     - ya fue solucionado mi inconveniente?
     - quiero saber el estado de mi incidencia
     - consultar el estado de incidencia
-    - consulta ticket numero [64524](ticket_no)
-    - estado de ticket [1234546](ticket_no)
+    - consulta ticket numero [T1234567891]("ticket_no")
+    - estado de ticket [T1234567892]("ticket_no")
     - solucionaron mi ticket?
     - cual fue la resolucion de mi incidencia?
-    - estado de ticket [2356](ticket_no)
-    - ver estado de ticket con id [653354](ticket_no)
+    - estado de ticket [T1234567893]("ticket_no")
+    - ver estado de ticket con id [T1234567894]("ticket_no")
     - que paso con la incidencia que reporte?
     - atendieron mi ticket?
-    - cual es el progreso de la incidencia [0055](ticket_no)
+    - cual es el progreso de la incidencia [T1234567895]("ticket_no")
     - cual es el estado de mi requerimiento
     - consultar el estado de mi requerimiento
     - quiero saber el estado de mi requerimiento
@@ -157,17 +154,23 @@ nlu:
     - no funciona mi correo
 - intent: connect_wifi
   examples: |
-    - necesito conectarme a la red [eduroam](wifi_network)
+    - necesito conectarme a la red [eduroam]("wifi_network")
+    - quiero conectarme a la red [eduroam]("wifi_network")
+    - quiero acceder a la red [eduroam]("wifi_network")
     - como puedo conectarme a la red wifi
     - necesito conectarme a la red de internet de la universidad
-    - como puedo conectarme a la red [ucwifi](wifi_network)
-    - quiero conectarme a la red wifi de del campus
+    - como puedo conectarme a la red [ucwifi]("wifi_network")
+    - quito conectarme a la red [ucwifi]("wifi_network")
+    - como se puede conectar a la red [ucwifi]("wifi_network")
+    - quiero conectarme a la red wifi del campus
     - ayuda con conexion a la red wifi
     - cual es la contraseña de la red wifi de la universidad
-    - como conectarme a la red [guest](wifi_network)
+    - como conectarme a la red [guest]("wifi_network")
+    - como puedo conectarme a la red [guest]("wifi_network")
+    - como conectarme a la red de [invitado]("wifi_network")
+    - como conectarme a la red wifi de [invitados]("wifi_network")
     - quiero conectarme al wifi
     - no tengo acceso a la red wifi
-    - como conectarme a la red de [invitado]{"entity": "wifi_network", "value": "guest"}
 - intent: faq_create_user
   examples: |
     - crear cuenta para estudiante de curso
@@ -186,23 +189,36 @@ nlu:
     - Como crear una cuenta de usuario de la u
     - crear cuenta de usuario
     - registar una nueva cuenta de sistema
-    - necesito un usuario para el sistema [koha](application)
-    - no tengo usuario en sistema de la [biblioteca](application)
-    - No puedo ingresar al [catalogo de libros](application)
-    - necesito crear un cuenta para el sistema [sgb](application)
-    - como puedo acceder al sistema [koha](application)
-    - quiero crear un usuario para el sistema de [silabos](application)
-    - quiero ingresar al sistema de [gestion academica](application)
-    - quiero utilizar el sistema de [clinicas](application)
-    - no puedo acceder al portal de [bolsa de trabajo](application)
-    - quiero entrar al sistema de [estudiantes](application)
-    - necesito acceso al sitema de [docentes](application)
-    - necesito un usuario [urkund](application)
-    - necesito usuario y contraseña para [urkund](application)
-    - como puedo tener un usuario en [urkund](application)
-    - como puedo ingresar a [urkund](application)
-    - necesito un usuario para el sistema antiplagio [urkund](application)
-    - necesito credenciales para el [sistema antiplagio](application)
+    - necesito un usuario para el sistema [koha]("application")
+    - no tengo usuario en sistema de la [biblioteca]("application")
+    - No puedo ingresar al [catalogo de libros]("application")
+    - como acceder al [catalogo de libros]("application")
+    - necesito acceder al [catalogo de libros]("application")
+    - necesito crear un cuenta para el sistema [sgb]("application")
+    - como puedo acceder al sistema [koha]("application")
+    - quiero crear un usuario para el sistema de [silabos]("application")
+    - necesito acceder al sistema de [silabos]("application")
+    - como puedo consular el sistema de [silabos]("application")
+    - quiero ingresar al sistema de [gestion academica]("application")
+    - necesito acceso al sistema de [gestion academica]("application")
+    - como puedo tener un usuario para entrar al sisteme [gestion academica]("application")
+    - quiero utilizar el sistema de [clinicas]("application")
+    - no puedo acceder al portal de [bolsa de trabajo]("application")
+    - como puedo acceder al portal de [bolsa de trabajo]("application")
+    - quiero ingresar a la [bolsa de trabajo]("application")
+    - necesito crear un usuario para ingresar a la [bolsa trabajo]("application")
+    - como puedo crear un usuario en la [bolsa de empleo]("application")
+    - quiero entrar al [sistema de estudiantes]("application")
+    - necesito un usuario para el [sistema de estudiantes]("application")
+    - necesito acceso al [sistema de docentes]("application")
+    - quiero acceder al [sistema de docentes]("application")
+    - necesito un usuario [urkund]("application")
+    - necesito usuario y contraseña para [urkund]("application")
+    - como puedo tener un usuario en [urkund]("application")
+    - como puedo ingresar a [urkund]("application")
+    - necesito un usuario para el sistema [urkund]("application")
+    - necesito credenciales para el [sistema antiplagio]("application")
+    - com puedo utilizar el [sistema antiplagio]("application")
 - intent: request_biometrics_report
   examples: |
     - necesito un informe de marcación en el biométrico
@@ -230,48 +246,58 @@ nlu:
     - este mes
     - el mes pasado
     - la semana anterior
-    - [baja](priority)
-    - [media](priority)
-    - [alta](priority)
-    - es de prioridad [baja](priority)
-    - prioridad [media](priority)
-    - prioridad [alta](priority)
-    - [urgente]{"entity": "priority", "value": "alta"}
-    - [muy urgente]{"entity": "priority", "value": "alta"}
-    - [crucial]{"entity": "priority", "value": "alta"}
-    - [eduroam](wifi_network)
-    - [ucwifi](wifi_network)
-    - [guest](wifi_network)
-    - la red de [invitados]{"entity": "wifi_network", "value": "guest"}
-    - [carrera](course_type) universitaria
-    - [curso](course_type) de corta duración
-    - [carrera](course_type) de [ingenieria](faculty)
-    - [carrera](course_type) de [arquitectura](faculty)
-    - [curso](course_type) de idiomas
-    - [curso](course_type) de inglés
-    - [curso](course_type) de aleman
-    - [taller]{"entity": "course_type", "value": "curso"} de informática
-    - un [seminario]{"entity": "course_type", "value": "curso"} de emprendimiento
-    - una [charla]{"entity": "course_type", "value": "curso"} técnica
-    - facultad de [arquitectura y urbanismo](faculty)
-    - en [arquitectura](faculty)
-    - facultad de [artes](faculty)
-    - facu de [agropecuarias](faculty)
-    - [ciencias medicas](faculty)
-    - [ciencias quimicas](faculty)
-    - facultad de [economia](faculty)
-    - soy de [filosofia](faculty)
-    - la facultad de [hospitalidad](faculty)
-    - [ingenieria](faculty)
-    - [jurisprudencia](faculty)
-    - [medicina](faculty)
-    - faultad de [odontologia](faculty)
-    - [psicologia]](faculty)
-    - facultad de [quimica](faculty)
-    - soy [alumno](role)
-    - soy [empleado](role)
-    - rol de [trabajador](role)
-    - soy [docente](role)
+    - [baja]("priority")
+    - [media]("priority")
+    - [alta]("priority")
+    - es de prioridad [baja]("priority")
+    - prioridad [media]("priority")
+    - prioridad [alta]("priority")
+    - [urgente]("priority")
+    - [muy urgente]("priority")
+    - [crucial]("priority")
+    - [eduroam]("wifi_network")
+    - [ucwifi]("wifi_network")
+    - [guest]("wifi_network")
+    - la red de [invitados]("wifi_network")
+    - [carrera]("course_type") universitaria
+    - [curso]("course_type") de corta duración
+    - [carrera]("course_type") de [ingenieria]("faculty")
+    - [carrera]("course_type") de [arquitectura]("faculty")
+    - [curso]("course_type") de idiomas
+    - [curso]("course_type") de inglés
+    - [curso]("course_type") de aleman
+    - [taller]("course_type") de informatica
+    - [taller]("course_type") de finanzas
+    - [taller]("course_type") de escritura cientifica
+    - un [seminario]("course_type") de emprendimiento
+    - una [charla]("course_type") técnica
+    - facultad de [arquitectura y urbanismo]("faculty")
+    - en [arquitectura]("faculty")
+    - facultad de [artes]("faculty")
+    - facu de [agropecuarias]("faculty")
+    - [ciencias medicas]("faculty")
+    - [ciencias quimicas]("faculty")
+    - facultad de [economia]("faculty")
+    - soy de [filosofia]("faculty")
+    - la facultad de [hospitalidad]("faculty")
+    - [ingenieria]("faculty")
+    - [jurisprudencia]("faculty")
+    - [medicina]("faculty")
+    - faultad de [odontologia]("faculty")
+    - [psicologia]]("faculty")
+    - facultad de [quimica]("faculty")
+    - soy [alumno]("role")
+    - soy [estudiante]("role")
+    - soy [empleado]("role")
+    - soy [empleado]("role") de la u
+    - rol de [trabajador]("role")
+    - soy [trabajador]("role")
+    - soy un [trabajador]("role")
+    - soy [docente]("role")
+    - yo soy [docente]("role")
+    - [T1234567890]("ticket_no")
+    - el numero de incidencia es [T1234567890]("ticket_no")
+    - mi ticket es [T1234567890]("ticket_no")
 - intent: out_of_scope
   examples: |
     - cual es la raiz cuadrada de 5
