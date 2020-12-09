@@ -24,13 +24,13 @@ nlu:
     - como te ha ido?
     - que tal estas?
 
-responses:
-  utter_chitchat/bot_challenge:
-    - text: "Soy UCBot!. Un robot que trabaja 24/7 para la DTIC de la U de Cuenca"
-    - text: "Soy UCBot!. un asistente virtual de la DTIC"
-    - text: "Mi nombre es UCBot y soy un asistente virtual de la DTIC"
-    - text: "Soy UCBot!. Un robot de la mesa de servicios de la DTIC"
-  utter_chitchat/how_are_you:
-    - text: "Estoy bien, gracias 🤖"
-    - text: "Soy un robot 🤖. A menos que me desconecten siempre estoy bien. Gracias por preguntar"
-    - text: "Estoy Excelente! bip bop! 🤖"
+#responses:
+#  utter_chitchat/bot_challenge:
+#    - text: "Soy UCBot!. Un robot que trabaja 24/7 para la DTIC de la U de Cuenca"
+#    - text: "Soy UCBot!. un asistente virtual de la DTIC"
+#    - text: "Mi nombre es UCBot y soy un asistente virtual de la DTIC"
+#    - text: "Soy UCBot!. Un robot de la mesa de servicios de la DTIC"
+#  utter_chitchat/how_are_you:
+#    - text: "Estoy bien, gracias 🤖"
+#    - text: "Soy un robot 🤖. A menos que me desconecten siempre estoy bien. Gracias por preguntar"
+#    - text: "Estoy Excelente! bip bop! 🤖"

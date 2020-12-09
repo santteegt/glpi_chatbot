@@ -18,8 +18,8 @@ nlu:
     - mas informacion sobre servicios de la dtic
     - info sobre los servicios que presta la dtic
 
-responses:
-  utter_faq/helpdesk_availability:
-    - text: "El horario de atencion de la mesa de Servicios de la DTIC es de 08:00 13:00 - 15:00 19:00"
-  utter_faq/dtic_info:
-    - text: "Puedes encontrar mas informacion sobre la DTIC (Direccion de Tecnologias de Informacion y Comunicacion) de la Universidad de Cuenca aqui https://www.ucuenca.edu.ec/dtics"
+#responses:
+#  utter_faq/helpdesk_availability:
+#    - text: "El horario de atencion de la mesa de Servicios de la DTIC es de 08:00 13:00 - 15:00 19:00"
+#  utter_faq/dtic_info:
+#    - text: "Puedes encontrar mas informacion sobre la DTIC (Direccion de Tecnologias de Informacion y Comunicacion) de la Universidad de Cuenca aqui https://www.ucuenca.edu.ec/dtics"
