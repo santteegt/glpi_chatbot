@@ -1,42 +1,51 @@
 # Intent Cross-Validation Results (5 folds)
 |          class          |support|f1-score|             confused_with             |
 |-------------------------|------:|-------:|---------------------------------------|
-|macro avg                |    253|  0.8023|N/A                                    |
-|weighted avg             |    253|  0.8019|N/A                                    |
-|inform                   |     56|  0.8155|request_vm(4), connect_wifi(4)         |
-|get_incident_status      |     18|  0.8500|open_incident(1)                       |
-|password_reset           |     15|  0.9677|N/A                                    |
-|out_of_scope             |     15|  0.6875|problem_email(2), password_reset(1)    |
-|problem_email            |     13|  0.8966|N/A                                    |
-|goodbye                  |     13|  0.7500|help(1), confirm(1)                    |
-|confirm                  |     13|  0.7586|thank(1), out_of_scope(1)              |
-|open_incident            |     12|  0.8800|help(1)                                |
-|deny                     |     12|  0.6000|thank(1), confirm(1)                   |
-|greet                    |     12|  0.7368|confirm(2), help(1)                    |
-|help                     |     11|  0.6667|out_of_scope(1), confirm(1)            |
-|connect_wifi             |     11|  0.8462|N/A                                    |
-|request_vm               |     10|  0.5263|inform(4), request_biometrics_report(1)|
-|create_user              |     10|  0.9474|get_incident_status(1)                 |
-|request_biometrics_report|     10|  0.8696|N/A                                    |
-|thank                    |      8|  0.8421|N/A                                    |
-|bot_challenge            |      8|  0.8000|out_of_scope(2)                        |
-|show_menu                |      6|  1.0000|N/A                                    |
+|macro avg                |    307|  0.8985|N/A                                    |
+|weighted avg             |    307|  0.8984|N/A                                    |
+|inform                   |     63|  0.8696|get_incident_status(3), connect_wifi(3)|
+|create_app_user          |     40|  0.9639|N/A                                    |
+|chitchat                 |     18|  0.9444|confirm(1)                             |
+|get_incident_status      |     18|  0.7778|inform(2), open_incident(1)            |
+|connect_wifi             |     17|  0.9189|N/A                                    |
+|password_reset           |     15|  1.0000|N/A                                    |
+|goodbye                  |     14|  0.8800|show_menu(1), confirm(1)               |
+|out_of_scope             |     14|  0.7407|deny(2), open_incident(1)              |
+|faq                      |     13|  0.8800|create_app_user(1), open_incident(1)   |
+|problem_email            |     13|  1.0000|N/A                                    |
+|open_incident            |     12|  0.8571|N/A                                    |
+|request_biometrics_report|     12|  0.9600|N/A                                    |
+|greet                    |     11|  1.0000|N/A                                    |
+|help                     |     11|  0.9524|open_incident(1)                       |
+|confirm                  |     11|  0.8333|chitchat(1)                            |
+|deny                     |     11|  0.7826|thank(1), confirm(1)                   |
+|thank                    |      8|  0.8889|N/A                                    |
+|show_menu                |      6|  0.9231|N/A                                    |
 
 
 
 # Entity Cross-Validation Results (5 folds)
-|    entity    |support|f1-score|precision|recall|
-|--------------|------:|--------|---------|------|
-|micro avg     |     69|  0.7692|   0.8197|0.7246|
-|macro avg     |     69|  0.6927|   0.7587|0.6538|
-|weighted avg  |     69|  0.7658|   0.8291|0.7246|
-|course_type   |     10|  0.8421|   0.8889|0.8000|
-|priority      |     10|  0.8889|        1|0.8000|
-|vm_environment|      9|  0.8750|        1|0.7778|
-|wifi_network  |      8|  0.9333|        1|0.8750|
-|vm_cpu_cores  |      7|  0.5714|   0.5714|0.5714|
-|vm_disk_space |      7|  0.6250|   0.5556|0.7143|
-|vm_ram        |      6|  0.6154|   0.5714|0.6667|
-|ticket_no     |      6|  0.9091|        1|0.8333|
-|vm_scalability|      4|  0.6667|        1|0.5000|
-|faculty       |      2|N/A     |N/A      |N/A   |
+|   entity   |support|f1-score|precision|recall|
+|------------|------:|-------:|--------:|-----:|
+|micro avg   |    132|  0.8571|   0.9000|0.8182|
+|macro avg   |    132|  0.8283|   0.9106|0.7886|
+|weighted avg|    132|  0.8438|   0.9122|0.8182|
+|application |     58|  0.9076|   0.8852|0.9310|
+|faculty     |     20|  0.5714|   1.0000|0.4000|
+|wifi_network|     14|  0.9655|   0.9333|1.0000|
+|course_type |     12|  0.9091|   1.0000|0.8333|
+|priority    |     10|  0.8889|   1.0000|0.8000|
+|role        |      9|  0.5556|   0.5556|0.5556|
+|ticket_no   |      9|  1.0000|   1.0000|1.0000|
+
+
+
+# Entity Cross-Validation Results (5 folds)
+|         entity          |support|f1-score|precision|recall|
+|-------------------------|------:|-------:|--------:|-----:|
+|macro avg                |     31|       1|        1|     1|
+|weighted avg             |     31|       1|        1|     1|
+|chitchat/bot_challenge   |     10|       1|        1|     1|
+|chitchat/how_are_you     |      8|       1|        1|     1|
+|faq/helpdesk_availability|      8|       1|        1|     1|
+|faq/dtic_info            |      5|       1|        1|     1|

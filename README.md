@@ -35,6 +35,10 @@ AI assistant for the GLPI IT Helpdesk. It includes an integration with its API t
   * Roles
   * Applications
 
+## Metrics & Model Performance
+
+See [Results](results.md)
+
 ## Requirements
 
 * Python 3.7+
