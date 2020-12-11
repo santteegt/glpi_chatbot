@@ -38,16 +38,20 @@ types:
 	pytype --keep-going actions
 
 validate:
-# 	rasa train
-	rasa data validate --max-history 5 --debug
+	rasa train
+	rasa data validate --debug
 
-e2e:
-# 	rasa train
-	rasa test core --stories tests/conversation_tests.md --fail-on-prediction-errors --e2e
+test:
+	rasa train
+	rasa test --fail-on-prediction-errors
 
 crossval:
 	rasa test nlu -f 5 --cross-validation
 	python format_results.py
+
+e2e:
+	rasa train
+	rasa test core --stories tests/ --fail-on-prediction-errors
 
 shell:
 	rasa train --debug

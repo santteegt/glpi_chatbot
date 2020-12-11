@@ -13,7 +13,10 @@ def intent_table():
     writer.headers = ["class"] + cols
 
     classes = list(data.keys())
-    classes.remove('accuracy')
+    try:
+        classes.remove('accuracy')
+    except:
+        pass
     classes.sort(key = lambda x: data[x]['support'], reverse=True)
 
     def format_cell(data, c, k):
@@ -25,26 +28,29 @@ def intent_table():
             return data[c][k]
 
     writer.value_matrix = [
-        [c] + [format_cell(data, c, k) for k in cols]
-        for c in classes
+        [c] + [format_cell(data, c, k) for k in cols] for c in classes
     ]
 
     return writer.dumps()
 
 
-def entity_table():
+def entity_table(filename):
 
     writer = MarkdownTableWriter()
     writer.table_name = "Entity Cross-Validation Results (5 folds)"
 
-    with open('results/DIETClassifier_report.json', 'r') as f:
+    with open(filename, 'r') as f:
         data = json.loads(f.read())
 
     cols = ["support", "f1-score", "precision", "recall"]
     writer.headers = ["entity"] + cols
 
     classes = list(data.keys())
-    classes.sort(key = lambda x: data[x]['support'], reverse=True)
+    try:
+        classes.remove('accuracy')
+    except:
+        pass
+    classes.sort(key=lambda x: data[x]['support'], reverse=True)
 
     def format_cell(data, c, k):
         if not data[c].get(k):
@@ -53,17 +59,19 @@ def entity_table():
             return data[c][k]
 
     writer.value_matrix = [
-        [c] + [format_cell(data, c, k) for k in cols]
-        for c in classes
+        [c] + [format_cell(data, c, k) for k in cols] for c in classes
     ]
 
     return writer.dumps()
 
 
 intents = intent_table()
-entities = entity_table()
+entities_diet = entity_table(filename='results/DIETClassifier_report.json')
+entities_rs = entity_table(filename='results/response_selection_report.json')
 
 with open('results.md', 'w') as f:
     f.write(intents)
     f.write("\n\n\n")
-    f.write(entities)
+    f.write(entities_diet)
+    f.write("\n\n\n")
+    f.write(entities_rs)
