@@ -24,6 +24,7 @@ nlu:
     - como te ha ido?
     - que tal estas?
 
+# TODO: If Deploying on Rasa X: responses should be commented here and put into domain.yml file
 #responses:
 #  utter_chitchat/bot_challenge:
 #    - text: "Soy UCBot!. Un robot que trabaja 24/7 para la DTIC de la U de Cuenca"

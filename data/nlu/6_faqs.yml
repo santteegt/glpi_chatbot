@@ -18,6 +18,7 @@ nlu:
     - mas informacion sobre servicios de la dtic
     - info sobre los servicios que presta la dtic
 
+# TODO: If Deploying on Rasa X, responses should be commented here and put into domain.yml file
 #responses:
 #  utter_faq/helpdesk_availability:
 #    - text: "El horario de atencion de la mesa de Servicios de la DTIC es de 08:00 13:00 - 15:00 19:00"
