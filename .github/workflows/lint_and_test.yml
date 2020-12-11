@@ -78,6 +78,6 @@ jobs:
         pip install -r requirements-dev.txt
         python -m spacy download es_core_news_md && python -m spacy link es_core_news_md es
     - name: Test Training Stories
-        working-directory: ${{ github.workspace }}
-        run: |
-          make test
+      working-directory: ${{ github.workspace }}
+      run: |
+        make test
