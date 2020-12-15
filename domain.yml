@@ -134,8 +134,7 @@ responses:
   - text: Perdon. No entiendo tu respuesta. Puedes escribir "ayuda" para mayor asistencia.
   - text: Tu respuesta no es muy clara. Puedes escribir "ayuda" para mayor asistencia.
   utter_greet:
-  - text: Hola! Soy el asistente virtual de la Universidad de Cuenca.
-    channel: socketio
+  - text: Hola! Soy el asistente virtual de la Universidad de Cuenca
   - text: Hola! Soy el asistente virtual de la Universidad de Cuenca (TEST Env.)
     channel: rasa
   utter_goodbye:
