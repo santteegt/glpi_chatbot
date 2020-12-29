@@ -1,10 +1,13 @@
 # -*- coding: utf-8 -*-
 
 import logging
+import os
 from rasa_sdk import Tracker
 from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.events import SlotSet
 from rasa_sdk import Action
+import requests
+import ruamel.yaml
 from typing import Any, Dict, List, Text
 
 from actions.constants import EntitySlotEnum, UtteranceEnum
@@ -16,6 +19,26 @@ logger = logging.getLogger(__name__)
 # Loading GLPI API config
 glpi_api_uri, glpi_app_token, glpi_auth_token, glpi_local_mode = load_glpi_config()
 glpi = GLPIService.get_instance(glpi_api_uri, glpi_app_token, glpi_auth_token) if not glpi_local_mode else None
+
+rocketchat_config = (ruamel.yaml.safe_load(open("rocketchat_credentials.yml", "r")) or
+                     {})
+rocketchat_uri = (
+	os.environ.get("ROCKETCHAT_URI")
+	if os.environ.get("ROCKETCHAT_URI")
+	else rocketchat_config.get("base_uri")
+)
+
+handoff_endpoint = (
+	os.environ.get("HANDOFF_URI")
+	if os.environ.get("HANDOFF_URI")
+	else rocketchat_config.get("handoff_endpoint")
+)
+
+handoff_department = (
+	os.environ.get("HANDOFF_DEPARTMENT")
+	if os.environ.get("HANDOFF_DEPARTMENT")
+	else rocketchat_config.get("handoff_department")
+)
 
 
 class OpenIncident(Action):
@@ -121,7 +144,7 @@ class IncidentStatus(Action):
 					if len(response["alternative_email"]) == 0:
 						user = glpi.get_user(user_id=response["user_id"])
 						logger.warning(f"User found: {user}")
-						# TODO: complete logic
+					# TODO: complete logic
 					elif response["alternative_email"] != email:
 						logger.warning(f'User email does not match: {email} != {response["alternative_email"]}')
 						show_info = False
@@ -157,3 +180,54 @@ class IncidentStatus(Action):
 			events.append(SlotSet(EntitySlotEnum.EMAIL, None))
 
 		return events
+
+
+class ActionHandoff(Action):
+
+	def name(self) -> Text:
+		return "action_handoff"
+
+	async def run(self,
+	              dispatcher: CollectingDispatcher,
+	              tracker: Tracker,
+	              domain: Dict[Text, Any],
+	              ) -> List[Dict[Text, Any]]:
+
+		success = True
+		if rocketchat_uri and handoff_endpoint:
+			url = f'{rocketchat_uri}{handoff_endpoint}'
+			channel = tracker.get_latest_input_channel()
+			session_id = tracker.sender_id
+			if channel == "rest":
+				# dispatcher.utter_message(
+				# 	json_message={
+				# 		"handoff_host": url,
+				# 		"title": handoff_bot.get("title"),
+				# 	}
+				# )
+				rs = requests.post(url=url, data={
+					"action": "handover",
+					"sessionId": session_id,
+					"actionData": {
+						"targetDepartment": handoff_department
+					}
+				})
+				logger.info(f'Results from handover to agent: {rs.status_code} / {rs.json()}')
+				if rs.status_code == 200:
+					dispatcher.utter_message(template=UtteranceEnum.HANDOFF_SUCCESS)
+				else:
+					success = False
+			elif channel == "socketio":
+				dispatcher.utter_message(template=UtteranceEnum.HANDOFF_UNAVAILABLE)
+				success = True
+			else:
+				dispatcher.utter_message(
+					template=UtteranceEnum.HANDOFF_MOCK,
+					department=handoff_department,
+					url=url,
+					session_id=session_id,
+				)
+		if not success:
+			dispatcher.utter_message(template=UtteranceEnum.PROCESS_FAILED)
+
+		return []

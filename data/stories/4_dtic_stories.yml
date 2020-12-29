@@ -122,3 +122,16 @@ stories:
   - action: action_deactivate_loop
   - active_loop: null
   - action: utter_process_cancelled
+- story: Hand over to an agent
+  steps:
+  - intent: human_handoff
+  - action: utter_ask_handoff
+  - intent: trigger_handoff
+  - action: action_handoff
+- story: hand over to an agent + deny
+  steps:
+  - intent: human_handoff
+  - action: utter_ask_handoff
+  - intent: deny
+  - action: utter_process_cancelled
+  - action: utter_more_help

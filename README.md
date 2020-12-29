@@ -14,6 +14,7 @@ AI assistant for the GLPI IT Helpdesk. It includes an integration with its API t
 * FAQ: How to create a user? (faq_create_user)
 * FAQ: Helpdesk working hours (faq/helpdesk_availability)
 * FAQ: DTIC Info (faq/dtic_info)
+* Handover to an agent using RocketChat livechat channels (human_handoff)
 * Login & Auth validation using Google OAuth (WIP) (login)
 
 ## MISC Intents
@@ -229,8 +230,11 @@ docker push $GLPI_DOCKER_IMAGE
     - USERS_API_BASE_URI: e.g. https://cdsdesarrollo.ucuenca.edu.ec:8500/api
     - USERS_API_CLIENT_ID: OAuth Client ID
     - USERS_API_CLIENT_SECRET: OAuth Client Secret
+    - ROCKETCHAT_URI: Base URI of your Rocketchat server (i.e. to handle human handoff)
+    - HANDOFF_URI: Rasa.App Handoff API endpoint (incoming)
+    - HANDOFF_DEPARTMENT: Name of Department in Rocketchat in charge of human handoff conversations 
 
-* Enable socketio channel on `${RASA_HOME}/credentials.yml`
+* Enable socketio and rocketchat (optional) channels on `${RASA_HOME}/credentials.yml`
 
 ```
 ...
@@ -239,6 +243,12 @@ socketio:
   user_message_evt: user_uttered
   bot_message_evt: bot_uttered
   session_persistence: true
+...
+...
+rocketchat:
+  user: "ucbot"
+  password: "ucbotpassword"
+  server_url: "http://10.0.2.37"
 ```
 
 * Start Docker Compose:

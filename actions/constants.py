@@ -71,6 +71,9 @@ class UtteranceEnum(object):
     CONFIRM_SUCCESS = "utter_confirm_success"  # Template to use custom buttons
     ACCEPT_AGREEMENT_FORM = "utter_ask_accept_agreement_form"
     OUT_OF_SCOPE = "utter_out_of_scope"
+    HANDOFF_SUCCESS = "utter_handoff_sucess"
+    HANDOFF_UNAVAILABLE = "utter_handoff_unavailable"
+    HANDOFF_MOCK = "utter_should_handoff"
 
 
 class TicketTypes(object):
