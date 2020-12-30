@@ -13,6 +13,9 @@ services:
       USERS_API_BASE_URI: "${USERS_API_BASE_URI}"
       USERS_API_CLIENT_ID: "${USERS_API_CLIENT_ID}"
       USERS_API_CLIENT_SECRET: "${USERS_API_CLIENT_SECRET}"
+      ROCKETCHAT_URI: "${ROCKETCHAT_URI}"
+      HANDOFF_URI: "${HANDOFF_URI}"
+      HANDOFF_DEPARTMENT: "${HANDOFF_DEPARTMENT}"
     depends_on:
       - rasa-production
     extra_hosts:

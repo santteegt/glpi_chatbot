@@ -223,7 +223,6 @@ class ActionHandoff(Action):
 					success = False
 			elif channel == "socketio":
 				dispatcher.utter_message(template=UtteranceEnum.HANDOFF_UNAVAILABLE)
-				success = True
 			else:
 				dispatcher.utter_message(
 					template=UtteranceEnum.HANDOFF_MOCK,
@@ -231,6 +230,10 @@ class ActionHandoff(Action):
 					url=url,
 					session_id=session_id,
 				)
+		else:
+			logger.warning(f'Rocketchat URL is missing: {rocketchat_uri}{handoff_endpoint}')
+			success = False
+
 		if not success:
 			dispatcher.utter_message(template=UtteranceEnum.PROCESS_FAILED)
 
