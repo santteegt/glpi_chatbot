@@ -20,8 +20,12 @@ logger = logging.getLogger(__name__)
 glpi_api_uri, glpi_app_token, glpi_auth_token, glpi_local_mode = load_glpi_config()
 glpi = GLPIService.get_instance(glpi_api_uri, glpi_app_token, glpi_auth_token) if not glpi_local_mode else None
 
-rocketchat_config = (ruamel.yaml.safe_load(open("rocketchat_credentials.yml", "r")) or
-                     {})
+rocketchat_config = {}
+try:
+	rocketchat_config = ruamel.yaml.safe_load(open("rocketchat_credentials.yml", "r"))
+except Exception as e:
+	logger.warning("rocketchat_credentials.yml NOT FOUND. Will read from Env variables")
+
 rocketchat_uri = (
 	os.environ.get("ROCKETCHAT_URI")
 	if os.environ.get("ROCKETCHAT_URI")

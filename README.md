@@ -239,6 +239,8 @@ docker push $GLPI_DOCKER_IMAGE
 ```
 ...
 ...
+rest:
+
 socketio:
   user_message_evt: user_uttered
   bot_message_evt: bot_uttered

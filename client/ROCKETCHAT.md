@@ -57,6 +57,7 @@ docker-compose up -d
         * Agents: add the human agent you created above
     * Livechat appearance
     * Business Hours
+* As a reference, you can check how this process is automated through scripts ([link](https://github.com/lappis-unb/rasa-ptbr-boilerplate/blob/main/modules/rocketchat/bot_config.py)) ([link](https://github.com/RocketChat/rasa-kick-starter/blob/master/scripts/bot_config.py))
 * Install Rasa App through `Administration > Marketplace`
     * Check this [guide](https://github.com/RocketChat/Apps.Rasa/blob/master/docs/api-endpoints/perform-handover.md) for a more in-depth instructions on how this app can be used in conjuction with a [Rasa Action (ActionHandoff)](../actions/actions_helpdesk.py) to perform handover to an agent
     * Once it is installed, go to `Administration > Apps > Rasa` and set the following properties:
