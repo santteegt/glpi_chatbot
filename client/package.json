@@ -6,7 +6,7 @@
     "rasa-webchat": "git+https://github.com/mrbot-ai/rasa-webchat.git",
     "react": "^16.8.3",
     "react-dom": "^16.8.3",
-    "react-scripts": "2.1.5"
+    "react-scripts": "5.0.1"
   },
   "scripts": {
     "start": "BROWSER=none react-scripts start",
